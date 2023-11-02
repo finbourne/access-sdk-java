@@ -1,0 +1,9 @@
+<settings>
+  <servers>
+    <server>
+      <id>finbourne-nexus</id>
+      <username>maven-user</username>
+      <password>${env.API_KEY}</password>
+    </server>
+  </servers>
+</settings>

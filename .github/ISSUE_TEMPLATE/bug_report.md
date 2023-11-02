@@ -9,15 +9,15 @@ assignees: ''
 
 ## Bug Report Checklist
 
-- [ ] I have checked the existing [documentation](https://github.com/finbourne/${REPO_NAME}/wiki)
+- [ ] I have checked the existing [documentation](../wiki) for this SDK
 - [ ] I have searched for any related issues/PRs
-- [ ] I have read the [LUISD contribution guidelines](https://github.com/finbourne/${REPO_NAME}/blob/master/docs/CONTRIBUTING.md)
-- [ ] I have read the [LUSID Code of Conduct](https://github.com/finbourne/${REPO_NAME}/blob/master/docs/CODE_OF_CONDUCT.md)
+- [ ] I have read the [LUISD contribution guidelines](../blob/master/docs/CONTRIBUTING.md)
+- [ ] I have read the [LUSID Code of Conduct](../blob/master/docs/CODE_OF_CONDUCT.md)
 
-**Version & Platform**
-The version you are using that has the bug and what platform you are using e.g. Windows/Linux/macOS. 
+**SDK version**
+The version of the SDK that has the bug. 
 
-**IMPORTANT: DO NOT POST ANY SENSITIVE DATA E.G. PASSWORDS**
+**IMPORTANT: DO NOT POST YOUR API CREDENTIALS OR ANY SENSITIVE DATA**
 
 **Describe the bug**
 A clear and concise description of what the bug is.
