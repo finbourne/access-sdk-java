@@ -53,7 +53,7 @@ public class ApiConfigurationBuilder {
         String password = System.getenv("FBN_PASSWORD");
         String clientId = System.getenv("FBN_CLIENT_ID");
         String clientSecret = System.getenv("FBN_CLIENT_SECRET");
-        String apiUrl = System.getenv("FBN_LUSID-ACCESS_API_URL");
+        String apiUrl = System.getenv("FBN_ACCESS_API_URL");
         String personalAccessToken = System.getenv("FBN_ACCESS_TOKEN");
 
         //  optional variables
