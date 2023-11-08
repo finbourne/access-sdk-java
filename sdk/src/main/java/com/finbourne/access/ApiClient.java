@@ -62,10 +62,10 @@ import com.finbourne.access.auth.OAuthFlow;
  */
 public class ApiClient {
 
-    private String basePath = "https://fbn-ci.lusid.com/access";
+    private String basePath = "https://fbn-prd.lusid.com/access";
     protected List<ServerConfiguration> servers = new ArrayList<ServerConfiguration>(Arrays.asList(
     new ServerConfiguration(
-      "https://fbn-ci.lusid.com/access",
+      "https://fbn-prd.lusid.com/access",
       "No description provided",
       new HashMap<String, ServerVariable>()
     )
@@ -225,7 +225,7 @@ public class ApiClient {
     /**
      * Set base path
      *
-     * @param basePath Base path of the URL (e.g https://fbn-ci.lusid.com/access
+     * @param basePath Base path of the URL (e.g https://fbn-prd.lusid.com/access
      * @return An instance of OkHttpClient
      */
     public ApiClient setBasePath(String basePath) {
