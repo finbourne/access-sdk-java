@@ -21,5 +21,7 @@
 
 * `NOTPRESENT` (value: `"NotPresent"`)
 
+* `INCASEINSENSITIVE` (value: `"InCaseInsensitive"`)
+
 
 

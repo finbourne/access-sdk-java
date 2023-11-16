@@ -10,7 +10,7 @@ info:
     \ and Access Management system.\r\n\r\n"
   termsOfService: https://www.finbourne.com/legal/terms-conditions
   title: FINBOURNE Access Management API
-  version: 0.0.3454
+  version: 0.0.3456
   x-logo:
     url: https://www.lusid.com/app/assets/logo_white.png
     backgroundColor: '#415464'
@@ -6192,7 +6192,7 @@ components:
           minLength: 1
           type: string
         claimValueType:
-          minLength: 1
+          nullable: true
           type: string
         claimIssuer:
           nullable: true
@@ -6207,7 +6207,6 @@ components:
           type: string
       required:
       - claimType
-      - claimValueType
       - operator
       type: object
     IfIdentityScopeExpression:
@@ -9954,6 +9953,7 @@ components:
       - ContainsCaseSensitive
       - NotPresentOrNotContainsCaseSensitive
       - NotPresent
+      - InCaseInsensitive
       type: string
     UserRoleCreationRequest:
       additionalProperties: false

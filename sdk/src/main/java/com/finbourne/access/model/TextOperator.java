@@ -39,7 +39,9 @@ public enum TextOperator {
   
   NOTPRESENTORNOTCONTAINSCASESENSITIVE("NotPresentOrNotContainsCaseSensitive"),
   
-  NOTPRESENT("NotPresent");
+  NOTPRESENT("NotPresent"),
+  
+  INCASEINSENSITIVE("InCaseInsensitive");
 
   private String value;
 

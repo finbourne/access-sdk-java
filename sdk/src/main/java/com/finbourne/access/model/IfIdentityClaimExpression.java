@@ -109,7 +109,7 @@ public class IfIdentityClaimExpression {
    * Get claimValueType
    * @return claimValueType
   **/
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getClaimValueType() {
     return claimValueType;
   }
@@ -280,7 +280,6 @@ public class IfIdentityClaimExpression {
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
     openapiRequiredFields.add("claimType");
-    openapiRequiredFields.add("claimValueType");
     openapiRequiredFields.add("operator");
   }
 
@@ -307,7 +306,7 @@ public class IfIdentityClaimExpression {
       if (!jsonObj.get("claimType").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `claimType` to be a primitive type in the JSON string but got `%s`", jsonObj.get("claimType").toString()));
       }
-      if (!jsonObj.get("claimValueType").isJsonPrimitive()) {
+      if ((jsonObj.get("claimValueType") != null && !jsonObj.get("claimValueType").isJsonNull()) && !jsonObj.get("claimValueType").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `claimValueType` to be a primitive type in the JSON string but got `%s`", jsonObj.get("claimValueType").toString()));
       }
       if ((jsonObj.get("claimIssuer") != null && !jsonObj.get("claimIssuer").isJsonNull()) && !jsonObj.get("claimIssuer").isJsonPrimitive()) {
