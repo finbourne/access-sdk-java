@@ -1,9 +1,26 @@
 <settings>
+
+  <activeProfiles>
+    <activeProfile>sign-artifacts</activeProfile>
+  </activeProfiles>
+  
   <servers>
     <server>
-      <id>finbourne-nexus</id>
-      <username>maven-user</username>
-      <password>${env.API_KEY}</password>
+      <id>ossrh</id>
+      <username>finbourne</username>
+      <password>${env.MAVEN_TOKEN}</password>
     </server>
   </servers>
+
+  <profiles>
+    <profile>
+        <id>sign-artifacts</id>
+        <activation>
+            <activeByDefault>true</activeByDefault>
+        </activation>
+        <properties>                
+            <gpg.passphrase>${env.GPG_KEY_PASSPHRASE}</gpg.passphrase>
+        </properties>
+      </profile>
+  </profiles>
 </settings>
