@@ -107,6 +107,8 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(new com.finbourne.access.model.EvaluationRequest.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.finbourne.access.model.EvaluationResponse.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.finbourne.access.model.ForSpec.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.finbourne.access.model.GeneratePolicyFromTemplateRequest.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.finbourne.access.model.GeneratedPolicyComponents.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.finbourne.access.model.HowSpec.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.finbourne.access.model.IdSelectorDefinition.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.finbourne.access.model.IdentifierPartSchema.CustomTypeAdapterFactory());
@@ -132,6 +134,10 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(new com.finbourne.access.model.PolicyIdRoleResource.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.finbourne.access.model.PolicyResponse.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.finbourne.access.model.PolicySelectorDefinition.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.finbourne.access.model.PolicyTemplateCreationRequest.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.finbourne.access.model.PolicyTemplateResponse.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.finbourne.access.model.PolicyTemplateUpdateRequest.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.finbourne.access.model.PolicyTemplatedSelector.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.finbourne.access.model.PolicyUpdateRequest.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.finbourne.access.model.RemoveFromPolicyCollectionRequest.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.finbourne.access.model.RequestDetails.CustomTypeAdapterFactory());
@@ -147,6 +153,8 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(new com.finbourne.access.model.RoleResponse.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.finbourne.access.model.RoleUpdateRequest.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.finbourne.access.model.SelectorDefinition.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.finbourne.access.model.TemplateMetadata.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.finbourne.access.model.TemplateSelection.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.finbourne.access.model.UserRoleCreationRequest.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.finbourne.access.model.UserRoleResponse.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.finbourne.access.model.UserRoleUpdateRequest.CustomTypeAdapterFactory());

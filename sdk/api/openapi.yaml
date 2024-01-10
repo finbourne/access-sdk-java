@@ -10,7 +10,7 @@ info:
     \ and Access Management system.\r\n\r\n"
   termsOfService: https://www.finbourne.com/legal/terms-conditions
   title: FINBOURNE Access Management API
-  version: 0.0.3584
+  version: 0.0.3588
   x-logo:
     url: https://www.lusid.com/app/assets/logo_white.png
     backgroundColor: '#415464'
@@ -23,6 +23,8 @@ tags:
   name: Application Metadata
 - description: Endpoints for interacting with the current user's access rights
   name: Policies
+- description: Endpoints for administering Policy Templates
+  name: PolicyTemplates
 - description: Endpoints for administering Roles
   name: Roles
 - description: Endpoints for administering user-roles
@@ -2863,6 +2865,877 @@ paths:
       tags:
       - Policies
       x-fbn-apistatus: EarlyAccess
+      x-content-type: application/json-patch+json
+      x-accepts: application/json
+  /api/policytemplates:
+    get:
+      description: Gets all Policy Templates with pagination support.
+      operationId: ListPolicyTemplates
+      parameters:
+      - description: Optional. The AsAt date time of the data
+        explode: true
+        in: query
+        name: asAt
+        required: false
+        schema:
+          format: date-time
+          type: string
+        style: form
+        x-nullable: true
+      responses:
+        "200":
+          content:
+            text/plain:
+              example:
+              - displayName: example-policy-template
+                scope: default
+                code: official-portfolios-read-only
+                description: Example policy template for a policy that grants access
+                  to some resource
+                applications:
+                - LUSID
+                tags:
+                - Data
+                templatedSelectors:
+                - application: LUSID
+                  tag: Data
+                  selector:
+                    idSelectorDefinition:
+                      identifier:
+                        scope: official
+                      actions:
+                      - scope: default
+                        activity: Read
+                        entity: Portfolio
+                      - scope: default
+                        activity: Aggregate
+                        entity: Portfolio
+                      name: access-official-scope
+                      description: Allow readonly access to the 'official' scope
+              schema:
+                items:
+                  $ref: '#/components/schemas/PolicyTemplateResponse'
+                type: array
+            application/json:
+              example:
+              - displayName: example-policy-template
+                scope: default
+                code: official-portfolios-read-only
+                description: Example policy template for a policy that grants access
+                  to some resource
+                applications:
+                - LUSID
+                tags:
+                - Data
+                templatedSelectors:
+                - application: LUSID
+                  tag: Data
+                  selector:
+                    idSelectorDefinition:
+                      identifier:
+                        scope: official
+                      actions:
+                      - scope: default
+                        activity: Read
+                        entity: Portfolio
+                      - scope: default
+                        activity: Aggregate
+                        entity: Portfolio
+                      name: access-official-scope
+                      description: Allow readonly access to the 'official' scope
+              schema:
+                items:
+                  $ref: '#/components/schemas/PolicyTemplateResponse'
+                type: array
+            text/json:
+              example:
+              - displayName: example-policy-template
+                scope: default
+                code: official-portfolios-read-only
+                description: Example policy template for a policy that grants access
+                  to some resource
+                applications:
+                - LUSID
+                tags:
+                - Data
+                templatedSelectors:
+                - application: LUSID
+                  tag: Data
+                  selector:
+                    idSelectorDefinition:
+                      identifier:
+                        scope: official
+                      actions:
+                      - scope: default
+                        activity: Read
+                        entity: Portfolio
+                      - scope: default
+                        activity: Aggregate
+                        entity: Portfolio
+                      name: access-official-scope
+                      description: Allow readonly access to the 'official' scope
+              schema:
+                items:
+                  $ref: '#/components/schemas/PolicyTemplateResponse'
+                type: array
+          description: List Policy Templates
+        "400":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/LusidValidationProblemDetails'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LusidValidationProblemDetails'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/LusidValidationProblemDetails'
+          description: The details of the input related failure
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LusidProblemDetails'
+          description: Error response
+      security:
+      - oauth2: []
+      summary: "[EXPERIMENTAL] ListPolicyTemplates: List Policy Templates"
+      tags:
+      - PolicyTemplates
+      x-fbn-apistatus: Experimental
+      x-accepts: application/json
+    post:
+      description: Creates a Policy Template
+      operationId: CreatePolicyTemplate
+      requestBody:
+        content:
+          application/json-patch+json:
+            example:
+              code: official-portfolios-read-only
+              displayName: updated-policy-template
+              description: Example policy template for a policy that grants access
+                to some resource
+              templatedSelectors:
+              - application: LUSID
+                tag: Data
+                selector:
+                  idSelectorDefinition:
+                    identifier:
+                      scope: official
+                    actions:
+                    - scope: default
+                      activity: Read
+                      entity: Portfolio
+                    - scope: default
+                      activity: Aggregate
+                      entity: Portfolio
+                    name: access-official-scope
+                    description: Allow readonly access to the 'official' scope
+            schema:
+              $ref: '#/components/schemas/PolicyTemplateCreationRequest'
+          application/json:
+            example:
+              code: official-portfolios-read-only
+              displayName: updated-policy-template
+              description: Example policy template for a policy that grants access
+                to some resource
+              templatedSelectors:
+              - application: LUSID
+                tag: Data
+                selector:
+                  idSelectorDefinition:
+                    identifier:
+                      scope: official
+                    actions:
+                    - scope: default
+                      activity: Read
+                      entity: Portfolio
+                    - scope: default
+                      activity: Aggregate
+                      entity: Portfolio
+                    name: access-official-scope
+                    description: Allow readonly access to the 'official' scope
+            schema:
+              $ref: '#/components/schemas/PolicyTemplateCreationRequest'
+          text/json:
+            example:
+              code: official-portfolios-read-only
+              displayName: updated-policy-template
+              description: Example policy template for a policy that grants access
+                to some resource
+              templatedSelectors:
+              - application: LUSID
+                tag: Data
+                selector:
+                  idSelectorDefinition:
+                    identifier:
+                      scope: official
+                    actions:
+                    - scope: default
+                      activity: Read
+                      entity: Portfolio
+                    - scope: default
+                      activity: Aggregate
+                      entity: Portfolio
+                    name: access-official-scope
+                    description: Allow readonly access to the 'official' scope
+            schema:
+              $ref: '#/components/schemas/PolicyTemplateCreationRequest'
+          application/*+json:
+            example:
+              code: official-portfolios-read-only
+              displayName: updated-policy-template
+              description: Example policy template for a policy that grants access
+                to some resource
+              templatedSelectors:
+              - application: LUSID
+                tag: Data
+                selector:
+                  idSelectorDefinition:
+                    identifier:
+                      scope: official
+                    actions:
+                    - scope: default
+                      activity: Read
+                      entity: Portfolio
+                    - scope: default
+                      activity: Aggregate
+                      entity: Portfolio
+                    name: access-official-scope
+                    description: Allow readonly access to the 'official' scope
+            schema:
+              $ref: '#/components/schemas/PolicyTemplateCreationRequest'
+        description: The definition of the policy template
+        required: true
+      responses:
+        "201":
+          content:
+            text/plain:
+              example:
+                displayName: example-policy-template
+                scope: default
+                code: official-portfolios-read-only
+                description: Example policy template for a policy that grants access
+                  to some resource
+                applications:
+                - LUSID
+                tags:
+                - Data
+                templatedSelectors:
+                - application: LUSID
+                  tag: Data
+                  selector:
+                    idSelectorDefinition:
+                      identifier:
+                        scope: official
+                      actions:
+                      - scope: default
+                        activity: Read
+                        entity: Portfolio
+                      - scope: default
+                        activity: Aggregate
+                        entity: Portfolio
+                      name: access-official-scope
+                      description: Allow readonly access to the 'official' scope
+              schema:
+                $ref: '#/components/schemas/PolicyTemplateResponse'
+            application/json:
+              example:
+                displayName: example-policy-template
+                scope: default
+                code: official-portfolios-read-only
+                description: Example policy template for a policy that grants access
+                  to some resource
+                applications:
+                - LUSID
+                tags:
+                - Data
+                templatedSelectors:
+                - application: LUSID
+                  tag: Data
+                  selector:
+                    idSelectorDefinition:
+                      identifier:
+                        scope: official
+                      actions:
+                      - scope: default
+                        activity: Read
+                        entity: Portfolio
+                      - scope: default
+                        activity: Aggregate
+                        entity: Portfolio
+                      name: access-official-scope
+                      description: Allow readonly access to the 'official' scope
+              schema:
+                $ref: '#/components/schemas/PolicyTemplateResponse'
+            text/json:
+              example:
+                displayName: example-policy-template
+                scope: default
+                code: official-portfolios-read-only
+                description: Example policy template for a policy that grants access
+                  to some resource
+                applications:
+                - LUSID
+                tags:
+                - Data
+                templatedSelectors:
+                - application: LUSID
+                  tag: Data
+                  selector:
+                    idSelectorDefinition:
+                      identifier:
+                        scope: official
+                      actions:
+                      - scope: default
+                        activity: Read
+                        entity: Portfolio
+                      - scope: default
+                        activity: Aggregate
+                        entity: Portfolio
+                      name: access-official-scope
+                      description: Allow readonly access to the 'official' scope
+              schema:
+                $ref: '#/components/schemas/PolicyTemplateResponse'
+          description: Created Policy Template
+        "400":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/LusidValidationProblemDetails'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LusidValidationProblemDetails'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/LusidValidationProblemDetails'
+          description: The details of the input related failure
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LusidProblemDetails'
+          description: Error response
+      security:
+      - oauth2: []
+      summary: "[EXPERIMENTAL] CreatePolicyTemplate: Create a Policy Template"
+      tags:
+      - PolicyTemplates
+      x-fbn-apistatus: Experimental
+      x-content-type: application/json-patch+json
+      x-accepts: application/json
+  /api/policytemplates/$generatepolicy:
+    post:
+      description: Generates policies from templates
+      operationId: GeneratePolicyFromTemplate
+      parameters:
+      - description: Optional. The AsAt date time of the data
+        explode: true
+        in: query
+        name: asAt
+        required: false
+        schema:
+          format: date-time
+          type: string
+        style: form
+        x-nullable: true
+      requestBody:
+        content:
+          application/json-patch+json:
+            example:
+              templateSelection:
+              - scope: default
+                code: example-policy-template
+                selectorTags:
+                - Data
+                - Api
+            schema:
+              $ref: '#/components/schemas/GeneratePolicyFromTemplateRequest'
+          application/json:
+            example:
+              templateSelection:
+              - scope: default
+                code: example-policy-template
+                selectorTags:
+                - Data
+                - Api
+            schema:
+              $ref: '#/components/schemas/GeneratePolicyFromTemplateRequest'
+          text/json:
+            example:
+              templateSelection:
+              - scope: default
+                code: example-policy-template
+                selectorTags:
+                - Data
+                - Api
+            schema:
+              $ref: '#/components/schemas/GeneratePolicyFromTemplateRequest'
+          application/*+json:
+            example:
+              templateSelection:
+              - scope: default
+                code: example-policy-template
+                selectorTags:
+                - Data
+                - Api
+            schema:
+              $ref: '#/components/schemas/GeneratePolicyFromTemplateRequest'
+        description: Definition of the generate request
+        required: true
+      responses:
+        "200":
+          content:
+            text/plain:
+              example:
+                applications:
+                - LUSID
+                templateMetadata:
+                  templateSelection:
+                  - scope: default
+                    code: some-template-code
+                    selectorTags:
+                    - Data
+                  buildAsAt: 2024-01-09T00:00:00.0000000+00:00
+                selectors:
+                - idSelectorDefinition:
+                    identifier:
+                      scope: official
+                    actions:
+                    - scope: default
+                      activity: Read
+                      entity: Portfolio
+                    - scope: default
+                      activity: Aggregate
+                      entity: Portfolio
+                    name: access-official-scope
+                    description: Allow readonly access to the 'official' scope
+              schema:
+                $ref: '#/components/schemas/GeneratedPolicyComponents'
+            application/json:
+              example:
+                applications:
+                - LUSID
+                templateMetadata:
+                  templateSelection:
+                  - scope: default
+                    code: some-template-code
+                    selectorTags:
+                    - Data
+                  buildAsAt: 2024-01-09T00:00:00.0000000+00:00
+                selectors:
+                - idSelectorDefinition:
+                    identifier:
+                      scope: official
+                    actions:
+                    - scope: default
+                      activity: Read
+                      entity: Portfolio
+                    - scope: default
+                      activity: Aggregate
+                      entity: Portfolio
+                    name: access-official-scope
+                    description: Allow readonly access to the 'official' scope
+              schema:
+                $ref: '#/components/schemas/GeneratedPolicyComponents'
+            text/json:
+              example:
+                applications:
+                - LUSID
+                templateMetadata:
+                  templateSelection:
+                  - scope: default
+                    code: some-template-code
+                    selectorTags:
+                    - Data
+                  buildAsAt: 2024-01-09T00:00:00.0000000+00:00
+                selectors:
+                - idSelectorDefinition:
+                    identifier:
+                      scope: official
+                    actions:
+                    - scope: default
+                      activity: Read
+                      entity: Portfolio
+                    - scope: default
+                      activity: Aggregate
+                      entity: Portfolio
+                    name: access-official-scope
+                    description: Allow readonly access to the 'official' scope
+              schema:
+                $ref: '#/components/schemas/GeneratedPolicyComponents'
+          description: Success
+        "400":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/LusidValidationProblemDetails'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LusidValidationProblemDetails'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/LusidValidationProblemDetails'
+          description: The details of the input related failure
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LusidProblemDetails'
+          description: Error response
+      security:
+      - oauth2: []
+      summary: "[EXPERIMENTAL] GeneratePolicyFromTemplate: Generate policy from template"
+      tags:
+      - PolicyTemplates
+      x-fbn-apistatus: Experimental
+      x-content-type: application/json-patch+json
+      x-accepts: application/json
+  /api/policytemplates/{code}:
+    delete:
+      description: Deletes an identified Policy Template
+      operationId: DeletePolicyTemplate
+      parameters:
+      - description: The code of the Policy Template
+        explode: false
+        in: path
+        name: code
+        required: true
+        schema:
+          pattern: "^(?=.*[a-zA-Z])[\\w][\\w +-]{2,100}$"
+          type: string
+        style: simple
+      - description: Optional. Will use the default scope if not provided. The scope
+          of the Policy Template
+        explode: true
+        in: query
+        name: scope
+        required: false
+        schema:
+          pattern: "^(?=.*[a-zA-Z])[\\w][\\w +-]{2,100}$"
+          type: string
+        style: form
+      responses:
+        "204":
+          description: No Content
+        "400":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/LusidValidationProblemDetails'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LusidValidationProblemDetails'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/LusidValidationProblemDetails'
+          description: The details of the input related failure
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LusidProblemDetails'
+          description: Error response
+      security:
+      - oauth2: []
+      summary: "[EXPERIMENTAL] DeletePolicyTemplate: Deleting a policy template"
+      tags:
+      - PolicyTemplates
+      x-fbn-apistatus: Experimental
+      x-accepts: application/json
+    get:
+      description: Gets an identified Policy Template
+      operationId: GetPolicyTemplate
+      parameters:
+      - description: The code of the Policy Template
+        explode: false
+        in: path
+        name: code
+        required: true
+        schema:
+          pattern: "^(?=.*[a-zA-Z])[\\w][\\w +-]{2,100}$"
+          type: string
+        style: simple
+      - description: Optional. The AsAt date time of the data. If not specified defaults
+          to current time
+        explode: true
+        in: query
+        name: asAt
+        required: false
+        schema:
+          format: date-time
+          type: string
+        style: form
+        x-nullable: true
+      - description: Optional. Will use the default scope if not provided. The scope
+          of the Policy Template
+        explode: true
+        in: query
+        name: scope
+        required: false
+        schema:
+          pattern: "^(?=.*[a-zA-Z])[\\w][\\w +-]{2,100}$"
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            text/plain:
+              example:
+                displayName: example-policy-template
+                scope: default
+                code: official-portfolios-read-only
+                description: Example policy template for a policy that grants access
+                  to some resource
+                applications:
+                - LUSID
+                tags:
+                - Data
+                templatedSelectors:
+                - application: LUSID
+                  tag: Data
+                  selector:
+                    idSelectorDefinition:
+                      identifier:
+                        scope: official
+                      actions:
+                      - scope: default
+                        activity: Read
+                        entity: Portfolio
+                      - scope: default
+                        activity: Aggregate
+                        entity: Portfolio
+                      name: access-official-scope
+                      description: Allow readonly access to the 'official' scope
+              schema:
+                $ref: '#/components/schemas/PolicyTemplateResponse'
+            application/json:
+              example:
+                displayName: example-policy-template
+                scope: default
+                code: official-portfolios-read-only
+                description: Example policy template for a policy that grants access
+                  to some resource
+                applications:
+                - LUSID
+                tags:
+                - Data
+                templatedSelectors:
+                - application: LUSID
+                  tag: Data
+                  selector:
+                    idSelectorDefinition:
+                      identifier:
+                        scope: official
+                      actions:
+                      - scope: default
+                        activity: Read
+                        entity: Portfolio
+                      - scope: default
+                        activity: Aggregate
+                        entity: Portfolio
+                      name: access-official-scope
+                      description: Allow readonly access to the 'official' scope
+              schema:
+                $ref: '#/components/schemas/PolicyTemplateResponse'
+            text/json:
+              example:
+                displayName: example-policy-template
+                scope: default
+                code: official-portfolios-read-only
+                description: Example policy template for a policy that grants access
+                  to some resource
+                applications:
+                - LUSID
+                tags:
+                - Data
+                templatedSelectors:
+                - application: LUSID
+                  tag: Data
+                  selector:
+                    idSelectorDefinition:
+                      identifier:
+                        scope: official
+                      actions:
+                      - scope: default
+                        activity: Read
+                        entity: Portfolio
+                      - scope: default
+                        activity: Aggregate
+                        entity: Portfolio
+                      name: access-official-scope
+                      description: Allow readonly access to the 'official' scope
+              schema:
+                $ref: '#/components/schemas/PolicyTemplateResponse'
+          description: Get a specific Policy Template
+        "400":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/LusidValidationProblemDetails'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LusidValidationProblemDetails'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/LusidValidationProblemDetails'
+          description: The details of the input related failure
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LusidProblemDetails'
+          description: Error response
+      security:
+      - oauth2: []
+      summary: "[EXPERIMENTAL] GetPolicyTemplate: Retrieving one Policy Template"
+      tags:
+      - PolicyTemplates
+      x-fbn-apistatus: Experimental
+      x-accepts: application/json
+    put:
+      description: Updates an identified Policy Template
+      operationId: UpdatePolicyTemplate
+      parameters:
+      - description: Code of the policy template to update
+        explode: false
+        in: path
+        name: code
+        required: true
+        schema:
+          pattern: "^(?=.*[a-zA-Z])[\\w][\\w +-]{2,100}$"
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/PolicyTemplateUpdateRequest'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PolicyTemplateUpdateRequest'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/PolicyTemplateUpdateRequest'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/PolicyTemplateUpdateRequest'
+        description: Definition of the updated policy template
+      responses:
+        "200":
+          content:
+            text/plain:
+              example:
+                displayName: example-policy-template
+                scope: default
+                code: official-portfolios-read-only
+                description: Example policy template for a policy that grants access
+                  to some resource
+                applications:
+                - LUSID
+                tags:
+                - Data
+                templatedSelectors:
+                - application: LUSID
+                  tag: Data
+                  selector:
+                    idSelectorDefinition:
+                      identifier:
+                        scope: official
+                      actions:
+                      - scope: default
+                        activity: Read
+                        entity: Portfolio
+                      - scope: default
+                        activity: Aggregate
+                        entity: Portfolio
+                      name: access-official-scope
+                      description: Allow readonly access to the 'official' scope
+              schema:
+                $ref: '#/components/schemas/PolicyTemplateResponse'
+            application/json:
+              example:
+                displayName: example-policy-template
+                scope: default
+                code: official-portfolios-read-only
+                description: Example policy template for a policy that grants access
+                  to some resource
+                applications:
+                - LUSID
+                tags:
+                - Data
+                templatedSelectors:
+                - application: LUSID
+                  tag: Data
+                  selector:
+                    idSelectorDefinition:
+                      identifier:
+                        scope: official
+                      actions:
+                      - scope: default
+                        activity: Read
+                        entity: Portfolio
+                      - scope: default
+                        activity: Aggregate
+                        entity: Portfolio
+                      name: access-official-scope
+                      description: Allow readonly access to the 'official' scope
+              schema:
+                $ref: '#/components/schemas/PolicyTemplateResponse'
+            text/json:
+              example:
+                displayName: example-policy-template
+                scope: default
+                code: official-portfolios-read-only
+                description: Example policy template for a policy that grants access
+                  to some resource
+                applications:
+                - LUSID
+                tags:
+                - Data
+                templatedSelectors:
+                - application: LUSID
+                  tag: Data
+                  selector:
+                    idSelectorDefinition:
+                      identifier:
+                        scope: official
+                      actions:
+                      - scope: default
+                        activity: Read
+                        entity: Portfolio
+                      - scope: default
+                        activity: Aggregate
+                        entity: Portfolio
+                      name: access-official-scope
+                      description: Allow readonly access to the 'official' scope
+              schema:
+                $ref: '#/components/schemas/PolicyTemplateResponse'
+          description: Updated Policy Template
+        "400":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/LusidValidationProblemDetails'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LusidValidationProblemDetails'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/LusidValidationProblemDetails'
+          description: The details of the input related failure
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LusidProblemDetails'
+          description: Error response
+      security:
+      - oauth2: []
+      summary: "[EXPERIMENTAL] UpdatePolicyTemplate: Update a Policy Template"
+      tags:
+      - PolicyTemplates
+      x-fbn-apistatus: Experimental
       x-content-type: application/json-patch+json
       x-accepts: application/json
   /api/roles:
@@ -5814,6 +6687,192 @@ components:
         effectiveRange:
           $ref: '#/components/schemas/EffectiveRange'
       type: object
+    GeneratedPolicyComponents:
+      additionalProperties: false
+      description: Response object for policy generated from template
+      example:
+        templateMetadata:
+          buildAsAt: 2000-01-23T04:56:07.000+00:00
+          templateSelection:
+          - code: code
+            scope: scope
+            selectorTags:
+            - selectorTags
+            - selectorTags
+          - code: code
+            scope: scope
+            selectorTags:
+            - selectorTags
+            - selectorTags
+        selectors:
+        - metadataSelectorDefinition:
+            name: name
+            description: description
+            expressions:
+            - metadataKey: metadataKey
+              textValue: textValue
+              operator: null
+            - metadataKey: metadataKey
+              textValue: textValue
+              operator: null
+            actions:
+            - activity: activity
+              scope: scope
+              entity: entity
+            - activity: activity
+              scope: scope
+              entity: entity
+          idSelectorDefinition:
+            identifier:
+              key: identifier
+            name: name
+            description: description
+            actions:
+            - activity: activity
+              scope: scope
+              entity: entity
+            - activity: activity
+              scope: scope
+              entity: entity
+          policySelectorDefinition:
+            identityRestriction:
+              key: identityRestriction
+            name: name
+            description: description
+            restrictionSelectors:
+            - null
+            - null
+            actions:
+            - activity: activity
+              scope: scope
+              entity: entity
+            - activity: activity
+              scope: scope
+              entity: entity
+          matchAllSelectorDefinition:
+            name: name
+            description: description
+            actions:
+            - activity: activity
+              scope: scope
+              entity: entity
+            - activity: activity
+              scope: scope
+              entity: entity
+        - metadataSelectorDefinition:
+            name: name
+            description: description
+            expressions:
+            - metadataKey: metadataKey
+              textValue: textValue
+              operator: null
+            - metadataKey: metadataKey
+              textValue: textValue
+              operator: null
+            actions:
+            - activity: activity
+              scope: scope
+              entity: entity
+            - activity: activity
+              scope: scope
+              entity: entity
+          idSelectorDefinition:
+            identifier:
+              key: identifier
+            name: name
+            description: description
+            actions:
+            - activity: activity
+              scope: scope
+              entity: entity
+            - activity: activity
+              scope: scope
+              entity: entity
+          policySelectorDefinition:
+            identityRestriction:
+              key: identityRestriction
+            name: name
+            description: description
+            restrictionSelectors:
+            - null
+            - null
+            actions:
+            - activity: activity
+              scope: scope
+              entity: entity
+            - activity: activity
+              scope: scope
+              entity: entity
+          matchAllSelectorDefinition:
+            name: name
+            description: description
+            actions:
+            - activity: activity
+              scope: scope
+              entity: entity
+            - activity: activity
+              scope: scope
+              entity: entity
+        applications:
+        - applications
+        - applications
+      properties:
+        applications:
+          description: Applications to which the policy applies
+          items:
+            type: string
+          nullable: true
+          type: array
+        templateMetadata:
+          $ref: '#/components/schemas/TemplateMetadata'
+        selectors:
+          description: Selectors that this policy will be applied to
+          items:
+            $ref: '#/components/schemas/SelectorDefinition'
+          nullable: true
+          type: array
+      type: object
+    GeneratePolicyFromTemplateRequest:
+      additionalProperties: false
+      description: Generate policy from template
+      example:
+        templateSelection:
+        - code: code
+          scope: scope
+          selectorTags:
+          - selectorTags
+          - selectorTags
+        - code: code
+          scope: scope
+          selectorTags:
+          - selectorTags
+          - selectorTags
+        - code: code
+          scope: scope
+          selectorTags:
+          - selectorTags
+          - selectorTags
+        - code: code
+          scope: scope
+          selectorTags:
+          - selectorTags
+          - selectorTags
+        - code: code
+          scope: scope
+          selectorTags:
+          - selectorTags
+          - selectorTags
+      properties:
+        templateSelection:
+          description: "List of template selection, identifying policy templates to\
+            \ use for generation"
+          items:
+            $ref: '#/components/schemas/TemplateSelection'
+          maxItems: 10
+          type: array
+      required:
+      - templateSelection
+      type: object
     Grant:
       enum:
       - Undefined
@@ -7710,6 +8769,543 @@ components:
           type: string
       required:
       - actions
+      type: object
+    PolicyTemplateCreationRequest:
+      additionalProperties: false
+      description: Request to create a policy template
+      example:
+        code: code
+        displayName: displayName
+        description: description
+        templatedSelectors:
+        - application: application
+          selector:
+            metadataSelectorDefinition:
+              name: name
+              description: description
+              expressions:
+              - metadataKey: metadataKey
+                textValue: textValue
+                operator: null
+              - metadataKey: metadataKey
+                textValue: textValue
+                operator: null
+              actions:
+              - activity: activity
+                scope: scope
+                entity: entity
+              - activity: activity
+                scope: scope
+                entity: entity
+            idSelectorDefinition:
+              identifier:
+                key: identifier
+              name: name
+              description: description
+              actions:
+              - activity: activity
+                scope: scope
+                entity: entity
+              - activity: activity
+                scope: scope
+                entity: entity
+            policySelectorDefinition:
+              identityRestriction:
+                key: identityRestriction
+              name: name
+              description: description
+              restrictionSelectors:
+              - null
+              - null
+              actions:
+              - activity: activity
+                scope: scope
+                entity: entity
+              - activity: activity
+                scope: scope
+                entity: entity
+            matchAllSelectorDefinition:
+              name: name
+              description: description
+              actions:
+              - activity: activity
+                scope: scope
+                entity: entity
+              - activity: activity
+                scope: scope
+                entity: entity
+          tag: tag
+        - application: application
+          selector:
+            metadataSelectorDefinition:
+              name: name
+              description: description
+              expressions:
+              - metadataKey: metadataKey
+                textValue: textValue
+                operator: null
+              - metadataKey: metadataKey
+                textValue: textValue
+                operator: null
+              actions:
+              - activity: activity
+                scope: scope
+                entity: entity
+              - activity: activity
+                scope: scope
+                entity: entity
+            idSelectorDefinition:
+              identifier:
+                key: identifier
+              name: name
+              description: description
+              actions:
+              - activity: activity
+                scope: scope
+                entity: entity
+              - activity: activity
+                scope: scope
+                entity: entity
+            policySelectorDefinition:
+              identityRestriction:
+                key: identityRestriction
+              name: name
+              description: description
+              restrictionSelectors:
+              - null
+              - null
+              actions:
+              - activity: activity
+                scope: scope
+                entity: entity
+              - activity: activity
+                scope: scope
+                entity: entity
+            matchAllSelectorDefinition:
+              name: name
+              description: description
+              actions:
+              - activity: activity
+                scope: scope
+                entity: entity
+              - activity: activity
+                scope: scope
+                entity: entity
+          tag: tag
+      properties:
+        code:
+          description: The Code of the policy template being created
+          maxLength: 100
+          minLength: 3
+          pattern: "^(?=.*[a-zA-Z])[\\w][\\w +-]{2,100}$"
+          type: string
+        displayName:
+          description: The display name of the policy template being created
+          maxLength: 512
+          minLength: 1
+          type: string
+        description:
+          description: Description of the policy template being craeted
+          maxLength: 1024
+          minLength: 0
+          type: string
+        templatedSelectors:
+          description: The selector definitions of policies included in this policy
+            template
+          items:
+            $ref: '#/components/schemas/PolicyTemplatedSelector'
+          type: array
+      required:
+      - code
+      - description
+      - displayName
+      - templatedSelectors
+      type: object
+    PolicyTemplatedSelector:
+      additionalProperties: false
+      description: Templated selector for a policy template
+      example:
+        application: application
+        selector:
+          metadataSelectorDefinition:
+            name: name
+            description: description
+            expressions:
+            - metadataKey: metadataKey
+              textValue: textValue
+              operator: null
+            - metadataKey: metadataKey
+              textValue: textValue
+              operator: null
+            actions:
+            - activity: activity
+              scope: scope
+              entity: entity
+            - activity: activity
+              scope: scope
+              entity: entity
+          idSelectorDefinition:
+            identifier:
+              key: identifier
+            name: name
+            description: description
+            actions:
+            - activity: activity
+              scope: scope
+              entity: entity
+            - activity: activity
+              scope: scope
+              entity: entity
+          policySelectorDefinition:
+            identityRestriction:
+              key: identityRestriction
+            name: name
+            description: description
+            restrictionSelectors:
+            - null
+            - null
+            actions:
+            - activity: activity
+              scope: scope
+              entity: entity
+            - activity: activity
+              scope: scope
+              entity: entity
+          matchAllSelectorDefinition:
+            name: name
+            description: description
+            actions:
+            - activity: activity
+              scope: scope
+              entity: entity
+            - activity: activity
+              scope: scope
+              entity: entity
+        tag: tag
+      properties:
+        application:
+          description: The application that this selector definition applies to
+          minLength: 1
+          type: string
+        tag:
+          description: The type of policy that this selector definition applies to
+          minLength: 1
+          type: string
+        selector:
+          $ref: '#/components/schemas/SelectorDefinition'
+      required:
+      - application
+      - selector
+      - tag
+      type: object
+    PolicyTemplateResponse:
+      additionalProperties: false
+      description: Response object for a policy template
+      example:
+        code: code
+        displayName: displayName
+        scope: scope
+        description: description
+        templatedSelectors:
+        - application: application
+          selector:
+            metadataSelectorDefinition:
+              name: name
+              description: description
+              expressions:
+              - metadataKey: metadataKey
+                textValue: textValue
+                operator: null
+              - metadataKey: metadataKey
+                textValue: textValue
+                operator: null
+              actions:
+              - activity: activity
+                scope: scope
+                entity: entity
+              - activity: activity
+                scope: scope
+                entity: entity
+            idSelectorDefinition:
+              identifier:
+                key: identifier
+              name: name
+              description: description
+              actions:
+              - activity: activity
+                scope: scope
+                entity: entity
+              - activity: activity
+                scope: scope
+                entity: entity
+            policySelectorDefinition:
+              identityRestriction:
+                key: identityRestriction
+              name: name
+              description: description
+              restrictionSelectors:
+              - null
+              - null
+              actions:
+              - activity: activity
+                scope: scope
+                entity: entity
+              - activity: activity
+                scope: scope
+                entity: entity
+            matchAllSelectorDefinition:
+              name: name
+              description: description
+              actions:
+              - activity: activity
+                scope: scope
+                entity: entity
+              - activity: activity
+                scope: scope
+                entity: entity
+          tag: tag
+        - application: application
+          selector:
+            metadataSelectorDefinition:
+              name: name
+              description: description
+              expressions:
+              - metadataKey: metadataKey
+                textValue: textValue
+                operator: null
+              - metadataKey: metadataKey
+                textValue: textValue
+                operator: null
+              actions:
+              - activity: activity
+                scope: scope
+                entity: entity
+              - activity: activity
+                scope: scope
+                entity: entity
+            idSelectorDefinition:
+              identifier:
+                key: identifier
+              name: name
+              description: description
+              actions:
+              - activity: activity
+                scope: scope
+                entity: entity
+              - activity: activity
+                scope: scope
+                entity: entity
+            policySelectorDefinition:
+              identityRestriction:
+                key: identityRestriction
+              name: name
+              description: description
+              restrictionSelectors:
+              - null
+              - null
+              actions:
+              - activity: activity
+                scope: scope
+                entity: entity
+              - activity: activity
+                scope: scope
+                entity: entity
+            matchAllSelectorDefinition:
+              name: name
+              description: description
+              actions:
+              - activity: activity
+                scope: scope
+                entity: entity
+              - activity: activity
+                scope: scope
+                entity: entity
+          tag: tag
+        applications:
+        - applications
+        - applications
+        tags:
+        - tags
+        - tags
+      properties:
+        displayName:
+          description: Display name of the policy template being created
+          nullable: true
+          type: string
+        scope:
+          description: The Scope of the policy template being created
+          nullable: true
+          type: string
+        code:
+          description: The Code of the policy template being created
+          nullable: true
+          type: string
+        description:
+          description: Description of the policy template being created
+          nullable: true
+          type: string
+        applications:
+          description: List of applications that this policy template covers
+          items:
+            type: string
+          nullable: true
+          type: array
+        tags:
+          description: List of policy types that this policy template covers
+          items:
+            type: string
+          nullable: true
+          type: array
+        templatedSelectors:
+          description: The selector definitions of policies included in this policy
+            template
+          items:
+            $ref: '#/components/schemas/PolicyTemplatedSelector'
+          nullable: true
+          type: array
+      type: object
+    PolicyTemplateUpdateRequest:
+      additionalProperties: false
+      description: Update policy template request
+      example:
+        displayName: displayName
+        description: description
+        templatedSelectors:
+        - application: application
+          selector:
+            metadataSelectorDefinition:
+              name: name
+              description: description
+              expressions:
+              - metadataKey: metadataKey
+                textValue: textValue
+                operator: null
+              - metadataKey: metadataKey
+                textValue: textValue
+                operator: null
+              actions:
+              - activity: activity
+                scope: scope
+                entity: entity
+              - activity: activity
+                scope: scope
+                entity: entity
+            idSelectorDefinition:
+              identifier:
+                key: identifier
+              name: name
+              description: description
+              actions:
+              - activity: activity
+                scope: scope
+                entity: entity
+              - activity: activity
+                scope: scope
+                entity: entity
+            policySelectorDefinition:
+              identityRestriction:
+                key: identityRestriction
+              name: name
+              description: description
+              restrictionSelectors:
+              - null
+              - null
+              actions:
+              - activity: activity
+                scope: scope
+                entity: entity
+              - activity: activity
+                scope: scope
+                entity: entity
+            matchAllSelectorDefinition:
+              name: name
+              description: description
+              actions:
+              - activity: activity
+                scope: scope
+                entity: entity
+              - activity: activity
+                scope: scope
+                entity: entity
+          tag: tag
+        - application: application
+          selector:
+            metadataSelectorDefinition:
+              name: name
+              description: description
+              expressions:
+              - metadataKey: metadataKey
+                textValue: textValue
+                operator: null
+              - metadataKey: metadataKey
+                textValue: textValue
+                operator: null
+              actions:
+              - activity: activity
+                scope: scope
+                entity: entity
+              - activity: activity
+                scope: scope
+                entity: entity
+            idSelectorDefinition:
+              identifier:
+                key: identifier
+              name: name
+              description: description
+              actions:
+              - activity: activity
+                scope: scope
+                entity: entity
+              - activity: activity
+                scope: scope
+                entity: entity
+            policySelectorDefinition:
+              identityRestriction:
+                key: identityRestriction
+              name: name
+              description: description
+              restrictionSelectors:
+              - null
+              - null
+              actions:
+              - activity: activity
+                scope: scope
+                entity: entity
+              - activity: activity
+                scope: scope
+                entity: entity
+            matchAllSelectorDefinition:
+              name: name
+              description: description
+              actions:
+              - activity: activity
+                scope: scope
+                entity: entity
+              - activity: activity
+                scope: scope
+                entity: entity
+          tag: tag
+      properties:
+        displayName:
+          description: The display name of the policy template being created
+          maxLength: 512
+          minLength: 1
+          type: string
+        description:
+          description: Description of the policy template being craeted
+          maxLength: 1024
+          minLength: 0
+          type: string
+        templatedSelectors:
+          description: The selector definitions of policies included in this policy
+            template
+          items:
+            $ref: '#/components/schemas/PolicyTemplatedSelector'
+          type: array
+      required:
+      - description
+      - displayName
+      - templatedSelectors
       type: object
     PolicyType:
       enum:
@@ -9943,6 +11539,69 @@ components:
         policySelectorDefinition:
           $ref: '#/components/schemas/PolicySelectorDefinition'
       type: object
+    TemplateMetadata:
+      additionalProperties: false
+      description: "Extra policy template metadata information, used during a generation\
+        \ request"
+      example:
+        buildAsAt: 2000-01-23T04:56:07.000+00:00
+        templateSelection:
+        - code: code
+          scope: scope
+          selectorTags:
+          - selectorTags
+          - selectorTags
+        - code: code
+          scope: scope
+          selectorTags:
+          - selectorTags
+          - selectorTags
+      properties:
+        templateSelection:
+          description: List of policy templates used for a generation request
+          items:
+            $ref: '#/components/schemas/TemplateSelection'
+          nullable: true
+          type: array
+        buildAsAt:
+          description: Policy template build AsAt time used for a generation request
+          format: date-time
+          type: string
+      type: object
+    TemplateSelection:
+      additionalProperties: false
+      description: "A template selection, identifying a policy template to use for\
+        \ generation"
+      example:
+        code: code
+        scope: scope
+        selectorTags:
+        - selectorTags
+        - selectorTags
+      properties:
+        scope:
+          description: Scope identifying policy template to use for generation
+          maxLength: 100
+          minLength: 3
+          pattern: "^(?=.*[a-zA-Z])[\\w][\\w +-]{2,100}$"
+          type: string
+        code:
+          description: Code identifying policy template to use for generation
+          maxLength: 100
+          minLength: 3
+          pattern: "^(?=.*[a-zA-Z])[\\w][\\w +-]{2,100}$"
+          type: string
+        selectorTags:
+          description: "List of selector tags to optionally filter in the template\
+            \ generation \r\n(Eg: API, Data, etc)"
+          items:
+            type: string
+          nullable: true
+          type: array
+      required:
+      - code
+      - scope
+      type: object
     TextOperator:
       enum:
       - Undefined
@@ -10079,6 +11738,7 @@ x-tagGroups:
   tags:
   - Application Metadata
   - Policies
+  - PolicyTemplates
   - Roles
   - User-roles
 x-group-parameters: true
