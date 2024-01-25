@@ -12,7 +12,7 @@ package com.finbourne.access;
 
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class Configuration {
-    public static final String VERSION = "2.0.44";
+    public static final String VERSION = "2.0.46";
 
     private static ApiClient defaultApiClient = new ApiClient();
 
