@@ -305,7 +305,7 @@ public class Example {
 
 <a id="listPolicyTemplates"></a>
 # **listPolicyTemplates**
-> List&lt;PolicyTemplateResponse&gt; listPolicyTemplates().asAt(asAt).execute();
+> ResourceListOfPolicyTemplateResponse listPolicyTemplates().asAt(asAt).sortBy(sortBy).limit(limit).filter(filter).page(page).execute();
 
 [EXPERIMENTAL] ListPolicyTemplates: List Policy Templates
 
@@ -332,9 +332,17 @@ public class Example {
 
     PolicyTemplatesApi apiInstance = new PolicyTemplatesApi(defaultClient);
     OffsetDateTime asAt = OffsetDateTime.now(); // OffsetDateTime | Optional. The AsAt date time of the data
+    String sortBy = "sortBy_example"; // String | Optional. Order the results by these fields. Use use the '-' sign to denote descending order e.g. -MyFieldName
+    Integer limit = 56; // Integer | Optional. When paginating, limit the number of returned results to this many.
+    String filter = "filter_example"; // String | Optional. Expression to filter the result set
+    String page = "page_example"; // String | Optional. Paging token returned from a previous result
     try {
-      List<PolicyTemplateResponse> result = apiInstance.listPolicyTemplates()
+      ResourceListOfPolicyTemplateResponse result = apiInstance.listPolicyTemplates()
             .asAt(asAt)
+            .sortBy(sortBy)
+            .limit(limit)
+            .filter(filter)
+            .page(page)
             .execute();
       System.out.println(result);
     } catch (ApiException e) {
@@ -353,10 +361,14 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **asAt** | **OffsetDateTime**| Optional. The AsAt date time of the data | [optional] |
+| **sortBy** | **String**| Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName | [optional] |
+| **limit** | **Integer**| Optional. When paginating, limit the number of returned results to this many. | [optional] |
+| **filter** | **String**| Optional. Expression to filter the result set | [optional] |
+| **page** | **String**| Optional. Paging token returned from a previous result | [optional] |
 
 ### Return type
 
-[**List&lt;PolicyTemplateResponse&gt;**](PolicyTemplateResponse.md)
+[**ResourceListOfPolicyTemplateResponse**](ResourceListOfPolicyTemplateResponse.md)
 
 ### Authorization
 

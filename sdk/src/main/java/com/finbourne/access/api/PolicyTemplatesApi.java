@@ -32,6 +32,7 @@ import java.time.OffsetDateTime;
 import com.finbourne.access.model.PolicyTemplateCreationRequest;
 import com.finbourne.access.model.PolicyTemplateResponse;
 import com.finbourne.access.model.PolicyTemplateUpdateRequest;
+import com.finbourne.access.model.ResourceListOfPolicyTemplateResponse;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -794,7 +795,7 @@ public class PolicyTemplatesApi {
     public APIgetPolicyTemplateRequest getPolicyTemplate(String code) {
         return new APIgetPolicyTemplateRequest(code);
     }
-    private okhttp3.Call listPolicyTemplatesCall(OffsetDateTime asAt, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call listPolicyTemplatesCall(OffsetDateTime asAt, String sortBy, Integer limit, String filter, String page, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -823,6 +824,22 @@ public class PolicyTemplatesApi {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("asAt", asAt));
         }
 
+        if (sortBy != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("sortBy", sortBy));
+        }
+
+        if (limit != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("limit", limit));
+        }
+
+        if (filter != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("filter", filter));
+        }
+
+        if (page != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("page", page));
+        }
+
         final String[] localVarAccepts = {
             "text/plain",
             "application/json",
@@ -845,28 +862,32 @@ public class PolicyTemplatesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call listPolicyTemplatesValidateBeforeCall(OffsetDateTime asAt, final ApiCallback _callback) throws ApiException {
-        return listPolicyTemplatesCall(asAt, _callback);
+    private okhttp3.Call listPolicyTemplatesValidateBeforeCall(OffsetDateTime asAt, String sortBy, Integer limit, String filter, String page, final ApiCallback _callback) throws ApiException {
+        return listPolicyTemplatesCall(asAt, sortBy, limit, filter, page, _callback);
 
     }
 
 
-    private ApiResponse<List<PolicyTemplateResponse>> listPolicyTemplatesWithHttpInfo(OffsetDateTime asAt) throws ApiException {
-        okhttp3.Call localVarCall = listPolicyTemplatesValidateBeforeCall(asAt, null);
-        Type localVarReturnType = new TypeToken<List<PolicyTemplateResponse>>(){}.getType();
+    private ApiResponse<ResourceListOfPolicyTemplateResponse> listPolicyTemplatesWithHttpInfo(OffsetDateTime asAt, String sortBy, Integer limit, String filter, String page) throws ApiException {
+        okhttp3.Call localVarCall = listPolicyTemplatesValidateBeforeCall(asAt, sortBy, limit, filter, page, null);
+        Type localVarReturnType = new TypeToken<ResourceListOfPolicyTemplateResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call listPolicyTemplatesAsync(OffsetDateTime asAt, final ApiCallback<List<PolicyTemplateResponse>> _callback) throws ApiException {
+    private okhttp3.Call listPolicyTemplatesAsync(OffsetDateTime asAt, String sortBy, Integer limit, String filter, String page, final ApiCallback<ResourceListOfPolicyTemplateResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = listPolicyTemplatesValidateBeforeCall(asAt, _callback);
-        Type localVarReturnType = new TypeToken<List<PolicyTemplateResponse>>(){}.getType();
+        okhttp3.Call localVarCall = listPolicyTemplatesValidateBeforeCall(asAt, sortBy, limit, filter, page, _callback);
+        Type localVarReturnType = new TypeToken<ResourceListOfPolicyTemplateResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
 
     public class APIlistPolicyTemplatesRequest {
         private OffsetDateTime asAt;
+        private String sortBy;
+        private Integer limit;
+        private String filter;
+        private String page;
 
         private APIlistPolicyTemplatesRequest() {
         }
@@ -878,6 +899,46 @@ public class PolicyTemplatesApi {
          */
         public APIlistPolicyTemplatesRequest asAt(OffsetDateTime asAt) {
             this.asAt = asAt;
+            return this;
+        }
+
+        /**
+         * Set sortBy
+         * @param sortBy Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName (optional)
+         * @return APIlistPolicyTemplatesRequest
+         */
+        public APIlistPolicyTemplatesRequest sortBy(String sortBy) {
+            this.sortBy = sortBy;
+            return this;
+        }
+
+        /**
+         * Set limit
+         * @param limit Optional. When paginating, limit the number of returned results to this many. (optional)
+         * @return APIlistPolicyTemplatesRequest
+         */
+        public APIlistPolicyTemplatesRequest limit(Integer limit) {
+            this.limit = limit;
+            return this;
+        }
+
+        /**
+         * Set filter
+         * @param filter Optional. Expression to filter the result set (optional)
+         * @return APIlistPolicyTemplatesRequest
+         */
+        public APIlistPolicyTemplatesRequest filter(String filter) {
+            this.filter = filter;
+            return this;
+        }
+
+        /**
+         * Set page
+         * @param page Optional. Paging token returned from a previous result (optional)
+         * @return APIlistPolicyTemplatesRequest
+         */
+        public APIlistPolicyTemplatesRequest page(String page) {
+            this.page = page;
             return this;
         }
 
@@ -895,12 +956,12 @@ public class PolicyTemplatesApi {
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
-            return listPolicyTemplatesCall(asAt, _callback);
+            return listPolicyTemplatesCall(asAt, sortBy, limit, filter, page, _callback);
         }
 
         /**
          * Execute listPolicyTemplates request
-         * @return List&lt;PolicyTemplateResponse&gt;
+         * @return ResourceListOfPolicyTemplateResponse
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table summary="Response Details" border="1">
@@ -910,14 +971,14 @@ public class PolicyTemplatesApi {
             <tr><td> 0 </td><td> Error response </td><td>  -  </td></tr>
          </table>
          */
-        public List<PolicyTemplateResponse> execute() throws ApiException {
-            ApiResponse<List<PolicyTemplateResponse>> localVarResp = listPolicyTemplatesWithHttpInfo(asAt);
+        public ResourceListOfPolicyTemplateResponse execute() throws ApiException {
+            ApiResponse<ResourceListOfPolicyTemplateResponse> localVarResp = listPolicyTemplatesWithHttpInfo(asAt, sortBy, limit, filter, page);
             return localVarResp.getData();
         }
 
         /**
          * Execute listPolicyTemplates request with HTTP info returned
-         * @return ApiResponse&lt;List&lt;PolicyTemplateResponse&gt;&gt;
+         * @return ApiResponse&lt;ResourceListOfPolicyTemplateResponse&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table summary="Response Details" border="1">
@@ -927,8 +988,8 @@ public class PolicyTemplatesApi {
             <tr><td> 0 </td><td> Error response </td><td>  -  </td></tr>
          </table>
          */
-        public ApiResponse<List<PolicyTemplateResponse>> executeWithHttpInfo() throws ApiException {
-            return listPolicyTemplatesWithHttpInfo(asAt);
+        public ApiResponse<ResourceListOfPolicyTemplateResponse> executeWithHttpInfo() throws ApiException {
+            return listPolicyTemplatesWithHttpInfo(asAt, sortBy, limit, filter, page);
         }
 
         /**
@@ -944,8 +1005,8 @@ public class PolicyTemplatesApi {
             <tr><td> 0 </td><td> Error response </td><td>  -  </td></tr>
          </table>
          */
-        public okhttp3.Call executeAsync(final ApiCallback<List<PolicyTemplateResponse>> _callback) throws ApiException {
-            return listPolicyTemplatesAsync(asAt, _callback);
+        public okhttp3.Call executeAsync(final ApiCallback<ResourceListOfPolicyTemplateResponse> _callback) throws ApiException {
+            return listPolicyTemplatesAsync(asAt, sortBy, limit, filter, page, _callback);
         }
     }
 

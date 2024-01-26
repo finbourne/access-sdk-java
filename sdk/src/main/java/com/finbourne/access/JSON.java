@@ -146,6 +146,7 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(new com.finbourne.access.model.ResourceListOfAccessControlledResource.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.finbourne.access.model.ResourceListOfPolicyCollectionResponse.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.finbourne.access.model.ResourceListOfPolicyResponse.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.finbourne.access.model.ResourceListOfPolicyTemplateResponse.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.finbourne.access.model.ResourceListOfUserRoleResponse.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.finbourne.access.model.RoleCreationRequest.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.finbourne.access.model.RoleId.CustomTypeAdapterFactory());
