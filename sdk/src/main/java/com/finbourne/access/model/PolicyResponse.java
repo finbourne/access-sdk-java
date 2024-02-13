@@ -18,6 +18,7 @@ import com.finbourne.access.model.IfExpression;
 import com.finbourne.access.model.Link;
 import com.finbourne.access.model.PolicyId;
 import com.finbourne.access.model.SelectorDefinition;
+import com.finbourne.access.model.TemplateMetadata;
 import com.finbourne.access.model.WhenSpec;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
@@ -95,6 +96,10 @@ public class PolicyResponse {
   public static final String SERIALIZED_NAME_HOW = "how";
   @SerializedName(SERIALIZED_NAME_HOW)
   private HowSpec how;
+
+  public static final String SERIALIZED_NAME_TEMPLATE_METADATA = "templateMetadata";
+  @SerializedName(SERIALIZED_NAME_TEMPLATE_METADATA)
+  private TemplateMetadata templateMetadata;
 
   public static final String SERIALIZED_NAME_LINKS = "links";
   @SerializedName(SERIALIZED_NAME_LINKS)
@@ -324,6 +329,27 @@ public class PolicyResponse {
   }
 
 
+  public PolicyResponse templateMetadata(TemplateMetadata templateMetadata) {
+    
+    this.templateMetadata = templateMetadata;
+    return this;
+  }
+
+   /**
+   * Get templateMetadata
+   * @return templateMetadata
+  **/
+  @jakarta.annotation.Nullable
+  public TemplateMetadata getTemplateMetadata() {
+    return templateMetadata;
+  }
+
+
+  public void setTemplateMetadata(TemplateMetadata templateMetadata) {
+    this.templateMetadata = templateMetadata;
+  }
+
+
   public PolicyResponse links(List<Link> links) {
     
     this.links = links;
@@ -372,6 +398,7 @@ public class PolicyResponse {
         Objects.equals(this._if, policyResponse._if) &&
         Objects.equals(this.when, policyResponse.when) &&
         Objects.equals(this.how, policyResponse.how) &&
+        Objects.equals(this.templateMetadata, policyResponse.templateMetadata) &&
         Objects.equals(this.links, policyResponse.links);
   }
 
@@ -381,7 +408,7 @@ public class PolicyResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, description, applications, grant, selectors, _for, _if, when, how, links);
+    return Objects.hash(id, description, applications, grant, selectors, _for, _if, when, how, templateMetadata, links);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -404,6 +431,7 @@ public class PolicyResponse {
     sb.append("    _if: ").append(toIndentedString(_if)).append("\n");
     sb.append("    when: ").append(toIndentedString(when)).append("\n");
     sb.append("    how: ").append(toIndentedString(how)).append("\n");
+    sb.append("    templateMetadata: ").append(toIndentedString(templateMetadata)).append("\n");
     sb.append("    links: ").append(toIndentedString(links)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -436,6 +464,7 @@ public class PolicyResponse {
     openapiFields.add("if");
     openapiFields.add("when");
     openapiFields.add("how");
+    openapiFields.add("templateMetadata");
     openapiFields.add("links");
 
     // a set of required properties/fields (JSON key names)
@@ -515,6 +544,10 @@ public class PolicyResponse {
       // validate the optional field `how`
       if (jsonObj.get("how") != null && !jsonObj.get("how").isJsonNull()) {
         HowSpec.validateJsonElement(jsonObj.get("how"));
+      }
+      // validate the optional field `templateMetadata`
+      if (jsonObj.get("templateMetadata") != null && !jsonObj.get("templateMetadata").isJsonNull()) {
+        TemplateMetadata.validateJsonElement(jsonObj.get("templateMetadata"));
       }
       if (jsonObj.get("links") != null && !jsonObj.get("links").isJsonNull()) {
         JsonArray jsonArraylinks = jsonObj.getAsJsonArray("links");

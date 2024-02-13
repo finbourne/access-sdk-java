@@ -10,7 +10,7 @@ info:
     \ and Access Management system.\r\n\r\n"
   termsOfService: https://www.finbourne.com/legal/terms-conditions
   title: FINBOURNE Access Management API
-  version: 0.0.3657
+  version: 0.0.3683
   x-logo:
     url: https://www.lusid.com/app/assets/logo_white.png
     backgroundColor: '#415464'
@@ -7840,6 +7840,19 @@ components:
             adjustment: 1
             relativeToDateTime: null
         description: description
+        templateMetadata:
+          buildAsAt: 2000-01-23T04:56:07.000+00:00
+          templateSelection:
+          - code: code
+            scope: scope
+            selectorTags:
+            - selectorTags
+            - selectorTags
+          - code: code
+            scope: scope
+            selectorTags:
+            - selectorTags
+            - selectorTags
         grant: null
         selectors:
         - metadataSelectorDefinition:
@@ -8246,6 +8259,8 @@ components:
           $ref: '#/components/schemas/WhenSpec'
         how:
           $ref: '#/components/schemas/HowSpec'
+        templateMetadata:
+          $ref: '#/components/schemas/TemplateMetadata'
       required:
       - code
       - grant
@@ -8354,6 +8369,19 @@ components:
             adjustment: 1
             relativeToDateTime: null
         description: description
+        templateMetadata:
+          buildAsAt: 2000-01-23T04:56:07.000+00:00
+          templateSelection:
+          - code: code
+            scope: scope
+            selectorTags:
+            - selectorTags
+            - selectorTags
+          - code: code
+            scope: scope
+            selectorTags:
+            - selectorTags
+            - selectorTags
         links:
         - method: method
           description: description
@@ -8766,6 +8794,8 @@ components:
           $ref: '#/components/schemas/WhenSpec'
         how:
           $ref: '#/components/schemas/HowSpec'
+        templateMetadata:
+          $ref: '#/components/schemas/TemplateMetadata'
         links:
           items:
             $ref: '#/components/schemas/Link'
@@ -9418,6 +9448,19 @@ components:
             adjustment: 1
             relativeToDateTime: null
         description: description
+        templateMetadata:
+          buildAsAt: 2000-01-23T04:56:07.000+00:00
+          templateSelection:
+          - code: code
+            scope: scope
+            selectorTags:
+            - selectorTags
+            - selectorTags
+          - code: code
+            scope: scope
+            selectorTags:
+            - selectorTags
+            - selectorTags
         grant: null
         selectors:
         - metadataSelectorDefinition:
@@ -9818,6 +9861,8 @@ components:
           $ref: '#/components/schemas/WhenSpec'
         how:
           $ref: '#/components/schemas/HowSpec'
+        templateMetadata:
+          $ref: '#/components/schemas/TemplateMetadata'
       required:
       - grant
       - selectors
@@ -10381,6 +10426,19 @@ components:
               adjustment: 1
               relativeToDateTime: null
           description: description
+          templateMetadata:
+            buildAsAt: 2000-01-23T04:56:07.000+00:00
+            templateSelection:
+            - code: code
+              scope: scope
+              selectorTags:
+              - selectorTags
+              - selectorTags
+            - code: code
+              scope: scope
+              selectorTags:
+              - selectorTags
+              - selectorTags
           links:
           - method: method
             description: description
@@ -10809,6 +10867,19 @@ components:
               adjustment: 1
               relativeToDateTime: null
           description: description
+          templateMetadata:
+            buildAsAt: 2000-01-23T04:56:07.000+00:00
+            templateSelection:
+            - code: code
+              scope: scope
+              selectorTags:
+              - selectorTags
+              - selectorTags
+            - code: code
+              scope: scope
+              selectorTags:
+              - selectorTags
+              - selectorTags
           links:
           - method: method
             description: description
@@ -11930,7 +12001,7 @@ components:
           type: string
         selectorTags:
           description: "List of selector tags to optionally filter in the template\
-            \ generation \r\n(Eg: API, Data, etc)"
+            \ generation \r\n(Eg: Feature, Data, etc)"
           items:
             type: string
           nullable: true

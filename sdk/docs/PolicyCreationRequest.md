@@ -17,6 +17,7 @@ Request to create a policy
 |**_if** | [**List&lt;IfExpression&gt;**](IfExpression.md) | \&quot;If Specification\&quot; for when the policy is to be applied |  [optional] |
 |**when** | [**WhenSpec**](WhenSpec.md) |  |  |
 |**how** | [**HowSpec**](HowSpec.md) |  |  [optional] |
+|**templateMetadata** | [**TemplateMetadata**](TemplateMetadata.md) |  |  [optional] |
 
 
 
