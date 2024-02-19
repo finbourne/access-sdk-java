@@ -10,7 +10,7 @@ info:
     \ and Access Management system.\r\n\r\n"
   termsOfService: https://www.finbourne.com/legal/terms-conditions
   title: FINBOURNE Access Management API
-  version: 0.0.3697
+  version: 0.0.3698
   x-logo:
     url: https://www.lusid.com/app/assets/logo_white.png
     backgroundColor: '#415464'
@@ -6910,6 +6910,277 @@ components:
           selectorTags:
           - selectorTags
           - selectorTags
+        selectors:
+        - metadataSelectorDefinition:
+            name: name
+            description: description
+            expressions:
+            - metadataKey: metadataKey
+              textValue: textValue
+              operator: null
+            - metadataKey: metadataKey
+              textValue: textValue
+              operator: null
+            actions:
+            - activity: activity
+              scope: scope
+              entity: entity
+            - activity: activity
+              scope: scope
+              entity: entity
+          idSelectorDefinition:
+            identifier:
+              key: identifier
+            name: name
+            description: description
+            actions:
+            - activity: activity
+              scope: scope
+              entity: entity
+            - activity: activity
+              scope: scope
+              entity: entity
+          policySelectorDefinition:
+            identityRestriction:
+              key: identityRestriction
+            name: name
+            description: description
+            restrictionSelectors:
+            - null
+            - null
+            actions:
+            - activity: activity
+              scope: scope
+              entity: entity
+            - activity: activity
+              scope: scope
+              entity: entity
+          matchAllSelectorDefinition:
+            name: name
+            description: description
+            actions:
+            - activity: activity
+              scope: scope
+              entity: entity
+            - activity: activity
+              scope: scope
+              entity: entity
+        - metadataSelectorDefinition:
+            name: name
+            description: description
+            expressions:
+            - metadataKey: metadataKey
+              textValue: textValue
+              operator: null
+            - metadataKey: metadataKey
+              textValue: textValue
+              operator: null
+            actions:
+            - activity: activity
+              scope: scope
+              entity: entity
+            - activity: activity
+              scope: scope
+              entity: entity
+          idSelectorDefinition:
+            identifier:
+              key: identifier
+            name: name
+            description: description
+            actions:
+            - activity: activity
+              scope: scope
+              entity: entity
+            - activity: activity
+              scope: scope
+              entity: entity
+          policySelectorDefinition:
+            identityRestriction:
+              key: identityRestriction
+            name: name
+            description: description
+            restrictionSelectors:
+            - null
+            - null
+            actions:
+            - activity: activity
+              scope: scope
+              entity: entity
+            - activity: activity
+              scope: scope
+              entity: entity
+          matchAllSelectorDefinition:
+            name: name
+            description: description
+            actions:
+            - activity: activity
+              scope: scope
+              entity: entity
+            - activity: activity
+              scope: scope
+              entity: entity
+        - metadataSelectorDefinition:
+            name: name
+            description: description
+            expressions:
+            - metadataKey: metadataKey
+              textValue: textValue
+              operator: null
+            - metadataKey: metadataKey
+              textValue: textValue
+              operator: null
+            actions:
+            - activity: activity
+              scope: scope
+              entity: entity
+            - activity: activity
+              scope: scope
+              entity: entity
+          idSelectorDefinition:
+            identifier:
+              key: identifier
+            name: name
+            description: description
+            actions:
+            - activity: activity
+              scope: scope
+              entity: entity
+            - activity: activity
+              scope: scope
+              entity: entity
+          policySelectorDefinition:
+            identityRestriction:
+              key: identityRestriction
+            name: name
+            description: description
+            restrictionSelectors:
+            - null
+            - null
+            actions:
+            - activity: activity
+              scope: scope
+              entity: entity
+            - activity: activity
+              scope: scope
+              entity: entity
+          matchAllSelectorDefinition:
+            name: name
+            description: description
+            actions:
+            - activity: activity
+              scope: scope
+              entity: entity
+            - activity: activity
+              scope: scope
+              entity: entity
+        - metadataSelectorDefinition:
+            name: name
+            description: description
+            expressions:
+            - metadataKey: metadataKey
+              textValue: textValue
+              operator: null
+            - metadataKey: metadataKey
+              textValue: textValue
+              operator: null
+            actions:
+            - activity: activity
+              scope: scope
+              entity: entity
+            - activity: activity
+              scope: scope
+              entity: entity
+          idSelectorDefinition:
+            identifier:
+              key: identifier
+            name: name
+            description: description
+            actions:
+            - activity: activity
+              scope: scope
+              entity: entity
+            - activity: activity
+              scope: scope
+              entity: entity
+          policySelectorDefinition:
+            identityRestriction:
+              key: identityRestriction
+            name: name
+            description: description
+            restrictionSelectors:
+            - null
+            - null
+            actions:
+            - activity: activity
+              scope: scope
+              entity: entity
+            - activity: activity
+              scope: scope
+              entity: entity
+          matchAllSelectorDefinition:
+            name: name
+            description: description
+            actions:
+            - activity: activity
+              scope: scope
+              entity: entity
+            - activity: activity
+              scope: scope
+              entity: entity
+        - metadataSelectorDefinition:
+            name: name
+            description: description
+            expressions:
+            - metadataKey: metadataKey
+              textValue: textValue
+              operator: null
+            - metadataKey: metadataKey
+              textValue: textValue
+              operator: null
+            actions:
+            - activity: activity
+              scope: scope
+              entity: entity
+            - activity: activity
+              scope: scope
+              entity: entity
+          idSelectorDefinition:
+            identifier:
+              key: identifier
+            name: name
+            description: description
+            actions:
+            - activity: activity
+              scope: scope
+              entity: entity
+            - activity: activity
+              scope: scope
+              entity: entity
+          policySelectorDefinition:
+            identityRestriction:
+              key: identityRestriction
+            name: name
+            description: description
+            restrictionSelectors:
+            - null
+            - null
+            actions:
+            - activity: activity
+              scope: scope
+              entity: entity
+            - activity: activity
+              scope: scope
+              entity: entity
+          matchAllSelectorDefinition:
+            name: name
+            description: description
+            actions:
+            - activity: activity
+              scope: scope
+              entity: entity
+            - activity: activity
+              scope: scope
+              entity: entity
       properties:
         templateSelection:
           description: "List of template selection, identifying policy templates to\
@@ -6917,6 +7188,13 @@ components:
           items:
             $ref: '#/components/schemas/TemplateSelection'
           maxItems: 10
+          type: array
+        selectors:
+          description: List of additional selectors to be included in the policy
+          items:
+            $ref: '#/components/schemas/SelectorDefinition'
+          maxItems: 10
+          nullable: true
           type: array
       required:
       - templateSelection

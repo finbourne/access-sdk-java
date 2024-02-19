@@ -11,6 +11,7 @@
 package com.finbourne.access.model;
 
 import java.util.Objects;
+import com.finbourne.access.model.SelectorDefinition;
 import com.finbourne.access.model.TemplateSelection;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
@@ -21,6 +22,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import org.openapitools.jackson.nullable.JsonNullable;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -56,6 +58,10 @@ public class GeneratePolicyFromTemplateRequest {
   @SerializedName(SERIALIZED_NAME_TEMPLATE_SELECTION)
   private List<TemplateSelection> templateSelection = new ArrayList<>();
 
+  public static final String SERIALIZED_NAME_SELECTORS = "selectors";
+  @SerializedName(SERIALIZED_NAME_SELECTORS)
+  private List<SelectorDefinition> selectors;
+
   public GeneratePolicyFromTemplateRequest() {
   }
 
@@ -88,6 +94,35 @@ public class GeneratePolicyFromTemplateRequest {
   }
 
 
+  public GeneratePolicyFromTemplateRequest selectors(List<SelectorDefinition> selectors) {
+    
+    this.selectors = selectors;
+    return this;
+  }
+
+  public GeneratePolicyFromTemplateRequest addSelectorsItem(SelectorDefinition selectorsItem) {
+    if (this.selectors == null) {
+      this.selectors = new ArrayList<>();
+    }
+    this.selectors.add(selectorsItem);
+    return this;
+  }
+
+   /**
+   * List of additional selectors to be included in the policy
+   * @return selectors
+  **/
+  @jakarta.annotation.Nullable
+  public List<SelectorDefinition> getSelectors() {
+    return selectors;
+  }
+
+
+  public void setSelectors(List<SelectorDefinition> selectors) {
+    this.selectors = selectors;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -98,12 +133,24 @@ public class GeneratePolicyFromTemplateRequest {
       return false;
     }
     GeneratePolicyFromTemplateRequest generatePolicyFromTemplateRequest = (GeneratePolicyFromTemplateRequest) o;
-    return Objects.equals(this.templateSelection, generatePolicyFromTemplateRequest.templateSelection);
+    return Objects.equals(this.templateSelection, generatePolicyFromTemplateRequest.templateSelection) &&
+        Objects.equals(this.selectors, generatePolicyFromTemplateRequest.selectors);
+  }
+
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(templateSelection);
+    return Objects.hash(templateSelection, selectors);
+  }
+
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
+    }
+    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override
@@ -111,6 +158,7 @@ public class GeneratePolicyFromTemplateRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class GeneratePolicyFromTemplateRequest {\n");
     sb.append("    templateSelection: ").append(toIndentedString(templateSelection)).append("\n");
+    sb.append("    selectors: ").append(toIndentedString(selectors)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -134,6 +182,7 @@ public class GeneratePolicyFromTemplateRequest {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("templateSelection");
+    openapiFields.add("selectors");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -170,6 +219,20 @@ public class GeneratePolicyFromTemplateRequest {
       for (int i = 0; i < jsonArraytemplateSelection.size(); i++) {
         TemplateSelection.validateJsonElement(jsonArraytemplateSelection.get(i));
       };
+      if (jsonObj.get("selectors") != null && !jsonObj.get("selectors").isJsonNull()) {
+        JsonArray jsonArrayselectors = jsonObj.getAsJsonArray("selectors");
+        if (jsonArrayselectors != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("selectors").isJsonArray()) {
+            throw new IllegalArgumentException(String.format("Expected the field `selectors` to be an array in the JSON string but got `%s`", jsonObj.get("selectors").toString()));
+          }
+
+          // validate the optional field `selectors` (array)
+          for (int i = 0; i < jsonArrayselectors.size(); i++) {
+            SelectorDefinition.validateJsonElement(jsonArrayselectors.get(i));
+          };
+        }
+      }
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
