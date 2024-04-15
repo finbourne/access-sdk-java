@@ -207,7 +207,7 @@ public class ApplicationMetadataApi {
     }
 
     /**
-     * [EARLY ACCESS] ListAccessControlledResources: Get resources available for access control
+     * ListAccessControlledResources: Get resources available for access control
      * Get the comprehensive set of resources that are available for access control
      * @return APIlistAccessControlledResourcesRequest
      * @http.response.details

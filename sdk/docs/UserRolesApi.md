@@ -4,22 +4,22 @@ All URIs are relative to *https://fbn-prd.lusid.com/access*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
-| [**addPolicyCollectionToUserRole**](UserRolesApi.md#addPolicyCollectionToUserRole) | **POST** /api/userroles/{userid}/policycollections | [EXPERIMENTAL] AddPolicyCollectionToUserRole: Add a policy collection to a user-role |
-| [**addPolicyToUserRole**](UserRolesApi.md#addPolicyToUserRole) | **POST** /api/userroles/{userid}/policies | [EXPERIMENTAL] AddPolicyToUserRole: Add a policy to a user-role |
-| [**createUserRole**](UserRolesApi.md#createUserRole) | **POST** /api/userroles | [EXPERIMENTAL] CreateUserRole: Create a user-role |
-| [**deleteUserRole**](UserRolesApi.md#deleteUserRole) | **DELETE** /api/userroles/{userid} | [EXPERIMENTAL] DeleteUserRole: Delete a user-role |
-| [**getUserRole**](UserRolesApi.md#getUserRole) | **GET** /api/userroles/{userid} | [EXPERIMENTAL] GetUserRole: Get a user-role |
-| [**listUserRoles**](UserRolesApi.md#listUserRoles) | **GET** /api/userroles | [EXPERIMENTAL] ListUserRoles: List user-roles |
-| [**removePolicyCollectionFromUserRole**](UserRolesApi.md#removePolicyCollectionFromUserRole) | **DELETE** /api/userroles/{userid}/policycollections/{policyCollectionScope}/{policyCollectionCode} | [EXPERIMENTAL] RemovePolicyCollectionFromUserRole: Remove a policy collection from a user-role |
-| [**removePolicyFromUserRole**](UserRolesApi.md#removePolicyFromUserRole) | **DELETE** /api/userroles/{userid}/policies/{policyScope}/{policyCode} | [EXPERIMENTAL] RemovePolicyFromUserRole: Remove a policy from a user-role |
-| [**updateUserRole**](UserRolesApi.md#updateUserRole) | **POST** /api/userroles/{userid}/update | [EXPERIMENTAL] UpdateUserRole: Update a user-role |
+| [**addPolicyCollectionToUserRole**](UserRolesApi.md#addPolicyCollectionToUserRole) | **POST** /api/userroles/{userid}/policycollections | AddPolicyCollectionToUserRole: Add a policy collection to a user-role |
+| [**addPolicyToUserRole**](UserRolesApi.md#addPolicyToUserRole) | **POST** /api/userroles/{userid}/policies | AddPolicyToUserRole: Add a policy to a user-role |
+| [**createUserRole**](UserRolesApi.md#createUserRole) | **POST** /api/userroles | CreateUserRole: Create a user-role |
+| [**deleteUserRole**](UserRolesApi.md#deleteUserRole) | **DELETE** /api/userroles/{userid} | DeleteUserRole: Delete a user-role |
+| [**getUserRole**](UserRolesApi.md#getUserRole) | **GET** /api/userroles/{userid} | GetUserRole: Get a user-role |
+| [**listUserRoles**](UserRolesApi.md#listUserRoles) | **GET** /api/userroles | ListUserRoles: List user-roles |
+| [**removePolicyCollectionFromUserRole**](UserRolesApi.md#removePolicyCollectionFromUserRole) | **DELETE** /api/userroles/{userid}/policycollections/{policyCollectionScope}/{policyCollectionCode} | RemovePolicyCollectionFromUserRole: Remove a policy collection from a user-role |
+| [**removePolicyFromUserRole**](UserRolesApi.md#removePolicyFromUserRole) | **DELETE** /api/userroles/{userid}/policies/{policyScope}/{policyCode} | RemovePolicyFromUserRole: Remove a policy from a user-role |
+| [**updateUserRole**](UserRolesApi.md#updateUserRole) | **POST** /api/userroles/{userid}/update | UpdateUserRole: Update a user-role |
 
 
 <a id="addPolicyCollectionToUserRole"></a>
 # **addPolicyCollectionToUserRole**
 > UserRoleResponse addPolicyCollectionToUserRole(userid, addPolicyCollectionToRoleRequest).execute();
 
-[EXPERIMENTAL] AddPolicyCollectionToUserRole: Add a policy collection to a user-role
+AddPolicyCollectionToUserRole: Add a policy collection to a user-role
 
 Adds a policy collection to a user-role.
 
@@ -91,7 +91,7 @@ public class Example {
 # **addPolicyToUserRole**
 > UserRoleResponse addPolicyToUserRole(userid, addPolicyToRoleRequest).execute();
 
-[EXPERIMENTAL] AddPolicyToUserRole: Add a policy to a user-role
+AddPolicyToUserRole: Add a policy to a user-role
 
 Adds a policy to a user-role.
 
@@ -163,7 +163,7 @@ public class Example {
 # **createUserRole**
 > UserRoleResponse createUserRole(userRoleCreationRequest).execute();
 
-[EXPERIMENTAL] CreateUserRole: Create a user-role
+CreateUserRole: Create a user-role
 
 Creates a new user-role.
 
@@ -233,7 +233,7 @@ public class Example {
 # **deleteUserRole**
 > deleteUserRole(userid).execute();
 
-[EXPERIMENTAL] DeleteUserRole: Delete a user-role
+DeleteUserRole: Delete a user-role
 
 Deletes an identified user-role.
 
@@ -302,7 +302,7 @@ null (empty response body)
 # **getUserRole**
 > UserRoleResponse getUserRole(userid).execute();
 
-[EXPERIMENTAL] GetUserRole: Get a user-role
+GetUserRole: Get a user-role
 
 Get an identified user-role.
 
@@ -372,7 +372,7 @@ public class Example {
 # **listUserRoles**
 > ResourceListOfUserRoleResponse listUserRoles().filter(filter).sortBy(sortBy).limit(limit).page(page).execute();
 
-[EXPERIMENTAL] ListUserRoles: List user-roles
+ListUserRoles: List user-roles
 
 Lists all user-roles and pages.
 
@@ -452,7 +452,7 @@ public class Example {
 # **removePolicyCollectionFromUserRole**
 > removePolicyCollectionFromUserRole(userid, policyCollectionScope, policyCollectionCode).execute();
 
-[EXPERIMENTAL] RemovePolicyCollectionFromUserRole: Remove a policy collection from a user-role
+RemovePolicyCollectionFromUserRole: Remove a policy collection from a user-role
 
 Removes a policy collection from a user-role.
 
@@ -525,7 +525,7 @@ null (empty response body)
 # **removePolicyFromUserRole**
 > removePolicyFromUserRole(userid, policyScope, policyCode).execute();
 
-[EXPERIMENTAL] RemovePolicyFromUserRole: Remove a policy from a user-role
+RemovePolicyFromUserRole: Remove a policy from a user-role
 
 Removes a policy from a user-role.
 
@@ -598,7 +598,7 @@ null (empty response body)
 # **updateUserRole**
 > UserRoleResponse updateUserRole(userid, userRoleUpdateRequest).execute();
 
-[EXPERIMENTAL] UpdateUserRole: Update a user-role
+UpdateUserRole: Update a user-role
 
 Updates an identified user-role.
 

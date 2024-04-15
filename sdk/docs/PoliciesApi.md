@@ -4,29 +4,29 @@ All URIs are relative to *https://fbn-prd.lusid.com/access*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
-| [**addToPolicyCollection**](PoliciesApi.md#addToPolicyCollection) | **POST** /api/policycollections/{code}/add | [EARLY ACCESS] AddToPolicyCollection: Add To PolicyCollection |
-| [**createPolicy**](PoliciesApi.md#createPolicy) | **POST** /api/policies | [EARLY ACCESS] CreatePolicy: Create Policy |
-| [**createPolicyCollection**](PoliciesApi.md#createPolicyCollection) | **POST** /api/policycollections | [EARLY ACCESS] CreatePolicyCollection: Create PolicyCollection |
-| [**deletePolicy**](PoliciesApi.md#deletePolicy) | **DELETE** /api/policies/{code} | [EARLY ACCESS] DeletePolicy: Delete Policy |
-| [**deletePolicyCollection**](PoliciesApi.md#deletePolicyCollection) | **DELETE** /api/policycollections/{code} | [EARLY ACCESS] DeletePolicyCollection: Delete PolicyCollection |
-| [**evaluate**](PoliciesApi.md#evaluate) | **POST** /api/me | [EARLY ACCESS] Evaluate: Run one or more evaluations |
+| [**addToPolicyCollection**](PoliciesApi.md#addToPolicyCollection) | **POST** /api/policycollections/{code}/add | AddToPolicyCollection: Add To PolicyCollection |
+| [**createPolicy**](PoliciesApi.md#createPolicy) | **POST** /api/policies | CreatePolicy: Create Policy |
+| [**createPolicyCollection**](PoliciesApi.md#createPolicyCollection) | **POST** /api/policycollections | CreatePolicyCollection: Create PolicyCollection |
+| [**deletePolicy**](PoliciesApi.md#deletePolicy) | **DELETE** /api/policies/{code} | DeletePolicy: Delete Policy |
+| [**deletePolicyCollection**](PoliciesApi.md#deletePolicyCollection) | **DELETE** /api/policycollections/{code} | DeletePolicyCollection: Delete PolicyCollection |
+| [**evaluate**](PoliciesApi.md#evaluate) | **POST** /api/me | Evaluate: Run one or more evaluations |
 | [**getOwnPolicies**](PoliciesApi.md#getOwnPolicies) | **GET** /api/me | GetOwnPolicies: Get policies of requesting user |
-| [**getPolicy**](PoliciesApi.md#getPolicy) | **GET** /api/policies/{code} | [EARLY ACCESS] GetPolicy: Get Policy |
-| [**getPolicyCollection**](PoliciesApi.md#getPolicyCollection) | **GET** /api/policycollections/{code} | [EARLY ACCESS] GetPolicyCollection: Get PolicyCollection |
+| [**getPolicy**](PoliciesApi.md#getPolicy) | **GET** /api/policies/{code} | GetPolicy: Get Policy |
+| [**getPolicyCollection**](PoliciesApi.md#getPolicyCollection) | **GET** /api/policycollections/{code} | GetPolicyCollection: Get PolicyCollection |
 | [**listPolicies**](PoliciesApi.md#listPolicies) | **GET** /api/policies | [EARLY ACCESS] ListPolicies: List Policies |
-| [**listPolicyCollections**](PoliciesApi.md#listPolicyCollections) | **GET** /api/policycollections | [EARLY ACCESS] ListPolicyCollections: List PolicyCollections |
+| [**listPolicyCollections**](PoliciesApi.md#listPolicyCollections) | **GET** /api/policycollections | ListPolicyCollections: List PolicyCollections |
 | [**pagePolicies**](PoliciesApi.md#pagePolicies) | **GET** /api/policies/page | [EARLY ACCESS] PagePolicies: Page Policies |
-| [**pagePolicyCollections**](PoliciesApi.md#pagePolicyCollections) | **GET** /api/policycollections/page | [EARLY ACCESS] PagePolicyCollections: Page PolicyCollections |
-| [**removeFromPolicyCollection**](PoliciesApi.md#removeFromPolicyCollection) | **POST** /api/policycollections/{code}/remove | [EARLY ACCESS] RemoveFromPolicyCollection: Remove From PolicyCollection |
-| [**updatePolicy**](PoliciesApi.md#updatePolicy) | **PUT** /api/policies/{code} | [EARLY ACCESS] UpdatePolicy: Update Policy |
-| [**updatePolicyCollection**](PoliciesApi.md#updatePolicyCollection) | **PUT** /api/policycollections/{code} | [EARLY ACCESS] UpdatePolicyCollection: Update PolicyCollection |
+| [**pagePolicyCollections**](PoliciesApi.md#pagePolicyCollections) | **GET** /api/policycollections/page | PagePolicyCollections: Page PolicyCollections |
+| [**removeFromPolicyCollection**](PoliciesApi.md#removeFromPolicyCollection) | **POST** /api/policycollections/{code}/remove | RemoveFromPolicyCollection: Remove From PolicyCollection |
+| [**updatePolicy**](PoliciesApi.md#updatePolicy) | **PUT** /api/policies/{code} | UpdatePolicy: Update Policy |
+| [**updatePolicyCollection**](PoliciesApi.md#updatePolicyCollection) | **PUT** /api/policycollections/{code} | UpdatePolicyCollection: Update PolicyCollection |
 
 
 <a id="addToPolicyCollection"></a>
 # **addToPolicyCollection**
 > PolicyCollectionResponse addToPolicyCollection(code, addToPolicyCollectionRequest).scope(scope).execute();
 
-[EARLY ACCESS] AddToPolicyCollection: Add To PolicyCollection
+AddToPolicyCollection: Add To PolicyCollection
 
 Add Policies and/or PolicyCollections to a PolicyCollection
 
@@ -101,7 +101,7 @@ public class Example {
 # **createPolicy**
 > PolicyResponse createPolicy(policyCreationRequest).execute();
 
-[EARLY ACCESS] CreatePolicy: Create Policy
+CreatePolicy: Create Policy
 
 Creates a Policy
 
@@ -171,7 +171,7 @@ public class Example {
 # **createPolicyCollection**
 > PolicyCollectionResponse createPolicyCollection(policyCollectionCreationRequest).execute();
 
-[EARLY ACCESS] CreatePolicyCollection: Create PolicyCollection
+CreatePolicyCollection: Create PolicyCollection
 
 Creates a PolicyCollection
 
@@ -241,7 +241,7 @@ public class Example {
 # **deletePolicy**
 > deletePolicy(code).scope(scope).execute();
 
-[EARLY ACCESS] DeletePolicy: Delete Policy
+DeletePolicy: Delete Policy
 
 Deletes an identified Policy
 
@@ -313,7 +313,7 @@ null (empty response body)
 # **deletePolicyCollection**
 > deletePolicyCollection(code).scope(scope).execute();
 
-[EARLY ACCESS] DeletePolicyCollection: Delete PolicyCollection
+DeletePolicyCollection: Delete PolicyCollection
 
 Deletes an identified PolicyCollection
 
@@ -385,7 +385,7 @@ null (empty response body)
 # **evaluate**
 > Map&lt;String, EvaluationResponse&gt; evaluate(requestBody).applications(applications).asAt(asAt).execute();
 
-[EARLY ACCESS] Evaluate: Run one or more evaluations
+Evaluate: Run one or more evaluations
 
 Given a dictionary of evaluation requests (keyed by any arbitrary correlation identifier), each will be evaluated according to the current user&#39;s policies (deduced from the provided OAuth token).
 
@@ -547,7 +547,7 @@ public class Example {
 # **getPolicy**
 > PolicyResponse getPolicy(code).asAt(asAt).scope(scope).execute();
 
-[EARLY ACCESS] GetPolicy: Get Policy
+GetPolicy: Get Policy
 
 Gets an identified Policy
 
@@ -623,7 +623,7 @@ public class Example {
 # **getPolicyCollection**
 > PolicyCollectionResponse getPolicyCollection(code).asAt(asAt).scope(scope).execute();
 
-[EARLY ACCESS] GetPolicyCollection: Get PolicyCollection
+GetPolicyCollection: Get PolicyCollection
 
 Gets an identified PolicyCollection
 
@@ -785,7 +785,7 @@ public class Example {
 # **listPolicyCollections**
 > List&lt;PolicyCollectionResponse&gt; listPolicyCollections().scope(scope).asAt(asAt).sortBy(sortBy).start(start).limit(limit).filter(filter).execute();
 
-[EARLY ACCESS] ListPolicyCollections: List PolicyCollections
+ListPolicyCollections: List PolicyCollections
 
 Gets all PolicyCollections in a scope. For pagination support, use PagePolicyCollections
 
@@ -954,7 +954,7 @@ public class Example {
 # **pagePolicyCollections**
 > ResourceListOfPolicyCollectionResponse pagePolicyCollections().asAt(asAt).sortBy(sortBy).limit(limit).filter(filter).page(page).execute();
 
-[EARLY ACCESS] PagePolicyCollections: Page PolicyCollections
+PagePolicyCollections: Page PolicyCollections
 
 Gets all PolicyCollections with pagination support.
 
@@ -1037,7 +1037,7 @@ public class Example {
 # **removeFromPolicyCollection**
 > PolicyCollectionResponse removeFromPolicyCollection(code, removeFromPolicyCollectionRequest).scope(scope).execute();
 
-[EARLY ACCESS] RemoveFromPolicyCollection: Remove From PolicyCollection
+RemoveFromPolicyCollection: Remove From PolicyCollection
 
 Remove Policies and/or PolicyCollections from a PolicyCollection
 
@@ -1112,7 +1112,7 @@ public class Example {
 # **updatePolicy**
 > PolicyResponse updatePolicy(code, policyUpdateRequest).scope(scope).execute();
 
-[EARLY ACCESS] UpdatePolicy: Update Policy
+UpdatePolicy: Update Policy
 
 Updates a Policy
 
@@ -1187,7 +1187,7 @@ public class Example {
 # **updatePolicyCollection**
 > PolicyCollectionResponse updatePolicyCollection(code, policyCollectionUpdateRequest).scope(scope).execute();
 
-[EARLY ACCESS] UpdatePolicyCollection: Update PolicyCollection
+UpdatePolicyCollection: Update PolicyCollection
 
 Updates a PolicyCollection
 

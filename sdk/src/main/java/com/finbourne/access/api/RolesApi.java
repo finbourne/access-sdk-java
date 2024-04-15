@@ -243,7 +243,7 @@ public class RolesApi {
     }
 
     /**
-     * [EARLY ACCESS] AddPolicyCollectionToRole: Add policy collections to a role
+     * AddPolicyCollectionToRole: Add policy collections to a role
      * Assigns policy collections to a role
      * @param scope The scope of the Role (required)
      * @param code The code of the Role (required)
@@ -412,7 +412,7 @@ public class RolesApi {
     }
 
     /**
-     * [EARLY ACCESS] CreateRole: Create Role
+     * CreateRole: Create Role
      * Creates a Role
      * @param roleCreationRequest The definition of the Role (required)
      * @return APIcreateRoleRequest
@@ -587,7 +587,7 @@ public class RolesApi {
     }
 
     /**
-     * [EARLY ACCESS] DeleteRole: Delete Role
+     * DeleteRole: Delete Role
      * Deletes an identified Role
      * @param code The code of the Role (required)
      * @return APIdeleteRoleRequest
@@ -781,7 +781,7 @@ public class RolesApi {
     }
 
     /**
-     * [EARLY ACCESS] GetRole: Get Role
+     * GetRole: Get Role
      * Gets an identified Role
      * @param code The code of the Role (required)
      * @return APIgetRoleRequest
@@ -1027,7 +1027,7 @@ public class RolesApi {
     }
 
     /**
-     * [EARLY ACCESS] ListRoles: List Roles
+     * ListRoles: List Roles
      * Gets all Roles in a scope
      * @return APIlistRolesRequest
      * @http.response.details
@@ -1214,7 +1214,7 @@ public class RolesApi {
     }
 
     /**
-     * [EARLY ACCESS] RemovePolicyCollectionFromRole: Remove policy collection from role
+     * RemovePolicyCollectionFromRole: Remove policy collection from role
      * Removes a policy collection from a role
      * @param scope The scope of the Role (required)
      * @param code The code of the Role (required)
@@ -1467,7 +1467,7 @@ public class RolesApi {
     }
 
     /**
-     * [EARLY ACCESS] UpdateRole: Update Role
+     * UpdateRole: Update Role
      * Updates a Role
      * @param code The code of the Role (required)
      * @param roleUpdateRequest The updated definition of the Role (required)

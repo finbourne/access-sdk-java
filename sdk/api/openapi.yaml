@@ -10,7 +10,7 @@ info:
     \ and Access Management system.\r\n\r\n"
   termsOfService: https://www.finbourne.com/legal/terms-conditions
   title: FINBOURNE Access Management API
-  version: 0.0.3774
+  version: 0.0.3775
   x-logo:
     url: https://www.lusid.com/app/assets/logo_white.png
     backgroundColor: '#415464'
@@ -452,10 +452,10 @@ paths:
           description: Error response
       security:
       - oauth2: []
-      summary: "[EARLY ACCESS] Evaluate: Run one or more evaluations"
+      summary: "Evaluate: Run one or more evaluations"
       tags:
       - Policies
-      x-fbn-apistatus: EarlyAccess
+      x-fbn-apistatus: Stable
       x-content-type: application/json-patch+json
       x-accepts: application/json
   /api/metadata/access/resources:
@@ -484,11 +484,11 @@ paths:
           description: Error response
       security:
       - oauth2: []
-      summary: "[EARLY ACCESS] ListAccessControlledResources: Get resources available\
-        \ for access control"
+      summary: "ListAccessControlledResources: Get resources available for access\
+        \ control"
       tags:
       - Application Metadata
-      x-fbn-apistatus: EarlyAccess
+      x-fbn-apistatus: Stable
       x-accepts: application/json
   /api/policies:
     get:
@@ -982,10 +982,10 @@ paths:
           description: Error response
       security:
       - oauth2: []
-      summary: "[EARLY ACCESS] CreatePolicy: Create Policy"
+      summary: "CreatePolicy: Create Policy"
       tags:
       - Policies
-      x-fbn-apistatus: EarlyAccess
+      x-fbn-apistatus: Stable
       x-content-type: application/json-patch+json
       x-accepts: application/json
   /api/policies/page:
@@ -1261,10 +1261,10 @@ paths:
           description: Error response
       security:
       - oauth2: []
-      summary: "[EARLY ACCESS] DeletePolicy: Delete Policy"
+      summary: "DeletePolicy: Delete Policy"
       tags:
       - Policies
-      x-fbn-apistatus: EarlyAccess
+      x-fbn-apistatus: Stable
       x-accepts: application/json
     get:
       description: Gets an identified Policy
@@ -1449,10 +1449,10 @@ paths:
           description: Error response
       security:
       - oauth2: []
-      summary: "[EARLY ACCESS] GetPolicy: Get Policy"
+      summary: "GetPolicy: Get Policy"
       tags:
       - Policies
-      x-fbn-apistatus: EarlyAccess
+      x-fbn-apistatus: Stable
       x-accepts: application/json
     put:
       description: Updates a Policy
@@ -1783,10 +1783,10 @@ paths:
           description: Error response
       security:
       - oauth2: []
-      summary: "[EARLY ACCESS] UpdatePolicy: Update Policy"
+      summary: "UpdatePolicy: Update Policy"
       tags:
       - Policies
-      x-fbn-apistatus: EarlyAccess
+      x-fbn-apistatus: Stable
       x-content-type: application/json-patch+json
       x-accepts: application/json
   /api/policycollections:
@@ -1937,10 +1937,10 @@ paths:
           description: Error response
       security:
       - oauth2: []
-      summary: "[EARLY ACCESS] ListPolicyCollections: List PolicyCollections"
+      summary: "ListPolicyCollections: List PolicyCollections"
       tags:
       - Policies
-      x-fbn-apistatus: EarlyAccess
+      x-fbn-apistatus: Stable
       x-accepts: application/json
     post:
       description: Creates a PolicyCollection
@@ -2081,10 +2081,10 @@ paths:
           description: Error response
       security:
       - oauth2: []
-      summary: "[EARLY ACCESS] CreatePolicyCollection: Create PolicyCollection"
+      summary: "CreatePolicyCollection: Create PolicyCollection"
       tags:
       - Policies
-      x-fbn-apistatus: EarlyAccess
+      x-fbn-apistatus: Stable
       x-content-type: application/json-patch+json
       x-accepts: application/json
   /api/policycollections/page:
@@ -2230,10 +2230,10 @@ paths:
           description: Error response
       security:
       - oauth2: []
-      summary: "[EARLY ACCESS] PagePolicyCollections: Page PolicyCollections"
+      summary: "PagePolicyCollections: Page PolicyCollections"
       tags:
       - Policies
-      x-fbn-apistatus: EarlyAccess
+      x-fbn-apistatus: Stable
       x-accepts: application/json
   /api/policycollections/{code}:
     delete:
@@ -2282,10 +2282,10 @@ paths:
           description: Error response
       security:
       - oauth2: []
-      summary: "[EARLY ACCESS] DeletePolicyCollection: Delete PolicyCollection"
+      summary: "DeletePolicyCollection: Delete PolicyCollection"
       tags:
       - Policies
-      x-fbn-apistatus: EarlyAccess
+      x-fbn-apistatus: Stable
       x-accepts: application/json
     get:
       description: Gets an identified PolicyCollection
@@ -2392,10 +2392,10 @@ paths:
           description: Error response
       security:
       - oauth2: []
-      summary: "[EARLY ACCESS] GetPolicyCollection: Get PolicyCollection"
+      summary: "GetPolicyCollection: Get PolicyCollection"
       tags:
       - Policies
-      x-fbn-apistatus: EarlyAccess
+      x-fbn-apistatus: Stable
       x-accepts: application/json
     put:
       description: Updates a PolicyCollection
@@ -2552,10 +2552,10 @@ paths:
           description: Error response
       security:
       - oauth2: []
-      summary: "[EARLY ACCESS] UpdatePolicyCollection: Update PolicyCollection"
+      summary: "UpdatePolicyCollection: Update PolicyCollection"
       tags:
       - Policies
-      x-fbn-apistatus: EarlyAccess
+      x-fbn-apistatus: Stable
       x-content-type: application/json-patch+json
       x-accepts: application/json
   /api/policycollections/{code}/add:
@@ -2706,10 +2706,10 @@ paths:
           description: Error response
       security:
       - oauth2: []
-      summary: "[EARLY ACCESS] AddToPolicyCollection: Add To PolicyCollection"
+      summary: "AddToPolicyCollection: Add To PolicyCollection"
       tags:
       - Policies
-      x-fbn-apistatus: EarlyAccess
+      x-fbn-apistatus: Stable
       x-content-type: application/json-patch+json
       x-accepts: application/json
   /api/policycollections/{code}/remove:
@@ -2861,10 +2861,10 @@ paths:
           description: Error response
       security:
       - oauth2: []
-      summary: "[EARLY ACCESS] RemoveFromPolicyCollection: Remove From PolicyCollection"
+      summary: "RemoveFromPolicyCollection: Remove From PolicyCollection"
       tags:
       - Policies
-      x-fbn-apistatus: EarlyAccess
+      x-fbn-apistatus: Stable
       x-content-type: application/json-patch+json
       x-accepts: application/json
   /api/policytemplates:
@@ -3954,10 +3954,10 @@ paths:
           description: Error response
       security:
       - oauth2: []
-      summary: "[EARLY ACCESS] ListRoles: List Roles"
+      summary: "ListRoles: List Roles"
       tags:
       - Roles
-      x-fbn-apistatus: EarlyAccess
+      x-fbn-apistatus: Stable
       x-accepts: application/json
     post:
       description: Creates a Role
@@ -4135,10 +4135,10 @@ paths:
           description: Error response
       security:
       - oauth2: []
-      summary: "[EARLY ACCESS] CreateRole: Create Role"
+      summary: "CreateRole: Create Role"
       tags:
       - Roles
-      x-fbn-apistatus: EarlyAccess
+      x-fbn-apistatus: Stable
       x-content-type: application/json-patch+json
       x-accepts: application/json
   /api/roles/{code}:
@@ -4188,10 +4188,10 @@ paths:
           description: Error response
       security:
       - oauth2: []
-      summary: "[EARLY ACCESS] DeleteRole: Delete Role"
+      summary: "DeleteRole: Delete Role"
       tags:
       - Roles
-      x-fbn-apistatus: EarlyAccess
+      x-fbn-apistatus: Stable
       x-accepts: application/json
     get:
       description: Gets an identified Role
@@ -4319,10 +4319,10 @@ paths:
           description: Error response
       security:
       - oauth2: []
-      summary: "[EARLY ACCESS] GetRole: Get Role"
+      summary: "GetRole: Get Role"
       tags:
       - Roles
-      x-fbn-apistatus: EarlyAccess
+      x-fbn-apistatus: Stable
       x-accepts: application/json
     put:
       description: Updates a Role
@@ -4554,10 +4554,10 @@ paths:
           description: Error response
       security:
       - oauth2: []
-      summary: "[EARLY ACCESS] UpdateRole: Update Role"
+      summary: "UpdateRole: Update Role"
       tags:
       - Roles
-      x-fbn-apistatus: EarlyAccess
+      x-fbn-apistatus: Stable
       x-content-type: application/json-patch+json
       x-accepts: application/json
   /api/roles/{scope}/{code}/policycollections:
@@ -4716,11 +4716,10 @@ paths:
           description: Error response
       security:
       - oauth2: []
-      summary: "[EARLY ACCESS] AddPolicyCollectionToRole: Add policy collections to\
-        \ a role"
+      summary: "AddPolicyCollectionToRole: Add policy collections to a role"
       tags:
       - Roles
-      x-fbn-apistatus: EarlyAccess
+      x-fbn-apistatus: Stable
       x-content-type: application/json-patch+json
       x-accepts: application/json
   /api/roles/{scope}/{code}/policycollections/{policycollectionscope}/{policycollectioncode}:
@@ -4857,11 +4856,10 @@ paths:
           description: Error response
       security:
       - oauth2: []
-      summary: "[EARLY ACCESS] RemovePolicyCollectionFromRole: Remove policy collection\
-        \ from role"
+      summary: "RemovePolicyCollectionFromRole: Remove policy collection from role"
       tags:
       - Roles
-      x-fbn-apistatus: EarlyAccess
+      x-fbn-apistatus: Stable
       x-accepts: application/json
   /api/userroles:
     get:
@@ -4994,10 +4992,10 @@ paths:
           description: Error response
       security:
       - oauth2: []
-      summary: "[EXPERIMENTAL] ListUserRoles: List user-roles"
+      summary: "ListUserRoles: List user-roles"
       tags:
       - User-roles
-      x-fbn-apistatus: Experimental
+      x-fbn-apistatus: Stable
       x-accepts: application/json
     post:
       description: Creates a new user-role.
@@ -5123,10 +5121,10 @@ paths:
           description: Error response
       security:
       - oauth2: []
-      summary: "[EXPERIMENTAL] CreateUserRole: Create a user-role"
+      summary: "CreateUserRole: Create a user-role"
       tags:
       - User-roles
-      x-fbn-apistatus: Experimental
+      x-fbn-apistatus: Stable
       x-content-type: application/json-patch+json
       x-accepts: application/json
   /api/userroles/{userid}:
@@ -5165,10 +5163,10 @@ paths:
           description: Error response
       security:
       - oauth2: []
-      summary: "[EXPERIMENTAL] DeleteUserRole: Delete a user-role"
+      summary: "DeleteUserRole: Delete a user-role"
       tags:
       - User-roles
-      x-fbn-apistatus: Experimental
+      x-fbn-apistatus: Stable
       x-accepts: application/json
     get:
       description: Get an identified user-role.
@@ -5251,10 +5249,10 @@ paths:
           description: Error response
       security:
       - oauth2: []
-      summary: "[EXPERIMENTAL] GetUserRole: Get a user-role"
+      summary: "GetUserRole: Get a user-role"
       tags:
       - User-roles
-      x-fbn-apistatus: Experimental
+      x-fbn-apistatus: Stable
       x-accepts: application/json
   /api/userroles/{userid}/policies:
     post:
@@ -5370,10 +5368,10 @@ paths:
           description: Error response
       security:
       - oauth2: []
-      summary: "[EXPERIMENTAL] AddPolicyToUserRole: Add a policy to a user-role"
+      summary: "AddPolicyToUserRole: Add a policy to a user-role"
       tags:
       - User-roles
-      x-fbn-apistatus: Experimental
+      x-fbn-apistatus: Stable
       x-content-type: application/json-patch+json
       x-accepts: application/json
   /api/userroles/{userid}/policies/{policyScope}/{policyCode}:
@@ -5430,10 +5428,10 @@ paths:
           description: Error response
       security:
       - oauth2: []
-      summary: "[EXPERIMENTAL] RemovePolicyFromUserRole: Remove a policy from a user-role"
+      summary: "RemovePolicyFromUserRole: Remove a policy from a user-role"
       tags:
       - User-roles
-      x-fbn-apistatus: Experimental
+      x-fbn-apistatus: Stable
       x-accepts: application/json
   /api/userroles/{userid}/policycollections:
     post:
@@ -5549,11 +5547,10 @@ paths:
           description: Error response
       security:
       - oauth2: []
-      summary: "[EXPERIMENTAL] AddPolicyCollectionToUserRole: Add a policy collection\
-        \ to a user-role"
+      summary: "AddPolicyCollectionToUserRole: Add a policy collection to a user-role"
       tags:
       - User-roles
-      x-fbn-apistatus: Experimental
+      x-fbn-apistatus: Stable
       x-content-type: application/json-patch+json
       x-accepts: application/json
   /api/userroles/{userid}/policycollections/{policyCollectionScope}/{policyCollectionCode}:
@@ -5610,11 +5607,11 @@ paths:
           description: Error response
       security:
       - oauth2: []
-      summary: "[EXPERIMENTAL] RemovePolicyCollectionFromUserRole: Remove a policy\
-        \ collection from a user-role"
+      summary: "RemovePolicyCollectionFromUserRole: Remove a policy collection from\
+        \ a user-role"
       tags:
       - User-roles
-      x-fbn-apistatus: Experimental
+      x-fbn-apistatus: Stable
       x-accepts: application/json
   /api/userroles/{userid}/update:
     post:
@@ -5746,10 +5743,10 @@ paths:
           description: Error response
       security:
       - oauth2: []
-      summary: "[EXPERIMENTAL] UpdateUserRole: Update a user-role"
+      summary: "UpdateUserRole: Update a user-role"
       tags:
       - User-roles
-      x-fbn-apistatus: Experimental
+      x-fbn-apistatus: Stable
       x-content-type: application/json-patch+json
       x-accepts: application/json
 components:

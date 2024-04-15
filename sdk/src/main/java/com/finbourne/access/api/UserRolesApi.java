@@ -236,7 +236,7 @@ public class UserRolesApi {
     }
 
     /**
-     * [EXPERIMENTAL] AddPolicyCollectionToUserRole: Add a policy collection to a user-role
+     * AddPolicyCollectionToUserRole: Add a policy collection to a user-role
      * Adds a policy collection to a user-role.
      * @param userid Id of the User Role to get (required)
      * @param addPolicyCollectionToRoleRequest Dto of the policy collection to be added. (required)
@@ -412,7 +412,7 @@ public class UserRolesApi {
     }
 
     /**
-     * [EXPERIMENTAL] AddPolicyToUserRole: Add a policy to a user-role
+     * AddPolicyToUserRole: Add a policy to a user-role
      * Adds a policy to a user-role.
      * @param userid Id of the User Role to get (required)
      * @param addPolicyToRoleRequest Dto of the policy to be added. (required)
@@ -580,7 +580,7 @@ public class UserRolesApi {
     }
 
     /**
-     * [EXPERIMENTAL] CreateUserRole: Create a user-role
+     * CreateUserRole: Create a user-role
      * Creates a new user-role.
      * @param userRoleCreationRequest Definition of the user-role to create. (required)
      * @return APIcreateUserRoleRequest
@@ -740,7 +740,7 @@ public class UserRolesApi {
     }
 
     /**
-     * [EXPERIMENTAL] DeleteUserRole: Delete a user-role
+     * DeleteUserRole: Delete a user-role
      * Deletes an identified user-role.
      * @param userid Id of the user-role to delete. (required)
      * @return APIdeleteUserRoleRequest
@@ -904,7 +904,7 @@ public class UserRolesApi {
     }
 
     /**
-     * [EXPERIMENTAL] GetUserRole: Get a user-role
+     * GetUserRole: Get a user-role
      * Get an identified user-role.
      * @param userid Id of the user-role to get. (required)
      * @return APIgetUserRoleRequest
@@ -1120,7 +1120,7 @@ public class UserRolesApi {
     }
 
     /**
-     * [EXPERIMENTAL] ListUserRoles: List user-roles
+     * ListUserRoles: List user-roles
      * Lists all user-roles and pages.
      * @return APIlistUserRolesRequest
      * @http.response.details
@@ -1295,7 +1295,7 @@ public class UserRolesApi {
     }
 
     /**
-     * [EXPERIMENTAL] RemovePolicyCollectionFromUserRole: Remove a policy collection from a user-role
+     * RemovePolicyCollectionFromUserRole: Remove a policy collection from a user-role
      * Removes a policy collection from a user-role.
      * @param userid Id of the User Role to get (required)
      * @param policyCollectionScope The scope of policy collection to remove from the User Role (required)
@@ -1473,7 +1473,7 @@ public class UserRolesApi {
     }
 
     /**
-     * [EXPERIMENTAL] RemovePolicyFromUserRole: Remove a policy from a user-role
+     * RemovePolicyFromUserRole: Remove a policy from a user-role
      * Removes a policy from a user-role.
      * @param userid Id of the User Role to get (required)
      * @param policyScope The scope of the policy to remove from the User Role (required)
@@ -1650,7 +1650,7 @@ public class UserRolesApi {
     }
 
     /**
-     * [EXPERIMENTAL] UpdateUserRole: Update a user-role
+     * UpdateUserRole: Update a user-role
      * Updates an identified user-role.
      * @param userid Id of the user-role to be updated. (required)
      * @param userRoleUpdateRequest Definition of the update to apply to the user-role. (required)

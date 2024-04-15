@@ -259,7 +259,7 @@ public class PoliciesApi {
     }
 
     /**
-     * [EARLY ACCESS] AddToPolicyCollection: Add To PolicyCollection
+     * AddToPolicyCollection: Add To PolicyCollection
      * Add Policies and/or PolicyCollections to a PolicyCollection
      * @param code The code of the PolicyCollection (required)
      * @param addToPolicyCollectionRequest Ids of the PolicyCollections and/or Policies to add to the PolicyCollection (required)
@@ -427,7 +427,7 @@ public class PoliciesApi {
     }
 
     /**
-     * [EARLY ACCESS] CreatePolicy: Create Policy
+     * CreatePolicy: Create Policy
      * Creates a Policy
      * @param policyCreationRequest The definition of the Policy (required)
      * @return APIcreatePolicyRequest
@@ -594,7 +594,7 @@ public class PoliciesApi {
     }
 
     /**
-     * [EARLY ACCESS] CreatePolicyCollection: Create PolicyCollection
+     * CreatePolicyCollection: Create PolicyCollection
      * Creates a PolicyCollection
      * @param policyCollectionCreationRequest The definition of the PolicyCollection (required)
      * @return APIcreatePolicyCollectionRequest
@@ -769,7 +769,7 @@ public class PoliciesApi {
     }
 
     /**
-     * [EARLY ACCESS] DeletePolicy: Delete Policy
+     * DeletePolicy: Delete Policy
      * Deletes an identified Policy
      * @param code The code of the Policy (required)
      * @return APIdeletePolicyRequest
@@ -944,7 +944,7 @@ public class PoliciesApi {
     }
 
     /**
-     * [EARLY ACCESS] DeletePolicyCollection: Delete PolicyCollection
+     * DeletePolicyCollection: Delete PolicyCollection
      * Deletes an identified PolicyCollection
      * @param code The code of the PolicyCollection (required)
      * @return APIdeletePolicyCollectionRequest
@@ -1141,7 +1141,7 @@ public class PoliciesApi {
     }
 
     /**
-     * [EARLY ACCESS] Evaluate: Run one or more evaluations
+     * Evaluate: Run one or more evaluations
      * Given a dictionary of evaluation requests (keyed by any arbitrary correlation identifier), each will be evaluated according to the current user&#39;s policies (deduced from the provided OAuth token).
      * @param requestBody A dictionary of evaluations, keyed using any arbitrary correlation id (it will be returned with the response for that evaluation). (required)
      * @return APIevaluateRequest
@@ -1580,7 +1580,7 @@ public class PoliciesApi {
     }
 
     /**
-     * [EARLY ACCESS] GetPolicy: Get Policy
+     * GetPolicy: Get Policy
      * Gets an identified Policy
      * @param code The code of the Policy (required)
      * @return APIgetPolicyRequest
@@ -1774,7 +1774,7 @@ public class PoliciesApi {
     }
 
     /**
-     * [EARLY ACCESS] GetPolicyCollection: Get PolicyCollection
+     * GetPolicyCollection: Get PolicyCollection
      * Gets an identified PolicyCollection
      * @param code The code of the PolicyCollection (required)
      * @return APIgetPolicyCollectionRequest
@@ -2265,7 +2265,7 @@ public class PoliciesApi {
     }
 
     /**
-     * [EARLY ACCESS] ListPolicyCollections: List PolicyCollections
+     * ListPolicyCollections: List PolicyCollections
      * Gets all PolicyCollections in a scope. For pagination support, use PagePolicyCollections
      * @return APIlistPolicyCollectionsRequest
      * @http.response.details
@@ -2725,7 +2725,7 @@ public class PoliciesApi {
     }
 
     /**
-     * [EARLY ACCESS] PagePolicyCollections: Page PolicyCollections
+     * PagePolicyCollections: Page PolicyCollections
      * Gets all PolicyCollections with pagination support.
      * @return APIpagePolicyCollectionsRequest
      * @http.response.details
@@ -2914,7 +2914,7 @@ public class PoliciesApi {
     }
 
     /**
-     * [EARLY ACCESS] RemoveFromPolicyCollection: Remove From PolicyCollection
+     * RemoveFromPolicyCollection: Remove From PolicyCollection
      * Remove Policies and/or PolicyCollections from a PolicyCollection
      * @param code The code of the PolicyCollection (required)
      * @param removeFromPolicyCollectionRequest Ids of the PolicyCollections and/or Policies to remove from the PolicyCollection (required)
@@ -3105,7 +3105,7 @@ public class PoliciesApi {
     }
 
     /**
-     * [EARLY ACCESS] UpdatePolicy: Update Policy
+     * UpdatePolicy: Update Policy
      * Updates a Policy
      * @param code The code of the Policy (required)
      * @param policyUpdateRequest The updated definition of the Policy (required)
@@ -3296,7 +3296,7 @@ public class PoliciesApi {
     }
 
     /**
-     * [EARLY ACCESS] UpdatePolicyCollection: Update PolicyCollection
+     * UpdatePolicyCollection: Update PolicyCollection
      * Updates a PolicyCollection
      * @param code The code of the PolicyCollection (required)
      * @param policyCollectionUpdateRequest The updated definition of the PolicyCollection (required)

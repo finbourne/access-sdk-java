@@ -4,20 +4,20 @@ All URIs are relative to *https://fbn-prd.lusid.com/access*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
-| [**addPolicyCollectionToRole**](RolesApi.md#addPolicyCollectionToRole) | **POST** /api/roles/{scope}/{code}/policycollections | [EARLY ACCESS] AddPolicyCollectionToRole: Add policy collections to a role |
-| [**createRole**](RolesApi.md#createRole) | **POST** /api/roles | [EARLY ACCESS] CreateRole: Create Role |
-| [**deleteRole**](RolesApi.md#deleteRole) | **DELETE** /api/roles/{code} | [EARLY ACCESS] DeleteRole: Delete Role |
-| [**getRole**](RolesApi.md#getRole) | **GET** /api/roles/{code} | [EARLY ACCESS] GetRole: Get Role |
-| [**listRoles**](RolesApi.md#listRoles) | **GET** /api/roles | [EARLY ACCESS] ListRoles: List Roles |
-| [**removePolicyCollectionFromRole**](RolesApi.md#removePolicyCollectionFromRole) | **DELETE** /api/roles/{scope}/{code}/policycollections/{policycollectionscope}/{policycollectioncode} | [EARLY ACCESS] RemovePolicyCollectionFromRole: Remove policy collection from role |
-| [**updateRole**](RolesApi.md#updateRole) | **PUT** /api/roles/{code} | [EARLY ACCESS] UpdateRole: Update Role |
+| [**addPolicyCollectionToRole**](RolesApi.md#addPolicyCollectionToRole) | **POST** /api/roles/{scope}/{code}/policycollections | AddPolicyCollectionToRole: Add policy collections to a role |
+| [**createRole**](RolesApi.md#createRole) | **POST** /api/roles | CreateRole: Create Role |
+| [**deleteRole**](RolesApi.md#deleteRole) | **DELETE** /api/roles/{code} | DeleteRole: Delete Role |
+| [**getRole**](RolesApi.md#getRole) | **GET** /api/roles/{code} | GetRole: Get Role |
+| [**listRoles**](RolesApi.md#listRoles) | **GET** /api/roles | ListRoles: List Roles |
+| [**removePolicyCollectionFromRole**](RolesApi.md#removePolicyCollectionFromRole) | **DELETE** /api/roles/{scope}/{code}/policycollections/{policycollectionscope}/{policycollectioncode} | RemovePolicyCollectionFromRole: Remove policy collection from role |
+| [**updateRole**](RolesApi.md#updateRole) | **PUT** /api/roles/{code} | UpdateRole: Update Role |
 
 
 <a id="addPolicyCollectionToRole"></a>
 # **addPolicyCollectionToRole**
 > RoleResponse addPolicyCollectionToRole(scope, code, addPolicyCollectionToRoleRequest).execute();
 
-[EARLY ACCESS] AddPolicyCollectionToRole: Add policy collections to a role
+AddPolicyCollectionToRole: Add policy collections to a role
 
 Assigns policy collections to a role
 
@@ -91,7 +91,7 @@ public class Example {
 # **createRole**
 > RoleResponse createRole(roleCreationRequest).execute();
 
-[EARLY ACCESS] CreateRole: Create Role
+CreateRole: Create Role
 
 Creates a Role
 
@@ -161,7 +161,7 @@ public class Example {
 # **deleteRole**
 > deleteRole(code).scope(scope).execute();
 
-[EARLY ACCESS] DeleteRole: Delete Role
+DeleteRole: Delete Role
 
 Deletes an identified Role
 
@@ -233,7 +233,7 @@ null (empty response body)
 # **getRole**
 > RoleResponse getRole(code).asAt(asAt).scope(scope).execute();
 
-[EARLY ACCESS] GetRole: Get Role
+GetRole: Get Role
 
 Gets an identified Role
 
@@ -309,7 +309,7 @@ public class Example {
 # **listRoles**
 > List&lt;RoleResponse&gt; listRoles().scope(scope).asAt(asAt).sortBy(sortBy).start(start).limit(limit).filter(filter).execute();
 
-[EARLY ACCESS] ListRoles: List Roles
+ListRoles: List Roles
 
 Gets all Roles in a scope
 
@@ -395,7 +395,7 @@ public class Example {
 # **removePolicyCollectionFromRole**
 > RoleResponse removePolicyCollectionFromRole(scope, code, policycollectionscope, policycollectioncode).execute();
 
-[EARLY ACCESS] RemovePolicyCollectionFromRole: Remove policy collection from role
+RemovePolicyCollectionFromRole: Remove policy collection from role
 
 Removes a policy collection from a role
 
@@ -471,7 +471,7 @@ public class Example {
 # **updateRole**
 > RoleResponse updateRole(code, roleUpdateRequest).scope(scope).beforeScope(beforeScope).beforeCode(beforeCode).afterScope(afterScope).afterCode(afterCode).execute();
 
-[EARLY ACCESS] UpdateRole: Update Role
+UpdateRole: Update Role
 
 Updates a Role
 
