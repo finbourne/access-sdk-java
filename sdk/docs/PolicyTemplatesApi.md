@@ -12,51 +12,62 @@ All URIs are relative to *https://fbn-prd.lusid.com/access*
 | [**updatePolicyTemplate**](PolicyTemplatesApi.md#updatePolicyTemplate) | **PUT** /api/policytemplates/{code} | [EXPERIMENTAL] UpdatePolicyTemplate: Update a Policy Template |
 
 
-<a id="createPolicyTemplate"></a>
-# **createPolicyTemplate**
-> PolicyTemplateResponse createPolicyTemplate(policyTemplateCreationRequest).execute();
+
+## createPolicyTemplate
+
+> PolicyTemplateResponse createPolicyTemplate(policyTemplateCreationRequest)
 
 [EXPERIMENTAL] CreatePolicyTemplate: Create a Policy Template
 
 Creates a Policy Template
 
 ### Example
+
 ```java
-// Import classes:
-import com.finbourne.access.ApiClient;
-import com.finbourne.access.ApiException;
-import com.finbourne.access.Configuration;
-import com.finbourne.access.auth.*;
-import com.finbourne.access.models.*;
+import com.finbourne.access.model.*;
 import com.finbourne.access.api.PolicyTemplatesApi;
+import com.finbourne.access.extensions.ApiConfigurationException;
+import com.finbourne.access.extensions.ApiFactoryBuilder;
+import com.finbourne.access.extensions.auth.FinbourneTokenException;
 
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://fbn-prd.lusid.com/access");
-    
-    // Configure OAuth2 access token for authorization: oauth2
-    OAuth oauth2 = (OAuth) defaultClient.getAuthentication("oauth2");
-    oauth2.setAccessToken("YOUR ACCESS TOKEN");
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
+import java.io.UnsupportedEncodingException;
 
-    PolicyTemplatesApi apiInstance = new PolicyTemplatesApi(defaultClient);
-    PolicyTemplateCreationRequest policyTemplateCreationRequest = new PolicyTemplateCreationRequest(); // PolicyTemplateCreationRequest | The definition of the policy template
-    try {
-      PolicyTemplateResponse result = apiInstance.createPolicyTemplate(policyTemplateCreationRequest)
-            .execute();
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling PolicyTemplatesApi#createPolicyTemplate");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+public class PolicyTemplatesApiExample {
+
+    public static void main(String[] args) throws FileNotFoundException, UnsupportedEncodingException, ApiConfigurationException, FinbourneTokenException {
+        String fileName = "secrets.json";
+        try(PrintWriter writer = new PrintWriter(fileName, "UTF-8")) {
+          writer.write("{" +
+            "\"api\": {" +
+            "    \"tokenUrl\": \"<your-token-url>\"," +
+            "    \"accessUrl\": \"https://<your-domain>.lusid.com/access\"," +
+            "    \"username\": \"<your-username>\"," +
+            "    \"password\": \"<your-password>\"," +
+            "    \"clientId\": \"<your-client-id>\"," +
+            "    \"clientSecret\": \"<your-client-secret>\"" +
+            "  }" +
+            "}");
+        }
+
+        PolicyTemplatesApi apiInstance = ApiFactoryBuilder.build(fileName).build(PolicyTemplatesApi.class);
+        PolicyTemplateCreationRequest policyTemplateCreationRequest = new PolicyTemplateCreationRequest(); // PolicyTemplateCreationRequest | The definition of the policy template
+        try {
+            PolicyTemplateResponse result = apiInstance.createPolicyTemplate(policyTemplateCreationRequest).execute();
+            System.out.println(result.toJson());
+        } catch (ApiException e) {
+            System.err.println("Exception when calling PolicyTemplatesApi#createPolicyTemplate");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            e.printStackTrace();
+        }
     }
-  }
 }
 ```
 
 ### Parameters
+
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
@@ -66,14 +77,11 @@ public class Example {
 
 [**PolicyTemplateResponse**](PolicyTemplateResponse.md)
 
-### Authorization
-
-[oauth2](../README.md#oauth2)
-
 ### HTTP request headers
 
- - **Content-Type**: application/json-patch+json, application/json, text/json, application/*+json
- - **Accept**: text/plain, application/json, text/json
+- **Content-Type**: application/json-patch+json, application/json, text/json, application/*+json
+- **Accept**: text/plain, application/json, text/json
+
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -82,52 +90,64 @@ public class Example {
 | **400** | The details of the input related failure |  -  |
 | **0** | Error response |  -  |
 
-<a id="deletePolicyTemplate"></a>
-# **deletePolicyTemplate**
-> deletePolicyTemplate(code).scope(scope).execute();
+[Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
+
+
+## deletePolicyTemplate
+
+> deletePolicyTemplate(code, scope)
 
 [EXPERIMENTAL] DeletePolicyTemplate: Deleting a policy template
 
 Deletes an identified Policy Template
 
 ### Example
+
 ```java
-// Import classes:
-import com.finbourne.access.ApiClient;
-import com.finbourne.access.ApiException;
-import com.finbourne.access.Configuration;
-import com.finbourne.access.auth.*;
-import com.finbourne.access.models.*;
+import com.finbourne.access.model.*;
 import com.finbourne.access.api.PolicyTemplatesApi;
+import com.finbourne.access.extensions.ApiConfigurationException;
+import com.finbourne.access.extensions.ApiFactoryBuilder;
+import com.finbourne.access.extensions.auth.FinbourneTokenException;
 
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://fbn-prd.lusid.com/access");
-    
-    // Configure OAuth2 access token for authorization: oauth2
-    OAuth oauth2 = (OAuth) defaultClient.getAuthentication("oauth2");
-    oauth2.setAccessToken("YOUR ACCESS TOKEN");
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
+import java.io.UnsupportedEncodingException;
 
-    PolicyTemplatesApi apiInstance = new PolicyTemplatesApi(defaultClient);
-    String code = "code_example"; // String | The code of the Policy Template
-    String scope = "scope_example"; // String | Optional. Will use the default scope if not provided. The scope of the Policy Template
-    try {
-      apiInstance.deletePolicyTemplate(code)
-            .scope(scope)
-            .execute();
-    } catch (ApiException e) {
-      System.err.println("Exception when calling PolicyTemplatesApi#deletePolicyTemplate");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+public class PolicyTemplatesApiExample {
+
+    public static void main(String[] args) throws FileNotFoundException, UnsupportedEncodingException, ApiConfigurationException, FinbourneTokenException {
+        String fileName = "secrets.json";
+        try(PrintWriter writer = new PrintWriter(fileName, "UTF-8")) {
+          writer.write("{" +
+            "\"api\": {" +
+            "    \"tokenUrl\": \"<your-token-url>\"," +
+            "    \"accessUrl\": \"https://<your-domain>.lusid.com/access\"," +
+            "    \"username\": \"<your-username>\"," +
+            "    \"password\": \"<your-password>\"," +
+            "    \"clientId\": \"<your-client-id>\"," +
+            "    \"clientSecret\": \"<your-client-secret>\"" +
+            "  }" +
+            "}");
+        }
+
+        PolicyTemplatesApi apiInstance = ApiFactoryBuilder.build(fileName).build(PolicyTemplatesApi.class);
+        String code = "code_example"; // String | The code of the Policy Template
+        String scope = "scope_example"; // String | Optional. Will use the default scope if not provided. The scope of the Policy Template
+        try {
+            apiInstance.deletePolicyTemplate(code, scope).execute();
+        } catch (ApiException e) {
+            System.err.println("Exception when calling PolicyTemplatesApi#deletePolicyTemplate");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            e.printStackTrace();
+        }
     }
-  }
 }
 ```
 
 ### Parameters
+
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
@@ -138,14 +158,11 @@ public class Example {
 
 null (empty response body)
 
-### Authorization
-
-[oauth2](../README.md#oauth2)
-
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: text/plain, application/json, text/json
+- **Content-Type**: Not defined
+- **Accept**: text/plain, application/json, text/json
+
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -154,53 +171,65 @@ null (empty response body)
 | **400** | The details of the input related failure |  -  |
 | **0** | Error response |  -  |
 
-<a id="generatePolicyFromTemplate"></a>
-# **generatePolicyFromTemplate**
-> GeneratedPolicyComponents generatePolicyFromTemplate(generatePolicyFromTemplateRequest).asAt(asAt).execute();
+[Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
+
+
+## generatePolicyFromTemplate
+
+> GeneratedPolicyComponents generatePolicyFromTemplate(generatePolicyFromTemplateRequest, asAt)
 
 [EXPERIMENTAL] GeneratePolicyFromTemplate: Generate policy from template
 
 Generates policies from templates
 
 ### Example
+
 ```java
-// Import classes:
-import com.finbourne.access.ApiClient;
-import com.finbourne.access.ApiException;
-import com.finbourne.access.Configuration;
-import com.finbourne.access.auth.*;
-import com.finbourne.access.models.*;
+import com.finbourne.access.model.*;
 import com.finbourne.access.api.PolicyTemplatesApi;
+import com.finbourne.access.extensions.ApiConfigurationException;
+import com.finbourne.access.extensions.ApiFactoryBuilder;
+import com.finbourne.access.extensions.auth.FinbourneTokenException;
 
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://fbn-prd.lusid.com/access");
-    
-    // Configure OAuth2 access token for authorization: oauth2
-    OAuth oauth2 = (OAuth) defaultClient.getAuthentication("oauth2");
-    oauth2.setAccessToken("YOUR ACCESS TOKEN");
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
+import java.io.UnsupportedEncodingException;
 
-    PolicyTemplatesApi apiInstance = new PolicyTemplatesApi(defaultClient);
-    GeneratePolicyFromTemplateRequest generatePolicyFromTemplateRequest = new GeneratePolicyFromTemplateRequest(); // GeneratePolicyFromTemplateRequest | Definition of the generate request
-    OffsetDateTime asAt = OffsetDateTime.now(); // OffsetDateTime | Optional. The AsAt date time of the data
-    try {
-      GeneratedPolicyComponents result = apiInstance.generatePolicyFromTemplate(generatePolicyFromTemplateRequest)
-            .asAt(asAt)
-            .execute();
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling PolicyTemplatesApi#generatePolicyFromTemplate");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+public class PolicyTemplatesApiExample {
+
+    public static void main(String[] args) throws FileNotFoundException, UnsupportedEncodingException, ApiConfigurationException, FinbourneTokenException {
+        String fileName = "secrets.json";
+        try(PrintWriter writer = new PrintWriter(fileName, "UTF-8")) {
+          writer.write("{" +
+            "\"api\": {" +
+            "    \"tokenUrl\": \"<your-token-url>\"," +
+            "    \"accessUrl\": \"https://<your-domain>.lusid.com/access\"," +
+            "    \"username\": \"<your-username>\"," +
+            "    \"password\": \"<your-password>\"," +
+            "    \"clientId\": \"<your-client-id>\"," +
+            "    \"clientSecret\": \"<your-client-secret>\"" +
+            "  }" +
+            "}");
+        }
+
+        PolicyTemplatesApi apiInstance = ApiFactoryBuilder.build(fileName).build(PolicyTemplatesApi.class);
+        GeneratePolicyFromTemplateRequest generatePolicyFromTemplateRequest = new GeneratePolicyFromTemplateRequest(); // GeneratePolicyFromTemplateRequest | Definition of the generate request
+        OffsetDateTime asAt = OffsetDateTime.now(); // OffsetDateTime | Optional. The AsAt date time of the data
+        try {
+            GeneratedPolicyComponents result = apiInstance.generatePolicyFromTemplate(generatePolicyFromTemplateRequest, asAt).execute();
+            System.out.println(result.toJson());
+        } catch (ApiException e) {
+            System.err.println("Exception when calling PolicyTemplatesApi#generatePolicyFromTemplate");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            e.printStackTrace();
+        }
     }
-  }
 }
 ```
 
 ### Parameters
+
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
@@ -211,14 +240,11 @@ public class Example {
 
 [**GeneratedPolicyComponents**](GeneratedPolicyComponents.md)
 
-### Authorization
-
-[oauth2](../README.md#oauth2)
-
 ### HTTP request headers
 
- - **Content-Type**: application/json-patch+json, application/json, text/json, application/*+json
- - **Accept**: text/plain, application/json, text/json
+- **Content-Type**: application/json-patch+json, application/json, text/json, application/*+json
+- **Accept**: text/plain, application/json, text/json
+
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -227,55 +253,66 @@ public class Example {
 | **400** | The details of the input related failure |  -  |
 | **0** | Error response |  -  |
 
-<a id="getPolicyTemplate"></a>
-# **getPolicyTemplate**
-> PolicyTemplateResponse getPolicyTemplate(code).asAt(asAt).scope(scope).execute();
+[Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
+
+
+## getPolicyTemplate
+
+> PolicyTemplateResponse getPolicyTemplate(code, asAt, scope)
 
 [EXPERIMENTAL] GetPolicyTemplate: Retrieving one Policy Template
 
 Gets an identified Policy Template
 
 ### Example
+
 ```java
-// Import classes:
-import com.finbourne.access.ApiClient;
-import com.finbourne.access.ApiException;
-import com.finbourne.access.Configuration;
-import com.finbourne.access.auth.*;
-import com.finbourne.access.models.*;
+import com.finbourne.access.model.*;
 import com.finbourne.access.api.PolicyTemplatesApi;
+import com.finbourne.access.extensions.ApiConfigurationException;
+import com.finbourne.access.extensions.ApiFactoryBuilder;
+import com.finbourne.access.extensions.auth.FinbourneTokenException;
 
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://fbn-prd.lusid.com/access");
-    
-    // Configure OAuth2 access token for authorization: oauth2
-    OAuth oauth2 = (OAuth) defaultClient.getAuthentication("oauth2");
-    oauth2.setAccessToken("YOUR ACCESS TOKEN");
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
+import java.io.UnsupportedEncodingException;
 
-    PolicyTemplatesApi apiInstance = new PolicyTemplatesApi(defaultClient);
-    String code = "code_example"; // String | The code of the Policy Template
-    OffsetDateTime asAt = OffsetDateTime.now(); // OffsetDateTime | Optional. The AsAt date time of the data. If not specified defaults to current time
-    String scope = "scope_example"; // String | Optional. Will use the default scope if not provided. The scope of the Policy Template
-    try {
-      PolicyTemplateResponse result = apiInstance.getPolicyTemplate(code)
-            .asAt(asAt)
-            .scope(scope)
-            .execute();
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling PolicyTemplatesApi#getPolicyTemplate");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+public class PolicyTemplatesApiExample {
+
+    public static void main(String[] args) throws FileNotFoundException, UnsupportedEncodingException, ApiConfigurationException, FinbourneTokenException {
+        String fileName = "secrets.json";
+        try(PrintWriter writer = new PrintWriter(fileName, "UTF-8")) {
+          writer.write("{" +
+            "\"api\": {" +
+            "    \"tokenUrl\": \"<your-token-url>\"," +
+            "    \"accessUrl\": \"https://<your-domain>.lusid.com/access\"," +
+            "    \"username\": \"<your-username>\"," +
+            "    \"password\": \"<your-password>\"," +
+            "    \"clientId\": \"<your-client-id>\"," +
+            "    \"clientSecret\": \"<your-client-secret>\"" +
+            "  }" +
+            "}");
+        }
+
+        PolicyTemplatesApi apiInstance = ApiFactoryBuilder.build(fileName).build(PolicyTemplatesApi.class);
+        String code = "code_example"; // String | The code of the Policy Template
+        OffsetDateTime asAt = OffsetDateTime.now(); // OffsetDateTime | Optional. The AsAt date time of the data. If not specified defaults to current time
+        String scope = "scope_example"; // String | Optional. Will use the default scope if not provided. The scope of the Policy Template
+        try {
+            PolicyTemplateResponse result = apiInstance.getPolicyTemplate(code, asAt, scope).execute();
+            System.out.println(result.toJson());
+        } catch (ApiException e) {
+            System.err.println("Exception when calling PolicyTemplatesApi#getPolicyTemplate");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            e.printStackTrace();
+        }
     }
-  }
 }
 ```
 
 ### Parameters
+
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
@@ -287,14 +324,11 @@ public class Example {
 
 [**PolicyTemplateResponse**](PolicyTemplateResponse.md)
 
-### Authorization
-
-[oauth2](../README.md#oauth2)
-
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: text/plain, application/json, text/json
+- **Content-Type**: Not defined
+- **Accept**: text/plain, application/json, text/json
+
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -303,60 +337,68 @@ public class Example {
 | **400** | The details of the input related failure |  -  |
 | **0** | Error response |  -  |
 
-<a id="listPolicyTemplates"></a>
-# **listPolicyTemplates**
-> ResourceListOfPolicyTemplateResponse listPolicyTemplates().asAt(asAt).sortBy(sortBy).limit(limit).filter(filter).page(page).execute();
+[Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
+
+
+## listPolicyTemplates
+
+> ResourceListOfPolicyTemplateResponse listPolicyTemplates(asAt, sortBy, limit, filter, page)
 
 [EXPERIMENTAL] ListPolicyTemplates: List Policy Templates
 
 Gets all Policy Templates with pagination support.
 
 ### Example
+
 ```java
-// Import classes:
-import com.finbourne.access.ApiClient;
-import com.finbourne.access.ApiException;
-import com.finbourne.access.Configuration;
-import com.finbourne.access.auth.*;
-import com.finbourne.access.models.*;
+import com.finbourne.access.model.*;
 import com.finbourne.access.api.PolicyTemplatesApi;
+import com.finbourne.access.extensions.ApiConfigurationException;
+import com.finbourne.access.extensions.ApiFactoryBuilder;
+import com.finbourne.access.extensions.auth.FinbourneTokenException;
 
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://fbn-prd.lusid.com/access");
-    
-    // Configure OAuth2 access token for authorization: oauth2
-    OAuth oauth2 = (OAuth) defaultClient.getAuthentication("oauth2");
-    oauth2.setAccessToken("YOUR ACCESS TOKEN");
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
+import java.io.UnsupportedEncodingException;
 
-    PolicyTemplatesApi apiInstance = new PolicyTemplatesApi(defaultClient);
-    OffsetDateTime asAt = OffsetDateTime.now(); // OffsetDateTime | Optional. The AsAt date time of the data
-    String sortBy = "sortBy_example"; // String | Optional. Order the results by these fields. Use use the '-' sign to denote descending order e.g. -MyFieldName
-    Integer limit = 56; // Integer | Optional. When paginating, limit the number of returned results to this many.
-    String filter = "filter_example"; // String | Optional. Expression to filter the result set
-    String page = "page_example"; // String | Optional. Paging token returned from a previous result
-    try {
-      ResourceListOfPolicyTemplateResponse result = apiInstance.listPolicyTemplates()
-            .asAt(asAt)
-            .sortBy(sortBy)
-            .limit(limit)
-            .filter(filter)
-            .page(page)
-            .execute();
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling PolicyTemplatesApi#listPolicyTemplates");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+public class PolicyTemplatesApiExample {
+
+    public static void main(String[] args) throws FileNotFoundException, UnsupportedEncodingException, ApiConfigurationException, FinbourneTokenException {
+        String fileName = "secrets.json";
+        try(PrintWriter writer = new PrintWriter(fileName, "UTF-8")) {
+          writer.write("{" +
+            "\"api\": {" +
+            "    \"tokenUrl\": \"<your-token-url>\"," +
+            "    \"accessUrl\": \"https://<your-domain>.lusid.com/access\"," +
+            "    \"username\": \"<your-username>\"," +
+            "    \"password\": \"<your-password>\"," +
+            "    \"clientId\": \"<your-client-id>\"," +
+            "    \"clientSecret\": \"<your-client-secret>\"" +
+            "  }" +
+            "}");
+        }
+
+        PolicyTemplatesApi apiInstance = ApiFactoryBuilder.build(fileName).build(PolicyTemplatesApi.class);
+        OffsetDateTime asAt = OffsetDateTime.now(); // OffsetDateTime | Optional. The AsAt date time of the data
+        String sortBy = "sortBy_example"; // String | Optional. Order the results by these fields. Use use the '-' sign to denote descending order e.g. -MyFieldName
+        Integer limit = 56; // Integer | Optional. When paginating, limit the number of returned results to this many.
+        String filter = "filter_example"; // String | Optional. Expression to filter the result set
+        String page = "page_example"; // String | Optional. Paging token returned from a previous result
+        try {
+            ResourceListOfPolicyTemplateResponse result = apiInstance.listPolicyTemplates(asAt, sortBy, limit, filter, page).execute();
+            System.out.println(result.toJson());
+        } catch (ApiException e) {
+            System.err.println("Exception when calling PolicyTemplatesApi#listPolicyTemplates");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            e.printStackTrace();
+        }
     }
-  }
 }
 ```
 
 ### Parameters
+
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
@@ -370,14 +412,11 @@ public class Example {
 
 [**ResourceListOfPolicyTemplateResponse**](ResourceListOfPolicyTemplateResponse.md)
 
-### Authorization
-
-[oauth2](../README.md#oauth2)
-
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: text/plain, application/json, text/json
+- **Content-Type**: Not defined
+- **Accept**: text/plain, application/json, text/json
+
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -386,53 +425,65 @@ public class Example {
 | **400** | The details of the input related failure |  -  |
 | **0** | Error response |  -  |
 
-<a id="updatePolicyTemplate"></a>
-# **updatePolicyTemplate**
-> PolicyTemplateResponse updatePolicyTemplate(code).policyTemplateUpdateRequest(policyTemplateUpdateRequest).execute();
+[Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
+
+
+## updatePolicyTemplate
+
+> PolicyTemplateResponse updatePolicyTemplate(code, policyTemplateUpdateRequest)
 
 [EXPERIMENTAL] UpdatePolicyTemplate: Update a Policy Template
 
 Updates an identified Policy Template
 
 ### Example
+
 ```java
-// Import classes:
-import com.finbourne.access.ApiClient;
-import com.finbourne.access.ApiException;
-import com.finbourne.access.Configuration;
-import com.finbourne.access.auth.*;
-import com.finbourne.access.models.*;
+import com.finbourne.access.model.*;
 import com.finbourne.access.api.PolicyTemplatesApi;
+import com.finbourne.access.extensions.ApiConfigurationException;
+import com.finbourne.access.extensions.ApiFactoryBuilder;
+import com.finbourne.access.extensions.auth.FinbourneTokenException;
 
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://fbn-prd.lusid.com/access");
-    
-    // Configure OAuth2 access token for authorization: oauth2
-    OAuth oauth2 = (OAuth) defaultClient.getAuthentication("oauth2");
-    oauth2.setAccessToken("YOUR ACCESS TOKEN");
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
+import java.io.UnsupportedEncodingException;
 
-    PolicyTemplatesApi apiInstance = new PolicyTemplatesApi(defaultClient);
-    String code = "code_example"; // String | Code of the policy template to update
-    PolicyTemplateUpdateRequest policyTemplateUpdateRequest = new PolicyTemplateUpdateRequest(); // PolicyTemplateUpdateRequest | Definition of the updated policy template
-    try {
-      PolicyTemplateResponse result = apiInstance.updatePolicyTemplate(code)
-            .policyTemplateUpdateRequest(policyTemplateUpdateRequest)
-            .execute();
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling PolicyTemplatesApi#updatePolicyTemplate");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+public class PolicyTemplatesApiExample {
+
+    public static void main(String[] args) throws FileNotFoundException, UnsupportedEncodingException, ApiConfigurationException, FinbourneTokenException {
+        String fileName = "secrets.json";
+        try(PrintWriter writer = new PrintWriter(fileName, "UTF-8")) {
+          writer.write("{" +
+            "\"api\": {" +
+            "    \"tokenUrl\": \"<your-token-url>\"," +
+            "    \"accessUrl\": \"https://<your-domain>.lusid.com/access\"," +
+            "    \"username\": \"<your-username>\"," +
+            "    \"password\": \"<your-password>\"," +
+            "    \"clientId\": \"<your-client-id>\"," +
+            "    \"clientSecret\": \"<your-client-secret>\"" +
+            "  }" +
+            "}");
+        }
+
+        PolicyTemplatesApi apiInstance = ApiFactoryBuilder.build(fileName).build(PolicyTemplatesApi.class);
+        String code = "code_example"; // String | Code of the policy template to update
+        PolicyTemplateUpdateRequest policyTemplateUpdateRequest = new PolicyTemplateUpdateRequest(); // PolicyTemplateUpdateRequest | Definition of the updated policy template
+        try {
+            PolicyTemplateResponse result = apiInstance.updatePolicyTemplate(code, policyTemplateUpdateRequest).execute();
+            System.out.println(result.toJson());
+        } catch (ApiException e) {
+            System.err.println("Exception when calling PolicyTemplatesApi#updatePolicyTemplate");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            e.printStackTrace();
+        }
     }
-  }
 }
 ```
 
 ### Parameters
+
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
@@ -443,14 +494,11 @@ public class Example {
 
 [**PolicyTemplateResponse**](PolicyTemplateResponse.md)
 
-### Authorization
-
-[oauth2](../README.md#oauth2)
-
 ### HTTP request headers
 
- - **Content-Type**: application/json-patch+json, application/json, text/json, application/*+json
- - **Accept**: text/plain, application/json, text/json
+- **Content-Type**: application/json-patch+json, application/json, text/json, application/*+json
+- **Accept**: text/plain, application/json, text/json
+
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -458,4 +506,6 @@ public class Example {
 | **200** | Updated Policy Template |  -  |
 | **400** | The details of the input related failure |  -  |
 | **0** | Error response |  -  |
+
+[Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
 

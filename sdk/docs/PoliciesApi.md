@@ -22,54 +22,64 @@ All URIs are relative to *https://fbn-prd.lusid.com/access*
 | [**updatePolicyCollection**](PoliciesApi.md#updatePolicyCollection) | **PUT** /api/policycollections/{code} | UpdatePolicyCollection: Update PolicyCollection |
 
 
-<a id="addToPolicyCollection"></a>
-# **addToPolicyCollection**
-> PolicyCollectionResponse addToPolicyCollection(code, addToPolicyCollectionRequest).scope(scope).execute();
+
+## addToPolicyCollection
+
+> PolicyCollectionResponse addToPolicyCollection(code, addToPolicyCollectionRequest, scope)
 
 AddToPolicyCollection: Add To PolicyCollection
 
 Add Policies and/or PolicyCollections to a PolicyCollection
 
 ### Example
+
 ```java
-// Import classes:
-import com.finbourne.access.ApiClient;
-import com.finbourne.access.ApiException;
-import com.finbourne.access.Configuration;
-import com.finbourne.access.auth.*;
-import com.finbourne.access.models.*;
+import com.finbourne.access.model.*;
 import com.finbourne.access.api.PoliciesApi;
+import com.finbourne.access.extensions.ApiConfigurationException;
+import com.finbourne.access.extensions.ApiFactoryBuilder;
+import com.finbourne.access.extensions.auth.FinbourneTokenException;
 
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://fbn-prd.lusid.com/access");
-    
-    // Configure OAuth2 access token for authorization: oauth2
-    OAuth oauth2 = (OAuth) defaultClient.getAuthentication("oauth2");
-    oauth2.setAccessToken("YOUR ACCESS TOKEN");
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
+import java.io.UnsupportedEncodingException;
 
-    PoliciesApi apiInstance = new PoliciesApi(defaultClient);
-    String code = "code_example"; // String | The code of the PolicyCollection
-    AddToPolicyCollectionRequest addToPolicyCollectionRequest = new AddToPolicyCollectionRequest(); // AddToPolicyCollectionRequest | Ids of the PolicyCollections and/or Policies to add to the PolicyCollection
-    String scope = "scope_example"; // String | Optional. Will use the default scope if not provided. The scope of the PolicyCollection
-    try {
-      PolicyCollectionResponse result = apiInstance.addToPolicyCollection(code, addToPolicyCollectionRequest)
-            .scope(scope)
-            .execute();
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling PoliciesApi#addToPolicyCollection");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+public class PoliciesApiExample {
+
+    public static void main(String[] args) throws FileNotFoundException, UnsupportedEncodingException, ApiConfigurationException, FinbourneTokenException {
+        String fileName = "secrets.json";
+        try(PrintWriter writer = new PrintWriter(fileName, "UTF-8")) {
+          writer.write("{" +
+            "\"api\": {" +
+            "    \"tokenUrl\": \"<your-token-url>\"," +
+            "    \"accessUrl\": \"https://<your-domain>.lusid.com/access\"," +
+            "    \"username\": \"<your-username>\"," +
+            "    \"password\": \"<your-password>\"," +
+            "    \"clientId\": \"<your-client-id>\"," +
+            "    \"clientSecret\": \"<your-client-secret>\"" +
+            "  }" +
+            "}");
+        }
+
+        PoliciesApi apiInstance = ApiFactoryBuilder.build(fileName).build(PoliciesApi.class);
+        String code = "code_example"; // String | The code of the PolicyCollection
+        AddToPolicyCollectionRequest addToPolicyCollectionRequest = new AddToPolicyCollectionRequest(); // AddToPolicyCollectionRequest | Ids of the PolicyCollections and/or Policies to add to the PolicyCollection
+        String scope = "scope_example"; // String | Optional. Will use the default scope if not provided. The scope of the PolicyCollection
+        try {
+            PolicyCollectionResponse result = apiInstance.addToPolicyCollection(code, addToPolicyCollectionRequest, scope).execute();
+            System.out.println(result.toJson());
+        } catch (ApiException e) {
+            System.err.println("Exception when calling PoliciesApi#addToPolicyCollection");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            e.printStackTrace();
+        }
     }
-  }
 }
 ```
 
 ### Parameters
+
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
@@ -81,14 +91,11 @@ public class Example {
 
 [**PolicyCollectionResponse**](PolicyCollectionResponse.md)
 
-### Authorization
-
-[oauth2](../README.md#oauth2)
-
 ### HTTP request headers
 
- - **Content-Type**: application/json-patch+json, application/json, text/json, application/*+json
- - **Accept**: text/plain, application/json, text/json
+- **Content-Type**: application/json-patch+json, application/json, text/json, application/*+json
+- **Accept**: text/plain, application/json, text/json
+
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -97,51 +104,64 @@ public class Example {
 | **400** | The details of the input related failure |  -  |
 | **0** | Error response |  -  |
 
-<a id="createPolicy"></a>
-# **createPolicy**
-> PolicyResponse createPolicy(policyCreationRequest).execute();
+[Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
+
+
+## createPolicy
+
+> PolicyResponse createPolicy(policyCreationRequest)
 
 CreatePolicy: Create Policy
 
 Creates a Policy
 
 ### Example
+
 ```java
-// Import classes:
-import com.finbourne.access.ApiClient;
-import com.finbourne.access.ApiException;
-import com.finbourne.access.Configuration;
-import com.finbourne.access.auth.*;
-import com.finbourne.access.models.*;
+import com.finbourne.access.model.*;
 import com.finbourne.access.api.PoliciesApi;
+import com.finbourne.access.extensions.ApiConfigurationException;
+import com.finbourne.access.extensions.ApiFactoryBuilder;
+import com.finbourne.access.extensions.auth.FinbourneTokenException;
 
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://fbn-prd.lusid.com/access");
-    
-    // Configure OAuth2 access token for authorization: oauth2
-    OAuth oauth2 = (OAuth) defaultClient.getAuthentication("oauth2");
-    oauth2.setAccessToken("YOUR ACCESS TOKEN");
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
+import java.io.UnsupportedEncodingException;
 
-    PoliciesApi apiInstance = new PoliciesApi(defaultClient);
-    PolicyCreationRequest policyCreationRequest = new PolicyCreationRequest(); // PolicyCreationRequest | The definition of the Policy
-    try {
-      PolicyResponse result = apiInstance.createPolicy(policyCreationRequest)
-            .execute();
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling PoliciesApi#createPolicy");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+public class PoliciesApiExample {
+
+    public static void main(String[] args) throws FileNotFoundException, UnsupportedEncodingException, ApiConfigurationException, FinbourneTokenException {
+        String fileName = "secrets.json";
+        try(PrintWriter writer = new PrintWriter(fileName, "UTF-8")) {
+          writer.write("{" +
+            "\"api\": {" +
+            "    \"tokenUrl\": \"<your-token-url>\"," +
+            "    \"accessUrl\": \"https://<your-domain>.lusid.com/access\"," +
+            "    \"username\": \"<your-username>\"," +
+            "    \"password\": \"<your-password>\"," +
+            "    \"clientId\": \"<your-client-id>\"," +
+            "    \"clientSecret\": \"<your-client-secret>\"" +
+            "  }" +
+            "}");
+        }
+
+        PoliciesApi apiInstance = ApiFactoryBuilder.build(fileName).build(PoliciesApi.class);
+        PolicyCreationRequest policyCreationRequest = new PolicyCreationRequest(); // PolicyCreationRequest | The definition of the Policy
+        try {
+            PolicyResponse result = apiInstance.createPolicy(policyCreationRequest).execute();
+            System.out.println(result.toJson());
+        } catch (ApiException e) {
+            System.err.println("Exception when calling PoliciesApi#createPolicy");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            e.printStackTrace();
+        }
     }
-  }
 }
 ```
 
 ### Parameters
+
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
@@ -151,14 +171,11 @@ public class Example {
 
 [**PolicyResponse**](PolicyResponse.md)
 
-### Authorization
-
-[oauth2](../README.md#oauth2)
-
 ### HTTP request headers
 
- - **Content-Type**: application/json-patch+json, application/json, text/json, application/*+json
- - **Accept**: text/plain, application/json, text/json
+- **Content-Type**: application/json-patch+json, application/json, text/json, application/*+json
+- **Accept**: text/plain, application/json, text/json
+
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -167,51 +184,64 @@ public class Example {
 | **400** | The details of the input related failure |  -  |
 | **0** | Error response |  -  |
 
-<a id="createPolicyCollection"></a>
-# **createPolicyCollection**
-> PolicyCollectionResponse createPolicyCollection(policyCollectionCreationRequest).execute();
+[Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
+
+
+## createPolicyCollection
+
+> PolicyCollectionResponse createPolicyCollection(policyCollectionCreationRequest)
 
 CreatePolicyCollection: Create PolicyCollection
 
 Creates a PolicyCollection
 
 ### Example
+
 ```java
-// Import classes:
-import com.finbourne.access.ApiClient;
-import com.finbourne.access.ApiException;
-import com.finbourne.access.Configuration;
-import com.finbourne.access.auth.*;
-import com.finbourne.access.models.*;
+import com.finbourne.access.model.*;
 import com.finbourne.access.api.PoliciesApi;
+import com.finbourne.access.extensions.ApiConfigurationException;
+import com.finbourne.access.extensions.ApiFactoryBuilder;
+import com.finbourne.access.extensions.auth.FinbourneTokenException;
 
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://fbn-prd.lusid.com/access");
-    
-    // Configure OAuth2 access token for authorization: oauth2
-    OAuth oauth2 = (OAuth) defaultClient.getAuthentication("oauth2");
-    oauth2.setAccessToken("YOUR ACCESS TOKEN");
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
+import java.io.UnsupportedEncodingException;
 
-    PoliciesApi apiInstance = new PoliciesApi(defaultClient);
-    PolicyCollectionCreationRequest policyCollectionCreationRequest = new PolicyCollectionCreationRequest(); // PolicyCollectionCreationRequest | The definition of the PolicyCollection
-    try {
-      PolicyCollectionResponse result = apiInstance.createPolicyCollection(policyCollectionCreationRequest)
-            .execute();
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling PoliciesApi#createPolicyCollection");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+public class PoliciesApiExample {
+
+    public static void main(String[] args) throws FileNotFoundException, UnsupportedEncodingException, ApiConfigurationException, FinbourneTokenException {
+        String fileName = "secrets.json";
+        try(PrintWriter writer = new PrintWriter(fileName, "UTF-8")) {
+          writer.write("{" +
+            "\"api\": {" +
+            "    \"tokenUrl\": \"<your-token-url>\"," +
+            "    \"accessUrl\": \"https://<your-domain>.lusid.com/access\"," +
+            "    \"username\": \"<your-username>\"," +
+            "    \"password\": \"<your-password>\"," +
+            "    \"clientId\": \"<your-client-id>\"," +
+            "    \"clientSecret\": \"<your-client-secret>\"" +
+            "  }" +
+            "}");
+        }
+
+        PoliciesApi apiInstance = ApiFactoryBuilder.build(fileName).build(PoliciesApi.class);
+        PolicyCollectionCreationRequest policyCollectionCreationRequest = new PolicyCollectionCreationRequest(); // PolicyCollectionCreationRequest | The definition of the PolicyCollection
+        try {
+            PolicyCollectionResponse result = apiInstance.createPolicyCollection(policyCollectionCreationRequest).execute();
+            System.out.println(result.toJson());
+        } catch (ApiException e) {
+            System.err.println("Exception when calling PoliciesApi#createPolicyCollection");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            e.printStackTrace();
+        }
     }
-  }
 }
 ```
 
 ### Parameters
+
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
@@ -221,14 +251,11 @@ public class Example {
 
 [**PolicyCollectionResponse**](PolicyCollectionResponse.md)
 
-### Authorization
-
-[oauth2](../README.md#oauth2)
-
 ### HTTP request headers
 
- - **Content-Type**: application/json-patch+json, application/json, text/json, application/*+json
- - **Accept**: text/plain, application/json, text/json
+- **Content-Type**: application/json-patch+json, application/json, text/json, application/*+json
+- **Accept**: text/plain, application/json, text/json
+
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -237,52 +264,64 @@ public class Example {
 | **400** | The details of the input related failure |  -  |
 | **0** | Error response |  -  |
 
-<a id="deletePolicy"></a>
-# **deletePolicy**
-> deletePolicy(code).scope(scope).execute();
+[Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
+
+
+## deletePolicy
+
+> deletePolicy(code, scope)
 
 DeletePolicy: Delete Policy
 
 Deletes an identified Policy
 
 ### Example
+
 ```java
-// Import classes:
-import com.finbourne.access.ApiClient;
-import com.finbourne.access.ApiException;
-import com.finbourne.access.Configuration;
-import com.finbourne.access.auth.*;
-import com.finbourne.access.models.*;
+import com.finbourne.access.model.*;
 import com.finbourne.access.api.PoliciesApi;
+import com.finbourne.access.extensions.ApiConfigurationException;
+import com.finbourne.access.extensions.ApiFactoryBuilder;
+import com.finbourne.access.extensions.auth.FinbourneTokenException;
 
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://fbn-prd.lusid.com/access");
-    
-    // Configure OAuth2 access token for authorization: oauth2
-    OAuth oauth2 = (OAuth) defaultClient.getAuthentication("oauth2");
-    oauth2.setAccessToken("YOUR ACCESS TOKEN");
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
+import java.io.UnsupportedEncodingException;
 
-    PoliciesApi apiInstance = new PoliciesApi(defaultClient);
-    String code = "code_example"; // String | The code of the Policy
-    String scope = "scope_example"; // String | Optional. Will use the default scope if not provided. The scope of the Policy
-    try {
-      apiInstance.deletePolicy(code)
-            .scope(scope)
-            .execute();
-    } catch (ApiException e) {
-      System.err.println("Exception when calling PoliciesApi#deletePolicy");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+public class PoliciesApiExample {
+
+    public static void main(String[] args) throws FileNotFoundException, UnsupportedEncodingException, ApiConfigurationException, FinbourneTokenException {
+        String fileName = "secrets.json";
+        try(PrintWriter writer = new PrintWriter(fileName, "UTF-8")) {
+          writer.write("{" +
+            "\"api\": {" +
+            "    \"tokenUrl\": \"<your-token-url>\"," +
+            "    \"accessUrl\": \"https://<your-domain>.lusid.com/access\"," +
+            "    \"username\": \"<your-username>\"," +
+            "    \"password\": \"<your-password>\"," +
+            "    \"clientId\": \"<your-client-id>\"," +
+            "    \"clientSecret\": \"<your-client-secret>\"" +
+            "  }" +
+            "}");
+        }
+
+        PoliciesApi apiInstance = ApiFactoryBuilder.build(fileName).build(PoliciesApi.class);
+        String code = "code_example"; // String | The code of the Policy
+        String scope = "scope_example"; // String | Optional. Will use the default scope if not provided. The scope of the Policy
+        try {
+            apiInstance.deletePolicy(code, scope).execute();
+        } catch (ApiException e) {
+            System.err.println("Exception when calling PoliciesApi#deletePolicy");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            e.printStackTrace();
+        }
     }
-  }
 }
 ```
 
 ### Parameters
+
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
@@ -293,14 +332,11 @@ public class Example {
 
 null (empty response body)
 
-### Authorization
-
-[oauth2](../README.md#oauth2)
-
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: text/plain, application/json, text/json
+- **Content-Type**: Not defined
+- **Accept**: text/plain, application/json, text/json
+
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -309,52 +345,64 @@ null (empty response body)
 | **400** | The details of the input related failure |  -  |
 | **0** | Error response |  -  |
 
-<a id="deletePolicyCollection"></a>
-# **deletePolicyCollection**
-> deletePolicyCollection(code).scope(scope).execute();
+[Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
+
+
+## deletePolicyCollection
+
+> deletePolicyCollection(code, scope)
 
 DeletePolicyCollection: Delete PolicyCollection
 
 Deletes an identified PolicyCollection
 
 ### Example
+
 ```java
-// Import classes:
-import com.finbourne.access.ApiClient;
-import com.finbourne.access.ApiException;
-import com.finbourne.access.Configuration;
-import com.finbourne.access.auth.*;
-import com.finbourne.access.models.*;
+import com.finbourne.access.model.*;
 import com.finbourne.access.api.PoliciesApi;
+import com.finbourne.access.extensions.ApiConfigurationException;
+import com.finbourne.access.extensions.ApiFactoryBuilder;
+import com.finbourne.access.extensions.auth.FinbourneTokenException;
 
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://fbn-prd.lusid.com/access");
-    
-    // Configure OAuth2 access token for authorization: oauth2
-    OAuth oauth2 = (OAuth) defaultClient.getAuthentication("oauth2");
-    oauth2.setAccessToken("YOUR ACCESS TOKEN");
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
+import java.io.UnsupportedEncodingException;
 
-    PoliciesApi apiInstance = new PoliciesApi(defaultClient);
-    String code = "code_example"; // String | The code of the PolicyCollection
-    String scope = "scope_example"; // String | Optional. Will use the default scope if not provided. The scope of the PolicyCollection
-    try {
-      apiInstance.deletePolicyCollection(code)
-            .scope(scope)
-            .execute();
-    } catch (ApiException e) {
-      System.err.println("Exception when calling PoliciesApi#deletePolicyCollection");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+public class PoliciesApiExample {
+
+    public static void main(String[] args) throws FileNotFoundException, UnsupportedEncodingException, ApiConfigurationException, FinbourneTokenException {
+        String fileName = "secrets.json";
+        try(PrintWriter writer = new PrintWriter(fileName, "UTF-8")) {
+          writer.write("{" +
+            "\"api\": {" +
+            "    \"tokenUrl\": \"<your-token-url>\"," +
+            "    \"accessUrl\": \"https://<your-domain>.lusid.com/access\"," +
+            "    \"username\": \"<your-username>\"," +
+            "    \"password\": \"<your-password>\"," +
+            "    \"clientId\": \"<your-client-id>\"," +
+            "    \"clientSecret\": \"<your-client-secret>\"" +
+            "  }" +
+            "}");
+        }
+
+        PoliciesApi apiInstance = ApiFactoryBuilder.build(fileName).build(PoliciesApi.class);
+        String code = "code_example"; // String | The code of the PolicyCollection
+        String scope = "scope_example"; // String | Optional. Will use the default scope if not provided. The scope of the PolicyCollection
+        try {
+            apiInstance.deletePolicyCollection(code, scope).execute();
+        } catch (ApiException e) {
+            System.err.println("Exception when calling PoliciesApi#deletePolicyCollection");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            e.printStackTrace();
+        }
     }
-  }
 }
 ```
 
 ### Parameters
+
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
@@ -365,14 +413,11 @@ public class Example {
 
 null (empty response body)
 
-### Authorization
-
-[oauth2](../README.md#oauth2)
-
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: text/plain, application/json, text/json
+- **Content-Type**: Not defined
+- **Accept**: text/plain, application/json, text/json
+
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -381,55 +426,66 @@ null (empty response body)
 | **400** | The details of the input related failure |  -  |
 | **0** | Error response |  -  |
 
-<a id="evaluate"></a>
-# **evaluate**
-> Map&lt;String, EvaluationResponse&gt; evaluate(requestBody).applications(applications).asAt(asAt).execute();
+[Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
+
+
+## evaluate
+
+> Map&lt;String, EvaluationResponse&gt; evaluate(requestBody, applications, asAt)
 
 Evaluate: Run one or more evaluations
 
 Given a dictionary of evaluation requests (keyed by any arbitrary correlation identifier), each will be evaluated according to the current user&#39;s policies (deduced from the provided OAuth token).
 
 ### Example
+
 ```java
-// Import classes:
-import com.finbourne.access.ApiClient;
-import com.finbourne.access.ApiException;
-import com.finbourne.access.Configuration;
-import com.finbourne.access.auth.*;
-import com.finbourne.access.models.*;
+import com.finbourne.access.model.*;
 import com.finbourne.access.api.PoliciesApi;
+import com.finbourne.access.extensions.ApiConfigurationException;
+import com.finbourne.access.extensions.ApiFactoryBuilder;
+import com.finbourne.access.extensions.auth.FinbourneTokenException;
 
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://fbn-prd.lusid.com/access");
-    
-    // Configure OAuth2 access token for authorization: oauth2
-    OAuth oauth2 = (OAuth) defaultClient.getAuthentication("oauth2");
-    oauth2.setAccessToken("YOUR ACCESS TOKEN");
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
+import java.io.UnsupportedEncodingException;
 
-    PoliciesApi apiInstance = new PoliciesApi(defaultClient);
-    Map<String, EvaluationRequest> requestBody = new HashMap(); // Map<String, EvaluationRequest> | A dictionary of evaluations, keyed using any arbitrary correlation id (it will be returned with the response for that evaluation).
-    List<String> applications = Arrays.asList(); // List<String> | Optional. The application type of the roles and policies to use when evaluating.
-    OffsetDateTime asAt = OffsetDateTime.now(); // OffsetDateTime | Optional. The requested AsAt date of the entitlements
-    try {
-      Map<String, EvaluationResponse> result = apiInstance.evaluate(requestBody)
-            .applications(applications)
-            .asAt(asAt)
-            .execute();
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling PoliciesApi#evaluate");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+public class PoliciesApiExample {
+
+    public static void main(String[] args) throws FileNotFoundException, UnsupportedEncodingException, ApiConfigurationException, FinbourneTokenException {
+        String fileName = "secrets.json";
+        try(PrintWriter writer = new PrintWriter(fileName, "UTF-8")) {
+          writer.write("{" +
+            "\"api\": {" +
+            "    \"tokenUrl\": \"<your-token-url>\"," +
+            "    \"accessUrl\": \"https://<your-domain>.lusid.com/access\"," +
+            "    \"username\": \"<your-username>\"," +
+            "    \"password\": \"<your-password>\"," +
+            "    \"clientId\": \"<your-client-id>\"," +
+            "    \"clientSecret\": \"<your-client-secret>\"" +
+            "  }" +
+            "}");
+        }
+
+        PoliciesApi apiInstance = ApiFactoryBuilder.build(fileName).build(PoliciesApi.class);
+        Map<String, EvaluationRequest> requestBody = new HashMap(); // Map<String, EvaluationRequest> | A dictionary of evaluations, keyed using any arbitrary correlation id (it will be returned with the response for that evaluation).
+        List<String> applications = Arrays.asList(); // List<String> | Optional. The application type of the roles and policies to use when evaluating.
+        OffsetDateTime asAt = OffsetDateTime.now(); // OffsetDateTime | Optional. The requested AsAt date of the entitlements
+        try {
+            Map<String, EvaluationResponse> result = apiInstance.evaluate(requestBody, applications, asAt).execute();
+            System.out.println(result.toJson());
+        } catch (ApiException e) {
+            System.err.println("Exception when calling PoliciesApi#evaluate");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            e.printStackTrace();
+        }
     }
-  }
 }
 ```
 
 ### Parameters
+
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
@@ -441,14 +497,11 @@ public class Example {
 
 [**Map&lt;String, EvaluationResponse&gt;**](EvaluationResponse.md)
 
-### Authorization
-
-[oauth2](../README.md#oauth2)
-
 ### HTTP request headers
 
- - **Content-Type**: application/json-patch+json, application/json, text/json, application/*+json
- - **Accept**: text/plain, application/json, text/json
+- **Content-Type**: application/json-patch+json, application/json, text/json, application/*+json
+- **Accept**: text/plain, application/json, text/json
+
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -457,62 +510,69 @@ public class Example {
 | **400** | The details of the input related failure |  -  |
 | **0** | Error response |  -  |
 
-<a id="getOwnPolicies"></a>
-# **getOwnPolicies**
-> List&lt;AttachedPolicyDefinitionResponse&gt; getOwnPolicies().applications(applications).asAt(asAt).sortBy(sortBy).start(start).limit(limit).filter(filter).execute();
+[Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
+
+
+## getOwnPolicies
+
+> List&lt;AttachedPolicyDefinitionResponse&gt; getOwnPolicies(applications, asAt, sortBy, start, limit, filter)
 
 GetOwnPolicies: Get policies of requesting user
 
 Gets all Policies for the current user
 
 ### Example
+
 ```java
-// Import classes:
-import com.finbourne.access.ApiClient;
-import com.finbourne.access.ApiException;
-import com.finbourne.access.Configuration;
-import com.finbourne.access.auth.*;
-import com.finbourne.access.models.*;
+import com.finbourne.access.model.*;
 import com.finbourne.access.api.PoliciesApi;
+import com.finbourne.access.extensions.ApiConfigurationException;
+import com.finbourne.access.extensions.ApiFactoryBuilder;
+import com.finbourne.access.extensions.auth.FinbourneTokenException;
 
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://fbn-prd.lusid.com/access");
-    
-    // Configure OAuth2 access token for authorization: oauth2
-    OAuth oauth2 = (OAuth) defaultClient.getAuthentication("oauth2");
-    oauth2.setAccessToken("YOUR ACCESS TOKEN");
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
+import java.io.UnsupportedEncodingException;
 
-    PoliciesApi apiInstance = new PoliciesApi(defaultClient);
-    List<String> applications = Arrays.asList(); // List<String> | Optional. Filter on the applications that the policies apply to
-    OffsetDateTime asAt = OffsetDateTime.now(); // OffsetDateTime | Optional. The AsAt date time of the data
-    List<String> sortBy = Arrays.asList(); // List<String> | Optional. Order the results by these fields. Use use the '-' sign to denote descending order e.g. -MyFieldName
-    Integer start = 56; // Integer | Optional. When paginating, skip this number of results
-    Integer limit = 56; // Integer | Optional. When paginating, limit the number of returned results to this many.
-    String filter = "filter_example"; // String | Optional. Expression to filter the result set
-    try {
-      List<AttachedPolicyDefinitionResponse> result = apiInstance.getOwnPolicies()
-            .applications(applications)
-            .asAt(asAt)
-            .sortBy(sortBy)
-            .start(start)
-            .limit(limit)
-            .filter(filter)
-            .execute();
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling PoliciesApi#getOwnPolicies");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+public class PoliciesApiExample {
+
+    public static void main(String[] args) throws FileNotFoundException, UnsupportedEncodingException, ApiConfigurationException, FinbourneTokenException {
+        String fileName = "secrets.json";
+        try(PrintWriter writer = new PrintWriter(fileName, "UTF-8")) {
+          writer.write("{" +
+            "\"api\": {" +
+            "    \"tokenUrl\": \"<your-token-url>\"," +
+            "    \"accessUrl\": \"https://<your-domain>.lusid.com/access\"," +
+            "    \"username\": \"<your-username>\"," +
+            "    \"password\": \"<your-password>\"," +
+            "    \"clientId\": \"<your-client-id>\"," +
+            "    \"clientSecret\": \"<your-client-secret>\"" +
+            "  }" +
+            "}");
+        }
+
+        PoliciesApi apiInstance = ApiFactoryBuilder.build(fileName).build(PoliciesApi.class);
+        List<String> applications = Arrays.asList(); // List<String> | Optional. Filter on the applications that the policies apply to
+        OffsetDateTime asAt = OffsetDateTime.now(); // OffsetDateTime | Optional. The AsAt date time of the data
+        List<String> sortBy = Arrays.asList(); // List<String> | Optional. Order the results by these fields. Use use the '-' sign to denote descending order e.g. -MyFieldName
+        Integer start = 56; // Integer | Optional. When paginating, skip this number of results
+        Integer limit = 56; // Integer | Optional. When paginating, limit the number of returned results to this many.
+        String filter = "filter_example"; // String | Optional. Expression to filter the result set
+        try {
+            List<AttachedPolicyDefinitionResponse> result = apiInstance.getOwnPolicies(applications, asAt, sortBy, start, limit, filter).execute();
+            System.out.println(result.toJson());
+        } catch (ApiException e) {
+            System.err.println("Exception when calling PoliciesApi#getOwnPolicies");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            e.printStackTrace();
+        }
     }
-  }
 }
 ```
 
 ### Parameters
+
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
@@ -527,14 +587,11 @@ public class Example {
 
 [**List&lt;AttachedPolicyDefinitionResponse&gt;**](AttachedPolicyDefinitionResponse.md)
 
-### Authorization
-
-[oauth2](../README.md#oauth2)
-
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: text/plain, application/json, text/json
+- **Content-Type**: Not defined
+- **Accept**: text/plain, application/json, text/json
+
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -543,55 +600,66 @@ public class Example {
 | **400** | The details of the input related failure |  -  |
 | **0** | Error response |  -  |
 
-<a id="getPolicy"></a>
-# **getPolicy**
-> PolicyResponse getPolicy(code).asAt(asAt).scope(scope).execute();
+[Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
+
+
+## getPolicy
+
+> PolicyResponse getPolicy(code, asAt, scope)
 
 GetPolicy: Get Policy
 
 Gets an identified Policy
 
 ### Example
+
 ```java
-// Import classes:
-import com.finbourne.access.ApiClient;
-import com.finbourne.access.ApiException;
-import com.finbourne.access.Configuration;
-import com.finbourne.access.auth.*;
-import com.finbourne.access.models.*;
+import com.finbourne.access.model.*;
 import com.finbourne.access.api.PoliciesApi;
+import com.finbourne.access.extensions.ApiConfigurationException;
+import com.finbourne.access.extensions.ApiFactoryBuilder;
+import com.finbourne.access.extensions.auth.FinbourneTokenException;
 
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://fbn-prd.lusid.com/access");
-    
-    // Configure OAuth2 access token for authorization: oauth2
-    OAuth oauth2 = (OAuth) defaultClient.getAuthentication("oauth2");
-    oauth2.setAccessToken("YOUR ACCESS TOKEN");
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
+import java.io.UnsupportedEncodingException;
 
-    PoliciesApi apiInstance = new PoliciesApi(defaultClient);
-    String code = "code_example"; // String | The code of the Policy
-    OffsetDateTime asAt = OffsetDateTime.now(); // OffsetDateTime | Optional. The AsAt date time of the data
-    String scope = "scope_example"; // String | Optional. Will use the default scope if not provided. The scope of the Policy
-    try {
-      PolicyResponse result = apiInstance.getPolicy(code)
-            .asAt(asAt)
-            .scope(scope)
-            .execute();
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling PoliciesApi#getPolicy");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+public class PoliciesApiExample {
+
+    public static void main(String[] args) throws FileNotFoundException, UnsupportedEncodingException, ApiConfigurationException, FinbourneTokenException {
+        String fileName = "secrets.json";
+        try(PrintWriter writer = new PrintWriter(fileName, "UTF-8")) {
+          writer.write("{" +
+            "\"api\": {" +
+            "    \"tokenUrl\": \"<your-token-url>\"," +
+            "    \"accessUrl\": \"https://<your-domain>.lusid.com/access\"," +
+            "    \"username\": \"<your-username>\"," +
+            "    \"password\": \"<your-password>\"," +
+            "    \"clientId\": \"<your-client-id>\"," +
+            "    \"clientSecret\": \"<your-client-secret>\"" +
+            "  }" +
+            "}");
+        }
+
+        PoliciesApi apiInstance = ApiFactoryBuilder.build(fileName).build(PoliciesApi.class);
+        String code = "code_example"; // String | The code of the Policy
+        OffsetDateTime asAt = OffsetDateTime.now(); // OffsetDateTime | Optional. The AsAt date time of the data
+        String scope = "scope_example"; // String | Optional. Will use the default scope if not provided. The scope of the Policy
+        try {
+            PolicyResponse result = apiInstance.getPolicy(code, asAt, scope).execute();
+            System.out.println(result.toJson());
+        } catch (ApiException e) {
+            System.err.println("Exception when calling PoliciesApi#getPolicy");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            e.printStackTrace();
+        }
     }
-  }
 }
 ```
 
 ### Parameters
+
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
@@ -603,14 +671,11 @@ public class Example {
 
 [**PolicyResponse**](PolicyResponse.md)
 
-### Authorization
-
-[oauth2](../README.md#oauth2)
-
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: text/plain, application/json, text/json
+- **Content-Type**: Not defined
+- **Accept**: text/plain, application/json, text/json
+
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -619,55 +684,66 @@ public class Example {
 | **400** | The details of the input related failure |  -  |
 | **0** | Error response |  -  |
 
-<a id="getPolicyCollection"></a>
-# **getPolicyCollection**
-> PolicyCollectionResponse getPolicyCollection(code).asAt(asAt).scope(scope).execute();
+[Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
+
+
+## getPolicyCollection
+
+> PolicyCollectionResponse getPolicyCollection(code, asAt, scope)
 
 GetPolicyCollection: Get PolicyCollection
 
 Gets an identified PolicyCollection
 
 ### Example
+
 ```java
-// Import classes:
-import com.finbourne.access.ApiClient;
-import com.finbourne.access.ApiException;
-import com.finbourne.access.Configuration;
-import com.finbourne.access.auth.*;
-import com.finbourne.access.models.*;
+import com.finbourne.access.model.*;
 import com.finbourne.access.api.PoliciesApi;
+import com.finbourne.access.extensions.ApiConfigurationException;
+import com.finbourne.access.extensions.ApiFactoryBuilder;
+import com.finbourne.access.extensions.auth.FinbourneTokenException;
 
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://fbn-prd.lusid.com/access");
-    
-    // Configure OAuth2 access token for authorization: oauth2
-    OAuth oauth2 = (OAuth) defaultClient.getAuthentication("oauth2");
-    oauth2.setAccessToken("YOUR ACCESS TOKEN");
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
+import java.io.UnsupportedEncodingException;
 
-    PoliciesApi apiInstance = new PoliciesApi(defaultClient);
-    String code = "code_example"; // String | The code of the PolicyCollection
-    OffsetDateTime asAt = OffsetDateTime.now(); // OffsetDateTime | Optional. The AsAt date time of the data
-    String scope = "scope_example"; // String | Optional. Will use the default scope if not provided. The scope of the PolicyCollection
-    try {
-      PolicyCollectionResponse result = apiInstance.getPolicyCollection(code)
-            .asAt(asAt)
-            .scope(scope)
-            .execute();
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling PoliciesApi#getPolicyCollection");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+public class PoliciesApiExample {
+
+    public static void main(String[] args) throws FileNotFoundException, UnsupportedEncodingException, ApiConfigurationException, FinbourneTokenException {
+        String fileName = "secrets.json";
+        try(PrintWriter writer = new PrintWriter(fileName, "UTF-8")) {
+          writer.write("{" +
+            "\"api\": {" +
+            "    \"tokenUrl\": \"<your-token-url>\"," +
+            "    \"accessUrl\": \"https://<your-domain>.lusid.com/access\"," +
+            "    \"username\": \"<your-username>\"," +
+            "    \"password\": \"<your-password>\"," +
+            "    \"clientId\": \"<your-client-id>\"," +
+            "    \"clientSecret\": \"<your-client-secret>\"" +
+            "  }" +
+            "}");
+        }
+
+        PoliciesApi apiInstance = ApiFactoryBuilder.build(fileName).build(PoliciesApi.class);
+        String code = "code_example"; // String | The code of the PolicyCollection
+        OffsetDateTime asAt = OffsetDateTime.now(); // OffsetDateTime | Optional. The AsAt date time of the data
+        String scope = "scope_example"; // String | Optional. Will use the default scope if not provided. The scope of the PolicyCollection
+        try {
+            PolicyCollectionResponse result = apiInstance.getPolicyCollection(code, asAt, scope).execute();
+            System.out.println(result.toJson());
+        } catch (ApiException e) {
+            System.err.println("Exception when calling PoliciesApi#getPolicyCollection");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            e.printStackTrace();
+        }
     }
-  }
 }
 ```
 
 ### Parameters
+
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
@@ -679,14 +755,11 @@ public class Example {
 
 [**PolicyCollectionResponse**](PolicyCollectionResponse.md)
 
-### Authorization
-
-[oauth2](../README.md#oauth2)
-
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: text/plain, application/json, text/json
+- **Content-Type**: Not defined
+- **Accept**: text/plain, application/json, text/json
+
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -695,62 +768,69 @@ public class Example {
 | **400** | The details of the input related failure |  -  |
 | **0** | Error response |  -  |
 
-<a id="listPolicies"></a>
-# **listPolicies**
-> List&lt;PolicyResponse&gt; listPolicies().scope(scope).asAt(asAt).sortBy(sortBy).start(start).limit(limit).filter(filter).execute();
+[Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
+
+
+## listPolicies
+
+> List&lt;PolicyResponse&gt; listPolicies(scope, asAt, sortBy, start, limit, filter)
 
 [EARLY ACCESS] ListPolicies: List Policies
 
 Gets all Policies in a scope. For pagination support, use PagePolicies.
 
 ### Example
+
 ```java
-// Import classes:
-import com.finbourne.access.ApiClient;
-import com.finbourne.access.ApiException;
-import com.finbourne.access.Configuration;
-import com.finbourne.access.auth.*;
-import com.finbourne.access.models.*;
+import com.finbourne.access.model.*;
 import com.finbourne.access.api.PoliciesApi;
+import com.finbourne.access.extensions.ApiConfigurationException;
+import com.finbourne.access.extensions.ApiFactoryBuilder;
+import com.finbourne.access.extensions.auth.FinbourneTokenException;
 
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://fbn-prd.lusid.com/access");
-    
-    // Configure OAuth2 access token for authorization: oauth2
-    OAuth oauth2 = (OAuth) defaultClient.getAuthentication("oauth2");
-    oauth2.setAccessToken("YOUR ACCESS TOKEN");
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
+import java.io.UnsupportedEncodingException;
 
-    PoliciesApi apiInstance = new PoliciesApi(defaultClient);
-    String scope = "scope_example"; // String | Optional. Will use the default scope if not provided. The requested scope
-    OffsetDateTime asAt = OffsetDateTime.now(); // OffsetDateTime | Optional. The AsAt date time of the data
-    List<String> sortBy = Arrays.asList(); // List<String> | Optional. Order the results by these fields. Use use the '-' sign to denote descending order e.g. -MyFieldName
-    Integer start = 56; // Integer | Optional. When paginating, skip this number of results
-    Integer limit = 56; // Integer | Optional. When paginating, limit the number of returned results to this many.
-    String filter = "filter_example"; // String | Optional. Expression to filter the result set
-    try {
-      List<PolicyResponse> result = apiInstance.listPolicies()
-            .scope(scope)
-            .asAt(asAt)
-            .sortBy(sortBy)
-            .start(start)
-            .limit(limit)
-            .filter(filter)
-            .execute();
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling PoliciesApi#listPolicies");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+public class PoliciesApiExample {
+
+    public static void main(String[] args) throws FileNotFoundException, UnsupportedEncodingException, ApiConfigurationException, FinbourneTokenException {
+        String fileName = "secrets.json";
+        try(PrintWriter writer = new PrintWriter(fileName, "UTF-8")) {
+          writer.write("{" +
+            "\"api\": {" +
+            "    \"tokenUrl\": \"<your-token-url>\"," +
+            "    \"accessUrl\": \"https://<your-domain>.lusid.com/access\"," +
+            "    \"username\": \"<your-username>\"," +
+            "    \"password\": \"<your-password>\"," +
+            "    \"clientId\": \"<your-client-id>\"," +
+            "    \"clientSecret\": \"<your-client-secret>\"" +
+            "  }" +
+            "}");
+        }
+
+        PoliciesApi apiInstance = ApiFactoryBuilder.build(fileName).build(PoliciesApi.class);
+        String scope = "scope_example"; // String | Optional. Will use the default scope if not provided. The requested scope
+        OffsetDateTime asAt = OffsetDateTime.now(); // OffsetDateTime | Optional. The AsAt date time of the data
+        List<String> sortBy = Arrays.asList(); // List<String> | Optional. Order the results by these fields. Use use the '-' sign to denote descending order e.g. -MyFieldName
+        Integer start = 56; // Integer | Optional. When paginating, skip this number of results
+        Integer limit = 56; // Integer | Optional. When paginating, limit the number of returned results to this many.
+        String filter = "filter_example"; // String | Optional. Expression to filter the result set
+        try {
+            List<PolicyResponse> result = apiInstance.listPolicies(scope, asAt, sortBy, start, limit, filter).execute();
+            System.out.println(result.toJson());
+        } catch (ApiException e) {
+            System.err.println("Exception when calling PoliciesApi#listPolicies");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            e.printStackTrace();
+        }
     }
-  }
 }
 ```
 
 ### Parameters
+
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
@@ -765,14 +845,11 @@ public class Example {
 
 [**List&lt;PolicyResponse&gt;**](PolicyResponse.md)
 
-### Authorization
-
-[oauth2](../README.md#oauth2)
-
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: text/plain, application/json, text/json
+- **Content-Type**: Not defined
+- **Accept**: text/plain, application/json, text/json
+
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -781,62 +858,69 @@ public class Example {
 | **400** | The details of the input related failure |  -  |
 | **0** | Error response |  -  |
 
-<a id="listPolicyCollections"></a>
-# **listPolicyCollections**
-> List&lt;PolicyCollectionResponse&gt; listPolicyCollections().scope(scope).asAt(asAt).sortBy(sortBy).start(start).limit(limit).filter(filter).execute();
+[Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
+
+
+## listPolicyCollections
+
+> List&lt;PolicyCollectionResponse&gt; listPolicyCollections(scope, asAt, sortBy, start, limit, filter)
 
 ListPolicyCollections: List PolicyCollections
 
 Gets all PolicyCollections in a scope. For pagination support, use PagePolicyCollections
 
 ### Example
+
 ```java
-// Import classes:
-import com.finbourne.access.ApiClient;
-import com.finbourne.access.ApiException;
-import com.finbourne.access.Configuration;
-import com.finbourne.access.auth.*;
-import com.finbourne.access.models.*;
+import com.finbourne.access.model.*;
 import com.finbourne.access.api.PoliciesApi;
+import com.finbourne.access.extensions.ApiConfigurationException;
+import com.finbourne.access.extensions.ApiFactoryBuilder;
+import com.finbourne.access.extensions.auth.FinbourneTokenException;
 
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://fbn-prd.lusid.com/access");
-    
-    // Configure OAuth2 access token for authorization: oauth2
-    OAuth oauth2 = (OAuth) defaultClient.getAuthentication("oauth2");
-    oauth2.setAccessToken("YOUR ACCESS TOKEN");
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
+import java.io.UnsupportedEncodingException;
 
-    PoliciesApi apiInstance = new PoliciesApi(defaultClient);
-    String scope = "scope_example"; // String | Optional. Will use the default scope if not provided. The requested scope
-    OffsetDateTime asAt = OffsetDateTime.now(); // OffsetDateTime | Optional. The AsAt date time of the data
-    List<String> sortBy = Arrays.asList(); // List<String> | Optional. Order the results by these fields. Use use the '-' sign to denote descending order e.g. -MyFieldName
-    Integer start = 56; // Integer | Optional. When paginating, skip this number of results
-    Integer limit = 56; // Integer | Optional. 2000 if not provided. When paginating, limit the number of returned results to this many.
-    String filter = "filter_example"; // String | Optional. Expression to filter the result set
-    try {
-      List<PolicyCollectionResponse> result = apiInstance.listPolicyCollections()
-            .scope(scope)
-            .asAt(asAt)
-            .sortBy(sortBy)
-            .start(start)
-            .limit(limit)
-            .filter(filter)
-            .execute();
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling PoliciesApi#listPolicyCollections");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+public class PoliciesApiExample {
+
+    public static void main(String[] args) throws FileNotFoundException, UnsupportedEncodingException, ApiConfigurationException, FinbourneTokenException {
+        String fileName = "secrets.json";
+        try(PrintWriter writer = new PrintWriter(fileName, "UTF-8")) {
+          writer.write("{" +
+            "\"api\": {" +
+            "    \"tokenUrl\": \"<your-token-url>\"," +
+            "    \"accessUrl\": \"https://<your-domain>.lusid.com/access\"," +
+            "    \"username\": \"<your-username>\"," +
+            "    \"password\": \"<your-password>\"," +
+            "    \"clientId\": \"<your-client-id>\"," +
+            "    \"clientSecret\": \"<your-client-secret>\"" +
+            "  }" +
+            "}");
+        }
+
+        PoliciesApi apiInstance = ApiFactoryBuilder.build(fileName).build(PoliciesApi.class);
+        String scope = "scope_example"; // String | Optional. Will use the default scope if not provided. The requested scope
+        OffsetDateTime asAt = OffsetDateTime.now(); // OffsetDateTime | Optional. The AsAt date time of the data
+        List<String> sortBy = Arrays.asList(); // List<String> | Optional. Order the results by these fields. Use use the '-' sign to denote descending order e.g. -MyFieldName
+        Integer start = 56; // Integer | Optional. When paginating, skip this number of results
+        Integer limit = 56; // Integer | Optional. 2000 if not provided. When paginating, limit the number of returned results to this many.
+        String filter = "filter_example"; // String | Optional. Expression to filter the result set
+        try {
+            List<PolicyCollectionResponse> result = apiInstance.listPolicyCollections(scope, asAt, sortBy, start, limit, filter).execute();
+            System.out.println(result.toJson());
+        } catch (ApiException e) {
+            System.err.println("Exception when calling PoliciesApi#listPolicyCollections");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            e.printStackTrace();
+        }
     }
-  }
 }
 ```
 
 ### Parameters
+
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
@@ -851,14 +935,11 @@ public class Example {
 
 [**List&lt;PolicyCollectionResponse&gt;**](PolicyCollectionResponse.md)
 
-### Authorization
-
-[oauth2](../README.md#oauth2)
-
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: text/plain, application/json, text/json
+- **Content-Type**: Not defined
+- **Accept**: text/plain, application/json, text/json
+
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -867,60 +948,68 @@ public class Example {
 | **400** | The details of the input related failure |  -  |
 | **0** | Error response |  -  |
 
-<a id="pagePolicies"></a>
-# **pagePolicies**
-> ResourceListOfPolicyResponse pagePolicies().asAt(asAt).sortBy(sortBy).limit(limit).filter(filter).page(page).execute();
+[Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
+
+
+## pagePolicies
+
+> ResourceListOfPolicyResponse pagePolicies(asAt, sortBy, limit, filter, page)
 
 [EARLY ACCESS] PagePolicies: Page Policies
 
 Gets all Policies with pagination support.
 
 ### Example
+
 ```java
-// Import classes:
-import com.finbourne.access.ApiClient;
-import com.finbourne.access.ApiException;
-import com.finbourne.access.Configuration;
-import com.finbourne.access.auth.*;
-import com.finbourne.access.models.*;
+import com.finbourne.access.model.*;
 import com.finbourne.access.api.PoliciesApi;
+import com.finbourne.access.extensions.ApiConfigurationException;
+import com.finbourne.access.extensions.ApiFactoryBuilder;
+import com.finbourne.access.extensions.auth.FinbourneTokenException;
 
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://fbn-prd.lusid.com/access");
-    
-    // Configure OAuth2 access token for authorization: oauth2
-    OAuth oauth2 = (OAuth) defaultClient.getAuthentication("oauth2");
-    oauth2.setAccessToken("YOUR ACCESS TOKEN");
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
+import java.io.UnsupportedEncodingException;
 
-    PoliciesApi apiInstance = new PoliciesApi(defaultClient);
-    OffsetDateTime asAt = OffsetDateTime.now(); // OffsetDateTime | Optional. Not currently used. The AsAt date time of the data
-    String sortBy = "sortBy_example"; // String | Optional. Order the results by these fields. Use the '-' sign to denote descending order e.g. -MyFieldName
-    Integer limit = 56; // Integer | Optional. 2000 if not provided. When paginating, limit the number of returned results to this many
-    String filter = "filter_example"; // String | Optional. Expression to filter the result set
-    String page = "page_example"; // String | Optional. Paging token returned from a previous result
-    try {
-      ResourceListOfPolicyResponse result = apiInstance.pagePolicies()
-            .asAt(asAt)
-            .sortBy(sortBy)
-            .limit(limit)
-            .filter(filter)
-            .page(page)
-            .execute();
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling PoliciesApi#pagePolicies");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+public class PoliciesApiExample {
+
+    public static void main(String[] args) throws FileNotFoundException, UnsupportedEncodingException, ApiConfigurationException, FinbourneTokenException {
+        String fileName = "secrets.json";
+        try(PrintWriter writer = new PrintWriter(fileName, "UTF-8")) {
+          writer.write("{" +
+            "\"api\": {" +
+            "    \"tokenUrl\": \"<your-token-url>\"," +
+            "    \"accessUrl\": \"https://<your-domain>.lusid.com/access\"," +
+            "    \"username\": \"<your-username>\"," +
+            "    \"password\": \"<your-password>\"," +
+            "    \"clientId\": \"<your-client-id>\"," +
+            "    \"clientSecret\": \"<your-client-secret>\"" +
+            "  }" +
+            "}");
+        }
+
+        PoliciesApi apiInstance = ApiFactoryBuilder.build(fileName).build(PoliciesApi.class);
+        OffsetDateTime asAt = OffsetDateTime.now(); // OffsetDateTime | Optional. Not currently used. The AsAt date time of the data
+        String sortBy = "sortBy_example"; // String | Optional. Order the results by these fields. Use the '-' sign to denote descending order e.g. -MyFieldName
+        Integer limit = 56; // Integer | Optional. 2000 if not provided. When paginating, limit the number of returned results to this many
+        String filter = "filter_example"; // String | Optional. Expression to filter the result set
+        String page = "page_example"; // String | Optional. Paging token returned from a previous result
+        try {
+            ResourceListOfPolicyResponse result = apiInstance.pagePolicies(asAt, sortBy, limit, filter, page).execute();
+            System.out.println(result.toJson());
+        } catch (ApiException e) {
+            System.err.println("Exception when calling PoliciesApi#pagePolicies");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            e.printStackTrace();
+        }
     }
-  }
 }
 ```
 
 ### Parameters
+
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
@@ -934,14 +1023,11 @@ public class Example {
 
 [**ResourceListOfPolicyResponse**](ResourceListOfPolicyResponse.md)
 
-### Authorization
-
-[oauth2](../README.md#oauth2)
-
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: text/plain, application/json, text/json
+- **Content-Type**: Not defined
+- **Accept**: text/plain, application/json, text/json
+
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -950,60 +1036,68 @@ public class Example {
 | **400** | The details of the input related failure |  -  |
 | **0** | Error response |  -  |
 
-<a id="pagePolicyCollections"></a>
-# **pagePolicyCollections**
-> ResourceListOfPolicyCollectionResponse pagePolicyCollections().asAt(asAt).sortBy(sortBy).limit(limit).filter(filter).page(page).execute();
+[Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
+
+
+## pagePolicyCollections
+
+> ResourceListOfPolicyCollectionResponse pagePolicyCollections(asAt, sortBy, limit, filter, page)
 
 PagePolicyCollections: Page PolicyCollections
 
 Gets all PolicyCollections with pagination support.
 
 ### Example
+
 ```java
-// Import classes:
-import com.finbourne.access.ApiClient;
-import com.finbourne.access.ApiException;
-import com.finbourne.access.Configuration;
-import com.finbourne.access.auth.*;
-import com.finbourne.access.models.*;
+import com.finbourne.access.model.*;
 import com.finbourne.access.api.PoliciesApi;
+import com.finbourne.access.extensions.ApiConfigurationException;
+import com.finbourne.access.extensions.ApiFactoryBuilder;
+import com.finbourne.access.extensions.auth.FinbourneTokenException;
 
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://fbn-prd.lusid.com/access");
-    
-    // Configure OAuth2 access token for authorization: oauth2
-    OAuth oauth2 = (OAuth) defaultClient.getAuthentication("oauth2");
-    oauth2.setAccessToken("YOUR ACCESS TOKEN");
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
+import java.io.UnsupportedEncodingException;
 
-    PoliciesApi apiInstance = new PoliciesApi(defaultClient);
-    OffsetDateTime asAt = OffsetDateTime.now(); // OffsetDateTime | Optional. Not currently used. The AsAt date time of the data
-    String sortBy = "sortBy_example"; // String | Optional. Order the results by these fields. Use the '-' sign to denote descending order e.g. -MyFieldName
-    Integer limit = 56; // Integer | Optional. 2000 if not provided. When paginating, limit the number of returned results to this many
-    String filter = "filter_example"; // String | Optional. Expression to filter the result set
-    String page = "page_example"; // String | Optional. Paging token returned from a previous result
-    try {
-      ResourceListOfPolicyCollectionResponse result = apiInstance.pagePolicyCollections()
-            .asAt(asAt)
-            .sortBy(sortBy)
-            .limit(limit)
-            .filter(filter)
-            .page(page)
-            .execute();
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling PoliciesApi#pagePolicyCollections");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+public class PoliciesApiExample {
+
+    public static void main(String[] args) throws FileNotFoundException, UnsupportedEncodingException, ApiConfigurationException, FinbourneTokenException {
+        String fileName = "secrets.json";
+        try(PrintWriter writer = new PrintWriter(fileName, "UTF-8")) {
+          writer.write("{" +
+            "\"api\": {" +
+            "    \"tokenUrl\": \"<your-token-url>\"," +
+            "    \"accessUrl\": \"https://<your-domain>.lusid.com/access\"," +
+            "    \"username\": \"<your-username>\"," +
+            "    \"password\": \"<your-password>\"," +
+            "    \"clientId\": \"<your-client-id>\"," +
+            "    \"clientSecret\": \"<your-client-secret>\"" +
+            "  }" +
+            "}");
+        }
+
+        PoliciesApi apiInstance = ApiFactoryBuilder.build(fileName).build(PoliciesApi.class);
+        OffsetDateTime asAt = OffsetDateTime.now(); // OffsetDateTime | Optional. Not currently used. The AsAt date time of the data
+        String sortBy = "sortBy_example"; // String | Optional. Order the results by these fields. Use the '-' sign to denote descending order e.g. -MyFieldName
+        Integer limit = 56; // Integer | Optional. 2000 if not provided. When paginating, limit the number of returned results to this many
+        String filter = "filter_example"; // String | Optional. Expression to filter the result set
+        String page = "page_example"; // String | Optional. Paging token returned from a previous result
+        try {
+            ResourceListOfPolicyCollectionResponse result = apiInstance.pagePolicyCollections(asAt, sortBy, limit, filter, page).execute();
+            System.out.println(result.toJson());
+        } catch (ApiException e) {
+            System.err.println("Exception when calling PoliciesApi#pagePolicyCollections");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            e.printStackTrace();
+        }
     }
-  }
 }
 ```
 
 ### Parameters
+
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
@@ -1017,14 +1111,11 @@ public class Example {
 
 [**ResourceListOfPolicyCollectionResponse**](ResourceListOfPolicyCollectionResponse.md)
 
-### Authorization
-
-[oauth2](../README.md#oauth2)
-
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: text/plain, application/json, text/json
+- **Content-Type**: Not defined
+- **Accept**: text/plain, application/json, text/json
+
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -1033,54 +1124,66 @@ public class Example {
 | **400** | The details of the input related failure |  -  |
 | **0** | Error response |  -  |
 
-<a id="removeFromPolicyCollection"></a>
-# **removeFromPolicyCollection**
-> PolicyCollectionResponse removeFromPolicyCollection(code, removeFromPolicyCollectionRequest).scope(scope).execute();
+[Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
+
+
+## removeFromPolicyCollection
+
+> PolicyCollectionResponse removeFromPolicyCollection(code, removeFromPolicyCollectionRequest, scope)
 
 RemoveFromPolicyCollection: Remove From PolicyCollection
 
 Remove Policies and/or PolicyCollections from a PolicyCollection
 
 ### Example
+
 ```java
-// Import classes:
-import com.finbourne.access.ApiClient;
-import com.finbourne.access.ApiException;
-import com.finbourne.access.Configuration;
-import com.finbourne.access.auth.*;
-import com.finbourne.access.models.*;
+import com.finbourne.access.model.*;
 import com.finbourne.access.api.PoliciesApi;
+import com.finbourne.access.extensions.ApiConfigurationException;
+import com.finbourne.access.extensions.ApiFactoryBuilder;
+import com.finbourne.access.extensions.auth.FinbourneTokenException;
 
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://fbn-prd.lusid.com/access");
-    
-    // Configure OAuth2 access token for authorization: oauth2
-    OAuth oauth2 = (OAuth) defaultClient.getAuthentication("oauth2");
-    oauth2.setAccessToken("YOUR ACCESS TOKEN");
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
+import java.io.UnsupportedEncodingException;
 
-    PoliciesApi apiInstance = new PoliciesApi(defaultClient);
-    String code = "code_example"; // String | The code of the PolicyCollection
-    RemoveFromPolicyCollectionRequest removeFromPolicyCollectionRequest = new RemoveFromPolicyCollectionRequest(); // RemoveFromPolicyCollectionRequest | Ids of the PolicyCollections and/or Policies to remove from the PolicyCollection
-    String scope = "scope_example"; // String | Optional. Will use the default scope if not provided. The scope of the PolicyCollection
-    try {
-      PolicyCollectionResponse result = apiInstance.removeFromPolicyCollection(code, removeFromPolicyCollectionRequest)
-            .scope(scope)
-            .execute();
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling PoliciesApi#removeFromPolicyCollection");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+public class PoliciesApiExample {
+
+    public static void main(String[] args) throws FileNotFoundException, UnsupportedEncodingException, ApiConfigurationException, FinbourneTokenException {
+        String fileName = "secrets.json";
+        try(PrintWriter writer = new PrintWriter(fileName, "UTF-8")) {
+          writer.write("{" +
+            "\"api\": {" +
+            "    \"tokenUrl\": \"<your-token-url>\"," +
+            "    \"accessUrl\": \"https://<your-domain>.lusid.com/access\"," +
+            "    \"username\": \"<your-username>\"," +
+            "    \"password\": \"<your-password>\"," +
+            "    \"clientId\": \"<your-client-id>\"," +
+            "    \"clientSecret\": \"<your-client-secret>\"" +
+            "  }" +
+            "}");
+        }
+
+        PoliciesApi apiInstance = ApiFactoryBuilder.build(fileName).build(PoliciesApi.class);
+        String code = "code_example"; // String | The code of the PolicyCollection
+        RemoveFromPolicyCollectionRequest removeFromPolicyCollectionRequest = new RemoveFromPolicyCollectionRequest(); // RemoveFromPolicyCollectionRequest | Ids of the PolicyCollections and/or Policies to remove from the PolicyCollection
+        String scope = "scope_example"; // String | Optional. Will use the default scope if not provided. The scope of the PolicyCollection
+        try {
+            PolicyCollectionResponse result = apiInstance.removeFromPolicyCollection(code, removeFromPolicyCollectionRequest, scope).execute();
+            System.out.println(result.toJson());
+        } catch (ApiException e) {
+            System.err.println("Exception when calling PoliciesApi#removeFromPolicyCollection");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            e.printStackTrace();
+        }
     }
-  }
 }
 ```
 
 ### Parameters
+
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
@@ -1092,14 +1195,11 @@ public class Example {
 
 [**PolicyCollectionResponse**](PolicyCollectionResponse.md)
 
-### Authorization
-
-[oauth2](../README.md#oauth2)
-
 ### HTTP request headers
 
- - **Content-Type**: application/json-patch+json, application/json, text/json, application/*+json
- - **Accept**: text/plain, application/json, text/json
+- **Content-Type**: application/json-patch+json, application/json, text/json, application/*+json
+- **Accept**: text/plain, application/json, text/json
+
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -1108,54 +1208,66 @@ public class Example {
 | **400** | The details of the input related failure |  -  |
 | **0** | Error response |  -  |
 
-<a id="updatePolicy"></a>
-# **updatePolicy**
-> PolicyResponse updatePolicy(code, policyUpdateRequest).scope(scope).execute();
+[Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
+
+
+## updatePolicy
+
+> PolicyResponse updatePolicy(code, policyUpdateRequest, scope)
 
 UpdatePolicy: Update Policy
 
 Updates a Policy
 
 ### Example
+
 ```java
-// Import classes:
-import com.finbourne.access.ApiClient;
-import com.finbourne.access.ApiException;
-import com.finbourne.access.Configuration;
-import com.finbourne.access.auth.*;
-import com.finbourne.access.models.*;
+import com.finbourne.access.model.*;
 import com.finbourne.access.api.PoliciesApi;
+import com.finbourne.access.extensions.ApiConfigurationException;
+import com.finbourne.access.extensions.ApiFactoryBuilder;
+import com.finbourne.access.extensions.auth.FinbourneTokenException;
 
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://fbn-prd.lusid.com/access");
-    
-    // Configure OAuth2 access token for authorization: oauth2
-    OAuth oauth2 = (OAuth) defaultClient.getAuthentication("oauth2");
-    oauth2.setAccessToken("YOUR ACCESS TOKEN");
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
+import java.io.UnsupportedEncodingException;
 
-    PoliciesApi apiInstance = new PoliciesApi(defaultClient);
-    String code = "code_example"; // String | The code of the Policy
-    PolicyUpdateRequest policyUpdateRequest = new PolicyUpdateRequest(); // PolicyUpdateRequest | The updated definition of the Policy
-    String scope = "scope_example"; // String | Optional. Will use the default scope if not provided. The scope of the Policy
-    try {
-      PolicyResponse result = apiInstance.updatePolicy(code, policyUpdateRequest)
-            .scope(scope)
-            .execute();
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling PoliciesApi#updatePolicy");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+public class PoliciesApiExample {
+
+    public static void main(String[] args) throws FileNotFoundException, UnsupportedEncodingException, ApiConfigurationException, FinbourneTokenException {
+        String fileName = "secrets.json";
+        try(PrintWriter writer = new PrintWriter(fileName, "UTF-8")) {
+          writer.write("{" +
+            "\"api\": {" +
+            "    \"tokenUrl\": \"<your-token-url>\"," +
+            "    \"accessUrl\": \"https://<your-domain>.lusid.com/access\"," +
+            "    \"username\": \"<your-username>\"," +
+            "    \"password\": \"<your-password>\"," +
+            "    \"clientId\": \"<your-client-id>\"," +
+            "    \"clientSecret\": \"<your-client-secret>\"" +
+            "  }" +
+            "}");
+        }
+
+        PoliciesApi apiInstance = ApiFactoryBuilder.build(fileName).build(PoliciesApi.class);
+        String code = "code_example"; // String | The code of the Policy
+        PolicyUpdateRequest policyUpdateRequest = new PolicyUpdateRequest(); // PolicyUpdateRequest | The updated definition of the Policy
+        String scope = "scope_example"; // String | Optional. Will use the default scope if not provided. The scope of the Policy
+        try {
+            PolicyResponse result = apiInstance.updatePolicy(code, policyUpdateRequest, scope).execute();
+            System.out.println(result.toJson());
+        } catch (ApiException e) {
+            System.err.println("Exception when calling PoliciesApi#updatePolicy");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            e.printStackTrace();
+        }
     }
-  }
 }
 ```
 
 ### Parameters
+
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
@@ -1167,14 +1279,11 @@ public class Example {
 
 [**PolicyResponse**](PolicyResponse.md)
 
-### Authorization
-
-[oauth2](../README.md#oauth2)
-
 ### HTTP request headers
 
- - **Content-Type**: application/json-patch+json, application/json, text/json, application/*+json
- - **Accept**: text/plain, application/json, text/json
+- **Content-Type**: application/json-patch+json, application/json, text/json, application/*+json
+- **Accept**: text/plain, application/json, text/json
+
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -1183,54 +1292,66 @@ public class Example {
 | **400** | The details of the input related failure |  -  |
 | **0** | Error response |  -  |
 
-<a id="updatePolicyCollection"></a>
-# **updatePolicyCollection**
-> PolicyCollectionResponse updatePolicyCollection(code, policyCollectionUpdateRequest).scope(scope).execute();
+[Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
+
+
+## updatePolicyCollection
+
+> PolicyCollectionResponse updatePolicyCollection(code, policyCollectionUpdateRequest, scope)
 
 UpdatePolicyCollection: Update PolicyCollection
 
 Updates a PolicyCollection
 
 ### Example
+
 ```java
-// Import classes:
-import com.finbourne.access.ApiClient;
-import com.finbourne.access.ApiException;
-import com.finbourne.access.Configuration;
-import com.finbourne.access.auth.*;
-import com.finbourne.access.models.*;
+import com.finbourne.access.model.*;
 import com.finbourne.access.api.PoliciesApi;
+import com.finbourne.access.extensions.ApiConfigurationException;
+import com.finbourne.access.extensions.ApiFactoryBuilder;
+import com.finbourne.access.extensions.auth.FinbourneTokenException;
 
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://fbn-prd.lusid.com/access");
-    
-    // Configure OAuth2 access token for authorization: oauth2
-    OAuth oauth2 = (OAuth) defaultClient.getAuthentication("oauth2");
-    oauth2.setAccessToken("YOUR ACCESS TOKEN");
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
+import java.io.UnsupportedEncodingException;
 
-    PoliciesApi apiInstance = new PoliciesApi(defaultClient);
-    String code = "code_example"; // String | The code of the PolicyCollection
-    PolicyCollectionUpdateRequest policyCollectionUpdateRequest = new PolicyCollectionUpdateRequest(); // PolicyCollectionUpdateRequest | The updated definition of the PolicyCollection
-    String scope = "scope_example"; // String | Optional. Will use the default scope if not provided. The scope of the PolicyCollection
-    try {
-      PolicyCollectionResponse result = apiInstance.updatePolicyCollection(code, policyCollectionUpdateRequest)
-            .scope(scope)
-            .execute();
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling PoliciesApi#updatePolicyCollection");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+public class PoliciesApiExample {
+
+    public static void main(String[] args) throws FileNotFoundException, UnsupportedEncodingException, ApiConfigurationException, FinbourneTokenException {
+        String fileName = "secrets.json";
+        try(PrintWriter writer = new PrintWriter(fileName, "UTF-8")) {
+          writer.write("{" +
+            "\"api\": {" +
+            "    \"tokenUrl\": \"<your-token-url>\"," +
+            "    \"accessUrl\": \"https://<your-domain>.lusid.com/access\"," +
+            "    \"username\": \"<your-username>\"," +
+            "    \"password\": \"<your-password>\"," +
+            "    \"clientId\": \"<your-client-id>\"," +
+            "    \"clientSecret\": \"<your-client-secret>\"" +
+            "  }" +
+            "}");
+        }
+
+        PoliciesApi apiInstance = ApiFactoryBuilder.build(fileName).build(PoliciesApi.class);
+        String code = "code_example"; // String | The code of the PolicyCollection
+        PolicyCollectionUpdateRequest policyCollectionUpdateRequest = new PolicyCollectionUpdateRequest(); // PolicyCollectionUpdateRequest | The updated definition of the PolicyCollection
+        String scope = "scope_example"; // String | Optional. Will use the default scope if not provided. The scope of the PolicyCollection
+        try {
+            PolicyCollectionResponse result = apiInstance.updatePolicyCollection(code, policyCollectionUpdateRequest, scope).execute();
+            System.out.println(result.toJson());
+        } catch (ApiException e) {
+            System.err.println("Exception when calling PoliciesApi#updatePolicyCollection");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            e.printStackTrace();
+        }
     }
-  }
 }
 ```
 
 ### Parameters
+
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
@@ -1242,14 +1363,11 @@ public class Example {
 
 [**PolicyCollectionResponse**](PolicyCollectionResponse.md)
 
-### Authorization
-
-[oauth2](../README.md#oauth2)
-
 ### HTTP request headers
 
- - **Content-Type**: application/json-patch+json, application/json, text/json, application/*+json
- - **Accept**: text/plain, application/json, text/json
+- **Content-Type**: application/json-patch+json, application/json, text/json, application/*+json
+- **Accept**: text/plain, application/json, text/json
+
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -1257,4 +1375,6 @@ public class Example {
 | **200** | Updated PolicyCollection |  -  |
 | **400** | The details of the input related failure |  -  |
 | **0** | Error response |  -  |
+
+[Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
 

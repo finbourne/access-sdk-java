@@ -13,53 +13,64 @@ All URIs are relative to *https://fbn-prd.lusid.com/access*
 | [**updateRole**](RolesApi.md#updateRole) | **PUT** /api/roles/{code} | UpdateRole: Update Role |
 
 
-<a id="addPolicyCollectionToRole"></a>
-# **addPolicyCollectionToRole**
-> RoleResponse addPolicyCollectionToRole(scope, code, addPolicyCollectionToRoleRequest).execute();
+
+## addPolicyCollectionToRole
+
+> RoleResponse addPolicyCollectionToRole(scope, code, addPolicyCollectionToRoleRequest)
 
 AddPolicyCollectionToRole: Add policy collections to a role
 
 Assigns policy collections to a role
 
 ### Example
+
 ```java
-// Import classes:
-import com.finbourne.access.ApiClient;
-import com.finbourne.access.ApiException;
-import com.finbourne.access.Configuration;
-import com.finbourne.access.auth.*;
-import com.finbourne.access.models.*;
+import com.finbourne.access.model.*;
 import com.finbourne.access.api.RolesApi;
+import com.finbourne.access.extensions.ApiConfigurationException;
+import com.finbourne.access.extensions.ApiFactoryBuilder;
+import com.finbourne.access.extensions.auth.FinbourneTokenException;
 
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://fbn-prd.lusid.com/access");
-    
-    // Configure OAuth2 access token for authorization: oauth2
-    OAuth oauth2 = (OAuth) defaultClient.getAuthentication("oauth2");
-    oauth2.setAccessToken("YOUR ACCESS TOKEN");
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
+import java.io.UnsupportedEncodingException;
 
-    RolesApi apiInstance = new RolesApi(defaultClient);
-    String scope = "scope_example"; // String | The scope of the Role
-    String code = "code_example"; // String | The code of the Role
-    AddPolicyCollectionToRoleRequest addPolicyCollectionToRoleRequest = new AddPolicyCollectionToRoleRequest(); // AddPolicyCollectionToRoleRequest | The policy collections to add
-    try {
-      RoleResponse result = apiInstance.addPolicyCollectionToRole(scope, code, addPolicyCollectionToRoleRequest)
-            .execute();
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling RolesApi#addPolicyCollectionToRole");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+public class RolesApiExample {
+
+    public static void main(String[] args) throws FileNotFoundException, UnsupportedEncodingException, ApiConfigurationException, FinbourneTokenException {
+        String fileName = "secrets.json";
+        try(PrintWriter writer = new PrintWriter(fileName, "UTF-8")) {
+          writer.write("{" +
+            "\"api\": {" +
+            "    \"tokenUrl\": \"<your-token-url>\"," +
+            "    \"accessUrl\": \"https://<your-domain>.lusid.com/access\"," +
+            "    \"username\": \"<your-username>\"," +
+            "    \"password\": \"<your-password>\"," +
+            "    \"clientId\": \"<your-client-id>\"," +
+            "    \"clientSecret\": \"<your-client-secret>\"" +
+            "  }" +
+            "}");
+        }
+
+        RolesApi apiInstance = ApiFactoryBuilder.build(fileName).build(RolesApi.class);
+        String scope = "scope_example"; // String | The scope of the Role
+        String code = "code_example"; // String | The code of the Role
+        AddPolicyCollectionToRoleRequest addPolicyCollectionToRoleRequest = new AddPolicyCollectionToRoleRequest(); // AddPolicyCollectionToRoleRequest | The policy collections to add
+        try {
+            RoleResponse result = apiInstance.addPolicyCollectionToRole(scope, code, addPolicyCollectionToRoleRequest).execute();
+            System.out.println(result.toJson());
+        } catch (ApiException e) {
+            System.err.println("Exception when calling RolesApi#addPolicyCollectionToRole");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            e.printStackTrace();
+        }
     }
-  }
 }
 ```
 
 ### Parameters
+
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
@@ -71,14 +82,11 @@ public class Example {
 
 [**RoleResponse**](RoleResponse.md)
 
-### Authorization
-
-[oauth2](../README.md#oauth2)
-
 ### HTTP request headers
 
- - **Content-Type**: application/json-patch+json, application/json, text/json, application/*+json
- - **Accept**: text/plain, application/json, text/json
+- **Content-Type**: application/json-patch+json, application/json, text/json, application/*+json
+- **Accept**: text/plain, application/json, text/json
+
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -87,51 +95,64 @@ public class Example {
 | **400** | The details of the input related failure |  -  |
 | **0** | Error response |  -  |
 
-<a id="createRole"></a>
-# **createRole**
-> RoleResponse createRole(roleCreationRequest).execute();
+[Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
+
+
+## createRole
+
+> RoleResponse createRole(roleCreationRequest)
 
 CreateRole: Create Role
 
 Creates a Role
 
 ### Example
+
 ```java
-// Import classes:
-import com.finbourne.access.ApiClient;
-import com.finbourne.access.ApiException;
-import com.finbourne.access.Configuration;
-import com.finbourne.access.auth.*;
-import com.finbourne.access.models.*;
+import com.finbourne.access.model.*;
 import com.finbourne.access.api.RolesApi;
+import com.finbourne.access.extensions.ApiConfigurationException;
+import com.finbourne.access.extensions.ApiFactoryBuilder;
+import com.finbourne.access.extensions.auth.FinbourneTokenException;
 
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://fbn-prd.lusid.com/access");
-    
-    // Configure OAuth2 access token for authorization: oauth2
-    OAuth oauth2 = (OAuth) defaultClient.getAuthentication("oauth2");
-    oauth2.setAccessToken("YOUR ACCESS TOKEN");
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
+import java.io.UnsupportedEncodingException;
 
-    RolesApi apiInstance = new RolesApi(defaultClient);
-    RoleCreationRequest roleCreationRequest = new RoleCreationRequest(); // RoleCreationRequest | The definition of the Role
-    try {
-      RoleResponse result = apiInstance.createRole(roleCreationRequest)
-            .execute();
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling RolesApi#createRole");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+public class RolesApiExample {
+
+    public static void main(String[] args) throws FileNotFoundException, UnsupportedEncodingException, ApiConfigurationException, FinbourneTokenException {
+        String fileName = "secrets.json";
+        try(PrintWriter writer = new PrintWriter(fileName, "UTF-8")) {
+          writer.write("{" +
+            "\"api\": {" +
+            "    \"tokenUrl\": \"<your-token-url>\"," +
+            "    \"accessUrl\": \"https://<your-domain>.lusid.com/access\"," +
+            "    \"username\": \"<your-username>\"," +
+            "    \"password\": \"<your-password>\"," +
+            "    \"clientId\": \"<your-client-id>\"," +
+            "    \"clientSecret\": \"<your-client-secret>\"" +
+            "  }" +
+            "}");
+        }
+
+        RolesApi apiInstance = ApiFactoryBuilder.build(fileName).build(RolesApi.class);
+        RoleCreationRequest roleCreationRequest = new RoleCreationRequest(); // RoleCreationRequest | The definition of the Role
+        try {
+            RoleResponse result = apiInstance.createRole(roleCreationRequest).execute();
+            System.out.println(result.toJson());
+        } catch (ApiException e) {
+            System.err.println("Exception when calling RolesApi#createRole");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            e.printStackTrace();
+        }
     }
-  }
 }
 ```
 
 ### Parameters
+
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
@@ -141,14 +162,11 @@ public class Example {
 
 [**RoleResponse**](RoleResponse.md)
 
-### Authorization
-
-[oauth2](../README.md#oauth2)
-
 ### HTTP request headers
 
- - **Content-Type**: application/json-patch+json, application/json, text/json, application/*+json
- - **Accept**: text/plain, application/json, text/json
+- **Content-Type**: application/json-patch+json, application/json, text/json, application/*+json
+- **Accept**: text/plain, application/json, text/json
+
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -157,52 +175,64 @@ public class Example {
 | **400** | The details of the input related failure |  -  |
 | **0** | Error response |  -  |
 
-<a id="deleteRole"></a>
-# **deleteRole**
-> deleteRole(code).scope(scope).execute();
+[Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
+
+
+## deleteRole
+
+> deleteRole(code, scope)
 
 DeleteRole: Delete Role
 
 Deletes an identified Role
 
 ### Example
+
 ```java
-// Import classes:
-import com.finbourne.access.ApiClient;
-import com.finbourne.access.ApiException;
-import com.finbourne.access.Configuration;
-import com.finbourne.access.auth.*;
-import com.finbourne.access.models.*;
+import com.finbourne.access.model.*;
 import com.finbourne.access.api.RolesApi;
+import com.finbourne.access.extensions.ApiConfigurationException;
+import com.finbourne.access.extensions.ApiFactoryBuilder;
+import com.finbourne.access.extensions.auth.FinbourneTokenException;
 
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://fbn-prd.lusid.com/access");
-    
-    // Configure OAuth2 access token for authorization: oauth2
-    OAuth oauth2 = (OAuth) defaultClient.getAuthentication("oauth2");
-    oauth2.setAccessToken("YOUR ACCESS TOKEN");
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
+import java.io.UnsupportedEncodingException;
 
-    RolesApi apiInstance = new RolesApi(defaultClient);
-    String code = "code_example"; // String | The code of the Role
-    String scope = "scope_example"; // String | >Optional. Will use default scope if not supplied. The scope of the Role
-    try {
-      apiInstance.deleteRole(code)
-            .scope(scope)
-            .execute();
-    } catch (ApiException e) {
-      System.err.println("Exception when calling RolesApi#deleteRole");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+public class RolesApiExample {
+
+    public static void main(String[] args) throws FileNotFoundException, UnsupportedEncodingException, ApiConfigurationException, FinbourneTokenException {
+        String fileName = "secrets.json";
+        try(PrintWriter writer = new PrintWriter(fileName, "UTF-8")) {
+          writer.write("{" +
+            "\"api\": {" +
+            "    \"tokenUrl\": \"<your-token-url>\"," +
+            "    \"accessUrl\": \"https://<your-domain>.lusid.com/access\"," +
+            "    \"username\": \"<your-username>\"," +
+            "    \"password\": \"<your-password>\"," +
+            "    \"clientId\": \"<your-client-id>\"," +
+            "    \"clientSecret\": \"<your-client-secret>\"" +
+            "  }" +
+            "}");
+        }
+
+        RolesApi apiInstance = ApiFactoryBuilder.build(fileName).build(RolesApi.class);
+        String code = "code_example"; // String | The code of the Role
+        String scope = "scope_example"; // String | >Optional. Will use default scope if not supplied. The scope of the Role
+        try {
+            apiInstance.deleteRole(code, scope).execute();
+        } catch (ApiException e) {
+            System.err.println("Exception when calling RolesApi#deleteRole");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            e.printStackTrace();
+        }
     }
-  }
 }
 ```
 
 ### Parameters
+
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
@@ -213,14 +243,11 @@ public class Example {
 
 null (empty response body)
 
-### Authorization
-
-[oauth2](../README.md#oauth2)
-
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: text/plain, application/json, text/json
+- **Content-Type**: Not defined
+- **Accept**: text/plain, application/json, text/json
+
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -229,55 +256,66 @@ null (empty response body)
 | **400** | The details of the input related failure |  -  |
 | **0** | Error response |  -  |
 
-<a id="getRole"></a>
-# **getRole**
-> RoleResponse getRole(code).asAt(asAt).scope(scope).execute();
+[Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
+
+
+## getRole
+
+> RoleResponse getRole(code, asAt, scope)
 
 GetRole: Get Role
 
 Gets an identified Role
 
 ### Example
+
 ```java
-// Import classes:
-import com.finbourne.access.ApiClient;
-import com.finbourne.access.ApiException;
-import com.finbourne.access.Configuration;
-import com.finbourne.access.auth.*;
-import com.finbourne.access.models.*;
+import com.finbourne.access.model.*;
 import com.finbourne.access.api.RolesApi;
+import com.finbourne.access.extensions.ApiConfigurationException;
+import com.finbourne.access.extensions.ApiFactoryBuilder;
+import com.finbourne.access.extensions.auth.FinbourneTokenException;
 
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://fbn-prd.lusid.com/access");
-    
-    // Configure OAuth2 access token for authorization: oauth2
-    OAuth oauth2 = (OAuth) defaultClient.getAuthentication("oauth2");
-    oauth2.setAccessToken("YOUR ACCESS TOKEN");
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
+import java.io.UnsupportedEncodingException;
 
-    RolesApi apiInstance = new RolesApi(defaultClient);
-    String code = "code_example"; // String | The code of the Role
-    OffsetDateTime asAt = OffsetDateTime.now(); // OffsetDateTime | Optional. The AsAt date time of the data
-    String scope = "scope_example"; // String | Optional. Will use default scope if not supplied. The scope of the Role
-    try {
-      RoleResponse result = apiInstance.getRole(code)
-            .asAt(asAt)
-            .scope(scope)
-            .execute();
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling RolesApi#getRole");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+public class RolesApiExample {
+
+    public static void main(String[] args) throws FileNotFoundException, UnsupportedEncodingException, ApiConfigurationException, FinbourneTokenException {
+        String fileName = "secrets.json";
+        try(PrintWriter writer = new PrintWriter(fileName, "UTF-8")) {
+          writer.write("{" +
+            "\"api\": {" +
+            "    \"tokenUrl\": \"<your-token-url>\"," +
+            "    \"accessUrl\": \"https://<your-domain>.lusid.com/access\"," +
+            "    \"username\": \"<your-username>\"," +
+            "    \"password\": \"<your-password>\"," +
+            "    \"clientId\": \"<your-client-id>\"," +
+            "    \"clientSecret\": \"<your-client-secret>\"" +
+            "  }" +
+            "}");
+        }
+
+        RolesApi apiInstance = ApiFactoryBuilder.build(fileName).build(RolesApi.class);
+        String code = "code_example"; // String | The code of the Role
+        OffsetDateTime asAt = OffsetDateTime.now(); // OffsetDateTime | Optional. The AsAt date time of the data
+        String scope = "scope_example"; // String | Optional. Will use default scope if not supplied. The scope of the Role
+        try {
+            RoleResponse result = apiInstance.getRole(code, asAt, scope).execute();
+            System.out.println(result.toJson());
+        } catch (ApiException e) {
+            System.err.println("Exception when calling RolesApi#getRole");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            e.printStackTrace();
+        }
     }
-  }
 }
 ```
 
 ### Parameters
+
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
@@ -289,14 +327,11 @@ public class Example {
 
 [**RoleResponse**](RoleResponse.md)
 
-### Authorization
-
-[oauth2](../README.md#oauth2)
-
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: text/plain, application/json, text/json
+- **Content-Type**: Not defined
+- **Accept**: text/plain, application/json, text/json
+
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -305,62 +340,69 @@ public class Example {
 | **400** | The details of the input related failure |  -  |
 | **0** | Error response |  -  |
 
-<a id="listRoles"></a>
-# **listRoles**
-> List&lt;RoleResponse&gt; listRoles().scope(scope).asAt(asAt).sortBy(sortBy).start(start).limit(limit).filter(filter).execute();
+[Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
+
+
+## listRoles
+
+> List&lt;RoleResponse&gt; listRoles(scope, asAt, sortBy, start, limit, filter)
 
 ListRoles: List Roles
 
 Gets all Roles in a scope
 
 ### Example
+
 ```java
-// Import classes:
-import com.finbourne.access.ApiClient;
-import com.finbourne.access.ApiException;
-import com.finbourne.access.Configuration;
-import com.finbourne.access.auth.*;
-import com.finbourne.access.models.*;
+import com.finbourne.access.model.*;
 import com.finbourne.access.api.RolesApi;
+import com.finbourne.access.extensions.ApiConfigurationException;
+import com.finbourne.access.extensions.ApiFactoryBuilder;
+import com.finbourne.access.extensions.auth.FinbourneTokenException;
 
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://fbn-prd.lusid.com/access");
-    
-    // Configure OAuth2 access token for authorization: oauth2
-    OAuth oauth2 = (OAuth) defaultClient.getAuthentication("oauth2");
-    oauth2.setAccessToken("YOUR ACCESS TOKEN");
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
+import java.io.UnsupportedEncodingException;
 
-    RolesApi apiInstance = new RolesApi(defaultClient);
-    String scope = "scope_example"; // String | Optional. Will use all scopes if not supplied. The requested scope
-    OffsetDateTime asAt = OffsetDateTime.now(); // OffsetDateTime | Optional. The AsAt date time of the data
-    List<String> sortBy = Arrays.asList(); // List<String> | Optional. Order the results by these fields. Use use the '-' sign to denote descending order e.g. -MyFieldName
-    Integer start = 56; // Integer | Optional. When paginating, skip this number of results
-    Integer limit = 56; // Integer | Optional. When paginating, limit the number of returned results to this many.
-    String filter = "filter_example"; // String | Optional. Expression to filter the result set
-    try {
-      List<RoleResponse> result = apiInstance.listRoles()
-            .scope(scope)
-            .asAt(asAt)
-            .sortBy(sortBy)
-            .start(start)
-            .limit(limit)
-            .filter(filter)
-            .execute();
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling RolesApi#listRoles");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+public class RolesApiExample {
+
+    public static void main(String[] args) throws FileNotFoundException, UnsupportedEncodingException, ApiConfigurationException, FinbourneTokenException {
+        String fileName = "secrets.json";
+        try(PrintWriter writer = new PrintWriter(fileName, "UTF-8")) {
+          writer.write("{" +
+            "\"api\": {" +
+            "    \"tokenUrl\": \"<your-token-url>\"," +
+            "    \"accessUrl\": \"https://<your-domain>.lusid.com/access\"," +
+            "    \"username\": \"<your-username>\"," +
+            "    \"password\": \"<your-password>\"," +
+            "    \"clientId\": \"<your-client-id>\"," +
+            "    \"clientSecret\": \"<your-client-secret>\"" +
+            "  }" +
+            "}");
+        }
+
+        RolesApi apiInstance = ApiFactoryBuilder.build(fileName).build(RolesApi.class);
+        String scope = "scope_example"; // String | Optional. Will use all scopes if not supplied. The requested scope
+        OffsetDateTime asAt = OffsetDateTime.now(); // OffsetDateTime | Optional. The AsAt date time of the data
+        List<String> sortBy = Arrays.asList(); // List<String> | Optional. Order the results by these fields. Use use the '-' sign to denote descending order e.g. -MyFieldName
+        Integer start = 56; // Integer | Optional. When paginating, skip this number of results
+        Integer limit = 56; // Integer | Optional. When paginating, limit the number of returned results to this many.
+        String filter = "filter_example"; // String | Optional. Expression to filter the result set
+        try {
+            List<RoleResponse> result = apiInstance.listRoles(scope, asAt, sortBy, start, limit, filter).execute();
+            System.out.println(result.toJson());
+        } catch (ApiException e) {
+            System.err.println("Exception when calling RolesApi#listRoles");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            e.printStackTrace();
+        }
     }
-  }
 }
 ```
 
 ### Parameters
+
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
@@ -375,14 +417,11 @@ public class Example {
 
 [**List&lt;RoleResponse&gt;**](RoleResponse.md)
 
-### Authorization
-
-[oauth2](../README.md#oauth2)
-
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: text/plain, application/json, text/json
+- **Content-Type**: Not defined
+- **Accept**: text/plain, application/json, text/json
+
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -391,54 +430,67 @@ public class Example {
 | **400** | The details of the input related failure |  -  |
 | **0** | Error response |  -  |
 
-<a id="removePolicyCollectionFromRole"></a>
-# **removePolicyCollectionFromRole**
-> RoleResponse removePolicyCollectionFromRole(scope, code, policycollectionscope, policycollectioncode).execute();
+[Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
+
+
+## removePolicyCollectionFromRole
+
+> RoleResponse removePolicyCollectionFromRole(scope, code, policycollectionscope, policycollectioncode)
 
 RemovePolicyCollectionFromRole: Remove policy collection from role
 
 Removes a policy collection from a role
 
 ### Example
+
 ```java
-// Import classes:
-import com.finbourne.access.ApiClient;
-import com.finbourne.access.ApiException;
-import com.finbourne.access.Configuration;
-import com.finbourne.access.auth.*;
-import com.finbourne.access.models.*;
+import com.finbourne.access.model.*;
 import com.finbourne.access.api.RolesApi;
+import com.finbourne.access.extensions.ApiConfigurationException;
+import com.finbourne.access.extensions.ApiFactoryBuilder;
+import com.finbourne.access.extensions.auth.FinbourneTokenException;
 
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://fbn-prd.lusid.com/access");
-    
-    // Configure OAuth2 access token for authorization: oauth2
-    OAuth oauth2 = (OAuth) defaultClient.getAuthentication("oauth2");
-    oauth2.setAccessToken("YOUR ACCESS TOKEN");
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
+import java.io.UnsupportedEncodingException;
 
-    RolesApi apiInstance = new RolesApi(defaultClient);
-    String scope = "scope_example"; // String | The scope of the Role
-    String code = "code_example"; // String | The code of the Role
-    String policycollectionscope = "policycollectionscope_example"; // String | The scope of policy collection to remove from the Role
-    String policycollectioncode = "policycollectioncode_example"; // String | The code of the policy collection to remove from the Role
-    try {
-      RoleResponse result = apiInstance.removePolicyCollectionFromRole(scope, code, policycollectionscope, policycollectioncode)
-            .execute();
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling RolesApi#removePolicyCollectionFromRole");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+public class RolesApiExample {
+
+    public static void main(String[] args) throws FileNotFoundException, UnsupportedEncodingException, ApiConfigurationException, FinbourneTokenException {
+        String fileName = "secrets.json";
+        try(PrintWriter writer = new PrintWriter(fileName, "UTF-8")) {
+          writer.write("{" +
+            "\"api\": {" +
+            "    \"tokenUrl\": \"<your-token-url>\"," +
+            "    \"accessUrl\": \"https://<your-domain>.lusid.com/access\"," +
+            "    \"username\": \"<your-username>\"," +
+            "    \"password\": \"<your-password>\"," +
+            "    \"clientId\": \"<your-client-id>\"," +
+            "    \"clientSecret\": \"<your-client-secret>\"" +
+            "  }" +
+            "}");
+        }
+
+        RolesApi apiInstance = ApiFactoryBuilder.build(fileName).build(RolesApi.class);
+        String scope = "scope_example"; // String | The scope of the Role
+        String code = "code_example"; // String | The code of the Role
+        String policycollectionscope = "policycollectionscope_example"; // String | The scope of policy collection to remove from the Role
+        String policycollectioncode = "policycollectioncode_example"; // String | The code of the policy collection to remove from the Role
+        try {
+            RoleResponse result = apiInstance.removePolicyCollectionFromRole(scope, code, policycollectionscope, policycollectioncode).execute();
+            System.out.println(result.toJson());
+        } catch (ApiException e) {
+            System.err.println("Exception when calling RolesApi#removePolicyCollectionFromRole");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            e.printStackTrace();
+        }
     }
-  }
 }
 ```
 
 ### Parameters
+
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
@@ -451,14 +503,11 @@ public class Example {
 
 [**RoleResponse**](RoleResponse.md)
 
-### Authorization
-
-[oauth2](../README.md#oauth2)
-
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: text/plain, application/json, text/json
+- **Content-Type**: Not defined
+- **Accept**: text/plain, application/json, text/json
+
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -467,62 +516,70 @@ public class Example {
 | **400** | The details of the input related failure |  -  |
 | **0** | Error response |  -  |
 
-<a id="updateRole"></a>
-# **updateRole**
-> RoleResponse updateRole(code, roleUpdateRequest).scope(scope).beforeScope(beforeScope).beforeCode(beforeCode).afterScope(afterScope).afterCode(afterCode).execute();
+[Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
+
+
+## updateRole
+
+> RoleResponse updateRole(code, roleUpdateRequest, scope, beforeScope, beforeCode, afterScope, afterCode)
 
 UpdateRole: Update Role
 
 Updates a Role
 
 ### Example
+
 ```java
-// Import classes:
-import com.finbourne.access.ApiClient;
-import com.finbourne.access.ApiException;
-import com.finbourne.access.Configuration;
-import com.finbourne.access.auth.*;
-import com.finbourne.access.models.*;
+import com.finbourne.access.model.*;
 import com.finbourne.access.api.RolesApi;
+import com.finbourne.access.extensions.ApiConfigurationException;
+import com.finbourne.access.extensions.ApiFactoryBuilder;
+import com.finbourne.access.extensions.auth.FinbourneTokenException;
 
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://fbn-prd.lusid.com/access");
-    
-    // Configure OAuth2 access token for authorization: oauth2
-    OAuth oauth2 = (OAuth) defaultClient.getAuthentication("oauth2");
-    oauth2.setAccessToken("YOUR ACCESS TOKEN");
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
+import java.io.UnsupportedEncodingException;
 
-    RolesApi apiInstance = new RolesApi(defaultClient);
-    String code = "code_example"; // String | The code of the Role
-    RoleUpdateRequest roleUpdateRequest = new RoleUpdateRequest(); // RoleUpdateRequest | The updated definition of the Role
-    String scope = "scope_example"; // String | >Optional. Will use default scope if not supplied. The scope of the Role
-    String beforeScope = "beforeScope_example"; // String | Optional. The scope of the Role. Will use default scope if not supplied.
-    String beforeCode = "beforeCode_example"; // String | Optional. The code of the Role
-    String afterScope = "afterScope_example"; // String | Optional. The scope of the Role. Will use default scope if not supplied.
-    String afterCode = "afterCode_example"; // String | Optional. The code of the Role
-    try {
-      RoleResponse result = apiInstance.updateRole(code, roleUpdateRequest)
-            .scope(scope)
-            .beforeScope(beforeScope)
-            .beforeCode(beforeCode)
-            .afterScope(afterScope)
-            .afterCode(afterCode)
-            .execute();
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling RolesApi#updateRole");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+public class RolesApiExample {
+
+    public static void main(String[] args) throws FileNotFoundException, UnsupportedEncodingException, ApiConfigurationException, FinbourneTokenException {
+        String fileName = "secrets.json";
+        try(PrintWriter writer = new PrintWriter(fileName, "UTF-8")) {
+          writer.write("{" +
+            "\"api\": {" +
+            "    \"tokenUrl\": \"<your-token-url>\"," +
+            "    \"accessUrl\": \"https://<your-domain>.lusid.com/access\"," +
+            "    \"username\": \"<your-username>\"," +
+            "    \"password\": \"<your-password>\"," +
+            "    \"clientId\": \"<your-client-id>\"," +
+            "    \"clientSecret\": \"<your-client-secret>\"" +
+            "  }" +
+            "}");
+        }
+
+        RolesApi apiInstance = ApiFactoryBuilder.build(fileName).build(RolesApi.class);
+        String code = "code_example"; // String | The code of the Role
+        RoleUpdateRequest roleUpdateRequest = new RoleUpdateRequest(); // RoleUpdateRequest | The updated definition of the Role
+        String scope = "scope_example"; // String | >Optional. Will use default scope if not supplied. The scope of the Role
+        String beforeScope = "beforeScope_example"; // String | Optional. The scope of the Role. Will use default scope if not supplied.
+        String beforeCode = "beforeCode_example"; // String | Optional. The code of the Role
+        String afterScope = "afterScope_example"; // String | Optional. The scope of the Role. Will use default scope if not supplied.
+        String afterCode = "afterCode_example"; // String | Optional. The code of the Role
+        try {
+            RoleResponse result = apiInstance.updateRole(code, roleUpdateRequest, scope, beforeScope, beforeCode, afterScope, afterCode).execute();
+            System.out.println(result.toJson());
+        } catch (ApiException e) {
+            System.err.println("Exception when calling RolesApi#updateRole");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            e.printStackTrace();
+        }
     }
-  }
 }
 ```
 
 ### Parameters
+
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
@@ -538,14 +595,11 @@ public class Example {
 
 [**RoleResponse**](RoleResponse.md)
 
-### Authorization
-
-[oauth2](../README.md#oauth2)
-
 ### HTTP request headers
 
- - **Content-Type**: application/json-patch+json, application/json, text/json, application/*+json
- - **Accept**: text/plain, application/json, text/json
+- **Content-Type**: application/json-patch+json, application/json, text/json, application/*+json
+- **Accept**: text/plain, application/json, text/json
+
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -553,4 +607,6 @@ public class Example {
 | **200** | Updated Role |  -  |
 | **400** | The details of the input related failure |  -  |
 | **0** | Error response |  -  |
+
+[Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
 
