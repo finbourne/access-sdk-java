@@ -2020,7 +2020,7 @@ public class PoliciesApi {
     }
 
     /**
-     * [EARLY ACCESS] ListPolicies: List Policies
+     * ListPolicies: List Policies
      * Gets all Policies in a scope. For pagination support, use PagePolicies.
      * @return APIlistPoliciesRequest
      * @http.response.details
@@ -2495,7 +2495,7 @@ public class PoliciesApi {
     }
 
     /**
-     * [EARLY ACCESS] PagePolicies: Page Policies
+     * PagePolicies: Page Policies
      * Gets all Policies with pagination support.
      * @return APIpagePoliciesRequest
      * @http.response.details

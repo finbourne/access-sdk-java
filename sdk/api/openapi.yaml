@@ -10,7 +10,7 @@ info:
     \ and Access Management system.\r\n\r\n"
   termsOfService: https://www.finbourne.com/legal/terms-conditions
   title: FINBOURNE Access Management API
-  version: 0.0.3902
+  version: 0.0.3904
   x-logo:
     url: https://www.lusid.com/app/assets/logo_white.png
     backgroundColor: '#415464'
@@ -715,10 +715,10 @@ paths:
           description: Error response
       security:
       - oauth2: []
-      summary: "[EARLY ACCESS] ListPolicies: List Policies"
+      summary: "ListPolicies: List Policies"
       tags:
       - Policies
-      x-fbn-apistatus: EarlyAccess
+      x-fbn-apistatus: Stable
       x-accepts: application/json
     post:
       description: Creates a Policy
@@ -1209,10 +1209,10 @@ paths:
           description: Error response
       security:
       - oauth2: []
-      summary: "[EARLY ACCESS] PagePolicies: Page Policies"
+      summary: "PagePolicies: Page Policies"
       tags:
       - Policies
-      x-fbn-apistatus: EarlyAccess
+      x-fbn-apistatus: Stable
       x-accepts: application/json
   /api/policies/{code}:
     delete:

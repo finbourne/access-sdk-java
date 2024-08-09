@@ -13,9 +13,9 @@ All URIs are relative to *https://fbn-prd.lusid.com/access*
 | [**getOwnPolicies**](PoliciesApi.md#getOwnPolicies) | **GET** /api/me | GetOwnPolicies: Get policies of requesting user |
 | [**getPolicy**](PoliciesApi.md#getPolicy) | **GET** /api/policies/{code} | GetPolicy: Get Policy |
 | [**getPolicyCollection**](PoliciesApi.md#getPolicyCollection) | **GET** /api/policycollections/{code} | GetPolicyCollection: Get PolicyCollection |
-| [**listPolicies**](PoliciesApi.md#listPolicies) | **GET** /api/policies | [EARLY ACCESS] ListPolicies: List Policies |
+| [**listPolicies**](PoliciesApi.md#listPolicies) | **GET** /api/policies | ListPolicies: List Policies |
 | [**listPolicyCollections**](PoliciesApi.md#listPolicyCollections) | **GET** /api/policycollections | ListPolicyCollections: List PolicyCollections |
-| [**pagePolicies**](PoliciesApi.md#pagePolicies) | **GET** /api/policies/page | [EARLY ACCESS] PagePolicies: Page Policies |
+| [**pagePolicies**](PoliciesApi.md#pagePolicies) | **GET** /api/policies/page | PagePolicies: Page Policies |
 | [**pagePolicyCollections**](PoliciesApi.md#pagePolicyCollections) | **GET** /api/policycollections/page | PagePolicyCollections: Page PolicyCollections |
 | [**removeFromPolicyCollection**](PoliciesApi.md#removeFromPolicyCollection) | **POST** /api/policycollections/{code}/remove | RemoveFromPolicyCollection: Remove From PolicyCollection |
 | [**updatePolicy**](PoliciesApi.md#updatePolicy) | **PUT** /api/policies/{code} | UpdatePolicy: Update Policy |
@@ -775,7 +775,7 @@ public class PoliciesApiExample {
 
 > List&lt;PolicyResponse&gt; listPolicies(scope, asAt, sortBy, start, limit, filter)
 
-[EARLY ACCESS] ListPolicies: List Policies
+ListPolicies: List Policies
 
 Gets all Policies in a scope. For pagination support, use PagePolicies.
 
@@ -955,7 +955,7 @@ public class PoliciesApiExample {
 
 > ResourceListOfPolicyResponse pagePolicies(asAt, sortBy, limit, filter, page)
 
-[EARLY ACCESS] PagePolicies: Page Policies
+PagePolicies: Page Policies
 
 Gets all Policies with pagination support.
 
