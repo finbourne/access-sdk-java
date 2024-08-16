@@ -10,7 +10,7 @@ info:
     \ and Access Management system.\r\n\r\n"
   termsOfService: https://www.finbourne.com/legal/terms-conditions
   title: FINBOURNE Access Management API
-  version: 0.0.3911
+  version: 0.0.3913
   x-logo:
     url: https://www.lusid.com/app/assets/logo_white.png
     backgroundColor: '#415464'
@@ -5974,7 +5974,7 @@ components:
           minLength: 3
           type: string
         entity:
-          maxLength: 25
+          maxLength: 40
           minLength: 3
           type: string
       required:
