@@ -18,6 +18,7 @@ import com.finbourne.access.Configuration;
 import com.finbourne.access.Pair;
 import com.finbourne.access.ProgressRequestBody;
 import com.finbourne.access.ProgressResponseBody;
+import com.finbourne.access.extensions.ConfigurationOptions;
 
 import com.google.gson.reflect.TypeToken;
 
@@ -76,6 +77,10 @@ public class RolesApi {
     }
 
     private okhttp3.Call addPolicyCollectionToRoleCall(String scope, String code, AddPolicyCollectionToRoleRequest addPolicyCollectionToRoleRequest, final ApiCallback _callback) throws ApiException {
+        return addPolicyCollectionToRoleCall(scope, code, addPolicyCollectionToRoleRequest,  _callback, new ConfigurationOptions());
+    }
+
+    private okhttp3.Call addPolicyCollectionToRoleCall(String scope, String code, AddPolicyCollectionToRoleRequest addPolicyCollectionToRoleRequest, final ApiCallback _callback, ConfigurationOptions opts) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -124,11 +129,11 @@ public class RolesApi {
         }
 
         String[] localVarAuthNames = new String[] { "oauth2" };
-        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback, opts);
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call addPolicyCollectionToRoleValidateBeforeCall(String scope, String code, AddPolicyCollectionToRoleRequest addPolicyCollectionToRoleRequest, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call addPolicyCollectionToRoleValidateBeforeCall(String scope, String code, AddPolicyCollectionToRoleRequest addPolicyCollectionToRoleRequest, final ApiCallback _callback, ConfigurationOptions opts) throws ApiException {
         // verify the required parameter 'scope' is set
         if (scope == null) {
             throw new ApiException("Missing the required parameter 'scope' when calling addPolicyCollectionToRole(Async)");
@@ -144,20 +149,34 @@ public class RolesApi {
             throw new ApiException("Missing the required parameter 'addPolicyCollectionToRoleRequest' when calling addPolicyCollectionToRole(Async)");
         }
 
-        return addPolicyCollectionToRoleCall(scope, code, addPolicyCollectionToRoleRequest, _callback);
+        return addPolicyCollectionToRoleCall(scope, code, addPolicyCollectionToRoleRequest, _callback, opts);
 
     }
 
 
     private ApiResponse<RoleResponse> addPolicyCollectionToRoleWithHttpInfo(String scope, String code, AddPolicyCollectionToRoleRequest addPolicyCollectionToRoleRequest) throws ApiException {
-        okhttp3.Call localVarCall = addPolicyCollectionToRoleValidateBeforeCall(scope, code, addPolicyCollectionToRoleRequest, null);
+        okhttp3.Call localVarCall = addPolicyCollectionToRoleValidateBeforeCall(scope, code, addPolicyCollectionToRoleRequest, null, new ConfigurationOptions());
+        Type localVarReturnType = new TypeToken<RoleResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    private ApiResponse<RoleResponse> addPolicyCollectionToRoleWithHttpInfo(String scope, String code, AddPolicyCollectionToRoleRequest addPolicyCollectionToRoleRequest, ConfigurationOptions opts) throws ApiException {
+        okhttp3.Call localVarCall = addPolicyCollectionToRoleValidateBeforeCall(scope, code, addPolicyCollectionToRoleRequest, null, opts);
         Type localVarReturnType = new TypeToken<RoleResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     private okhttp3.Call addPolicyCollectionToRoleAsync(String scope, String code, AddPolicyCollectionToRoleRequest addPolicyCollectionToRoleRequest, final ApiCallback<RoleResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = addPolicyCollectionToRoleValidateBeforeCall(scope, code, addPolicyCollectionToRoleRequest, _callback);
+        okhttp3.Call localVarCall = addPolicyCollectionToRoleValidateBeforeCall(scope, code, addPolicyCollectionToRoleRequest, _callback, new ConfigurationOptions());
+        Type localVarReturnType = new TypeToken<RoleResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    private okhttp3.Call addPolicyCollectionToRoleAsync(String scope, String code, AddPolicyCollectionToRoleRequest addPolicyCollectionToRoleRequest, final ApiCallback<RoleResponse> _callback, ConfigurationOptions opts) throws ApiException {
+
+        okhttp3.Call localVarCall = addPolicyCollectionToRoleValidateBeforeCall(scope, code, addPolicyCollectionToRoleRequest, _callback, opts);
         Type localVarReturnType = new TypeToken<RoleResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -209,6 +228,23 @@ public class RolesApi {
         }
 
         /**
+         * Execute addPolicyCollectionToRole request. Use any specified configuration options to override any other configuration for this request only.
+         * @return RoleResponse
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> AddPolicyCollectionToRole </td><td>  -  </td></tr>
+            <tr><td> 400 </td><td> The details of the input related failure </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error response </td><td>  -  </td></tr>
+         </table>
+         */
+        public RoleResponse execute(ConfigurationOptions opts) throws ApiException {
+            ApiResponse<RoleResponse> localVarResp = addPolicyCollectionToRoleWithHttpInfo(scope, code, addPolicyCollectionToRoleRequest, opts);
+            return localVarResp.getData();
+        }
+
+        /**
          * Execute addPolicyCollectionToRole request with HTTP info returned
          * @return ApiResponse&lt;RoleResponse&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -222,6 +258,22 @@ public class RolesApi {
          */
         public ApiResponse<RoleResponse> executeWithHttpInfo() throws ApiException {
             return addPolicyCollectionToRoleWithHttpInfo(scope, code, addPolicyCollectionToRoleRequest);
+        }
+
+        /**
+         * Execute addPolicyCollectionToRole request with HTTP info returned. Use any specified configuration options to override any other configuration for this request only.
+         * @return ApiResponse&lt;RoleResponse&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> AddPolicyCollectionToRole </td><td>  -  </td></tr>
+            <tr><td> 400 </td><td> The details of the input related failure </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error response </td><td>  -  </td></tr>
+         </table>
+         */
+        public ApiResponse<RoleResponse> executeWithHttpInfo(ConfigurationOptions opts) throws ApiException {
+            return addPolicyCollectionToRoleWithHttpInfo(scope, code, addPolicyCollectionToRoleRequest, opts);
         }
 
         /**
@@ -239,6 +291,23 @@ public class RolesApi {
          */
         public okhttp3.Call executeAsync(final ApiCallback<RoleResponse> _callback) throws ApiException {
             return addPolicyCollectionToRoleAsync(scope, code, addPolicyCollectionToRoleRequest, _callback);
+        }
+
+        /**
+         * Execute addPolicyCollectionToRole request (asynchronously). Use any specified configuration options to override any other configuration for this request only.
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> AddPolicyCollectionToRole </td><td>  -  </td></tr>
+            <tr><td> 400 </td><td> The details of the input related failure </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error response </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<RoleResponse> _callback, ConfigurationOptions opts) throws ApiException {
+            return addPolicyCollectionToRoleAsync(scope, code, addPolicyCollectionToRoleRequest, _callback, opts);
         }
     }
 
@@ -261,6 +330,10 @@ public class RolesApi {
         return new APIaddPolicyCollectionToRoleRequest(scope, code, addPolicyCollectionToRoleRequest);
     }
     private okhttp3.Call createRoleCall(RoleCreationRequest roleCreationRequest, final ApiCallback _callback) throws ApiException {
+        return createRoleCall(roleCreationRequest,  _callback, new ConfigurationOptions());
+    }
+
+    private okhttp3.Call createRoleCall(RoleCreationRequest roleCreationRequest, final ApiCallback _callback, ConfigurationOptions opts) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -307,30 +380,44 @@ public class RolesApi {
         }
 
         String[] localVarAuthNames = new String[] { "oauth2" };
-        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback, opts);
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createRoleValidateBeforeCall(RoleCreationRequest roleCreationRequest, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call createRoleValidateBeforeCall(RoleCreationRequest roleCreationRequest, final ApiCallback _callback, ConfigurationOptions opts) throws ApiException {
         // verify the required parameter 'roleCreationRequest' is set
         if (roleCreationRequest == null) {
             throw new ApiException("Missing the required parameter 'roleCreationRequest' when calling createRole(Async)");
         }
 
-        return createRoleCall(roleCreationRequest, _callback);
+        return createRoleCall(roleCreationRequest, _callback, opts);
 
     }
 
 
     private ApiResponse<RoleResponse> createRoleWithHttpInfo(RoleCreationRequest roleCreationRequest) throws ApiException {
-        okhttp3.Call localVarCall = createRoleValidateBeforeCall(roleCreationRequest, null);
+        okhttp3.Call localVarCall = createRoleValidateBeforeCall(roleCreationRequest, null, new ConfigurationOptions());
+        Type localVarReturnType = new TypeToken<RoleResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    private ApiResponse<RoleResponse> createRoleWithHttpInfo(RoleCreationRequest roleCreationRequest, ConfigurationOptions opts) throws ApiException {
+        okhttp3.Call localVarCall = createRoleValidateBeforeCall(roleCreationRequest, null, opts);
         Type localVarReturnType = new TypeToken<RoleResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     private okhttp3.Call createRoleAsync(RoleCreationRequest roleCreationRequest, final ApiCallback<RoleResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = createRoleValidateBeforeCall(roleCreationRequest, _callback);
+        okhttp3.Call localVarCall = createRoleValidateBeforeCall(roleCreationRequest, _callback, new ConfigurationOptions());
+        Type localVarReturnType = new TypeToken<RoleResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    private okhttp3.Call createRoleAsync(RoleCreationRequest roleCreationRequest, final ApiCallback<RoleResponse> _callback, ConfigurationOptions opts) throws ApiException {
+
+        okhttp3.Call localVarCall = createRoleValidateBeforeCall(roleCreationRequest, _callback, opts);
         Type localVarReturnType = new TypeToken<RoleResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -378,6 +465,23 @@ public class RolesApi {
         }
 
         /**
+         * Execute createRole request. Use any specified configuration options to override any other configuration for this request only.
+         * @return RoleResponse
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 201 </td><td> Created Role </td><td>  -  </td></tr>
+            <tr><td> 400 </td><td> The details of the input related failure </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error response </td><td>  -  </td></tr>
+         </table>
+         */
+        public RoleResponse execute(ConfigurationOptions opts) throws ApiException {
+            ApiResponse<RoleResponse> localVarResp = createRoleWithHttpInfo(roleCreationRequest, opts);
+            return localVarResp.getData();
+        }
+
+        /**
          * Execute createRole request with HTTP info returned
          * @return ApiResponse&lt;RoleResponse&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -391,6 +495,22 @@ public class RolesApi {
          */
         public ApiResponse<RoleResponse> executeWithHttpInfo() throws ApiException {
             return createRoleWithHttpInfo(roleCreationRequest);
+        }
+
+        /**
+         * Execute createRole request with HTTP info returned. Use any specified configuration options to override any other configuration for this request only.
+         * @return ApiResponse&lt;RoleResponse&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 201 </td><td> Created Role </td><td>  -  </td></tr>
+            <tr><td> 400 </td><td> The details of the input related failure </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error response </td><td>  -  </td></tr>
+         </table>
+         */
+        public ApiResponse<RoleResponse> executeWithHttpInfo(ConfigurationOptions opts) throws ApiException {
+            return createRoleWithHttpInfo(roleCreationRequest, opts);
         }
 
         /**
@@ -408,6 +528,23 @@ public class RolesApi {
          */
         public okhttp3.Call executeAsync(final ApiCallback<RoleResponse> _callback) throws ApiException {
             return createRoleAsync(roleCreationRequest, _callback);
+        }
+
+        /**
+         * Execute createRole request (asynchronously). Use any specified configuration options to override any other configuration for this request only.
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 201 </td><td> Created Role </td><td>  -  </td></tr>
+            <tr><td> 400 </td><td> The details of the input related failure </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error response </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<RoleResponse> _callback, ConfigurationOptions opts) throws ApiException {
+            return createRoleAsync(roleCreationRequest, _callback, opts);
         }
     }
 
@@ -428,6 +565,10 @@ public class RolesApi {
         return new APIcreateRoleRequest(roleCreationRequest);
     }
     private okhttp3.Call deleteRoleCall(String code, String scope, final ApiCallback _callback) throws ApiException {
+        return deleteRoleCall(code, scope,  _callback, new ConfigurationOptions());
+    }
+
+    private okhttp3.Call deleteRoleCall(String code, String scope, final ApiCallback _callback, ConfigurationOptions opts) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -475,29 +616,41 @@ public class RolesApi {
         }
 
         String[] localVarAuthNames = new String[] { "oauth2" };
-        return localVarApiClient.buildCall(basePath, localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(basePath, localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback, opts);
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call deleteRoleValidateBeforeCall(String code, String scope, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call deleteRoleValidateBeforeCall(String code, String scope, final ApiCallback _callback, ConfigurationOptions opts) throws ApiException {
         // verify the required parameter 'code' is set
         if (code == null) {
             throw new ApiException("Missing the required parameter 'code' when calling deleteRole(Async)");
         }
 
-        return deleteRoleCall(code, scope, _callback);
+        return deleteRoleCall(code, scope, _callback, opts);
 
     }
 
 
     private ApiResponse<Void> deleteRoleWithHttpInfo(String code, String scope) throws ApiException {
-        okhttp3.Call localVarCall = deleteRoleValidateBeforeCall(code, scope, null);
+        okhttp3.Call localVarCall = deleteRoleValidateBeforeCall(code, scope, null, new ConfigurationOptions());
+        return localVarApiClient.execute(localVarCall);
+    }
+
+    private ApiResponse<Void> deleteRoleWithHttpInfo(String code, String scope, ConfigurationOptions opts) throws ApiException {
+        okhttp3.Call localVarCall = deleteRoleValidateBeforeCall(code, scope, null, opts);
         return localVarApiClient.execute(localVarCall);
     }
 
     private okhttp3.Call deleteRoleAsync(String code, String scope, final ApiCallback<Void> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = deleteRoleValidateBeforeCall(code, scope, _callback);
+        okhttp3.Call localVarCall = deleteRoleValidateBeforeCall(code, scope, _callback, new ConfigurationOptions());
+        localVarApiClient.executeAsync(localVarCall, _callback);
+        return localVarCall;
+    }
+
+    private okhttp3.Call deleteRoleAsync(String code, String scope, final ApiCallback<Void> _callback, ConfigurationOptions opts) throws ApiException {
+
+        okhttp3.Call localVarCall = deleteRoleValidateBeforeCall(code, scope, _callback, opts);
         localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }
@@ -553,6 +706,21 @@ public class RolesApi {
         }
 
         /**
+         * Execute deleteRole request
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+            <tr><td> 400 </td><td> The details of the input related failure </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error response </td><td>  -  </td></tr>
+         </table>
+         */
+        public void execute(ConfigurationOptions opts) throws ApiException {
+            deleteRoleWithHttpInfo(code, scope, opts);
+        }
+
+        /**
          * Execute deleteRole request with HTTP info returned
          * @return ApiResponse&lt;Void&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -566,6 +734,22 @@ public class RolesApi {
          */
         public ApiResponse<Void> executeWithHttpInfo() throws ApiException {
             return deleteRoleWithHttpInfo(code, scope);
+        }
+
+        /**
+         * Execute deleteRole request with HTTP info returned. Use any specified configuration options to override any other configuration for this request only.
+         * @return ApiResponse&lt;Void&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+            <tr><td> 400 </td><td> The details of the input related failure </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error response </td><td>  -  </td></tr>
+         </table>
+         */
+        public ApiResponse<Void> executeWithHttpInfo(ConfigurationOptions opts) throws ApiException {
+            return deleteRoleWithHttpInfo(code, scope, opts);
         }
 
         /**
@@ -583,6 +767,23 @@ public class RolesApi {
          */
         public okhttp3.Call executeAsync(final ApiCallback<Void> _callback) throws ApiException {
             return deleteRoleAsync(code, scope, _callback);
+        }
+
+        /**
+         * Execute deleteRole request (asynchronously). Use any specified configuration options to override any other configuration for this request only.
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+            <tr><td> 400 </td><td> The details of the input related failure </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error response </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<Void> _callback, ConfigurationOptions opts) throws ApiException {
+            return deleteRoleAsync(code, scope, _callback, opts);
         }
     }
 
@@ -603,6 +804,10 @@ public class RolesApi {
         return new APIdeleteRoleRequest(code);
     }
     private okhttp3.Call getRoleCall(String code, OffsetDateTime asAt, String scope, final ApiCallback _callback) throws ApiException {
+        return getRoleCall(code, asAt, scope,  _callback, new ConfigurationOptions());
+    }
+
+    private okhttp3.Call getRoleCall(String code, OffsetDateTime asAt, String scope, final ApiCallback _callback, ConfigurationOptions opts) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -654,30 +859,44 @@ public class RolesApi {
         }
 
         String[] localVarAuthNames = new String[] { "oauth2" };
-        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback, opts);
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getRoleValidateBeforeCall(String code, OffsetDateTime asAt, String scope, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getRoleValidateBeforeCall(String code, OffsetDateTime asAt, String scope, final ApiCallback _callback, ConfigurationOptions opts) throws ApiException {
         // verify the required parameter 'code' is set
         if (code == null) {
             throw new ApiException("Missing the required parameter 'code' when calling getRole(Async)");
         }
 
-        return getRoleCall(code, asAt, scope, _callback);
+        return getRoleCall(code, asAt, scope, _callback, opts);
 
     }
 
 
     private ApiResponse<RoleResponse> getRoleWithHttpInfo(String code, OffsetDateTime asAt, String scope) throws ApiException {
-        okhttp3.Call localVarCall = getRoleValidateBeforeCall(code, asAt, scope, null);
+        okhttp3.Call localVarCall = getRoleValidateBeforeCall(code, asAt, scope, null, new ConfigurationOptions());
+        Type localVarReturnType = new TypeToken<RoleResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    private ApiResponse<RoleResponse> getRoleWithHttpInfo(String code, OffsetDateTime asAt, String scope, ConfigurationOptions opts) throws ApiException {
+        okhttp3.Call localVarCall = getRoleValidateBeforeCall(code, asAt, scope, null, opts);
         Type localVarReturnType = new TypeToken<RoleResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     private okhttp3.Call getRoleAsync(String code, OffsetDateTime asAt, String scope, final ApiCallback<RoleResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getRoleValidateBeforeCall(code, asAt, scope, _callback);
+        okhttp3.Call localVarCall = getRoleValidateBeforeCall(code, asAt, scope, _callback, new ConfigurationOptions());
+        Type localVarReturnType = new TypeToken<RoleResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    private okhttp3.Call getRoleAsync(String code, OffsetDateTime asAt, String scope, final ApiCallback<RoleResponse> _callback, ConfigurationOptions opts) throws ApiException {
+
+        okhttp3.Call localVarCall = getRoleValidateBeforeCall(code, asAt, scope, _callback, opts);
         Type localVarReturnType = new TypeToken<RoleResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -747,6 +966,23 @@ public class RolesApi {
         }
 
         /**
+         * Execute getRole request. Use any specified configuration options to override any other configuration for this request only.
+         * @return RoleResponse
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Requested Role </td><td>  -  </td></tr>
+            <tr><td> 400 </td><td> The details of the input related failure </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error response </td><td>  -  </td></tr>
+         </table>
+         */
+        public RoleResponse execute(ConfigurationOptions opts) throws ApiException {
+            ApiResponse<RoleResponse> localVarResp = getRoleWithHttpInfo(code, asAt, scope, opts);
+            return localVarResp.getData();
+        }
+
+        /**
          * Execute getRole request with HTTP info returned
          * @return ApiResponse&lt;RoleResponse&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -760,6 +996,22 @@ public class RolesApi {
          */
         public ApiResponse<RoleResponse> executeWithHttpInfo() throws ApiException {
             return getRoleWithHttpInfo(code, asAt, scope);
+        }
+
+        /**
+         * Execute getRole request with HTTP info returned. Use any specified configuration options to override any other configuration for this request only.
+         * @return ApiResponse&lt;RoleResponse&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Requested Role </td><td>  -  </td></tr>
+            <tr><td> 400 </td><td> The details of the input related failure </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error response </td><td>  -  </td></tr>
+         </table>
+         */
+        public ApiResponse<RoleResponse> executeWithHttpInfo(ConfigurationOptions opts) throws ApiException {
+            return getRoleWithHttpInfo(code, asAt, scope, opts);
         }
 
         /**
@@ -777,6 +1029,23 @@ public class RolesApi {
          */
         public okhttp3.Call executeAsync(final ApiCallback<RoleResponse> _callback) throws ApiException {
             return getRoleAsync(code, asAt, scope, _callback);
+        }
+
+        /**
+         * Execute getRole request (asynchronously). Use any specified configuration options to override any other configuration for this request only.
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Requested Role </td><td>  -  </td></tr>
+            <tr><td> 400 </td><td> The details of the input related failure </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error response </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<RoleResponse> _callback, ConfigurationOptions opts) throws ApiException {
+            return getRoleAsync(code, asAt, scope, _callback, opts);
         }
     }
 
@@ -797,6 +1066,10 @@ public class RolesApi {
         return new APIgetRoleRequest(code);
     }
     private okhttp3.Call listRolesCall(String scope, OffsetDateTime asAt, List<String> sortBy, Integer start, Integer limit, String filter, final ApiCallback _callback) throws ApiException {
+        return listRolesCall(scope, asAt, sortBy, start, limit, filter,  _callback, new ConfigurationOptions());
+    }
+
+    private okhttp3.Call listRolesCall(String scope, OffsetDateTime asAt, List<String> sortBy, Integer start, Integer limit, String filter, final ApiCallback _callback, ConfigurationOptions opts) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -863,25 +1136,39 @@ public class RolesApi {
         }
 
         String[] localVarAuthNames = new String[] { "oauth2" };
-        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback, opts);
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call listRolesValidateBeforeCall(String scope, OffsetDateTime asAt, List<String> sortBy, Integer start, Integer limit, String filter, final ApiCallback _callback) throws ApiException {
-        return listRolesCall(scope, asAt, sortBy, start, limit, filter, _callback);
+    private okhttp3.Call listRolesValidateBeforeCall(String scope, OffsetDateTime asAt, List<String> sortBy, Integer start, Integer limit, String filter, final ApiCallback _callback, ConfigurationOptions opts) throws ApiException {
+        return listRolesCall(scope, asAt, sortBy, start, limit, filter, _callback, opts);
 
     }
 
 
     private ApiResponse<List<RoleResponse>> listRolesWithHttpInfo(String scope, OffsetDateTime asAt, List<String> sortBy, Integer start, Integer limit, String filter) throws ApiException {
-        okhttp3.Call localVarCall = listRolesValidateBeforeCall(scope, asAt, sortBy, start, limit, filter, null);
+        okhttp3.Call localVarCall = listRolesValidateBeforeCall(scope, asAt, sortBy, start, limit, filter, null, new ConfigurationOptions());
+        Type localVarReturnType = new TypeToken<List<RoleResponse>>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    private ApiResponse<List<RoleResponse>> listRolesWithHttpInfo(String scope, OffsetDateTime asAt, List<String> sortBy, Integer start, Integer limit, String filter, ConfigurationOptions opts) throws ApiException {
+        okhttp3.Call localVarCall = listRolesValidateBeforeCall(scope, asAt, sortBy, start, limit, filter, null, opts);
         Type localVarReturnType = new TypeToken<List<RoleResponse>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     private okhttp3.Call listRolesAsync(String scope, OffsetDateTime asAt, List<String> sortBy, Integer start, Integer limit, String filter, final ApiCallback<List<RoleResponse>> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = listRolesValidateBeforeCall(scope, asAt, sortBy, start, limit, filter, _callback);
+        okhttp3.Call localVarCall = listRolesValidateBeforeCall(scope, asAt, sortBy, start, limit, filter, _callback, new ConfigurationOptions());
+        Type localVarReturnType = new TypeToken<List<RoleResponse>>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    private okhttp3.Call listRolesAsync(String scope, OffsetDateTime asAt, List<String> sortBy, Integer start, Integer limit, String filter, final ApiCallback<List<RoleResponse>> _callback, ConfigurationOptions opts) throws ApiException {
+
+        okhttp3.Call localVarCall = listRolesValidateBeforeCall(scope, asAt, sortBy, start, limit, filter, _callback, opts);
         Type localVarReturnType = new TypeToken<List<RoleResponse>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -993,6 +1280,23 @@ public class RolesApi {
         }
 
         /**
+         * Execute listRoles request. Use any specified configuration options to override any other configuration for this request only.
+         * @return List&lt;RoleResponse&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> List of Roles </td><td>  -  </td></tr>
+            <tr><td> 400 </td><td> The details of the input related failure </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error response </td><td>  -  </td></tr>
+         </table>
+         */
+        public List<RoleResponse> execute(ConfigurationOptions opts) throws ApiException {
+            ApiResponse<List<RoleResponse>> localVarResp = listRolesWithHttpInfo(scope, asAt, sortBy, start, limit, filter, opts);
+            return localVarResp.getData();
+        }
+
+        /**
          * Execute listRoles request with HTTP info returned
          * @return ApiResponse&lt;List&lt;RoleResponse&gt;&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1006,6 +1310,22 @@ public class RolesApi {
          */
         public ApiResponse<List<RoleResponse>> executeWithHttpInfo() throws ApiException {
             return listRolesWithHttpInfo(scope, asAt, sortBy, start, limit, filter);
+        }
+
+        /**
+         * Execute listRoles request with HTTP info returned. Use any specified configuration options to override any other configuration for this request only.
+         * @return ApiResponse&lt;List&lt;RoleResponse&gt;&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> List of Roles </td><td>  -  </td></tr>
+            <tr><td> 400 </td><td> The details of the input related failure </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error response </td><td>  -  </td></tr>
+         </table>
+         */
+        public ApiResponse<List<RoleResponse>> executeWithHttpInfo(ConfigurationOptions opts) throws ApiException {
+            return listRolesWithHttpInfo(scope, asAt, sortBy, start, limit, filter, opts);
         }
 
         /**
@@ -1023,6 +1343,23 @@ public class RolesApi {
          */
         public okhttp3.Call executeAsync(final ApiCallback<List<RoleResponse>> _callback) throws ApiException {
             return listRolesAsync(scope, asAt, sortBy, start, limit, filter, _callback);
+        }
+
+        /**
+         * Execute listRoles request (asynchronously). Use any specified configuration options to override any other configuration for this request only.
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> List of Roles </td><td>  -  </td></tr>
+            <tr><td> 400 </td><td> The details of the input related failure </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error response </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<List<RoleResponse>> _callback, ConfigurationOptions opts) throws ApiException {
+            return listRolesAsync(scope, asAt, sortBy, start, limit, filter, _callback, opts);
         }
     }
 
@@ -1042,6 +1379,10 @@ public class RolesApi {
         return new APIlistRolesRequest();
     }
     private okhttp3.Call removePolicyCollectionFromRoleCall(String scope, String code, String policycollectionscope, String policycollectioncode, final ApiCallback _callback) throws ApiException {
+        return removePolicyCollectionFromRoleCall(scope, code, policycollectionscope, policycollectioncode,  _callback, new ConfigurationOptions());
+    }
+
+    private okhttp3.Call removePolicyCollectionFromRoleCall(String scope, String code, String policycollectionscope, String policycollectioncode, final ApiCallback _callback, ConfigurationOptions opts) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1088,11 +1429,11 @@ public class RolesApi {
         }
 
         String[] localVarAuthNames = new String[] { "oauth2" };
-        return localVarApiClient.buildCall(basePath, localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(basePath, localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback, opts);
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call removePolicyCollectionFromRoleValidateBeforeCall(String scope, String code, String policycollectionscope, String policycollectioncode, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call removePolicyCollectionFromRoleValidateBeforeCall(String scope, String code, String policycollectionscope, String policycollectioncode, final ApiCallback _callback, ConfigurationOptions opts) throws ApiException {
         // verify the required parameter 'scope' is set
         if (scope == null) {
             throw new ApiException("Missing the required parameter 'scope' when calling removePolicyCollectionFromRole(Async)");
@@ -1113,20 +1454,34 @@ public class RolesApi {
             throw new ApiException("Missing the required parameter 'policycollectioncode' when calling removePolicyCollectionFromRole(Async)");
         }
 
-        return removePolicyCollectionFromRoleCall(scope, code, policycollectionscope, policycollectioncode, _callback);
+        return removePolicyCollectionFromRoleCall(scope, code, policycollectionscope, policycollectioncode, _callback, opts);
 
     }
 
 
     private ApiResponse<RoleResponse> removePolicyCollectionFromRoleWithHttpInfo(String scope, String code, String policycollectionscope, String policycollectioncode) throws ApiException {
-        okhttp3.Call localVarCall = removePolicyCollectionFromRoleValidateBeforeCall(scope, code, policycollectionscope, policycollectioncode, null);
+        okhttp3.Call localVarCall = removePolicyCollectionFromRoleValidateBeforeCall(scope, code, policycollectionscope, policycollectioncode, null, new ConfigurationOptions());
+        Type localVarReturnType = new TypeToken<RoleResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    private ApiResponse<RoleResponse> removePolicyCollectionFromRoleWithHttpInfo(String scope, String code, String policycollectionscope, String policycollectioncode, ConfigurationOptions opts) throws ApiException {
+        okhttp3.Call localVarCall = removePolicyCollectionFromRoleValidateBeforeCall(scope, code, policycollectionscope, policycollectioncode, null, opts);
         Type localVarReturnType = new TypeToken<RoleResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     private okhttp3.Call removePolicyCollectionFromRoleAsync(String scope, String code, String policycollectionscope, String policycollectioncode, final ApiCallback<RoleResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = removePolicyCollectionFromRoleValidateBeforeCall(scope, code, policycollectionscope, policycollectioncode, _callback);
+        okhttp3.Call localVarCall = removePolicyCollectionFromRoleValidateBeforeCall(scope, code, policycollectionscope, policycollectioncode, _callback, new ConfigurationOptions());
+        Type localVarReturnType = new TypeToken<RoleResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    private okhttp3.Call removePolicyCollectionFromRoleAsync(String scope, String code, String policycollectionscope, String policycollectioncode, final ApiCallback<RoleResponse> _callback, ConfigurationOptions opts) throws ApiException {
+
+        okhttp3.Call localVarCall = removePolicyCollectionFromRoleValidateBeforeCall(scope, code, policycollectionscope, policycollectioncode, _callback, opts);
         Type localVarReturnType = new TypeToken<RoleResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1180,6 +1535,23 @@ public class RolesApi {
         }
 
         /**
+         * Execute removePolicyCollectionFromRole request. Use any specified configuration options to override any other configuration for this request only.
+         * @return RoleResponse
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> RemovePolicyCollectionFromRole </td><td>  -  </td></tr>
+            <tr><td> 400 </td><td> The details of the input related failure </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error response </td><td>  -  </td></tr>
+         </table>
+         */
+        public RoleResponse execute(ConfigurationOptions opts) throws ApiException {
+            ApiResponse<RoleResponse> localVarResp = removePolicyCollectionFromRoleWithHttpInfo(scope, code, policycollectionscope, policycollectioncode, opts);
+            return localVarResp.getData();
+        }
+
+        /**
          * Execute removePolicyCollectionFromRole request with HTTP info returned
          * @return ApiResponse&lt;RoleResponse&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1193,6 +1565,22 @@ public class RolesApi {
          */
         public ApiResponse<RoleResponse> executeWithHttpInfo() throws ApiException {
             return removePolicyCollectionFromRoleWithHttpInfo(scope, code, policycollectionscope, policycollectioncode);
+        }
+
+        /**
+         * Execute removePolicyCollectionFromRole request with HTTP info returned. Use any specified configuration options to override any other configuration for this request only.
+         * @return ApiResponse&lt;RoleResponse&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> RemovePolicyCollectionFromRole </td><td>  -  </td></tr>
+            <tr><td> 400 </td><td> The details of the input related failure </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error response </td><td>  -  </td></tr>
+         </table>
+         */
+        public ApiResponse<RoleResponse> executeWithHttpInfo(ConfigurationOptions opts) throws ApiException {
+            return removePolicyCollectionFromRoleWithHttpInfo(scope, code, policycollectionscope, policycollectioncode, opts);
         }
 
         /**
@@ -1210,6 +1598,23 @@ public class RolesApi {
          */
         public okhttp3.Call executeAsync(final ApiCallback<RoleResponse> _callback) throws ApiException {
             return removePolicyCollectionFromRoleAsync(scope, code, policycollectionscope, policycollectioncode, _callback);
+        }
+
+        /**
+         * Execute removePolicyCollectionFromRole request (asynchronously). Use any specified configuration options to override any other configuration for this request only.
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> RemovePolicyCollectionFromRole </td><td>  -  </td></tr>
+            <tr><td> 400 </td><td> The details of the input related failure </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error response </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<RoleResponse> _callback, ConfigurationOptions opts) throws ApiException {
+            return removePolicyCollectionFromRoleAsync(scope, code, policycollectionscope, policycollectioncode, _callback, opts);
         }
     }
 
@@ -1233,6 +1638,10 @@ public class RolesApi {
         return new APIremovePolicyCollectionFromRoleRequest(scope, code, policycollectionscope, policycollectioncode);
     }
     private okhttp3.Call updateRoleCall(String code, RoleUpdateRequest roleUpdateRequest, String scope, String beforeScope, String beforeCode, String afterScope, String afterCode, final ApiCallback _callback) throws ApiException {
+        return updateRoleCall(code, roleUpdateRequest, scope, beforeScope, beforeCode, afterScope, afterCode,  _callback, new ConfigurationOptions());
+    }
+
+    private okhttp3.Call updateRoleCall(String code, RoleUpdateRequest roleUpdateRequest, String scope, String beforeScope, String beforeCode, String afterScope, String afterCode, final ApiCallback _callback, ConfigurationOptions opts) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1300,11 +1709,11 @@ public class RolesApi {
         }
 
         String[] localVarAuthNames = new String[] { "oauth2" };
-        return localVarApiClient.buildCall(basePath, localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(basePath, localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback, opts);
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call updateRoleValidateBeforeCall(String code, RoleUpdateRequest roleUpdateRequest, String scope, String beforeScope, String beforeCode, String afterScope, String afterCode, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call updateRoleValidateBeforeCall(String code, RoleUpdateRequest roleUpdateRequest, String scope, String beforeScope, String beforeCode, String afterScope, String afterCode, final ApiCallback _callback, ConfigurationOptions opts) throws ApiException {
         // verify the required parameter 'code' is set
         if (code == null) {
             throw new ApiException("Missing the required parameter 'code' when calling updateRole(Async)");
@@ -1315,20 +1724,34 @@ public class RolesApi {
             throw new ApiException("Missing the required parameter 'roleUpdateRequest' when calling updateRole(Async)");
         }
 
-        return updateRoleCall(code, roleUpdateRequest, scope, beforeScope, beforeCode, afterScope, afterCode, _callback);
+        return updateRoleCall(code, roleUpdateRequest, scope, beforeScope, beforeCode, afterScope, afterCode, _callback, opts);
 
     }
 
 
     private ApiResponse<RoleResponse> updateRoleWithHttpInfo(String code, RoleUpdateRequest roleUpdateRequest, String scope, String beforeScope, String beforeCode, String afterScope, String afterCode) throws ApiException {
-        okhttp3.Call localVarCall = updateRoleValidateBeforeCall(code, roleUpdateRequest, scope, beforeScope, beforeCode, afterScope, afterCode, null);
+        okhttp3.Call localVarCall = updateRoleValidateBeforeCall(code, roleUpdateRequest, scope, beforeScope, beforeCode, afterScope, afterCode, null, new ConfigurationOptions());
+        Type localVarReturnType = new TypeToken<RoleResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    private ApiResponse<RoleResponse> updateRoleWithHttpInfo(String code, RoleUpdateRequest roleUpdateRequest, String scope, String beforeScope, String beforeCode, String afterScope, String afterCode, ConfigurationOptions opts) throws ApiException {
+        okhttp3.Call localVarCall = updateRoleValidateBeforeCall(code, roleUpdateRequest, scope, beforeScope, beforeCode, afterScope, afterCode, null, opts);
         Type localVarReturnType = new TypeToken<RoleResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     private okhttp3.Call updateRoleAsync(String code, RoleUpdateRequest roleUpdateRequest, String scope, String beforeScope, String beforeCode, String afterScope, String afterCode, final ApiCallback<RoleResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = updateRoleValidateBeforeCall(code, roleUpdateRequest, scope, beforeScope, beforeCode, afterScope, afterCode, _callback);
+        okhttp3.Call localVarCall = updateRoleValidateBeforeCall(code, roleUpdateRequest, scope, beforeScope, beforeCode, afterScope, afterCode, _callback, new ConfigurationOptions());
+        Type localVarReturnType = new TypeToken<RoleResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    private okhttp3.Call updateRoleAsync(String code, RoleUpdateRequest roleUpdateRequest, String scope, String beforeScope, String beforeCode, String afterScope, String afterCode, final ApiCallback<RoleResponse> _callback, ConfigurationOptions opts) throws ApiException {
+
+        okhttp3.Call localVarCall = updateRoleValidateBeforeCall(code, roleUpdateRequest, scope, beforeScope, beforeCode, afterScope, afterCode, _callback, opts);
         Type localVarReturnType = new TypeToken<RoleResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1433,6 +1856,23 @@ public class RolesApi {
         }
 
         /**
+         * Execute updateRole request. Use any specified configuration options to override any other configuration for this request only.
+         * @return RoleResponse
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Updated Role </td><td>  -  </td></tr>
+            <tr><td> 400 </td><td> The details of the input related failure </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error response </td><td>  -  </td></tr>
+         </table>
+         */
+        public RoleResponse execute(ConfigurationOptions opts) throws ApiException {
+            ApiResponse<RoleResponse> localVarResp = updateRoleWithHttpInfo(code, roleUpdateRequest, scope, beforeScope, beforeCode, afterScope, afterCode, opts);
+            return localVarResp.getData();
+        }
+
+        /**
          * Execute updateRole request with HTTP info returned
          * @return ApiResponse&lt;RoleResponse&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1446,6 +1886,22 @@ public class RolesApi {
          */
         public ApiResponse<RoleResponse> executeWithHttpInfo() throws ApiException {
             return updateRoleWithHttpInfo(code, roleUpdateRequest, scope, beforeScope, beforeCode, afterScope, afterCode);
+        }
+
+        /**
+         * Execute updateRole request with HTTP info returned. Use any specified configuration options to override any other configuration for this request only.
+         * @return ApiResponse&lt;RoleResponse&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Updated Role </td><td>  -  </td></tr>
+            <tr><td> 400 </td><td> The details of the input related failure </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error response </td><td>  -  </td></tr>
+         </table>
+         */
+        public ApiResponse<RoleResponse> executeWithHttpInfo(ConfigurationOptions opts) throws ApiException {
+            return updateRoleWithHttpInfo(code, roleUpdateRequest, scope, beforeScope, beforeCode, afterScope, afterCode, opts);
         }
 
         /**
@@ -1463,6 +1919,23 @@ public class RolesApi {
          */
         public okhttp3.Call executeAsync(final ApiCallback<RoleResponse> _callback) throws ApiException {
             return updateRoleAsync(code, roleUpdateRequest, scope, beforeScope, beforeCode, afterScope, afterCode, _callback);
+        }
+
+        /**
+         * Execute updateRole request (asynchronously). Use any specified configuration options to override any other configuration for this request only.
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Updated Role </td><td>  -  </td></tr>
+            <tr><td> 400 </td><td> The details of the input related failure </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error response </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<RoleResponse> _callback, ConfigurationOptions opts) throws ApiException {
+            return updateRoleAsync(code, roleUpdateRequest, scope, beforeScope, beforeCode, afterScope, afterCode, _callback, opts);
         }
     }
 

@@ -51,9 +51,20 @@ public class PolicyTemplatesApiExample {
             "}");
         }
 
+        // uncomment the below to use configuration overrides
+        // ConfigurationOptions opts = new ConfigurationOptions();
+        // opts.setTotalTimeoutMs(2000);
+        
+        // uncomment the below to use an api factory with overrides
+        // ApiFactory apiFactory = ApiFactoryBuilder.build(fileName, opts);
+        // PolicyTemplatesApi apiInstance = apiFactory.build(PolicyTemplatesApi.class);
+
         PolicyTemplatesApi apiInstance = ApiFactoryBuilder.build(fileName).build(PolicyTemplatesApi.class);
         PolicyTemplateCreationRequest policyTemplateCreationRequest = new PolicyTemplateCreationRequest(); // PolicyTemplateCreationRequest | The definition of the policy template
         try {
+            // uncomment the below to set overrides at the request level
+            // PolicyTemplateResponse result = apiInstance.createPolicyTemplate(policyTemplateCreationRequest).execute(opts);
+
             PolicyTemplateResponse result = apiInstance.createPolicyTemplate(policyTemplateCreationRequest).execute();
             System.out.println(result.toJson());
         } catch (ApiException e) {
@@ -131,10 +142,21 @@ public class PolicyTemplatesApiExample {
             "}");
         }
 
+        // uncomment the below to use configuration overrides
+        // ConfigurationOptions opts = new ConfigurationOptions();
+        // opts.setTotalTimeoutMs(2000);
+        
+        // uncomment the below to use an api factory with overrides
+        // ApiFactory apiFactory = ApiFactoryBuilder.build(fileName, opts);
+        // PolicyTemplatesApi apiInstance = apiFactory.build(PolicyTemplatesApi.class);
+
         PolicyTemplatesApi apiInstance = ApiFactoryBuilder.build(fileName).build(PolicyTemplatesApi.class);
         String code = "code_example"; // String | The code of the Policy Template
         String scope = "scope_example"; // String | Optional. Will use the default scope if not provided. The scope of the Policy Template
         try {
+            // uncomment the below to set overrides at the request level
+            // apiInstance.deletePolicyTemplate(code, scope).execute(opts);
+
             apiInstance.deletePolicyTemplate(code, scope).execute();
         } catch (ApiException e) {
             System.err.println("Exception when calling PolicyTemplatesApi#deletePolicyTemplate");
@@ -212,10 +234,21 @@ public class PolicyTemplatesApiExample {
             "}");
         }
 
+        // uncomment the below to use configuration overrides
+        // ConfigurationOptions opts = new ConfigurationOptions();
+        // opts.setTotalTimeoutMs(2000);
+        
+        // uncomment the below to use an api factory with overrides
+        // ApiFactory apiFactory = ApiFactoryBuilder.build(fileName, opts);
+        // PolicyTemplatesApi apiInstance = apiFactory.build(PolicyTemplatesApi.class);
+
         PolicyTemplatesApi apiInstance = ApiFactoryBuilder.build(fileName).build(PolicyTemplatesApi.class);
         GeneratePolicyFromTemplateRequest generatePolicyFromTemplateRequest = new GeneratePolicyFromTemplateRequest(); // GeneratePolicyFromTemplateRequest | Definition of the generate request
         OffsetDateTime asAt = OffsetDateTime.now(); // OffsetDateTime | Optional. The AsAt date time of the data
         try {
+            // uncomment the below to set overrides at the request level
+            // GeneratedPolicyComponents result = apiInstance.generatePolicyFromTemplate(generatePolicyFromTemplateRequest, asAt).execute(opts);
+
             GeneratedPolicyComponents result = apiInstance.generatePolicyFromTemplate(generatePolicyFromTemplateRequest, asAt).execute();
             System.out.println(result.toJson());
         } catch (ApiException e) {
@@ -294,11 +327,22 @@ public class PolicyTemplatesApiExample {
             "}");
         }
 
+        // uncomment the below to use configuration overrides
+        // ConfigurationOptions opts = new ConfigurationOptions();
+        // opts.setTotalTimeoutMs(2000);
+        
+        // uncomment the below to use an api factory with overrides
+        // ApiFactory apiFactory = ApiFactoryBuilder.build(fileName, opts);
+        // PolicyTemplatesApi apiInstance = apiFactory.build(PolicyTemplatesApi.class);
+
         PolicyTemplatesApi apiInstance = ApiFactoryBuilder.build(fileName).build(PolicyTemplatesApi.class);
         String code = "code_example"; // String | The code of the Policy Template
         OffsetDateTime asAt = OffsetDateTime.now(); // OffsetDateTime | Optional. The AsAt date time of the data. If not specified defaults to current time
         String scope = "scope_example"; // String | Optional. Will use the default scope if not provided. The scope of the Policy Template
         try {
+            // uncomment the below to set overrides at the request level
+            // PolicyTemplateResponse result = apiInstance.getPolicyTemplate(code, asAt, scope).execute(opts);
+
             PolicyTemplateResponse result = apiInstance.getPolicyTemplate(code, asAt, scope).execute();
             System.out.println(result.toJson());
         } catch (ApiException e) {
@@ -378,6 +422,14 @@ public class PolicyTemplatesApiExample {
             "}");
         }
 
+        // uncomment the below to use configuration overrides
+        // ConfigurationOptions opts = new ConfigurationOptions();
+        // opts.setTotalTimeoutMs(2000);
+        
+        // uncomment the below to use an api factory with overrides
+        // ApiFactory apiFactory = ApiFactoryBuilder.build(fileName, opts);
+        // PolicyTemplatesApi apiInstance = apiFactory.build(PolicyTemplatesApi.class);
+
         PolicyTemplatesApi apiInstance = ApiFactoryBuilder.build(fileName).build(PolicyTemplatesApi.class);
         OffsetDateTime asAt = OffsetDateTime.now(); // OffsetDateTime | Optional. The AsAt date time of the data
         String sortBy = "sortBy_example"; // String | Optional. Order the results by these fields. Use use the '-' sign to denote descending order e.g. -MyFieldName
@@ -385,6 +437,9 @@ public class PolicyTemplatesApiExample {
         String filter = "filter_example"; // String | Optional. Expression to filter the result set
         String page = "page_example"; // String | Optional. Paging token returned from a previous result
         try {
+            // uncomment the below to set overrides at the request level
+            // ResourceListOfPolicyTemplateResponse result = apiInstance.listPolicyTemplates(asAt, sortBy, limit, filter, page).execute(opts);
+
             ResourceListOfPolicyTemplateResponse result = apiInstance.listPolicyTemplates(asAt, sortBy, limit, filter, page).execute();
             System.out.println(result.toJson());
         } catch (ApiException e) {
@@ -466,10 +521,21 @@ public class PolicyTemplatesApiExample {
             "}");
         }
 
+        // uncomment the below to use configuration overrides
+        // ConfigurationOptions opts = new ConfigurationOptions();
+        // opts.setTotalTimeoutMs(2000);
+        
+        // uncomment the below to use an api factory with overrides
+        // ApiFactory apiFactory = ApiFactoryBuilder.build(fileName, opts);
+        // PolicyTemplatesApi apiInstance = apiFactory.build(PolicyTemplatesApi.class);
+
         PolicyTemplatesApi apiInstance = ApiFactoryBuilder.build(fileName).build(PolicyTemplatesApi.class);
         String code = "code_example"; // String | Code of the policy template to update
         PolicyTemplateUpdateRequest policyTemplateUpdateRequest = new PolicyTemplateUpdateRequest(); // PolicyTemplateUpdateRequest | Definition of the updated policy template
         try {
+            // uncomment the below to set overrides at the request level
+            // PolicyTemplateResponse result = apiInstance.updatePolicyTemplate(code, policyTemplateUpdateRequest).execute(opts);
+
             PolicyTemplateResponse result = apiInstance.updatePolicyTemplate(code, policyTemplateUpdateRequest).execute();
             System.out.println(result.toJson());
         } catch (ApiException e) {

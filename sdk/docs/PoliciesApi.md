@@ -61,11 +61,22 @@ public class PoliciesApiExample {
             "}");
         }
 
+        // uncomment the below to use configuration overrides
+        // ConfigurationOptions opts = new ConfigurationOptions();
+        // opts.setTotalTimeoutMs(2000);
+        
+        // uncomment the below to use an api factory with overrides
+        // ApiFactory apiFactory = ApiFactoryBuilder.build(fileName, opts);
+        // PoliciesApi apiInstance = apiFactory.build(PoliciesApi.class);
+
         PoliciesApi apiInstance = ApiFactoryBuilder.build(fileName).build(PoliciesApi.class);
         String code = "code_example"; // String | The code of the PolicyCollection
         AddToPolicyCollectionRequest addToPolicyCollectionRequest = new AddToPolicyCollectionRequest(); // AddToPolicyCollectionRequest | Ids of the PolicyCollections and/or Policies to add to the PolicyCollection
         String scope = "scope_example"; // String | Optional. Will use the default scope if not provided. The scope of the PolicyCollection
         try {
+            // uncomment the below to set overrides at the request level
+            // PolicyCollectionResponse result = apiInstance.addToPolicyCollection(code, addToPolicyCollectionRequest, scope).execute(opts);
+
             PolicyCollectionResponse result = apiInstance.addToPolicyCollection(code, addToPolicyCollectionRequest, scope).execute();
             System.out.println(result.toJson());
         } catch (ApiException e) {
@@ -145,9 +156,20 @@ public class PoliciesApiExample {
             "}");
         }
 
+        // uncomment the below to use configuration overrides
+        // ConfigurationOptions opts = new ConfigurationOptions();
+        // opts.setTotalTimeoutMs(2000);
+        
+        // uncomment the below to use an api factory with overrides
+        // ApiFactory apiFactory = ApiFactoryBuilder.build(fileName, opts);
+        // PoliciesApi apiInstance = apiFactory.build(PoliciesApi.class);
+
         PoliciesApi apiInstance = ApiFactoryBuilder.build(fileName).build(PoliciesApi.class);
         PolicyCreationRequest policyCreationRequest = new PolicyCreationRequest(); // PolicyCreationRequest | The definition of the Policy
         try {
+            // uncomment the below to set overrides at the request level
+            // PolicyResponse result = apiInstance.createPolicy(policyCreationRequest).execute(opts);
+
             PolicyResponse result = apiInstance.createPolicy(policyCreationRequest).execute();
             System.out.println(result.toJson());
         } catch (ApiException e) {
@@ -225,9 +247,20 @@ public class PoliciesApiExample {
             "}");
         }
 
+        // uncomment the below to use configuration overrides
+        // ConfigurationOptions opts = new ConfigurationOptions();
+        // opts.setTotalTimeoutMs(2000);
+        
+        // uncomment the below to use an api factory with overrides
+        // ApiFactory apiFactory = ApiFactoryBuilder.build(fileName, opts);
+        // PoliciesApi apiInstance = apiFactory.build(PoliciesApi.class);
+
         PoliciesApi apiInstance = ApiFactoryBuilder.build(fileName).build(PoliciesApi.class);
         PolicyCollectionCreationRequest policyCollectionCreationRequest = new PolicyCollectionCreationRequest(); // PolicyCollectionCreationRequest | The definition of the PolicyCollection
         try {
+            // uncomment the below to set overrides at the request level
+            // PolicyCollectionResponse result = apiInstance.createPolicyCollection(policyCollectionCreationRequest).execute(opts);
+
             PolicyCollectionResponse result = apiInstance.createPolicyCollection(policyCollectionCreationRequest).execute();
             System.out.println(result.toJson());
         } catch (ApiException e) {
@@ -305,10 +338,21 @@ public class PoliciesApiExample {
             "}");
         }
 
+        // uncomment the below to use configuration overrides
+        // ConfigurationOptions opts = new ConfigurationOptions();
+        // opts.setTotalTimeoutMs(2000);
+        
+        // uncomment the below to use an api factory with overrides
+        // ApiFactory apiFactory = ApiFactoryBuilder.build(fileName, opts);
+        // PoliciesApi apiInstance = apiFactory.build(PoliciesApi.class);
+
         PoliciesApi apiInstance = ApiFactoryBuilder.build(fileName).build(PoliciesApi.class);
         String code = "code_example"; // String | The code of the Policy
         String scope = "scope_example"; // String | Optional. Will use the default scope if not provided. The scope of the Policy
         try {
+            // uncomment the below to set overrides at the request level
+            // apiInstance.deletePolicy(code, scope).execute(opts);
+
             apiInstance.deletePolicy(code, scope).execute();
         } catch (ApiException e) {
             System.err.println("Exception when calling PoliciesApi#deletePolicy");
@@ -386,10 +430,21 @@ public class PoliciesApiExample {
             "}");
         }
 
+        // uncomment the below to use configuration overrides
+        // ConfigurationOptions opts = new ConfigurationOptions();
+        // opts.setTotalTimeoutMs(2000);
+        
+        // uncomment the below to use an api factory with overrides
+        // ApiFactory apiFactory = ApiFactoryBuilder.build(fileName, opts);
+        // PoliciesApi apiInstance = apiFactory.build(PoliciesApi.class);
+
         PoliciesApi apiInstance = ApiFactoryBuilder.build(fileName).build(PoliciesApi.class);
         String code = "code_example"; // String | The code of the PolicyCollection
         String scope = "scope_example"; // String | Optional. Will use the default scope if not provided. The scope of the PolicyCollection
         try {
+            // uncomment the below to set overrides at the request level
+            // apiInstance.deletePolicyCollection(code, scope).execute(opts);
+
             apiInstance.deletePolicyCollection(code, scope).execute();
         } catch (ApiException e) {
             System.err.println("Exception when calling PoliciesApi#deletePolicyCollection");
@@ -467,11 +522,22 @@ public class PoliciesApiExample {
             "}");
         }
 
+        // uncomment the below to use configuration overrides
+        // ConfigurationOptions opts = new ConfigurationOptions();
+        // opts.setTotalTimeoutMs(2000);
+        
+        // uncomment the below to use an api factory with overrides
+        // ApiFactory apiFactory = ApiFactoryBuilder.build(fileName, opts);
+        // PoliciesApi apiInstance = apiFactory.build(PoliciesApi.class);
+
         PoliciesApi apiInstance = ApiFactoryBuilder.build(fileName).build(PoliciesApi.class);
         Map<String, EvaluationRequest> requestBody = new HashMap(); // Map<String, EvaluationRequest> | A dictionary of evaluations, keyed using any arbitrary correlation id (it will be returned with the response for that evaluation).
         List<String> applications = Arrays.asList(); // List<String> | Optional. The application type of the roles and policies to use when evaluating.
         OffsetDateTime asAt = OffsetDateTime.now(); // OffsetDateTime | Optional. The requested AsAt date of the entitlements
         try {
+            // uncomment the below to set overrides at the request level
+            // Map<String, EvaluationResponse> result = apiInstance.evaluate(requestBody, applications, asAt).execute(opts);
+
             Map<String, EvaluationResponse> result = apiInstance.evaluate(requestBody, applications, asAt).execute();
             System.out.println(result.toJson());
         } catch (ApiException e) {
@@ -551,6 +617,14 @@ public class PoliciesApiExample {
             "}");
         }
 
+        // uncomment the below to use configuration overrides
+        // ConfigurationOptions opts = new ConfigurationOptions();
+        // opts.setTotalTimeoutMs(2000);
+        
+        // uncomment the below to use an api factory with overrides
+        // ApiFactory apiFactory = ApiFactoryBuilder.build(fileName, opts);
+        // PoliciesApi apiInstance = apiFactory.build(PoliciesApi.class);
+
         PoliciesApi apiInstance = ApiFactoryBuilder.build(fileName).build(PoliciesApi.class);
         List<String> applications = Arrays.asList(); // List<String> | Optional. Filter on the applications that the policies apply to
         OffsetDateTime asAt = OffsetDateTime.now(); // OffsetDateTime | Optional. The AsAt date time of the data
@@ -559,6 +633,9 @@ public class PoliciesApiExample {
         Integer limit = 56; // Integer | Optional. When paginating, limit the number of returned results to this many.
         String filter = "filter_example"; // String | Optional. Expression to filter the result set
         try {
+            // uncomment the below to set overrides at the request level
+            // List<AttachedPolicyDefinitionResponse> result = apiInstance.getOwnPolicies(applications, asAt, sortBy, start, limit, filter).execute(opts);
+
             List<AttachedPolicyDefinitionResponse> result = apiInstance.getOwnPolicies(applications, asAt, sortBy, start, limit, filter).execute();
             System.out.println(result.toJson());
         } catch (ApiException e) {
@@ -641,11 +718,22 @@ public class PoliciesApiExample {
             "}");
         }
 
+        // uncomment the below to use configuration overrides
+        // ConfigurationOptions opts = new ConfigurationOptions();
+        // opts.setTotalTimeoutMs(2000);
+        
+        // uncomment the below to use an api factory with overrides
+        // ApiFactory apiFactory = ApiFactoryBuilder.build(fileName, opts);
+        // PoliciesApi apiInstance = apiFactory.build(PoliciesApi.class);
+
         PoliciesApi apiInstance = ApiFactoryBuilder.build(fileName).build(PoliciesApi.class);
         String code = "code_example"; // String | The code of the Policy
         OffsetDateTime asAt = OffsetDateTime.now(); // OffsetDateTime | Optional. The AsAt date time of the data
         String scope = "scope_example"; // String | Optional. Will use the default scope if not provided. The scope of the Policy
         try {
+            // uncomment the below to set overrides at the request level
+            // PolicyResponse result = apiInstance.getPolicy(code, asAt, scope).execute(opts);
+
             PolicyResponse result = apiInstance.getPolicy(code, asAt, scope).execute();
             System.out.println(result.toJson());
         } catch (ApiException e) {
@@ -725,11 +813,22 @@ public class PoliciesApiExample {
             "}");
         }
 
+        // uncomment the below to use configuration overrides
+        // ConfigurationOptions opts = new ConfigurationOptions();
+        // opts.setTotalTimeoutMs(2000);
+        
+        // uncomment the below to use an api factory with overrides
+        // ApiFactory apiFactory = ApiFactoryBuilder.build(fileName, opts);
+        // PoliciesApi apiInstance = apiFactory.build(PoliciesApi.class);
+
         PoliciesApi apiInstance = ApiFactoryBuilder.build(fileName).build(PoliciesApi.class);
         String code = "code_example"; // String | The code of the PolicyCollection
         OffsetDateTime asAt = OffsetDateTime.now(); // OffsetDateTime | Optional. The AsAt date time of the data
         String scope = "scope_example"; // String | Optional. Will use the default scope if not provided. The scope of the PolicyCollection
         try {
+            // uncomment the below to set overrides at the request level
+            // PolicyCollectionResponse result = apiInstance.getPolicyCollection(code, asAt, scope).execute(opts);
+
             PolicyCollectionResponse result = apiInstance.getPolicyCollection(code, asAt, scope).execute();
             System.out.println(result.toJson());
         } catch (ApiException e) {
@@ -809,6 +908,14 @@ public class PoliciesApiExample {
             "}");
         }
 
+        // uncomment the below to use configuration overrides
+        // ConfigurationOptions opts = new ConfigurationOptions();
+        // opts.setTotalTimeoutMs(2000);
+        
+        // uncomment the below to use an api factory with overrides
+        // ApiFactory apiFactory = ApiFactoryBuilder.build(fileName, opts);
+        // PoliciesApi apiInstance = apiFactory.build(PoliciesApi.class);
+
         PoliciesApi apiInstance = ApiFactoryBuilder.build(fileName).build(PoliciesApi.class);
         String scope = "scope_example"; // String | Optional. Will use the default scope if not provided. The requested scope
         OffsetDateTime asAt = OffsetDateTime.now(); // OffsetDateTime | Optional. The AsAt date time of the data
@@ -817,6 +924,9 @@ public class PoliciesApiExample {
         Integer limit = 56; // Integer | Optional. When paginating, limit the number of returned results to this many.
         String filter = "filter_example"; // String | Optional. Expression to filter the result set
         try {
+            // uncomment the below to set overrides at the request level
+            // List<PolicyResponse> result = apiInstance.listPolicies(scope, asAt, sortBy, start, limit, filter).execute(opts);
+
             List<PolicyResponse> result = apiInstance.listPolicies(scope, asAt, sortBy, start, limit, filter).execute();
             System.out.println(result.toJson());
         } catch (ApiException e) {
@@ -899,6 +1009,14 @@ public class PoliciesApiExample {
             "}");
         }
 
+        // uncomment the below to use configuration overrides
+        // ConfigurationOptions opts = new ConfigurationOptions();
+        // opts.setTotalTimeoutMs(2000);
+        
+        // uncomment the below to use an api factory with overrides
+        // ApiFactory apiFactory = ApiFactoryBuilder.build(fileName, opts);
+        // PoliciesApi apiInstance = apiFactory.build(PoliciesApi.class);
+
         PoliciesApi apiInstance = ApiFactoryBuilder.build(fileName).build(PoliciesApi.class);
         String scope = "scope_example"; // String | Optional. Will use the default scope if not provided. The requested scope
         OffsetDateTime asAt = OffsetDateTime.now(); // OffsetDateTime | Optional. The AsAt date time of the data
@@ -907,6 +1025,9 @@ public class PoliciesApiExample {
         Integer limit = 56; // Integer | Optional. 2000 if not provided. When paginating, limit the number of returned results to this many.
         String filter = "filter_example"; // String | Optional. Expression to filter the result set
         try {
+            // uncomment the below to set overrides at the request level
+            // List<PolicyCollectionResponse> result = apiInstance.listPolicyCollections(scope, asAt, sortBy, start, limit, filter).execute(opts);
+
             List<PolicyCollectionResponse> result = apiInstance.listPolicyCollections(scope, asAt, sortBy, start, limit, filter).execute();
             System.out.println(result.toJson());
         } catch (ApiException e) {
@@ -989,6 +1110,14 @@ public class PoliciesApiExample {
             "}");
         }
 
+        // uncomment the below to use configuration overrides
+        // ConfigurationOptions opts = new ConfigurationOptions();
+        // opts.setTotalTimeoutMs(2000);
+        
+        // uncomment the below to use an api factory with overrides
+        // ApiFactory apiFactory = ApiFactoryBuilder.build(fileName, opts);
+        // PoliciesApi apiInstance = apiFactory.build(PoliciesApi.class);
+
         PoliciesApi apiInstance = ApiFactoryBuilder.build(fileName).build(PoliciesApi.class);
         OffsetDateTime asAt = OffsetDateTime.now(); // OffsetDateTime | Optional. Not currently used. The AsAt date time of the data
         String sortBy = "sortBy_example"; // String | Optional. Order the results by these fields. Use the '-' sign to denote descending order e.g. -MyFieldName
@@ -996,6 +1125,9 @@ public class PoliciesApiExample {
         String filter = "filter_example"; // String | Optional. Expression to filter the result set
         String page = "page_example"; // String | Optional. Paging token returned from a previous result
         try {
+            // uncomment the below to set overrides at the request level
+            // ResourceListOfPolicyResponse result = apiInstance.pagePolicies(asAt, sortBy, limit, filter, page).execute(opts);
+
             ResourceListOfPolicyResponse result = apiInstance.pagePolicies(asAt, sortBy, limit, filter, page).execute();
             System.out.println(result.toJson());
         } catch (ApiException e) {
@@ -1077,6 +1209,14 @@ public class PoliciesApiExample {
             "}");
         }
 
+        // uncomment the below to use configuration overrides
+        // ConfigurationOptions opts = new ConfigurationOptions();
+        // opts.setTotalTimeoutMs(2000);
+        
+        // uncomment the below to use an api factory with overrides
+        // ApiFactory apiFactory = ApiFactoryBuilder.build(fileName, opts);
+        // PoliciesApi apiInstance = apiFactory.build(PoliciesApi.class);
+
         PoliciesApi apiInstance = ApiFactoryBuilder.build(fileName).build(PoliciesApi.class);
         OffsetDateTime asAt = OffsetDateTime.now(); // OffsetDateTime | Optional. Not currently used. The AsAt date time of the data
         String sortBy = "sortBy_example"; // String | Optional. Order the results by these fields. Use the '-' sign to denote descending order e.g. -MyFieldName
@@ -1084,6 +1224,9 @@ public class PoliciesApiExample {
         String filter = "filter_example"; // String | Optional. Expression to filter the result set
         String page = "page_example"; // String | Optional. Paging token returned from a previous result
         try {
+            // uncomment the below to set overrides at the request level
+            // ResourceListOfPolicyCollectionResponse result = apiInstance.pagePolicyCollections(asAt, sortBy, limit, filter, page).execute(opts);
+
             ResourceListOfPolicyCollectionResponse result = apiInstance.pagePolicyCollections(asAt, sortBy, limit, filter, page).execute();
             System.out.println(result.toJson());
         } catch (ApiException e) {
@@ -1165,11 +1308,22 @@ public class PoliciesApiExample {
             "}");
         }
 
+        // uncomment the below to use configuration overrides
+        // ConfigurationOptions opts = new ConfigurationOptions();
+        // opts.setTotalTimeoutMs(2000);
+        
+        // uncomment the below to use an api factory with overrides
+        // ApiFactory apiFactory = ApiFactoryBuilder.build(fileName, opts);
+        // PoliciesApi apiInstance = apiFactory.build(PoliciesApi.class);
+
         PoliciesApi apiInstance = ApiFactoryBuilder.build(fileName).build(PoliciesApi.class);
         String code = "code_example"; // String | The code of the PolicyCollection
         RemoveFromPolicyCollectionRequest removeFromPolicyCollectionRequest = new RemoveFromPolicyCollectionRequest(); // RemoveFromPolicyCollectionRequest | Ids of the PolicyCollections and/or Policies to remove from the PolicyCollection
         String scope = "scope_example"; // String | Optional. Will use the default scope if not provided. The scope of the PolicyCollection
         try {
+            // uncomment the below to set overrides at the request level
+            // PolicyCollectionResponse result = apiInstance.removeFromPolicyCollection(code, removeFromPolicyCollectionRequest, scope).execute(opts);
+
             PolicyCollectionResponse result = apiInstance.removeFromPolicyCollection(code, removeFromPolicyCollectionRequest, scope).execute();
             System.out.println(result.toJson());
         } catch (ApiException e) {
@@ -1249,11 +1403,22 @@ public class PoliciesApiExample {
             "}");
         }
 
+        // uncomment the below to use configuration overrides
+        // ConfigurationOptions opts = new ConfigurationOptions();
+        // opts.setTotalTimeoutMs(2000);
+        
+        // uncomment the below to use an api factory with overrides
+        // ApiFactory apiFactory = ApiFactoryBuilder.build(fileName, opts);
+        // PoliciesApi apiInstance = apiFactory.build(PoliciesApi.class);
+
         PoliciesApi apiInstance = ApiFactoryBuilder.build(fileName).build(PoliciesApi.class);
         String code = "code_example"; // String | The code of the Policy
         PolicyUpdateRequest policyUpdateRequest = new PolicyUpdateRequest(); // PolicyUpdateRequest | The updated definition of the Policy
         String scope = "scope_example"; // String | Optional. Will use the default scope if not provided. The scope of the Policy
         try {
+            // uncomment the below to set overrides at the request level
+            // PolicyResponse result = apiInstance.updatePolicy(code, policyUpdateRequest, scope).execute(opts);
+
             PolicyResponse result = apiInstance.updatePolicy(code, policyUpdateRequest, scope).execute();
             System.out.println(result.toJson());
         } catch (ApiException e) {
@@ -1333,11 +1498,22 @@ public class PoliciesApiExample {
             "}");
         }
 
+        // uncomment the below to use configuration overrides
+        // ConfigurationOptions opts = new ConfigurationOptions();
+        // opts.setTotalTimeoutMs(2000);
+        
+        // uncomment the below to use an api factory with overrides
+        // ApiFactory apiFactory = ApiFactoryBuilder.build(fileName, opts);
+        // PoliciesApi apiInstance = apiFactory.build(PoliciesApi.class);
+
         PoliciesApi apiInstance = ApiFactoryBuilder.build(fileName).build(PoliciesApi.class);
         String code = "code_example"; // String | The code of the PolicyCollection
         PolicyCollectionUpdateRequest policyCollectionUpdateRequest = new PolicyCollectionUpdateRequest(); // PolicyCollectionUpdateRequest | The updated definition of the PolicyCollection
         String scope = "scope_example"; // String | Optional. Will use the default scope if not provided. The scope of the PolicyCollection
         try {
+            // uncomment the below to set overrides at the request level
+            // PolicyCollectionResponse result = apiInstance.updatePolicyCollection(code, policyCollectionUpdateRequest, scope).execute(opts);
+
             PolicyCollectionResponse result = apiInstance.updatePolicyCollection(code, policyCollectionUpdateRequest, scope).execute();
             System.out.println(result.toJson());
         } catch (ApiException e) {

@@ -18,6 +18,7 @@ import com.finbourne.access.Configuration;
 import com.finbourne.access.Pair;
 import com.finbourne.access.ProgressRequestBody;
 import com.finbourne.access.ProgressResponseBody;
+import com.finbourne.access.extensions.ConfigurationOptions;
 
 import com.google.gson.reflect.TypeToken;
 
@@ -78,6 +79,10 @@ public class PolicyTemplatesApi {
     }
 
     private okhttp3.Call createPolicyTemplateCall(PolicyTemplateCreationRequest policyTemplateCreationRequest, final ApiCallback _callback) throws ApiException {
+        return createPolicyTemplateCall(policyTemplateCreationRequest,  _callback, new ConfigurationOptions());
+    }
+
+    private okhttp3.Call createPolicyTemplateCall(PolicyTemplateCreationRequest policyTemplateCreationRequest, final ApiCallback _callback, ConfigurationOptions opts) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -124,30 +129,44 @@ public class PolicyTemplatesApi {
         }
 
         String[] localVarAuthNames = new String[] { "oauth2" };
-        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback, opts);
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createPolicyTemplateValidateBeforeCall(PolicyTemplateCreationRequest policyTemplateCreationRequest, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call createPolicyTemplateValidateBeforeCall(PolicyTemplateCreationRequest policyTemplateCreationRequest, final ApiCallback _callback, ConfigurationOptions opts) throws ApiException {
         // verify the required parameter 'policyTemplateCreationRequest' is set
         if (policyTemplateCreationRequest == null) {
             throw new ApiException("Missing the required parameter 'policyTemplateCreationRequest' when calling createPolicyTemplate(Async)");
         }
 
-        return createPolicyTemplateCall(policyTemplateCreationRequest, _callback);
+        return createPolicyTemplateCall(policyTemplateCreationRequest, _callback, opts);
 
     }
 
 
     private ApiResponse<PolicyTemplateResponse> createPolicyTemplateWithHttpInfo(PolicyTemplateCreationRequest policyTemplateCreationRequest) throws ApiException {
-        okhttp3.Call localVarCall = createPolicyTemplateValidateBeforeCall(policyTemplateCreationRequest, null);
+        okhttp3.Call localVarCall = createPolicyTemplateValidateBeforeCall(policyTemplateCreationRequest, null, new ConfigurationOptions());
+        Type localVarReturnType = new TypeToken<PolicyTemplateResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    private ApiResponse<PolicyTemplateResponse> createPolicyTemplateWithHttpInfo(PolicyTemplateCreationRequest policyTemplateCreationRequest, ConfigurationOptions opts) throws ApiException {
+        okhttp3.Call localVarCall = createPolicyTemplateValidateBeforeCall(policyTemplateCreationRequest, null, opts);
         Type localVarReturnType = new TypeToken<PolicyTemplateResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     private okhttp3.Call createPolicyTemplateAsync(PolicyTemplateCreationRequest policyTemplateCreationRequest, final ApiCallback<PolicyTemplateResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = createPolicyTemplateValidateBeforeCall(policyTemplateCreationRequest, _callback);
+        okhttp3.Call localVarCall = createPolicyTemplateValidateBeforeCall(policyTemplateCreationRequest, _callback, new ConfigurationOptions());
+        Type localVarReturnType = new TypeToken<PolicyTemplateResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    private okhttp3.Call createPolicyTemplateAsync(PolicyTemplateCreationRequest policyTemplateCreationRequest, final ApiCallback<PolicyTemplateResponse> _callback, ConfigurationOptions opts) throws ApiException {
+
+        okhttp3.Call localVarCall = createPolicyTemplateValidateBeforeCall(policyTemplateCreationRequest, _callback, opts);
         Type localVarReturnType = new TypeToken<PolicyTemplateResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -195,6 +214,23 @@ public class PolicyTemplatesApi {
         }
 
         /**
+         * Execute createPolicyTemplate request. Use any specified configuration options to override any other configuration for this request only.
+         * @return PolicyTemplateResponse
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 201 </td><td> Created Policy Template </td><td>  -  </td></tr>
+            <tr><td> 400 </td><td> The details of the input related failure </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error response </td><td>  -  </td></tr>
+         </table>
+         */
+        public PolicyTemplateResponse execute(ConfigurationOptions opts) throws ApiException {
+            ApiResponse<PolicyTemplateResponse> localVarResp = createPolicyTemplateWithHttpInfo(policyTemplateCreationRequest, opts);
+            return localVarResp.getData();
+        }
+
+        /**
          * Execute createPolicyTemplate request with HTTP info returned
          * @return ApiResponse&lt;PolicyTemplateResponse&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -208,6 +244,22 @@ public class PolicyTemplatesApi {
          */
         public ApiResponse<PolicyTemplateResponse> executeWithHttpInfo() throws ApiException {
             return createPolicyTemplateWithHttpInfo(policyTemplateCreationRequest);
+        }
+
+        /**
+         * Execute createPolicyTemplate request with HTTP info returned. Use any specified configuration options to override any other configuration for this request only.
+         * @return ApiResponse&lt;PolicyTemplateResponse&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 201 </td><td> Created Policy Template </td><td>  -  </td></tr>
+            <tr><td> 400 </td><td> The details of the input related failure </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error response </td><td>  -  </td></tr>
+         </table>
+         */
+        public ApiResponse<PolicyTemplateResponse> executeWithHttpInfo(ConfigurationOptions opts) throws ApiException {
+            return createPolicyTemplateWithHttpInfo(policyTemplateCreationRequest, opts);
         }
 
         /**
@@ -225,6 +277,23 @@ public class PolicyTemplatesApi {
          */
         public okhttp3.Call executeAsync(final ApiCallback<PolicyTemplateResponse> _callback) throws ApiException {
             return createPolicyTemplateAsync(policyTemplateCreationRequest, _callback);
+        }
+
+        /**
+         * Execute createPolicyTemplate request (asynchronously). Use any specified configuration options to override any other configuration for this request only.
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 201 </td><td> Created Policy Template </td><td>  -  </td></tr>
+            <tr><td> 400 </td><td> The details of the input related failure </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error response </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<PolicyTemplateResponse> _callback, ConfigurationOptions opts) throws ApiException {
+            return createPolicyTemplateAsync(policyTemplateCreationRequest, _callback, opts);
         }
     }
 
@@ -245,6 +314,10 @@ public class PolicyTemplatesApi {
         return new APIcreatePolicyTemplateRequest(policyTemplateCreationRequest);
     }
     private okhttp3.Call deletePolicyTemplateCall(String code, String scope, final ApiCallback _callback) throws ApiException {
+        return deletePolicyTemplateCall(code, scope,  _callback, new ConfigurationOptions());
+    }
+
+    private okhttp3.Call deletePolicyTemplateCall(String code, String scope, final ApiCallback _callback, ConfigurationOptions opts) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -292,29 +365,41 @@ public class PolicyTemplatesApi {
         }
 
         String[] localVarAuthNames = new String[] { "oauth2" };
-        return localVarApiClient.buildCall(basePath, localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(basePath, localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback, opts);
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call deletePolicyTemplateValidateBeforeCall(String code, String scope, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call deletePolicyTemplateValidateBeforeCall(String code, String scope, final ApiCallback _callback, ConfigurationOptions opts) throws ApiException {
         // verify the required parameter 'code' is set
         if (code == null) {
             throw new ApiException("Missing the required parameter 'code' when calling deletePolicyTemplate(Async)");
         }
 
-        return deletePolicyTemplateCall(code, scope, _callback);
+        return deletePolicyTemplateCall(code, scope, _callback, opts);
 
     }
 
 
     private ApiResponse<Void> deletePolicyTemplateWithHttpInfo(String code, String scope) throws ApiException {
-        okhttp3.Call localVarCall = deletePolicyTemplateValidateBeforeCall(code, scope, null);
+        okhttp3.Call localVarCall = deletePolicyTemplateValidateBeforeCall(code, scope, null, new ConfigurationOptions());
+        return localVarApiClient.execute(localVarCall);
+    }
+
+    private ApiResponse<Void> deletePolicyTemplateWithHttpInfo(String code, String scope, ConfigurationOptions opts) throws ApiException {
+        okhttp3.Call localVarCall = deletePolicyTemplateValidateBeforeCall(code, scope, null, opts);
         return localVarApiClient.execute(localVarCall);
     }
 
     private okhttp3.Call deletePolicyTemplateAsync(String code, String scope, final ApiCallback<Void> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = deletePolicyTemplateValidateBeforeCall(code, scope, _callback);
+        okhttp3.Call localVarCall = deletePolicyTemplateValidateBeforeCall(code, scope, _callback, new ConfigurationOptions());
+        localVarApiClient.executeAsync(localVarCall, _callback);
+        return localVarCall;
+    }
+
+    private okhttp3.Call deletePolicyTemplateAsync(String code, String scope, final ApiCallback<Void> _callback, ConfigurationOptions opts) throws ApiException {
+
+        okhttp3.Call localVarCall = deletePolicyTemplateValidateBeforeCall(code, scope, _callback, opts);
         localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }
@@ -370,6 +455,21 @@ public class PolicyTemplatesApi {
         }
 
         /**
+         * Execute deletePolicyTemplate request
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+            <tr><td> 400 </td><td> The details of the input related failure </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error response </td><td>  -  </td></tr>
+         </table>
+         */
+        public void execute(ConfigurationOptions opts) throws ApiException {
+            deletePolicyTemplateWithHttpInfo(code, scope, opts);
+        }
+
+        /**
          * Execute deletePolicyTemplate request with HTTP info returned
          * @return ApiResponse&lt;Void&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -383,6 +483,22 @@ public class PolicyTemplatesApi {
          */
         public ApiResponse<Void> executeWithHttpInfo() throws ApiException {
             return deletePolicyTemplateWithHttpInfo(code, scope);
+        }
+
+        /**
+         * Execute deletePolicyTemplate request with HTTP info returned. Use any specified configuration options to override any other configuration for this request only.
+         * @return ApiResponse&lt;Void&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+            <tr><td> 400 </td><td> The details of the input related failure </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error response </td><td>  -  </td></tr>
+         </table>
+         */
+        public ApiResponse<Void> executeWithHttpInfo(ConfigurationOptions opts) throws ApiException {
+            return deletePolicyTemplateWithHttpInfo(code, scope, opts);
         }
 
         /**
@@ -400,6 +516,23 @@ public class PolicyTemplatesApi {
          */
         public okhttp3.Call executeAsync(final ApiCallback<Void> _callback) throws ApiException {
             return deletePolicyTemplateAsync(code, scope, _callback);
+        }
+
+        /**
+         * Execute deletePolicyTemplate request (asynchronously). Use any specified configuration options to override any other configuration for this request only.
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+            <tr><td> 400 </td><td> The details of the input related failure </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error response </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<Void> _callback, ConfigurationOptions opts) throws ApiException {
+            return deletePolicyTemplateAsync(code, scope, _callback, opts);
         }
     }
 
@@ -420,6 +553,10 @@ public class PolicyTemplatesApi {
         return new APIdeletePolicyTemplateRequest(code);
     }
     private okhttp3.Call generatePolicyFromTemplateCall(GeneratePolicyFromTemplateRequest generatePolicyFromTemplateRequest, OffsetDateTime asAt, final ApiCallback _callback) throws ApiException {
+        return generatePolicyFromTemplateCall(generatePolicyFromTemplateRequest, asAt,  _callback, new ConfigurationOptions());
+    }
+
+    private okhttp3.Call generatePolicyFromTemplateCall(GeneratePolicyFromTemplateRequest generatePolicyFromTemplateRequest, OffsetDateTime asAt, final ApiCallback _callback, ConfigurationOptions opts) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -470,30 +607,44 @@ public class PolicyTemplatesApi {
         }
 
         String[] localVarAuthNames = new String[] { "oauth2" };
-        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback, opts);
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call generatePolicyFromTemplateValidateBeforeCall(GeneratePolicyFromTemplateRequest generatePolicyFromTemplateRequest, OffsetDateTime asAt, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call generatePolicyFromTemplateValidateBeforeCall(GeneratePolicyFromTemplateRequest generatePolicyFromTemplateRequest, OffsetDateTime asAt, final ApiCallback _callback, ConfigurationOptions opts) throws ApiException {
         // verify the required parameter 'generatePolicyFromTemplateRequest' is set
         if (generatePolicyFromTemplateRequest == null) {
             throw new ApiException("Missing the required parameter 'generatePolicyFromTemplateRequest' when calling generatePolicyFromTemplate(Async)");
         }
 
-        return generatePolicyFromTemplateCall(generatePolicyFromTemplateRequest, asAt, _callback);
+        return generatePolicyFromTemplateCall(generatePolicyFromTemplateRequest, asAt, _callback, opts);
 
     }
 
 
     private ApiResponse<GeneratedPolicyComponents> generatePolicyFromTemplateWithHttpInfo(GeneratePolicyFromTemplateRequest generatePolicyFromTemplateRequest, OffsetDateTime asAt) throws ApiException {
-        okhttp3.Call localVarCall = generatePolicyFromTemplateValidateBeforeCall(generatePolicyFromTemplateRequest, asAt, null);
+        okhttp3.Call localVarCall = generatePolicyFromTemplateValidateBeforeCall(generatePolicyFromTemplateRequest, asAt, null, new ConfigurationOptions());
+        Type localVarReturnType = new TypeToken<GeneratedPolicyComponents>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    private ApiResponse<GeneratedPolicyComponents> generatePolicyFromTemplateWithHttpInfo(GeneratePolicyFromTemplateRequest generatePolicyFromTemplateRequest, OffsetDateTime asAt, ConfigurationOptions opts) throws ApiException {
+        okhttp3.Call localVarCall = generatePolicyFromTemplateValidateBeforeCall(generatePolicyFromTemplateRequest, asAt, null, opts);
         Type localVarReturnType = new TypeToken<GeneratedPolicyComponents>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     private okhttp3.Call generatePolicyFromTemplateAsync(GeneratePolicyFromTemplateRequest generatePolicyFromTemplateRequest, OffsetDateTime asAt, final ApiCallback<GeneratedPolicyComponents> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = generatePolicyFromTemplateValidateBeforeCall(generatePolicyFromTemplateRequest, asAt, _callback);
+        okhttp3.Call localVarCall = generatePolicyFromTemplateValidateBeforeCall(generatePolicyFromTemplateRequest, asAt, _callback, new ConfigurationOptions());
+        Type localVarReturnType = new TypeToken<GeneratedPolicyComponents>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    private okhttp3.Call generatePolicyFromTemplateAsync(GeneratePolicyFromTemplateRequest generatePolicyFromTemplateRequest, OffsetDateTime asAt, final ApiCallback<GeneratedPolicyComponents> _callback, ConfigurationOptions opts) throws ApiException {
+
+        okhttp3.Call localVarCall = generatePolicyFromTemplateValidateBeforeCall(generatePolicyFromTemplateRequest, asAt, _callback, opts);
         Type localVarReturnType = new TypeToken<GeneratedPolicyComponents>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -552,6 +703,23 @@ public class PolicyTemplatesApi {
         }
 
         /**
+         * Execute generatePolicyFromTemplate request. Use any specified configuration options to override any other configuration for this request only.
+         * @return GeneratedPolicyComponents
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+            <tr><td> 400 </td><td> The details of the input related failure </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error response </td><td>  -  </td></tr>
+         </table>
+         */
+        public GeneratedPolicyComponents execute(ConfigurationOptions opts) throws ApiException {
+            ApiResponse<GeneratedPolicyComponents> localVarResp = generatePolicyFromTemplateWithHttpInfo(generatePolicyFromTemplateRequest, asAt, opts);
+            return localVarResp.getData();
+        }
+
+        /**
          * Execute generatePolicyFromTemplate request with HTTP info returned
          * @return ApiResponse&lt;GeneratedPolicyComponents&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -565,6 +733,22 @@ public class PolicyTemplatesApi {
          */
         public ApiResponse<GeneratedPolicyComponents> executeWithHttpInfo() throws ApiException {
             return generatePolicyFromTemplateWithHttpInfo(generatePolicyFromTemplateRequest, asAt);
+        }
+
+        /**
+         * Execute generatePolicyFromTemplate request with HTTP info returned. Use any specified configuration options to override any other configuration for this request only.
+         * @return ApiResponse&lt;GeneratedPolicyComponents&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+            <tr><td> 400 </td><td> The details of the input related failure </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error response </td><td>  -  </td></tr>
+         </table>
+         */
+        public ApiResponse<GeneratedPolicyComponents> executeWithHttpInfo(ConfigurationOptions opts) throws ApiException {
+            return generatePolicyFromTemplateWithHttpInfo(generatePolicyFromTemplateRequest, asAt, opts);
         }
 
         /**
@@ -582,6 +766,23 @@ public class PolicyTemplatesApi {
          */
         public okhttp3.Call executeAsync(final ApiCallback<GeneratedPolicyComponents> _callback) throws ApiException {
             return generatePolicyFromTemplateAsync(generatePolicyFromTemplateRequest, asAt, _callback);
+        }
+
+        /**
+         * Execute generatePolicyFromTemplate request (asynchronously). Use any specified configuration options to override any other configuration for this request only.
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+            <tr><td> 400 </td><td> The details of the input related failure </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error response </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<GeneratedPolicyComponents> _callback, ConfigurationOptions opts) throws ApiException {
+            return generatePolicyFromTemplateAsync(generatePolicyFromTemplateRequest, asAt, _callback, opts);
         }
     }
 
@@ -602,6 +803,10 @@ public class PolicyTemplatesApi {
         return new APIgeneratePolicyFromTemplateRequest(generatePolicyFromTemplateRequest);
     }
     private okhttp3.Call getPolicyTemplateCall(String code, OffsetDateTime asAt, String scope, final ApiCallback _callback) throws ApiException {
+        return getPolicyTemplateCall(code, asAt, scope,  _callback, new ConfigurationOptions());
+    }
+
+    private okhttp3.Call getPolicyTemplateCall(String code, OffsetDateTime asAt, String scope, final ApiCallback _callback, ConfigurationOptions opts) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -653,30 +858,44 @@ public class PolicyTemplatesApi {
         }
 
         String[] localVarAuthNames = new String[] { "oauth2" };
-        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback, opts);
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getPolicyTemplateValidateBeforeCall(String code, OffsetDateTime asAt, String scope, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getPolicyTemplateValidateBeforeCall(String code, OffsetDateTime asAt, String scope, final ApiCallback _callback, ConfigurationOptions opts) throws ApiException {
         // verify the required parameter 'code' is set
         if (code == null) {
             throw new ApiException("Missing the required parameter 'code' when calling getPolicyTemplate(Async)");
         }
 
-        return getPolicyTemplateCall(code, asAt, scope, _callback);
+        return getPolicyTemplateCall(code, asAt, scope, _callback, opts);
 
     }
 
 
     private ApiResponse<PolicyTemplateResponse> getPolicyTemplateWithHttpInfo(String code, OffsetDateTime asAt, String scope) throws ApiException {
-        okhttp3.Call localVarCall = getPolicyTemplateValidateBeforeCall(code, asAt, scope, null);
+        okhttp3.Call localVarCall = getPolicyTemplateValidateBeforeCall(code, asAt, scope, null, new ConfigurationOptions());
+        Type localVarReturnType = new TypeToken<PolicyTemplateResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    private ApiResponse<PolicyTemplateResponse> getPolicyTemplateWithHttpInfo(String code, OffsetDateTime asAt, String scope, ConfigurationOptions opts) throws ApiException {
+        okhttp3.Call localVarCall = getPolicyTemplateValidateBeforeCall(code, asAt, scope, null, opts);
         Type localVarReturnType = new TypeToken<PolicyTemplateResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     private okhttp3.Call getPolicyTemplateAsync(String code, OffsetDateTime asAt, String scope, final ApiCallback<PolicyTemplateResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getPolicyTemplateValidateBeforeCall(code, asAt, scope, _callback);
+        okhttp3.Call localVarCall = getPolicyTemplateValidateBeforeCall(code, asAt, scope, _callback, new ConfigurationOptions());
+        Type localVarReturnType = new TypeToken<PolicyTemplateResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    private okhttp3.Call getPolicyTemplateAsync(String code, OffsetDateTime asAt, String scope, final ApiCallback<PolicyTemplateResponse> _callback, ConfigurationOptions opts) throws ApiException {
+
+        okhttp3.Call localVarCall = getPolicyTemplateValidateBeforeCall(code, asAt, scope, _callback, opts);
         Type localVarReturnType = new TypeToken<PolicyTemplateResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -746,6 +965,23 @@ public class PolicyTemplatesApi {
         }
 
         /**
+         * Execute getPolicyTemplate request. Use any specified configuration options to override any other configuration for this request only.
+         * @return PolicyTemplateResponse
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Get a specific Policy Template </td><td>  -  </td></tr>
+            <tr><td> 400 </td><td> The details of the input related failure </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error response </td><td>  -  </td></tr>
+         </table>
+         */
+        public PolicyTemplateResponse execute(ConfigurationOptions opts) throws ApiException {
+            ApiResponse<PolicyTemplateResponse> localVarResp = getPolicyTemplateWithHttpInfo(code, asAt, scope, opts);
+            return localVarResp.getData();
+        }
+
+        /**
          * Execute getPolicyTemplate request with HTTP info returned
          * @return ApiResponse&lt;PolicyTemplateResponse&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -759,6 +995,22 @@ public class PolicyTemplatesApi {
          */
         public ApiResponse<PolicyTemplateResponse> executeWithHttpInfo() throws ApiException {
             return getPolicyTemplateWithHttpInfo(code, asAt, scope);
+        }
+
+        /**
+         * Execute getPolicyTemplate request with HTTP info returned. Use any specified configuration options to override any other configuration for this request only.
+         * @return ApiResponse&lt;PolicyTemplateResponse&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Get a specific Policy Template </td><td>  -  </td></tr>
+            <tr><td> 400 </td><td> The details of the input related failure </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error response </td><td>  -  </td></tr>
+         </table>
+         */
+        public ApiResponse<PolicyTemplateResponse> executeWithHttpInfo(ConfigurationOptions opts) throws ApiException {
+            return getPolicyTemplateWithHttpInfo(code, asAt, scope, opts);
         }
 
         /**
@@ -776,6 +1028,23 @@ public class PolicyTemplatesApi {
          */
         public okhttp3.Call executeAsync(final ApiCallback<PolicyTemplateResponse> _callback) throws ApiException {
             return getPolicyTemplateAsync(code, asAt, scope, _callback);
+        }
+
+        /**
+         * Execute getPolicyTemplate request (asynchronously). Use any specified configuration options to override any other configuration for this request only.
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Get a specific Policy Template </td><td>  -  </td></tr>
+            <tr><td> 400 </td><td> The details of the input related failure </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error response </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<PolicyTemplateResponse> _callback, ConfigurationOptions opts) throws ApiException {
+            return getPolicyTemplateAsync(code, asAt, scope, _callback, opts);
         }
     }
 
@@ -796,6 +1065,10 @@ public class PolicyTemplatesApi {
         return new APIgetPolicyTemplateRequest(code);
     }
     private okhttp3.Call listPolicyTemplatesCall(OffsetDateTime asAt, String sortBy, Integer limit, String filter, String page, final ApiCallback _callback) throws ApiException {
+        return listPolicyTemplatesCall(asAt, sortBy, limit, filter, page,  _callback, new ConfigurationOptions());
+    }
+
+    private okhttp3.Call listPolicyTemplatesCall(OffsetDateTime asAt, String sortBy, Integer limit, String filter, String page, final ApiCallback _callback, ConfigurationOptions opts) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -858,25 +1131,39 @@ public class PolicyTemplatesApi {
         }
 
         String[] localVarAuthNames = new String[] { "oauth2" };
-        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback, opts);
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call listPolicyTemplatesValidateBeforeCall(OffsetDateTime asAt, String sortBy, Integer limit, String filter, String page, final ApiCallback _callback) throws ApiException {
-        return listPolicyTemplatesCall(asAt, sortBy, limit, filter, page, _callback);
+    private okhttp3.Call listPolicyTemplatesValidateBeforeCall(OffsetDateTime asAt, String sortBy, Integer limit, String filter, String page, final ApiCallback _callback, ConfigurationOptions opts) throws ApiException {
+        return listPolicyTemplatesCall(asAt, sortBy, limit, filter, page, _callback, opts);
 
     }
 
 
     private ApiResponse<ResourceListOfPolicyTemplateResponse> listPolicyTemplatesWithHttpInfo(OffsetDateTime asAt, String sortBy, Integer limit, String filter, String page) throws ApiException {
-        okhttp3.Call localVarCall = listPolicyTemplatesValidateBeforeCall(asAt, sortBy, limit, filter, page, null);
+        okhttp3.Call localVarCall = listPolicyTemplatesValidateBeforeCall(asAt, sortBy, limit, filter, page, null, new ConfigurationOptions());
+        Type localVarReturnType = new TypeToken<ResourceListOfPolicyTemplateResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    private ApiResponse<ResourceListOfPolicyTemplateResponse> listPolicyTemplatesWithHttpInfo(OffsetDateTime asAt, String sortBy, Integer limit, String filter, String page, ConfigurationOptions opts) throws ApiException {
+        okhttp3.Call localVarCall = listPolicyTemplatesValidateBeforeCall(asAt, sortBy, limit, filter, page, null, opts);
         Type localVarReturnType = new TypeToken<ResourceListOfPolicyTemplateResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     private okhttp3.Call listPolicyTemplatesAsync(OffsetDateTime asAt, String sortBy, Integer limit, String filter, String page, final ApiCallback<ResourceListOfPolicyTemplateResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = listPolicyTemplatesValidateBeforeCall(asAt, sortBy, limit, filter, page, _callback);
+        okhttp3.Call localVarCall = listPolicyTemplatesValidateBeforeCall(asAt, sortBy, limit, filter, page, _callback, new ConfigurationOptions());
+        Type localVarReturnType = new TypeToken<ResourceListOfPolicyTemplateResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    private okhttp3.Call listPolicyTemplatesAsync(OffsetDateTime asAt, String sortBy, Integer limit, String filter, String page, final ApiCallback<ResourceListOfPolicyTemplateResponse> _callback, ConfigurationOptions opts) throws ApiException {
+
+        okhttp3.Call localVarCall = listPolicyTemplatesValidateBeforeCall(asAt, sortBy, limit, filter, page, _callback, opts);
         Type localVarReturnType = new TypeToken<ResourceListOfPolicyTemplateResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -977,6 +1264,23 @@ public class PolicyTemplatesApi {
         }
 
         /**
+         * Execute listPolicyTemplates request. Use any specified configuration options to override any other configuration for this request only.
+         * @return ResourceListOfPolicyTemplateResponse
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> List Policy Templates </td><td>  -  </td></tr>
+            <tr><td> 400 </td><td> The details of the input related failure </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error response </td><td>  -  </td></tr>
+         </table>
+         */
+        public ResourceListOfPolicyTemplateResponse execute(ConfigurationOptions opts) throws ApiException {
+            ApiResponse<ResourceListOfPolicyTemplateResponse> localVarResp = listPolicyTemplatesWithHttpInfo(asAt, sortBy, limit, filter, page, opts);
+            return localVarResp.getData();
+        }
+
+        /**
          * Execute listPolicyTemplates request with HTTP info returned
          * @return ApiResponse&lt;ResourceListOfPolicyTemplateResponse&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -990,6 +1294,22 @@ public class PolicyTemplatesApi {
          */
         public ApiResponse<ResourceListOfPolicyTemplateResponse> executeWithHttpInfo() throws ApiException {
             return listPolicyTemplatesWithHttpInfo(asAt, sortBy, limit, filter, page);
+        }
+
+        /**
+         * Execute listPolicyTemplates request with HTTP info returned. Use any specified configuration options to override any other configuration for this request only.
+         * @return ApiResponse&lt;ResourceListOfPolicyTemplateResponse&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> List Policy Templates </td><td>  -  </td></tr>
+            <tr><td> 400 </td><td> The details of the input related failure </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error response </td><td>  -  </td></tr>
+         </table>
+         */
+        public ApiResponse<ResourceListOfPolicyTemplateResponse> executeWithHttpInfo(ConfigurationOptions opts) throws ApiException {
+            return listPolicyTemplatesWithHttpInfo(asAt, sortBy, limit, filter, page, opts);
         }
 
         /**
@@ -1007,6 +1327,23 @@ public class PolicyTemplatesApi {
          */
         public okhttp3.Call executeAsync(final ApiCallback<ResourceListOfPolicyTemplateResponse> _callback) throws ApiException {
             return listPolicyTemplatesAsync(asAt, sortBy, limit, filter, page, _callback);
+        }
+
+        /**
+         * Execute listPolicyTemplates request (asynchronously). Use any specified configuration options to override any other configuration for this request only.
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> List Policy Templates </td><td>  -  </td></tr>
+            <tr><td> 400 </td><td> The details of the input related failure </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error response </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<ResourceListOfPolicyTemplateResponse> _callback, ConfigurationOptions opts) throws ApiException {
+            return listPolicyTemplatesAsync(asAt, sortBy, limit, filter, page, _callback, opts);
         }
     }
 
@@ -1026,6 +1363,10 @@ public class PolicyTemplatesApi {
         return new APIlistPolicyTemplatesRequest();
     }
     private okhttp3.Call updatePolicyTemplateCall(String code, PolicyTemplateUpdateRequest policyTemplateUpdateRequest, final ApiCallback _callback) throws ApiException {
+        return updatePolicyTemplateCall(code, policyTemplateUpdateRequest,  _callback, new ConfigurationOptions());
+    }
+
+    private okhttp3.Call updatePolicyTemplateCall(String code, PolicyTemplateUpdateRequest policyTemplateUpdateRequest, final ApiCallback _callback, ConfigurationOptions opts) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1073,30 +1414,44 @@ public class PolicyTemplatesApi {
         }
 
         String[] localVarAuthNames = new String[] { "oauth2" };
-        return localVarApiClient.buildCall(basePath, localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(basePath, localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback, opts);
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call updatePolicyTemplateValidateBeforeCall(String code, PolicyTemplateUpdateRequest policyTemplateUpdateRequest, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call updatePolicyTemplateValidateBeforeCall(String code, PolicyTemplateUpdateRequest policyTemplateUpdateRequest, final ApiCallback _callback, ConfigurationOptions opts) throws ApiException {
         // verify the required parameter 'code' is set
         if (code == null) {
             throw new ApiException("Missing the required parameter 'code' when calling updatePolicyTemplate(Async)");
         }
 
-        return updatePolicyTemplateCall(code, policyTemplateUpdateRequest, _callback);
+        return updatePolicyTemplateCall(code, policyTemplateUpdateRequest, _callback, opts);
 
     }
 
 
     private ApiResponse<PolicyTemplateResponse> updatePolicyTemplateWithHttpInfo(String code, PolicyTemplateUpdateRequest policyTemplateUpdateRequest) throws ApiException {
-        okhttp3.Call localVarCall = updatePolicyTemplateValidateBeforeCall(code, policyTemplateUpdateRequest, null);
+        okhttp3.Call localVarCall = updatePolicyTemplateValidateBeforeCall(code, policyTemplateUpdateRequest, null, new ConfigurationOptions());
+        Type localVarReturnType = new TypeToken<PolicyTemplateResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    private ApiResponse<PolicyTemplateResponse> updatePolicyTemplateWithHttpInfo(String code, PolicyTemplateUpdateRequest policyTemplateUpdateRequest, ConfigurationOptions opts) throws ApiException {
+        okhttp3.Call localVarCall = updatePolicyTemplateValidateBeforeCall(code, policyTemplateUpdateRequest, null, opts);
         Type localVarReturnType = new TypeToken<PolicyTemplateResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     private okhttp3.Call updatePolicyTemplateAsync(String code, PolicyTemplateUpdateRequest policyTemplateUpdateRequest, final ApiCallback<PolicyTemplateResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = updatePolicyTemplateValidateBeforeCall(code, policyTemplateUpdateRequest, _callback);
+        okhttp3.Call localVarCall = updatePolicyTemplateValidateBeforeCall(code, policyTemplateUpdateRequest, _callback, new ConfigurationOptions());
+        Type localVarReturnType = new TypeToken<PolicyTemplateResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    private okhttp3.Call updatePolicyTemplateAsync(String code, PolicyTemplateUpdateRequest policyTemplateUpdateRequest, final ApiCallback<PolicyTemplateResponse> _callback, ConfigurationOptions opts) throws ApiException {
+
+        okhttp3.Call localVarCall = updatePolicyTemplateValidateBeforeCall(code, policyTemplateUpdateRequest, _callback, opts);
         Type localVarReturnType = new TypeToken<PolicyTemplateResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1155,6 +1510,23 @@ public class PolicyTemplatesApi {
         }
 
         /**
+         * Execute updatePolicyTemplate request. Use any specified configuration options to override any other configuration for this request only.
+         * @return PolicyTemplateResponse
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Updated Policy Template </td><td>  -  </td></tr>
+            <tr><td> 400 </td><td> The details of the input related failure </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error response </td><td>  -  </td></tr>
+         </table>
+         */
+        public PolicyTemplateResponse execute(ConfigurationOptions opts) throws ApiException {
+            ApiResponse<PolicyTemplateResponse> localVarResp = updatePolicyTemplateWithHttpInfo(code, policyTemplateUpdateRequest, opts);
+            return localVarResp.getData();
+        }
+
+        /**
          * Execute updatePolicyTemplate request with HTTP info returned
          * @return ApiResponse&lt;PolicyTemplateResponse&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1168,6 +1540,22 @@ public class PolicyTemplatesApi {
          */
         public ApiResponse<PolicyTemplateResponse> executeWithHttpInfo() throws ApiException {
             return updatePolicyTemplateWithHttpInfo(code, policyTemplateUpdateRequest);
+        }
+
+        /**
+         * Execute updatePolicyTemplate request with HTTP info returned. Use any specified configuration options to override any other configuration for this request only.
+         * @return ApiResponse&lt;PolicyTemplateResponse&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Updated Policy Template </td><td>  -  </td></tr>
+            <tr><td> 400 </td><td> The details of the input related failure </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error response </td><td>  -  </td></tr>
+         </table>
+         */
+        public ApiResponse<PolicyTemplateResponse> executeWithHttpInfo(ConfigurationOptions opts) throws ApiException {
+            return updatePolicyTemplateWithHttpInfo(code, policyTemplateUpdateRequest, opts);
         }
 
         /**
@@ -1185,6 +1573,23 @@ public class PolicyTemplatesApi {
          */
         public okhttp3.Call executeAsync(final ApiCallback<PolicyTemplateResponse> _callback) throws ApiException {
             return updatePolicyTemplateAsync(code, policyTemplateUpdateRequest, _callback);
+        }
+
+        /**
+         * Execute updatePolicyTemplate request (asynchronously). Use any specified configuration options to override any other configuration for this request only.
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Updated Policy Template </td><td>  -  </td></tr>
+            <tr><td> 400 </td><td> The details of the input related failure </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error response </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<PolicyTemplateResponse> _callback, ConfigurationOptions opts) throws ApiException {
+            return updatePolicyTemplateAsync(code, policyTemplateUpdateRequest, _callback, opts);
         }
     }
 

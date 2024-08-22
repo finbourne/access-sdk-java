@@ -46,8 +46,19 @@ public class ApplicationMetadataApiExample {
             "}");
         }
 
+        // uncomment the below to use configuration overrides
+        // ConfigurationOptions opts = new ConfigurationOptions();
+        // opts.setTotalTimeoutMs(2000);
+        
+        // uncomment the below to use an api factory with overrides
+        // ApiFactory apiFactory = ApiFactoryBuilder.build(fileName, opts);
+        // ApplicationMetadataApi apiInstance = apiFactory.build(ApplicationMetadataApi.class);
+
         ApplicationMetadataApi apiInstance = ApiFactoryBuilder.build(fileName).build(ApplicationMetadataApi.class);
         try {
+            // uncomment the below to set overrides at the request level
+            // ResourceListOfAccessControlledResource result = apiInstance.listAccessControlledResources().execute(opts);
+
             ResourceListOfAccessControlledResource result = apiInstance.listAccessControlledResources().execute();
             System.out.println(result.toJson());
         } catch (ApiException e) {

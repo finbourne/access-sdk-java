@@ -52,11 +52,22 @@ public class RolesApiExample {
             "}");
         }
 
+        // uncomment the below to use configuration overrides
+        // ConfigurationOptions opts = new ConfigurationOptions();
+        // opts.setTotalTimeoutMs(2000);
+        
+        // uncomment the below to use an api factory with overrides
+        // ApiFactory apiFactory = ApiFactoryBuilder.build(fileName, opts);
+        // RolesApi apiInstance = apiFactory.build(RolesApi.class);
+
         RolesApi apiInstance = ApiFactoryBuilder.build(fileName).build(RolesApi.class);
         String scope = "scope_example"; // String | The scope of the Role
         String code = "code_example"; // String | The code of the Role
         AddPolicyCollectionToRoleRequest addPolicyCollectionToRoleRequest = new AddPolicyCollectionToRoleRequest(); // AddPolicyCollectionToRoleRequest | The policy collections to add
         try {
+            // uncomment the below to set overrides at the request level
+            // RoleResponse result = apiInstance.addPolicyCollectionToRole(scope, code, addPolicyCollectionToRoleRequest).execute(opts);
+
             RoleResponse result = apiInstance.addPolicyCollectionToRole(scope, code, addPolicyCollectionToRoleRequest).execute();
             System.out.println(result.toJson());
         } catch (ApiException e) {
@@ -136,9 +147,20 @@ public class RolesApiExample {
             "}");
         }
 
+        // uncomment the below to use configuration overrides
+        // ConfigurationOptions opts = new ConfigurationOptions();
+        // opts.setTotalTimeoutMs(2000);
+        
+        // uncomment the below to use an api factory with overrides
+        // ApiFactory apiFactory = ApiFactoryBuilder.build(fileName, opts);
+        // RolesApi apiInstance = apiFactory.build(RolesApi.class);
+
         RolesApi apiInstance = ApiFactoryBuilder.build(fileName).build(RolesApi.class);
         RoleCreationRequest roleCreationRequest = new RoleCreationRequest(); // RoleCreationRequest | The definition of the Role
         try {
+            // uncomment the below to set overrides at the request level
+            // RoleResponse result = apiInstance.createRole(roleCreationRequest).execute(opts);
+
             RoleResponse result = apiInstance.createRole(roleCreationRequest).execute();
             System.out.println(result.toJson());
         } catch (ApiException e) {
@@ -216,10 +238,21 @@ public class RolesApiExample {
             "}");
         }
 
+        // uncomment the below to use configuration overrides
+        // ConfigurationOptions opts = new ConfigurationOptions();
+        // opts.setTotalTimeoutMs(2000);
+        
+        // uncomment the below to use an api factory with overrides
+        // ApiFactory apiFactory = ApiFactoryBuilder.build(fileName, opts);
+        // RolesApi apiInstance = apiFactory.build(RolesApi.class);
+
         RolesApi apiInstance = ApiFactoryBuilder.build(fileName).build(RolesApi.class);
         String code = "code_example"; // String | The code of the Role
         String scope = "scope_example"; // String | >Optional. Will use default scope if not supplied. The scope of the Role
         try {
+            // uncomment the below to set overrides at the request level
+            // apiInstance.deleteRole(code, scope).execute(opts);
+
             apiInstance.deleteRole(code, scope).execute();
         } catch (ApiException e) {
             System.err.println("Exception when calling RolesApi#deleteRole");
@@ -297,11 +330,22 @@ public class RolesApiExample {
             "}");
         }
 
+        // uncomment the below to use configuration overrides
+        // ConfigurationOptions opts = new ConfigurationOptions();
+        // opts.setTotalTimeoutMs(2000);
+        
+        // uncomment the below to use an api factory with overrides
+        // ApiFactory apiFactory = ApiFactoryBuilder.build(fileName, opts);
+        // RolesApi apiInstance = apiFactory.build(RolesApi.class);
+
         RolesApi apiInstance = ApiFactoryBuilder.build(fileName).build(RolesApi.class);
         String code = "code_example"; // String | The code of the Role
         OffsetDateTime asAt = OffsetDateTime.now(); // OffsetDateTime | Optional. The AsAt date time of the data
         String scope = "scope_example"; // String | Optional. Will use default scope if not supplied. The scope of the Role
         try {
+            // uncomment the below to set overrides at the request level
+            // RoleResponse result = apiInstance.getRole(code, asAt, scope).execute(opts);
+
             RoleResponse result = apiInstance.getRole(code, asAt, scope).execute();
             System.out.println(result.toJson());
         } catch (ApiException e) {
@@ -381,6 +425,14 @@ public class RolesApiExample {
             "}");
         }
 
+        // uncomment the below to use configuration overrides
+        // ConfigurationOptions opts = new ConfigurationOptions();
+        // opts.setTotalTimeoutMs(2000);
+        
+        // uncomment the below to use an api factory with overrides
+        // ApiFactory apiFactory = ApiFactoryBuilder.build(fileName, opts);
+        // RolesApi apiInstance = apiFactory.build(RolesApi.class);
+
         RolesApi apiInstance = ApiFactoryBuilder.build(fileName).build(RolesApi.class);
         String scope = "scope_example"; // String | Optional. Will use all scopes if not supplied. The requested scope
         OffsetDateTime asAt = OffsetDateTime.now(); // OffsetDateTime | Optional. The AsAt date time of the data
@@ -389,6 +441,9 @@ public class RolesApiExample {
         Integer limit = 56; // Integer | Optional. When paginating, limit the number of returned results to this many.
         String filter = "filter_example"; // String | Optional. Expression to filter the result set
         try {
+            // uncomment the below to set overrides at the request level
+            // List<RoleResponse> result = apiInstance.listRoles(scope, asAt, sortBy, start, limit, filter).execute(opts);
+
             List<RoleResponse> result = apiInstance.listRoles(scope, asAt, sortBy, start, limit, filter).execute();
             System.out.println(result.toJson());
         } catch (ApiException e) {
@@ -471,12 +526,23 @@ public class RolesApiExample {
             "}");
         }
 
+        // uncomment the below to use configuration overrides
+        // ConfigurationOptions opts = new ConfigurationOptions();
+        // opts.setTotalTimeoutMs(2000);
+        
+        // uncomment the below to use an api factory with overrides
+        // ApiFactory apiFactory = ApiFactoryBuilder.build(fileName, opts);
+        // RolesApi apiInstance = apiFactory.build(RolesApi.class);
+
         RolesApi apiInstance = ApiFactoryBuilder.build(fileName).build(RolesApi.class);
         String scope = "scope_example"; // String | The scope of the Role
         String code = "code_example"; // String | The code of the Role
         String policycollectionscope = "policycollectionscope_example"; // String | The scope of policy collection to remove from the Role
         String policycollectioncode = "policycollectioncode_example"; // String | The code of the policy collection to remove from the Role
         try {
+            // uncomment the below to set overrides at the request level
+            // RoleResponse result = apiInstance.removePolicyCollectionFromRole(scope, code, policycollectionscope, policycollectioncode).execute(opts);
+
             RoleResponse result = apiInstance.removePolicyCollectionFromRole(scope, code, policycollectionscope, policycollectioncode).execute();
             System.out.println(result.toJson());
         } catch (ApiException e) {
@@ -557,6 +623,14 @@ public class RolesApiExample {
             "}");
         }
 
+        // uncomment the below to use configuration overrides
+        // ConfigurationOptions opts = new ConfigurationOptions();
+        // opts.setTotalTimeoutMs(2000);
+        
+        // uncomment the below to use an api factory with overrides
+        // ApiFactory apiFactory = ApiFactoryBuilder.build(fileName, opts);
+        // RolesApi apiInstance = apiFactory.build(RolesApi.class);
+
         RolesApi apiInstance = ApiFactoryBuilder.build(fileName).build(RolesApi.class);
         String code = "code_example"; // String | The code of the Role
         RoleUpdateRequest roleUpdateRequest = new RoleUpdateRequest(); // RoleUpdateRequest | The updated definition of the Role
@@ -566,6 +640,9 @@ public class RolesApiExample {
         String afterScope = "afterScope_example"; // String | Optional. The scope of the Role. Will use default scope if not supplied.
         String afterCode = "afterCode_example"; // String | Optional. The code of the Role
         try {
+            // uncomment the below to set overrides at the request level
+            // RoleResponse result = apiInstance.updateRole(code, roleUpdateRequest, scope, beforeScope, beforeCode, afterScope, afterCode).execute(opts);
+
             RoleResponse result = apiInstance.updateRole(code, roleUpdateRequest, scope, beforeScope, beforeCode, afterScope, afterCode).execute();
             System.out.println(result.toJson());
         } catch (ApiException e) {

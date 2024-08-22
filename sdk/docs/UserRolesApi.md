@@ -54,10 +54,21 @@ public class UserRolesApiExample {
             "}");
         }
 
+        // uncomment the below to use configuration overrides
+        // ConfigurationOptions opts = new ConfigurationOptions();
+        // opts.setTotalTimeoutMs(2000);
+        
+        // uncomment the below to use an api factory with overrides
+        // ApiFactory apiFactory = ApiFactoryBuilder.build(fileName, opts);
+        // UserRolesApi apiInstance = apiFactory.build(UserRolesApi.class);
+
         UserRolesApi apiInstance = ApiFactoryBuilder.build(fileName).build(UserRolesApi.class);
         String userid = "userid_example"; // String | Id of the User Role to get
         AddPolicyCollectionToRoleRequest addPolicyCollectionToRoleRequest = new AddPolicyCollectionToRoleRequest(); // AddPolicyCollectionToRoleRequest | Dto of the policy collection to be added.
         try {
+            // uncomment the below to set overrides at the request level
+            // UserRoleResponse result = apiInstance.addPolicyCollectionToUserRole(userid, addPolicyCollectionToRoleRequest).execute(opts);
+
             UserRoleResponse result = apiInstance.addPolicyCollectionToUserRole(userid, addPolicyCollectionToRoleRequest).execute();
             System.out.println(result.toJson());
         } catch (ApiException e) {
@@ -136,10 +147,21 @@ public class UserRolesApiExample {
             "}");
         }
 
+        // uncomment the below to use configuration overrides
+        // ConfigurationOptions opts = new ConfigurationOptions();
+        // opts.setTotalTimeoutMs(2000);
+        
+        // uncomment the below to use an api factory with overrides
+        // ApiFactory apiFactory = ApiFactoryBuilder.build(fileName, opts);
+        // UserRolesApi apiInstance = apiFactory.build(UserRolesApi.class);
+
         UserRolesApi apiInstance = ApiFactoryBuilder.build(fileName).build(UserRolesApi.class);
         String userid = "userid_example"; // String | Id of the User Role to get
         AddPolicyToRoleRequest addPolicyToRoleRequest = new AddPolicyToRoleRequest(); // AddPolicyToRoleRequest | Dto of the policy to be added.
         try {
+            // uncomment the below to set overrides at the request level
+            // UserRoleResponse result = apiInstance.addPolicyToUserRole(userid, addPolicyToRoleRequest).execute(opts);
+
             UserRoleResponse result = apiInstance.addPolicyToUserRole(userid, addPolicyToRoleRequest).execute();
             System.out.println(result.toJson());
         } catch (ApiException e) {
@@ -218,9 +240,20 @@ public class UserRolesApiExample {
             "}");
         }
 
+        // uncomment the below to use configuration overrides
+        // ConfigurationOptions opts = new ConfigurationOptions();
+        // opts.setTotalTimeoutMs(2000);
+        
+        // uncomment the below to use an api factory with overrides
+        // ApiFactory apiFactory = ApiFactoryBuilder.build(fileName, opts);
+        // UserRolesApi apiInstance = apiFactory.build(UserRolesApi.class);
+
         UserRolesApi apiInstance = ApiFactoryBuilder.build(fileName).build(UserRolesApi.class);
         UserRoleCreationRequest userRoleCreationRequest = new UserRoleCreationRequest(); // UserRoleCreationRequest | Definition of the user-role to create.
         try {
+            // uncomment the below to set overrides at the request level
+            // UserRoleResponse result = apiInstance.createUserRole(userRoleCreationRequest).execute(opts);
+
             UserRoleResponse result = apiInstance.createUserRole(userRoleCreationRequest).execute();
             System.out.println(result.toJson());
         } catch (ApiException e) {
@@ -298,9 +331,20 @@ public class UserRolesApiExample {
             "}");
         }
 
+        // uncomment the below to use configuration overrides
+        // ConfigurationOptions opts = new ConfigurationOptions();
+        // opts.setTotalTimeoutMs(2000);
+        
+        // uncomment the below to use an api factory with overrides
+        // ApiFactory apiFactory = ApiFactoryBuilder.build(fileName, opts);
+        // UserRolesApi apiInstance = apiFactory.build(UserRolesApi.class);
+
         UserRolesApi apiInstance = ApiFactoryBuilder.build(fileName).build(UserRolesApi.class);
         String userid = "userid_example"; // String | Id of the user-role to delete.
         try {
+            // uncomment the below to set overrides at the request level
+            // apiInstance.deleteUserRole(userid).execute(opts);
+
             apiInstance.deleteUserRole(userid).execute();
         } catch (ApiException e) {
             System.err.println("Exception when calling UserRolesApi#deleteUserRole");
@@ -377,9 +421,20 @@ public class UserRolesApiExample {
             "}");
         }
 
+        // uncomment the below to use configuration overrides
+        // ConfigurationOptions opts = new ConfigurationOptions();
+        // opts.setTotalTimeoutMs(2000);
+        
+        // uncomment the below to use an api factory with overrides
+        // ApiFactory apiFactory = ApiFactoryBuilder.build(fileName, opts);
+        // UserRolesApi apiInstance = apiFactory.build(UserRolesApi.class);
+
         UserRolesApi apiInstance = ApiFactoryBuilder.build(fileName).build(UserRolesApi.class);
         String userid = "userid_example"; // String | Id of the user-role to get.
         try {
+            // uncomment the below to set overrides at the request level
+            // UserRoleResponse result = apiInstance.getUserRole(userid).execute(opts);
+
             UserRoleResponse result = apiInstance.getUserRole(userid).execute();
             System.out.println(result.toJson());
         } catch (ApiException e) {
@@ -457,12 +512,23 @@ public class UserRolesApiExample {
             "}");
         }
 
+        // uncomment the below to use configuration overrides
+        // ConfigurationOptions opts = new ConfigurationOptions();
+        // opts.setTotalTimeoutMs(2000);
+        
+        // uncomment the below to use an api factory with overrides
+        // ApiFactory apiFactory = ApiFactoryBuilder.build(fileName, opts);
+        // UserRolesApi apiInstance = apiFactory.build(UserRolesApi.class);
+
         UserRolesApi apiInstance = ApiFactoryBuilder.build(fileName).build(UserRolesApi.class);
         String filter = "filter_example"; // String | Optional. Expression to filter the result set
         String sortBy = "sortBy_example"; // String | Optional. Order the results by these fields. Use the '-' sign to denote descending order e.g. -MyFieldName
         Integer limit = 56; // Integer | Optional. When paginating, limit the number of returned results to this many.
         String page = "page_example"; // String | Optional. Encoded page string returned from a previous search result that will retrieve   the next page of data.
         try {
+            // uncomment the below to set overrides at the request level
+            // ResourceListOfUserRoleResponse result = apiInstance.listUserRoles(filter, sortBy, limit, page).execute(opts);
+
             ResourceListOfUserRoleResponse result = apiInstance.listUserRoles(filter, sortBy, limit, page).execute();
             System.out.println(result.toJson());
         } catch (ApiException e) {
@@ -543,11 +609,22 @@ public class UserRolesApiExample {
             "}");
         }
 
+        // uncomment the below to use configuration overrides
+        // ConfigurationOptions opts = new ConfigurationOptions();
+        // opts.setTotalTimeoutMs(2000);
+        
+        // uncomment the below to use an api factory with overrides
+        // ApiFactory apiFactory = ApiFactoryBuilder.build(fileName, opts);
+        // UserRolesApi apiInstance = apiFactory.build(UserRolesApi.class);
+
         UserRolesApi apiInstance = ApiFactoryBuilder.build(fileName).build(UserRolesApi.class);
         String userid = "userid_example"; // String | Id of the User Role to get
         String policyCollectionScope = "policyCollectionScope_example"; // String | The scope of policy collection to remove from the User Role
         String policyCollectionCode = "policyCollectionCode_example"; // String | The code of the policy collection to remove from the User Role
         try {
+            // uncomment the below to set overrides at the request level
+            // apiInstance.removePolicyCollectionFromUserRole(userid, policyCollectionScope, policyCollectionCode).execute(opts);
+
             apiInstance.removePolicyCollectionFromUserRole(userid, policyCollectionScope, policyCollectionCode).execute();
         } catch (ApiException e) {
             System.err.println("Exception when calling UserRolesApi#removePolicyCollectionFromUserRole");
@@ -626,11 +703,22 @@ public class UserRolesApiExample {
             "}");
         }
 
+        // uncomment the below to use configuration overrides
+        // ConfigurationOptions opts = new ConfigurationOptions();
+        // opts.setTotalTimeoutMs(2000);
+        
+        // uncomment the below to use an api factory with overrides
+        // ApiFactory apiFactory = ApiFactoryBuilder.build(fileName, opts);
+        // UserRolesApi apiInstance = apiFactory.build(UserRolesApi.class);
+
         UserRolesApi apiInstance = ApiFactoryBuilder.build(fileName).build(UserRolesApi.class);
         String userid = "userid_example"; // String | Id of the User Role to get
         String policyScope = "policyScope_example"; // String | The scope of the policy to remove from the User Role
         String policyCode = "policyCode_example"; // String | The code of the policy to remove from the User Role
         try {
+            // uncomment the below to set overrides at the request level
+            // apiInstance.removePolicyFromUserRole(userid, policyScope, policyCode).execute(opts);
+
             apiInstance.removePolicyFromUserRole(userid, policyScope, policyCode).execute();
         } catch (ApiException e) {
             System.err.println("Exception when calling UserRolesApi#removePolicyFromUserRole");
@@ -709,10 +797,21 @@ public class UserRolesApiExample {
             "}");
         }
 
+        // uncomment the below to use configuration overrides
+        // ConfigurationOptions opts = new ConfigurationOptions();
+        // opts.setTotalTimeoutMs(2000);
+        
+        // uncomment the below to use an api factory with overrides
+        // ApiFactory apiFactory = ApiFactoryBuilder.build(fileName, opts);
+        // UserRolesApi apiInstance = apiFactory.build(UserRolesApi.class);
+
         UserRolesApi apiInstance = ApiFactoryBuilder.build(fileName).build(UserRolesApi.class);
         String userid = "userid_example"; // String | Id of the user-role to be updated.
         UserRoleUpdateRequest userRoleUpdateRequest = new UserRoleUpdateRequest(); // UserRoleUpdateRequest | Definition of the update to apply to the user-role.
         try {
+            // uncomment the below to set overrides at the request level
+            // UserRoleResponse result = apiInstance.updateUserRole(userid, userRoleUpdateRequest).execute(opts);
+
             UserRoleResponse result = apiInstance.updateUserRole(userid, userRoleUpdateRequest).execute();
             System.out.println(result.toJson());
         } catch (ApiException e) {
