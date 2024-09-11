@@ -31,7 +31,7 @@ info:
     \ <a name=\"878\">878</a>|Policy Template Does Not Exist| |\n"
   termsOfService: https://www.finbourne.com/legal/terms-conditions
   title: FINBOURNE Access Management API
-  version: 0.0.3932
+  version: 0.0.3934
   x-logo:
     url: https://www.lusid.com/app/assets/logo_white.png
     backgroundColor: '#415464'
@@ -7219,7 +7219,6 @@ components:
       type: object
     Grant:
       enum:
-      - Undefined
       - Allow
       - Deny
       type: string

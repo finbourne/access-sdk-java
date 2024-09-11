@@ -25,8 +25,6 @@ import com.google.gson.stream.JsonWriter;
 @JsonAdapter(Grant.Adapter.class)
 public enum Grant {
   
-  UNDEFINED("Undefined"),
-  
   ALLOW("Allow"),
   
   DENY("Deny");
