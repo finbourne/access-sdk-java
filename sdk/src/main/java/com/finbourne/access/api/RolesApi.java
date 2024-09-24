@@ -28,7 +28,6 @@ import java.io.IOException;
 import com.finbourne.access.model.AddPolicyCollectionToRoleRequest;
 import com.finbourne.access.model.LusidProblemDetails;
 import com.finbourne.access.model.LusidValidationProblemDetails;
-import java.time.OffsetDateTime;
 import com.finbourne.access.model.RoleCreationRequest;
 import com.finbourne.access.model.RoleResponse;
 import com.finbourne.access.model.RoleUpdateRequest;
@@ -803,11 +802,11 @@ public class RolesApi {
     public APIdeleteRoleRequest deleteRole(String code) {
         return new APIdeleteRoleRequest(code);
     }
-    private okhttp3.Call getRoleCall(String code, OffsetDateTime asAt, String scope, final ApiCallback _callback) throws ApiException {
-        return getRoleCall(code, asAt, scope,  _callback, new ConfigurationOptions());
+    private okhttp3.Call getRoleCall(String code, String scope, final ApiCallback _callback) throws ApiException {
+        return getRoleCall(code, scope,  _callback, new ConfigurationOptions());
     }
 
-    private okhttp3.Call getRoleCall(String code, OffsetDateTime asAt, String scope, final ApiCallback _callback, ConfigurationOptions opts) throws ApiException {
+    private okhttp3.Call getRoleCall(String code, String scope, final ApiCallback _callback, ConfigurationOptions opts) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -832,10 +831,6 @@ public class RolesApi {
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        if (asAt != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("asAt", asAt));
-        }
 
         if (scope != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("scope", scope));
@@ -863,40 +858,40 @@ public class RolesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getRoleValidateBeforeCall(String code, OffsetDateTime asAt, String scope, final ApiCallback _callback, ConfigurationOptions opts) throws ApiException {
+    private okhttp3.Call getRoleValidateBeforeCall(String code, String scope, final ApiCallback _callback, ConfigurationOptions opts) throws ApiException {
         // verify the required parameter 'code' is set
         if (code == null) {
             throw new ApiException("Missing the required parameter 'code' when calling getRole(Async)");
         }
 
-        return getRoleCall(code, asAt, scope, _callback, opts);
+        return getRoleCall(code, scope, _callback, opts);
 
     }
 
 
-    private ApiResponse<RoleResponse> getRoleWithHttpInfo(String code, OffsetDateTime asAt, String scope) throws ApiException {
-        okhttp3.Call localVarCall = getRoleValidateBeforeCall(code, asAt, scope, null, new ConfigurationOptions());
+    private ApiResponse<RoleResponse> getRoleWithHttpInfo(String code, String scope) throws ApiException {
+        okhttp3.Call localVarCall = getRoleValidateBeforeCall(code, scope, null, new ConfigurationOptions());
         Type localVarReturnType = new TypeToken<RoleResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private ApiResponse<RoleResponse> getRoleWithHttpInfo(String code, OffsetDateTime asAt, String scope, ConfigurationOptions opts) throws ApiException {
-        okhttp3.Call localVarCall = getRoleValidateBeforeCall(code, asAt, scope, null, opts);
+    private ApiResponse<RoleResponse> getRoleWithHttpInfo(String code, String scope, ConfigurationOptions opts) throws ApiException {
+        okhttp3.Call localVarCall = getRoleValidateBeforeCall(code, scope, null, opts);
         Type localVarReturnType = new TypeToken<RoleResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call getRoleAsync(String code, OffsetDateTime asAt, String scope, final ApiCallback<RoleResponse> _callback) throws ApiException {
+    private okhttp3.Call getRoleAsync(String code, String scope, final ApiCallback<RoleResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getRoleValidateBeforeCall(code, asAt, scope, _callback, new ConfigurationOptions());
+        okhttp3.Call localVarCall = getRoleValidateBeforeCall(code, scope, _callback, new ConfigurationOptions());
         Type localVarReturnType = new TypeToken<RoleResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
 
-    private okhttp3.Call getRoleAsync(String code, OffsetDateTime asAt, String scope, final ApiCallback<RoleResponse> _callback, ConfigurationOptions opts) throws ApiException {
+    private okhttp3.Call getRoleAsync(String code, String scope, final ApiCallback<RoleResponse> _callback, ConfigurationOptions opts) throws ApiException {
 
-        okhttp3.Call localVarCall = getRoleValidateBeforeCall(code, asAt, scope, _callback, opts);
+        okhttp3.Call localVarCall = getRoleValidateBeforeCall(code, scope, _callback, opts);
         Type localVarReturnType = new TypeToken<RoleResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -904,21 +899,10 @@ public class RolesApi {
 
     public class APIgetRoleRequest {
         private final String code;
-        private OffsetDateTime asAt;
         private String scope;
 
         private APIgetRoleRequest(String code) {
             this.code = code;
-        }
-
-        /**
-         * Set asAt
-         * @param asAt Optional. The AsAt date time of the data (optional)
-         * @return APIgetRoleRequest
-         */
-        public APIgetRoleRequest asAt(OffsetDateTime asAt) {
-            this.asAt = asAt;
-            return this;
         }
 
         /**
@@ -945,7 +929,7 @@ public class RolesApi {
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
-            return getRoleCall(code, asAt, scope, _callback);
+            return getRoleCall(code, scope, _callback);
         }
 
         /**
@@ -961,7 +945,7 @@ public class RolesApi {
          </table>
          */
         public RoleResponse execute() throws ApiException {
-            ApiResponse<RoleResponse> localVarResp = getRoleWithHttpInfo(code, asAt, scope);
+            ApiResponse<RoleResponse> localVarResp = getRoleWithHttpInfo(code, scope);
             return localVarResp.getData();
         }
 
@@ -978,7 +962,7 @@ public class RolesApi {
          </table>
          */
         public RoleResponse execute(ConfigurationOptions opts) throws ApiException {
-            ApiResponse<RoleResponse> localVarResp = getRoleWithHttpInfo(code, asAt, scope, opts);
+            ApiResponse<RoleResponse> localVarResp = getRoleWithHttpInfo(code, scope, opts);
             return localVarResp.getData();
         }
 
@@ -995,7 +979,7 @@ public class RolesApi {
          </table>
          */
         public ApiResponse<RoleResponse> executeWithHttpInfo() throws ApiException {
-            return getRoleWithHttpInfo(code, asAt, scope);
+            return getRoleWithHttpInfo(code, scope);
         }
 
         /**
@@ -1011,7 +995,7 @@ public class RolesApi {
          </table>
          */
         public ApiResponse<RoleResponse> executeWithHttpInfo(ConfigurationOptions opts) throws ApiException {
-            return getRoleWithHttpInfo(code, asAt, scope, opts);
+            return getRoleWithHttpInfo(code, scope, opts);
         }
 
         /**
@@ -1028,7 +1012,7 @@ public class RolesApi {
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<RoleResponse> _callback) throws ApiException {
-            return getRoleAsync(code, asAt, scope, _callback);
+            return getRoleAsync(code, scope, _callback);
         }
 
         /**
@@ -1045,7 +1029,7 @@ public class RolesApi {
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<RoleResponse> _callback, ConfigurationOptions opts) throws ApiException {
-            return getRoleAsync(code, asAt, scope, _callback, opts);
+            return getRoleAsync(code, scope, _callback, opts);
         }
     }
 
@@ -1065,11 +1049,11 @@ public class RolesApi {
     public APIgetRoleRequest getRole(String code) {
         return new APIgetRoleRequest(code);
     }
-    private okhttp3.Call listRolesCall(String scope, OffsetDateTime asAt, List<String> sortBy, Integer start, Integer limit, String filter, final ApiCallback _callback) throws ApiException {
-        return listRolesCall(scope, asAt, sortBy, start, limit, filter,  _callback, new ConfigurationOptions());
+    private okhttp3.Call listRolesCall(String scope, final ApiCallback _callback) throws ApiException {
+        return listRolesCall(scope,  _callback, new ConfigurationOptions());
     }
 
-    private okhttp3.Call listRolesCall(String scope, OffsetDateTime asAt, List<String> sortBy, Integer start, Integer limit, String filter, final ApiCallback _callback, ConfigurationOptions opts) throws ApiException {
+    private okhttp3.Call listRolesCall(String scope, final ApiCallback _callback, ConfigurationOptions opts) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1098,26 +1082,6 @@ public class RolesApi {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("scope", scope));
         }
 
-        if (asAt != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("asAt", asAt));
-        }
-
-        if (sortBy != null) {
-            localVarCollectionQueryParams.addAll(localVarApiClient.parameterToPairs("multi", "sortBy", sortBy));
-        }
-
-        if (start != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("start", start));
-        }
-
-        if (limit != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("limit", limit));
-        }
-
-        if (filter != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("filter", filter));
-        }
-
         final String[] localVarAccepts = {
             "text/plain",
             "application/json",
@@ -1140,35 +1104,35 @@ public class RolesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call listRolesValidateBeforeCall(String scope, OffsetDateTime asAt, List<String> sortBy, Integer start, Integer limit, String filter, final ApiCallback _callback, ConfigurationOptions opts) throws ApiException {
-        return listRolesCall(scope, asAt, sortBy, start, limit, filter, _callback, opts);
+    private okhttp3.Call listRolesValidateBeforeCall(String scope, final ApiCallback _callback, ConfigurationOptions opts) throws ApiException {
+        return listRolesCall(scope, _callback, opts);
 
     }
 
 
-    private ApiResponse<List<RoleResponse>> listRolesWithHttpInfo(String scope, OffsetDateTime asAt, List<String> sortBy, Integer start, Integer limit, String filter) throws ApiException {
-        okhttp3.Call localVarCall = listRolesValidateBeforeCall(scope, asAt, sortBy, start, limit, filter, null, new ConfigurationOptions());
+    private ApiResponse<List<RoleResponse>> listRolesWithHttpInfo(String scope) throws ApiException {
+        okhttp3.Call localVarCall = listRolesValidateBeforeCall(scope, null, new ConfigurationOptions());
         Type localVarReturnType = new TypeToken<List<RoleResponse>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private ApiResponse<List<RoleResponse>> listRolesWithHttpInfo(String scope, OffsetDateTime asAt, List<String> sortBy, Integer start, Integer limit, String filter, ConfigurationOptions opts) throws ApiException {
-        okhttp3.Call localVarCall = listRolesValidateBeforeCall(scope, asAt, sortBy, start, limit, filter, null, opts);
+    private ApiResponse<List<RoleResponse>> listRolesWithHttpInfo(String scope, ConfigurationOptions opts) throws ApiException {
+        okhttp3.Call localVarCall = listRolesValidateBeforeCall(scope, null, opts);
         Type localVarReturnType = new TypeToken<List<RoleResponse>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call listRolesAsync(String scope, OffsetDateTime asAt, List<String> sortBy, Integer start, Integer limit, String filter, final ApiCallback<List<RoleResponse>> _callback) throws ApiException {
+    private okhttp3.Call listRolesAsync(String scope, final ApiCallback<List<RoleResponse>> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = listRolesValidateBeforeCall(scope, asAt, sortBy, start, limit, filter, _callback, new ConfigurationOptions());
+        okhttp3.Call localVarCall = listRolesValidateBeforeCall(scope, _callback, new ConfigurationOptions());
         Type localVarReturnType = new TypeToken<List<RoleResponse>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
 
-    private okhttp3.Call listRolesAsync(String scope, OffsetDateTime asAt, List<String> sortBy, Integer start, Integer limit, String filter, final ApiCallback<List<RoleResponse>> _callback, ConfigurationOptions opts) throws ApiException {
+    private okhttp3.Call listRolesAsync(String scope, final ApiCallback<List<RoleResponse>> _callback, ConfigurationOptions opts) throws ApiException {
 
-        okhttp3.Call localVarCall = listRolesValidateBeforeCall(scope, asAt, sortBy, start, limit, filter, _callback, opts);
+        okhttp3.Call localVarCall = listRolesValidateBeforeCall(scope, _callback, opts);
         Type localVarReturnType = new TypeToken<List<RoleResponse>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1176,11 +1140,6 @@ public class RolesApi {
 
     public class APIlistRolesRequest {
         private String scope;
-        private OffsetDateTime asAt;
-        private List<String> sortBy;
-        private Integer start;
-        private Integer limit;
-        private String filter;
 
         private APIlistRolesRequest() {
         }
@@ -1192,56 +1151,6 @@ public class RolesApi {
          */
         public APIlistRolesRequest scope(String scope) {
             this.scope = scope;
-            return this;
-        }
-
-        /**
-         * Set asAt
-         * @param asAt Optional. The AsAt date time of the data (optional)
-         * @return APIlistRolesRequest
-         */
-        public APIlistRolesRequest asAt(OffsetDateTime asAt) {
-            this.asAt = asAt;
-            return this;
-        }
-
-        /**
-         * Set sortBy
-         * @param sortBy Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName (optional)
-         * @return APIlistRolesRequest
-         */
-        public APIlistRolesRequest sortBy(List<String> sortBy) {
-            this.sortBy = sortBy;
-            return this;
-        }
-
-        /**
-         * Set start
-         * @param start Optional. When paginating, skip this number of results (optional)
-         * @return APIlistRolesRequest
-         */
-        public APIlistRolesRequest start(Integer start) {
-            this.start = start;
-            return this;
-        }
-
-        /**
-         * Set limit
-         * @param limit Optional. When paginating, limit the number of returned results to this many. (optional)
-         * @return APIlistRolesRequest
-         */
-        public APIlistRolesRequest limit(Integer limit) {
-            this.limit = limit;
-            return this;
-        }
-
-        /**
-         * Set filter
-         * @param filter Optional. Expression to filter the result set (optional)
-         * @return APIlistRolesRequest
-         */
-        public APIlistRolesRequest filter(String filter) {
-            this.filter = filter;
             return this;
         }
 
@@ -1259,7 +1168,7 @@ public class RolesApi {
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
-            return listRolesCall(scope, asAt, sortBy, start, limit, filter, _callback);
+            return listRolesCall(scope, _callback);
         }
 
         /**
@@ -1275,7 +1184,7 @@ public class RolesApi {
          </table>
          */
         public List<RoleResponse> execute() throws ApiException {
-            ApiResponse<List<RoleResponse>> localVarResp = listRolesWithHttpInfo(scope, asAt, sortBy, start, limit, filter);
+            ApiResponse<List<RoleResponse>> localVarResp = listRolesWithHttpInfo(scope);
             return localVarResp.getData();
         }
 
@@ -1292,7 +1201,7 @@ public class RolesApi {
          </table>
          */
         public List<RoleResponse> execute(ConfigurationOptions opts) throws ApiException {
-            ApiResponse<List<RoleResponse>> localVarResp = listRolesWithHttpInfo(scope, asAt, sortBy, start, limit, filter, opts);
+            ApiResponse<List<RoleResponse>> localVarResp = listRolesWithHttpInfo(scope, opts);
             return localVarResp.getData();
         }
 
@@ -1309,7 +1218,7 @@ public class RolesApi {
          </table>
          */
         public ApiResponse<List<RoleResponse>> executeWithHttpInfo() throws ApiException {
-            return listRolesWithHttpInfo(scope, asAt, sortBy, start, limit, filter);
+            return listRolesWithHttpInfo(scope);
         }
 
         /**
@@ -1325,7 +1234,7 @@ public class RolesApi {
          </table>
          */
         public ApiResponse<List<RoleResponse>> executeWithHttpInfo(ConfigurationOptions opts) throws ApiException {
-            return listRolesWithHttpInfo(scope, asAt, sortBy, start, limit, filter, opts);
+            return listRolesWithHttpInfo(scope, opts);
         }
 
         /**
@@ -1342,7 +1251,7 @@ public class RolesApi {
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<List<RoleResponse>> _callback) throws ApiException {
-            return listRolesAsync(scope, asAt, sortBy, start, limit, filter, _callback);
+            return listRolesAsync(scope, _callback);
         }
 
         /**
@@ -1359,7 +1268,7 @@ public class RolesApi {
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<List<RoleResponse>> _callback, ConfigurationOptions opts) throws ApiException {
-            return listRolesAsync(scope, asAt, sortBy, start, limit, filter, _callback, opts);
+            return listRolesAsync(scope, _callback, opts);
         }
     }
 

@@ -31,7 +31,7 @@ info:
     \ <a name=\"878\">878</a>|Policy Template Does Not Exist| |\n"
   termsOfService: https://www.finbourne.com/legal/terms-conditions
   title: FINBOURNE Access Management API
-  version: 0.0.3943
+  version: 0.0.3944
   x-logo:
     url: https://www.lusid.com/app/assets/logo_white.png
     backgroundColor: '#415464'
@@ -68,60 +68,6 @@ paths:
           type: array
         style: form
         x-nullable: true
-      - description: Optional. The AsAt date time of the data
-        explode: true
-        in: query
-        name: asAt
-        required: false
-        schema:
-          format: date-time
-          type: string
-        style: form
-        x-nullable: true
-      - description: Optional. Order the results by these fields. Use use the '-'
-          sign to denote descending order e.g. -MyFieldName
-        explode: true
-        in: query
-        name: sortBy
-        required: false
-        schema:
-          items:
-            type: string
-          type: array
-        style: form
-        x-nullable: true
-      - description: "Optional. When paginating, skip this number of results"
-        explode: true
-        in: query
-        name: start
-        required: false
-        schema:
-          format: int32
-          type: integer
-        style: form
-        x-nullable: true
-      - description: "Optional. When paginating, limit the number of returned results\
-          \ to this many."
-        explode: true
-        in: query
-        name: limit
-        required: false
-        schema:
-          format: int32
-          type: integer
-        style: form
-        x-nullable: true
-      - description: Optional. Expression to filter the result set
-        explode: true
-        in: query
-        name: filter
-        required: false
-        schema:
-          maxLength: 16384
-          minLength: 0
-          pattern: "^[\\s\\S]*$"
-          type: string
-        style: form
       responses:
         "200":
           content:
@@ -314,16 +260,6 @@ paths:
           items:
             type: string
           type: array
-        style: form
-        x-nullable: true
-      - description: Optional. The requested AsAt date of the entitlements
-        explode: true
-        in: query
-        name: asAt
-        required: false
-        schema:
-          format: date-time
-          type: string
         style: form
         x-nullable: true
       requestBody:
@@ -524,60 +460,6 @@ paths:
         required: false
         schema:
           pattern: "^(?=.*[a-zA-Z])[\\w][\\w +-]{2,100}$"
-          type: string
-        style: form
-      - description: Optional. The AsAt date time of the data
-        explode: true
-        in: query
-        name: asAt
-        required: false
-        schema:
-          format: date-time
-          type: string
-        style: form
-        x-nullable: true
-      - description: Optional. Order the results by these fields. Use use the '-'
-          sign to denote descending order e.g. -MyFieldName
-        explode: true
-        in: query
-        name: sortBy
-        required: false
-        schema:
-          items:
-            type: string
-          type: array
-        style: form
-        x-nullable: true
-      - description: "Optional. When paginating, skip this number of results"
-        explode: true
-        in: query
-        name: start
-        required: false
-        schema:
-          format: int32
-          type: integer
-        style: form
-        x-nullable: true
-      - description: "Optional. When paginating, limit the number of returned results\
-          \ to this many."
-        explode: true
-        in: query
-        name: limit
-        required: false
-        schema:
-          format: int32
-          type: integer
-        style: form
-        x-nullable: true
-      - description: Optional. Expression to filter the result set
-        explode: true
-        in: query
-        name: filter
-        required: false
-        schema:
-          maxLength: 16384
-          minLength: 0
-          pattern: "^[\\s\\S]*$"
           type: string
         style: form
       responses:
@@ -1014,16 +896,6 @@ paths:
       description: Gets all Policies with pagination support.
       operationId: PagePolicies
       parameters:
-      - description: Optional. Not currently used. The AsAt date time of the data
-        explode: true
-        in: query
-        name: asAt
-        required: false
-        schema:
-          format: date-time
-          type: string
-        style: form
-        x-nullable: true
       - description: Optional. Order the results by these fields. Use the '-' sign
           to denote descending order e.g. -MyFieldName
         explode: true
@@ -1300,16 +1172,6 @@ paths:
           pattern: "^(?=.*[a-zA-Z])[\\w][\\w +-]{2,100}$"
           type: string
         style: simple
-      - description: Optional. The AsAt date time of the data
-        explode: true
-        in: query
-        name: asAt
-        required: false
-        schema:
-          format: date-time
-          type: string
-        style: form
-        x-nullable: true
       - description: Optional. Will use the default scope if not provided. The scope
           of the Policy
         explode: true
@@ -1826,60 +1688,6 @@ paths:
           pattern: "^(?=.*[a-zA-Z])[\\w][\\w +-]{2,100}$"
           type: string
         style: form
-      - description: Optional. The AsAt date time of the data
-        explode: true
-        in: query
-        name: asAt
-        required: false
-        schema:
-          format: date-time
-          type: string
-        style: form
-        x-nullable: true
-      - description: Optional. Order the results by these fields. Use use the '-'
-          sign to denote descending order e.g. -MyFieldName
-        explode: true
-        in: query
-        name: sortBy
-        required: false
-        schema:
-          items:
-            type: string
-          type: array
-        style: form
-        x-nullable: true
-      - description: "Optional. When paginating, skip this number of results"
-        explode: true
-        in: query
-        name: start
-        required: false
-        schema:
-          format: int32
-          type: integer
-        style: form
-        x-nullable: true
-      - description: "Optional. 2000 if not provided. When paginating, limit the number\
-          \ of returned results to this many."
-        explode: true
-        in: query
-        name: limit
-        required: false
-        schema:
-          format: int32
-          type: integer
-        style: form
-        x-nullable: true
-      - description: Optional. Expression to filter the result set
-        explode: true
-        in: query
-        name: filter
-        required: false
-        schema:
-          maxLength: 16384
-          minLength: 0
-          pattern: "^[\\s\\S]*$"
-          type: string
-        style: form
       responses:
         "200":
           content:
@@ -2113,16 +1921,6 @@ paths:
       description: Gets all PolicyCollections with pagination support.
       operationId: PagePolicyCollections
       parameters:
-      - description: Optional. Not currently used. The AsAt date time of the data
-        explode: true
-        in: query
-        name: asAt
-        required: false
-        schema:
-          format: date-time
-          type: string
-        style: form
-        x-nullable: true
       - description: Optional. Order the results by these fields. Use the '-' sign
           to denote descending order e.g. -MyFieldName
         explode: true
@@ -2321,16 +2119,6 @@ paths:
           pattern: "^(?=.*[a-zA-Z])[\\w][\\w +-]{2,100}$"
           type: string
         style: simple
-      - description: Optional. The AsAt date time of the data
-        explode: true
-        in: query
-        name: asAt
-        required: false
-        schema:
-          format: date-time
-          type: string
-        style: form
-        x-nullable: true
       - description: Optional. Will use the default scope if not provided. The scope
           of the PolicyCollection
         explode: true
@@ -3822,60 +3610,6 @@ paths:
           pattern: "^(?=.*[a-zA-Z])[\\w][\\w +-]{2,100}$"
           type: string
         style: form
-      - description: Optional. The AsAt date time of the data
-        explode: true
-        in: query
-        name: asAt
-        required: false
-        schema:
-          format: date-time
-          type: string
-        style: form
-        x-nullable: true
-      - description: Optional. Order the results by these fields. Use use the '-'
-          sign to denote descending order e.g. -MyFieldName
-        explode: true
-        in: query
-        name: sortBy
-        required: false
-        schema:
-          items:
-            type: string
-          type: array
-        style: form
-        x-nullable: true
-      - description: "Optional. When paginating, skip this number of results"
-        explode: true
-        in: query
-        name: start
-        required: false
-        schema:
-          format: int32
-          type: integer
-        style: form
-        x-nullable: true
-      - description: "Optional. When paginating, limit the number of returned results\
-          \ to this many."
-        explode: true
-        in: query
-        name: limit
-        required: false
-        schema:
-          format: int32
-          type: integer
-        style: form
-        x-nullable: true
-      - description: Optional. Expression to filter the result set
-        explode: true
-        in: query
-        name: filter
-        required: false
-        schema:
-          maxLength: 16384
-          minLength: 0
-          pattern: "^[\\s\\S]*$"
-          type: string
-        style: form
       responses:
         "200":
           content:
@@ -4227,16 +3961,6 @@ paths:
           pattern: "^(?=.*[a-zA-Z])[\\w][\\w +-]{2,100}$"
           type: string
         style: simple
-      - description: Optional. The AsAt date time of the data
-        explode: true
-        in: query
-        name: asAt
-        required: false
-        schema:
-          format: date-time
-          type: string
-        style: form
-        x-nullable: true
       - description: Optional. Will use default scope if not supplied. The scope of
           the Role
         explode: true

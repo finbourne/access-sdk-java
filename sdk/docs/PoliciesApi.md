@@ -486,7 +486,7 @@ null (empty response body)
 
 ## evaluate
 
-> Map&lt;String, EvaluationResponse&gt; evaluate(requestBody, applications, asAt)
+> Map&lt;String, EvaluationResponse&gt; evaluate(requestBody, applications)
 
 Evaluate: Run one or more evaluations
 
@@ -533,12 +533,11 @@ public class PoliciesApiExample {
         PoliciesApi apiInstance = ApiFactoryBuilder.build(fileName).build(PoliciesApi.class);
         Map<String, EvaluationRequest> requestBody = new HashMap(); // Map<String, EvaluationRequest> | A dictionary of evaluations, keyed using any arbitrary correlation id (it will be returned with the response for that evaluation).
         List<String> applications = Arrays.asList(); // List<String> | Optional. The application type of the roles and policies to use when evaluating.
-        OffsetDateTime asAt = OffsetDateTime.now(); // OffsetDateTime | Optional. The requested AsAt date of the entitlements
         try {
             // uncomment the below to set overrides at the request level
-            // Map<String, EvaluationResponse> result = apiInstance.evaluate(requestBody, applications, asAt).execute(opts);
+            // Map<String, EvaluationResponse> result = apiInstance.evaluate(requestBody, applications).execute(opts);
 
-            Map<String, EvaluationResponse> result = apiInstance.evaluate(requestBody, applications, asAt).execute();
+            Map<String, EvaluationResponse> result = apiInstance.evaluate(requestBody, applications).execute();
             System.out.println(result.toJson());
         } catch (ApiException e) {
             System.err.println("Exception when calling PoliciesApi#evaluate");
@@ -557,7 +556,6 @@ public class PoliciesApiExample {
 |------------- | ------------- | ------------- | -------------|
 | **requestBody** | [**Map&lt;String, EvaluationRequest&gt;**](EvaluationRequest.md)| A dictionary of evaluations, keyed using any arbitrary correlation id (it will be returned with the response for that evaluation). | |
 | **applications** | [**List&lt;String&gt;**](String.md)| Optional. The application type of the roles and policies to use when evaluating. | [optional] |
-| **asAt** | **OffsetDateTime**| Optional. The requested AsAt date of the entitlements | [optional] |
 
 ### Return type
 
@@ -581,7 +579,7 @@ public class PoliciesApiExample {
 
 ## getOwnPolicies
 
-> List&lt;AttachedPolicyDefinitionResponse&gt; getOwnPolicies(applications, asAt, sortBy, start, limit, filter)
+> List&lt;AttachedPolicyDefinitionResponse&gt; getOwnPolicies(applications)
 
 GetOwnPolicies: Get policies of requesting user
 
@@ -627,16 +625,11 @@ public class PoliciesApiExample {
 
         PoliciesApi apiInstance = ApiFactoryBuilder.build(fileName).build(PoliciesApi.class);
         List<String> applications = Arrays.asList(); // List<String> | Optional. Filter on the applications that the policies apply to
-        OffsetDateTime asAt = OffsetDateTime.now(); // OffsetDateTime | Optional. The AsAt date time of the data
-        List<String> sortBy = Arrays.asList(); // List<String> | Optional. Order the results by these fields. Use use the '-' sign to denote descending order e.g. -MyFieldName
-        Integer start = 56; // Integer | Optional. When paginating, skip this number of results
-        Integer limit = 56; // Integer | Optional. When paginating, limit the number of returned results to this many.
-        String filter = "filter_example"; // String | Optional. Expression to filter the result set
         try {
             // uncomment the below to set overrides at the request level
-            // List<AttachedPolicyDefinitionResponse> result = apiInstance.getOwnPolicies(applications, asAt, sortBy, start, limit, filter).execute(opts);
+            // List<AttachedPolicyDefinitionResponse> result = apiInstance.getOwnPolicies(applications).execute(opts);
 
-            List<AttachedPolicyDefinitionResponse> result = apiInstance.getOwnPolicies(applications, asAt, sortBy, start, limit, filter).execute();
+            List<AttachedPolicyDefinitionResponse> result = apiInstance.getOwnPolicies(applications).execute();
             System.out.println(result.toJson());
         } catch (ApiException e) {
             System.err.println("Exception when calling PoliciesApi#getOwnPolicies");
@@ -654,11 +647,6 @@ public class PoliciesApiExample {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **applications** | [**List&lt;String&gt;**](String.md)| Optional. Filter on the applications that the policies apply to | [optional] |
-| **asAt** | **OffsetDateTime**| Optional. The AsAt date time of the data | [optional] |
-| **sortBy** | [**List&lt;String&gt;**](String.md)| Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName | [optional] |
-| **start** | **Integer**| Optional. When paginating, skip this number of results | [optional] |
-| **limit** | **Integer**| Optional. When paginating, limit the number of returned results to this many. | [optional] |
-| **filter** | **String**| Optional. Expression to filter the result set | [optional] |
 
 ### Return type
 
@@ -682,7 +670,7 @@ public class PoliciesApiExample {
 
 ## getPolicy
 
-> PolicyResponse getPolicy(code, asAt, scope)
+> PolicyResponse getPolicy(code, scope)
 
 GetPolicy: Get Policy
 
@@ -728,13 +716,12 @@ public class PoliciesApiExample {
 
         PoliciesApi apiInstance = ApiFactoryBuilder.build(fileName).build(PoliciesApi.class);
         String code = "code_example"; // String | The code of the Policy
-        OffsetDateTime asAt = OffsetDateTime.now(); // OffsetDateTime | Optional. The AsAt date time of the data
         String scope = "scope_example"; // String | Optional. Will use the default scope if not provided. The scope of the Policy
         try {
             // uncomment the below to set overrides at the request level
-            // PolicyResponse result = apiInstance.getPolicy(code, asAt, scope).execute(opts);
+            // PolicyResponse result = apiInstance.getPolicy(code, scope).execute(opts);
 
-            PolicyResponse result = apiInstance.getPolicy(code, asAt, scope).execute();
+            PolicyResponse result = apiInstance.getPolicy(code, scope).execute();
             System.out.println(result.toJson());
         } catch (ApiException e) {
             System.err.println("Exception when calling PoliciesApi#getPolicy");
@@ -752,7 +739,6 @@ public class PoliciesApiExample {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **code** | **String**| The code of the Policy | |
-| **asAt** | **OffsetDateTime**| Optional. The AsAt date time of the data | [optional] |
 | **scope** | **String**| Optional. Will use the default scope if not provided. The scope of the Policy | [optional] |
 
 ### Return type
@@ -777,7 +763,7 @@ public class PoliciesApiExample {
 
 ## getPolicyCollection
 
-> PolicyCollectionResponse getPolicyCollection(code, asAt, scope)
+> PolicyCollectionResponse getPolicyCollection(code, scope)
 
 GetPolicyCollection: Get PolicyCollection
 
@@ -823,13 +809,12 @@ public class PoliciesApiExample {
 
         PoliciesApi apiInstance = ApiFactoryBuilder.build(fileName).build(PoliciesApi.class);
         String code = "code_example"; // String | The code of the PolicyCollection
-        OffsetDateTime asAt = OffsetDateTime.now(); // OffsetDateTime | Optional. The AsAt date time of the data
         String scope = "scope_example"; // String | Optional. Will use the default scope if not provided. The scope of the PolicyCollection
         try {
             // uncomment the below to set overrides at the request level
-            // PolicyCollectionResponse result = apiInstance.getPolicyCollection(code, asAt, scope).execute(opts);
+            // PolicyCollectionResponse result = apiInstance.getPolicyCollection(code, scope).execute(opts);
 
-            PolicyCollectionResponse result = apiInstance.getPolicyCollection(code, asAt, scope).execute();
+            PolicyCollectionResponse result = apiInstance.getPolicyCollection(code, scope).execute();
             System.out.println(result.toJson());
         } catch (ApiException e) {
             System.err.println("Exception when calling PoliciesApi#getPolicyCollection");
@@ -847,7 +832,6 @@ public class PoliciesApiExample {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **code** | **String**| The code of the PolicyCollection | |
-| **asAt** | **OffsetDateTime**| Optional. The AsAt date time of the data | [optional] |
 | **scope** | **String**| Optional. Will use the default scope if not provided. The scope of the PolicyCollection | [optional] |
 
 ### Return type
@@ -872,7 +856,7 @@ public class PoliciesApiExample {
 
 ## listPolicies
 
-> List&lt;PolicyResponse&gt; listPolicies(scope, asAt, sortBy, start, limit, filter)
+> List&lt;PolicyResponse&gt; listPolicies(scope)
 
 ListPolicies: List Policies
 
@@ -918,16 +902,11 @@ public class PoliciesApiExample {
 
         PoliciesApi apiInstance = ApiFactoryBuilder.build(fileName).build(PoliciesApi.class);
         String scope = "scope_example"; // String | Optional. Will use the default scope if not provided. The requested scope
-        OffsetDateTime asAt = OffsetDateTime.now(); // OffsetDateTime | Optional. The AsAt date time of the data
-        List<String> sortBy = Arrays.asList(); // List<String> | Optional. Order the results by these fields. Use use the '-' sign to denote descending order e.g. -MyFieldName
-        Integer start = 56; // Integer | Optional. When paginating, skip this number of results
-        Integer limit = 56; // Integer | Optional. When paginating, limit the number of returned results to this many.
-        String filter = "filter_example"; // String | Optional. Expression to filter the result set
         try {
             // uncomment the below to set overrides at the request level
-            // List<PolicyResponse> result = apiInstance.listPolicies(scope, asAt, sortBy, start, limit, filter).execute(opts);
+            // List<PolicyResponse> result = apiInstance.listPolicies(scope).execute(opts);
 
-            List<PolicyResponse> result = apiInstance.listPolicies(scope, asAt, sortBy, start, limit, filter).execute();
+            List<PolicyResponse> result = apiInstance.listPolicies(scope).execute();
             System.out.println(result.toJson());
         } catch (ApiException e) {
             System.err.println("Exception when calling PoliciesApi#listPolicies");
@@ -945,11 +924,6 @@ public class PoliciesApiExample {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **scope** | **String**| Optional. Will use the default scope if not provided. The requested scope | [optional] |
-| **asAt** | **OffsetDateTime**| Optional. The AsAt date time of the data | [optional] |
-| **sortBy** | [**List&lt;String&gt;**](String.md)| Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName | [optional] |
-| **start** | **Integer**| Optional. When paginating, skip this number of results | [optional] |
-| **limit** | **Integer**| Optional. When paginating, limit the number of returned results to this many. | [optional] |
-| **filter** | **String**| Optional. Expression to filter the result set | [optional] |
 
 ### Return type
 
@@ -973,7 +947,7 @@ public class PoliciesApiExample {
 
 ## listPolicyCollections
 
-> List&lt;PolicyCollectionResponse&gt; listPolicyCollections(scope, asAt, sortBy, start, limit, filter)
+> List&lt;PolicyCollectionResponse&gt; listPolicyCollections(scope)
 
 ListPolicyCollections: List PolicyCollections
 
@@ -1019,16 +993,11 @@ public class PoliciesApiExample {
 
         PoliciesApi apiInstance = ApiFactoryBuilder.build(fileName).build(PoliciesApi.class);
         String scope = "scope_example"; // String | Optional. Will use the default scope if not provided. The requested scope
-        OffsetDateTime asAt = OffsetDateTime.now(); // OffsetDateTime | Optional. The AsAt date time of the data
-        List<String> sortBy = Arrays.asList(); // List<String> | Optional. Order the results by these fields. Use use the '-' sign to denote descending order e.g. -MyFieldName
-        Integer start = 56; // Integer | Optional. When paginating, skip this number of results
-        Integer limit = 56; // Integer | Optional. 2000 if not provided. When paginating, limit the number of returned results to this many.
-        String filter = "filter_example"; // String | Optional. Expression to filter the result set
         try {
             // uncomment the below to set overrides at the request level
-            // List<PolicyCollectionResponse> result = apiInstance.listPolicyCollections(scope, asAt, sortBy, start, limit, filter).execute(opts);
+            // List<PolicyCollectionResponse> result = apiInstance.listPolicyCollections(scope).execute(opts);
 
-            List<PolicyCollectionResponse> result = apiInstance.listPolicyCollections(scope, asAt, sortBy, start, limit, filter).execute();
+            List<PolicyCollectionResponse> result = apiInstance.listPolicyCollections(scope).execute();
             System.out.println(result.toJson());
         } catch (ApiException e) {
             System.err.println("Exception when calling PoliciesApi#listPolicyCollections");
@@ -1046,11 +1015,6 @@ public class PoliciesApiExample {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **scope** | **String**| Optional. Will use the default scope if not provided. The requested scope | [optional] |
-| **asAt** | **OffsetDateTime**| Optional. The AsAt date time of the data | [optional] |
-| **sortBy** | [**List&lt;String&gt;**](String.md)| Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName | [optional] |
-| **start** | **Integer**| Optional. When paginating, skip this number of results | [optional] |
-| **limit** | **Integer**| Optional. 2000 if not provided. When paginating, limit the number of returned results to this many. | [optional] |
-| **filter** | **String**| Optional. Expression to filter the result set | [optional] |
 
 ### Return type
 
@@ -1074,7 +1038,7 @@ public class PoliciesApiExample {
 
 ## pagePolicies
 
-> ResourceListOfPolicyResponse pagePolicies(asAt, sortBy, limit, filter, page)
+> ResourceListOfPolicyResponse pagePolicies(sortBy, limit, filter, page)
 
 PagePolicies: Page Policies
 
@@ -1119,16 +1083,15 @@ public class PoliciesApiExample {
         // PoliciesApi apiInstance = apiFactory.build(PoliciesApi.class);
 
         PoliciesApi apiInstance = ApiFactoryBuilder.build(fileName).build(PoliciesApi.class);
-        OffsetDateTime asAt = OffsetDateTime.now(); // OffsetDateTime | Optional. Not currently used. The AsAt date time of the data
         String sortBy = "sortBy_example"; // String | Optional. Order the results by these fields. Use the '-' sign to denote descending order e.g. -MyFieldName
         Integer limit = 56; // Integer | Optional. 2000 if not provided. When paginating, limit the number of returned results to this many
         String filter = "filter_example"; // String | Optional. Expression to filter the result set
         String page = "page_example"; // String | Optional. Paging token returned from a previous result
         try {
             // uncomment the below to set overrides at the request level
-            // ResourceListOfPolicyResponse result = apiInstance.pagePolicies(asAt, sortBy, limit, filter, page).execute(opts);
+            // ResourceListOfPolicyResponse result = apiInstance.pagePolicies(sortBy, limit, filter, page).execute(opts);
 
-            ResourceListOfPolicyResponse result = apiInstance.pagePolicies(asAt, sortBy, limit, filter, page).execute();
+            ResourceListOfPolicyResponse result = apiInstance.pagePolicies(sortBy, limit, filter, page).execute();
             System.out.println(result.toJson());
         } catch (ApiException e) {
             System.err.println("Exception when calling PoliciesApi#pagePolicies");
@@ -1145,7 +1108,6 @@ public class PoliciesApiExample {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **asAt** | **OffsetDateTime**| Optional. Not currently used. The AsAt date time of the data | [optional] |
 | **sortBy** | **String**| Optional. Order the results by these fields. Use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName | [optional] |
 | **limit** | **Integer**| Optional. 2000 if not provided. When paginating, limit the number of returned results to this many | [optional] |
 | **filter** | **String**| Optional. Expression to filter the result set | [optional] |
@@ -1173,7 +1135,7 @@ public class PoliciesApiExample {
 
 ## pagePolicyCollections
 
-> ResourceListOfPolicyCollectionResponse pagePolicyCollections(asAt, sortBy, limit, filter, page)
+> ResourceListOfPolicyCollectionResponse pagePolicyCollections(sortBy, limit, filter, page)
 
 PagePolicyCollections: Page PolicyCollections
 
@@ -1218,16 +1180,15 @@ public class PoliciesApiExample {
         // PoliciesApi apiInstance = apiFactory.build(PoliciesApi.class);
 
         PoliciesApi apiInstance = ApiFactoryBuilder.build(fileName).build(PoliciesApi.class);
-        OffsetDateTime asAt = OffsetDateTime.now(); // OffsetDateTime | Optional. Not currently used. The AsAt date time of the data
         String sortBy = "sortBy_example"; // String | Optional. Order the results by these fields. Use the '-' sign to denote descending order e.g. -MyFieldName
         Integer limit = 56; // Integer | Optional. 2000 if not provided. When paginating, limit the number of returned results to this many
         String filter = "filter_example"; // String | Optional. Expression to filter the result set
         String page = "page_example"; // String | Optional. Paging token returned from a previous result
         try {
             // uncomment the below to set overrides at the request level
-            // ResourceListOfPolicyCollectionResponse result = apiInstance.pagePolicyCollections(asAt, sortBy, limit, filter, page).execute(opts);
+            // ResourceListOfPolicyCollectionResponse result = apiInstance.pagePolicyCollections(sortBy, limit, filter, page).execute(opts);
 
-            ResourceListOfPolicyCollectionResponse result = apiInstance.pagePolicyCollections(asAt, sortBy, limit, filter, page).execute();
+            ResourceListOfPolicyCollectionResponse result = apiInstance.pagePolicyCollections(sortBy, limit, filter, page).execute();
             System.out.println(result.toJson());
         } catch (ApiException e) {
             System.err.println("Exception when calling PoliciesApi#pagePolicyCollections");
@@ -1244,7 +1205,6 @@ public class PoliciesApiExample {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **asAt** | **OffsetDateTime**| Optional. Not currently used. The AsAt date time of the data | [optional] |
 | **sortBy** | **String**| Optional. Order the results by these fields. Use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName | [optional] |
 | **limit** | **Integer**| Optional. 2000 if not provided. When paginating, limit the number of returned results to this many | [optional] |
 | **filter** | **String**| Optional. Expression to filter the result set | [optional] |

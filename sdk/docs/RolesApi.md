@@ -294,7 +294,7 @@ null (empty response body)
 
 ## getRole
 
-> RoleResponse getRole(code, asAt, scope)
+> RoleResponse getRole(code, scope)
 
 GetRole: Get Role
 
@@ -340,13 +340,12 @@ public class RolesApiExample {
 
         RolesApi apiInstance = ApiFactoryBuilder.build(fileName).build(RolesApi.class);
         String code = "code_example"; // String | The code of the Role
-        OffsetDateTime asAt = OffsetDateTime.now(); // OffsetDateTime | Optional. The AsAt date time of the data
         String scope = "scope_example"; // String | Optional. Will use default scope if not supplied. The scope of the Role
         try {
             // uncomment the below to set overrides at the request level
-            // RoleResponse result = apiInstance.getRole(code, asAt, scope).execute(opts);
+            // RoleResponse result = apiInstance.getRole(code, scope).execute(opts);
 
-            RoleResponse result = apiInstance.getRole(code, asAt, scope).execute();
+            RoleResponse result = apiInstance.getRole(code, scope).execute();
             System.out.println(result.toJson());
         } catch (ApiException e) {
             System.err.println("Exception when calling RolesApi#getRole");
@@ -364,7 +363,6 @@ public class RolesApiExample {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **code** | **String**| The code of the Role | |
-| **asAt** | **OffsetDateTime**| Optional. The AsAt date time of the data | [optional] |
 | **scope** | **String**| Optional. Will use default scope if not supplied. The scope of the Role | [optional] |
 
 ### Return type
@@ -389,7 +387,7 @@ public class RolesApiExample {
 
 ## listRoles
 
-> List&lt;RoleResponse&gt; listRoles(scope, asAt, sortBy, start, limit, filter)
+> List&lt;RoleResponse&gt; listRoles(scope)
 
 ListRoles: List Roles
 
@@ -435,16 +433,11 @@ public class RolesApiExample {
 
         RolesApi apiInstance = ApiFactoryBuilder.build(fileName).build(RolesApi.class);
         String scope = "scope_example"; // String | Optional. Will use all scopes if not supplied. The requested scope
-        OffsetDateTime asAt = OffsetDateTime.now(); // OffsetDateTime | Optional. The AsAt date time of the data
-        List<String> sortBy = Arrays.asList(); // List<String> | Optional. Order the results by these fields. Use use the '-' sign to denote descending order e.g. -MyFieldName
-        Integer start = 56; // Integer | Optional. When paginating, skip this number of results
-        Integer limit = 56; // Integer | Optional. When paginating, limit the number of returned results to this many.
-        String filter = "filter_example"; // String | Optional. Expression to filter the result set
         try {
             // uncomment the below to set overrides at the request level
-            // List<RoleResponse> result = apiInstance.listRoles(scope, asAt, sortBy, start, limit, filter).execute(opts);
+            // List<RoleResponse> result = apiInstance.listRoles(scope).execute(opts);
 
-            List<RoleResponse> result = apiInstance.listRoles(scope, asAt, sortBy, start, limit, filter).execute();
+            List<RoleResponse> result = apiInstance.listRoles(scope).execute();
             System.out.println(result.toJson());
         } catch (ApiException e) {
             System.err.println("Exception when calling RolesApi#listRoles");
@@ -462,11 +455,6 @@ public class RolesApiExample {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **scope** | **String**| Optional. Will use all scopes if not supplied. The requested scope | [optional] |
-| **asAt** | **OffsetDateTime**| Optional. The AsAt date time of the data | [optional] |
-| **sortBy** | [**List&lt;String&gt;**](String.md)| Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName | [optional] |
-| **start** | **Integer**| Optional. When paginating, skip this number of results | [optional] |
-| **limit** | **Integer**| Optional. When paginating, limit the number of returned results to this many. | [optional] |
-| **filter** | **String**| Optional. Expression to filter the result set | [optional] |
 
 ### Return type
 
