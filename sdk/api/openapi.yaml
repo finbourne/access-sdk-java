@@ -31,7 +31,7 @@ info:
     \ <a name=\"878\">878</a>|Policy Template Does Not Exist| |\n"
   termsOfService: https://www.finbourne.com/legal/terms-conditions
   title: FINBOURNE Access Management API
-  version: 0.0.3948
+  version: 0.0.3950
   x-logo:
     url: https://www.lusid.com/app/assets/logo_white.png
     backgroundColor: '#415464'
@@ -3466,15 +3466,95 @@ paths:
       requestBody:
         content:
           application/json-patch+json:
+            example:
+              displayName: updated-policy-template
+              description: Example policy template for a policy that grants access
+                to some resource
+              templatedSelectors:
+              - application: LUSID
+                tag: Data
+                selector:
+                  idSelectorDefinition:
+                    identifier:
+                      scope: official
+                    actions:
+                    - scope: default
+                      activity: Read
+                      entity: Portfolio
+                    - scope: default
+                      activity: Aggregate
+                      entity: Portfolio
+                    name: access-official-scope
+                    description: Allow readonly access to the 'official' scope
             schema:
               $ref: '#/components/schemas/PolicyTemplateUpdateRequest'
           application/json:
+            example:
+              displayName: updated-policy-template
+              description: Example policy template for a policy that grants access
+                to some resource
+              templatedSelectors:
+              - application: LUSID
+                tag: Data
+                selector:
+                  idSelectorDefinition:
+                    identifier:
+                      scope: official
+                    actions:
+                    - scope: default
+                      activity: Read
+                      entity: Portfolio
+                    - scope: default
+                      activity: Aggregate
+                      entity: Portfolio
+                    name: access-official-scope
+                    description: Allow readonly access to the 'official' scope
             schema:
               $ref: '#/components/schemas/PolicyTemplateUpdateRequest'
           text/json:
+            example:
+              displayName: updated-policy-template
+              description: Example policy template for a policy that grants access
+                to some resource
+              templatedSelectors:
+              - application: LUSID
+                tag: Data
+                selector:
+                  idSelectorDefinition:
+                    identifier:
+                      scope: official
+                    actions:
+                    - scope: default
+                      activity: Read
+                      entity: Portfolio
+                    - scope: default
+                      activity: Aggregate
+                      entity: Portfolio
+                    name: access-official-scope
+                    description: Allow readonly access to the 'official' scope
             schema:
               $ref: '#/components/schemas/PolicyTemplateUpdateRequest'
           application/*+json:
+            example:
+              displayName: updated-policy-template
+              description: Example policy template for a policy that grants access
+                to some resource
+              templatedSelectors:
+              - application: LUSID
+                tag: Data
+                selector:
+                  idSelectorDefinition:
+                    identifier:
+                      scope: official
+                    actions:
+                    - scope: default
+                      activity: Read
+                      entity: Portfolio
+                    - scope: default
+                      activity: Aggregate
+                      entity: Portfolio
+                    name: access-official-scope
+                    description: Allow readonly access to the 'official' scope
             schema:
               $ref: '#/components/schemas/PolicyTemplateUpdateRequest'
         description: Definition of the updated policy template
