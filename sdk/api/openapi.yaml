@@ -37,9 +37,10 @@ info:
     | <a name="871">871</a>|The specified impersonated user does not exist| |
     | <a name="877">877</a>|Policy Template With Code Already Exists| |
     | <a name="878">878</a>|Policy Template Does Not Exist| |
+    | <a name="939">939</a>|Blocked by a Network Zone| |
   termsOfService: https://www.finbourne.com/legal/terms-conditions
   title: FINBOURNE Access Management API
-  version: 0.0.4035
+  version: 0.0.4077
   x-logo:
     url: https://www.lusid.com/app/assets/logo_white.png
     backgroundColor: '#415464'
@@ -97,6 +98,8 @@ info:
       title: Policy Template With Code Already Exists
     "878":
       title: Policy Template Does Not Exist
+    "939":
+      title: Blocked by a Network Zone
   x-fbn-description: Access enables precise control over data and operations by managing
     permissions through a comprehensive role-based access control (RBAC) system. It
     works in conjunction with the Identity SDK.
@@ -497,7 +500,7 @@ paths:
             text/json:
               schema:
                 $ref: '#/components/schemas/ResourceListOfAccessControlledResource'
-          description: Success
+          description: OK
         default:
           content:
             application/json:
@@ -3286,7 +3289,7 @@ paths:
                     description: Allow readonly access to the 'official' scope
               schema:
                 $ref: '#/components/schemas/GeneratedPolicyComponents'
-          description: Success
+          description: OK
         "400":
           content:
             text/plain:
@@ -4861,7 +4864,7 @@ paths:
                 links: []
               schema:
                 $ref: '#/components/schemas/ResourceListOfUserRoleResponse'
-          description: Success
+          description: OK
         "400":
           content:
             text/plain:
@@ -7171,6 +7174,7 @@ components:
       properties:
         identifier:
           additionalProperties:
+            nullable: true
             type: string
           minLength: 1
           type: object
@@ -8986,6 +8990,7 @@ components:
       properties:
         identityRestriction:
           additionalProperties:
+            nullable: true
             type: string
           nullable: true
           type: object
