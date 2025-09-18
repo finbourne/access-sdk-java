@@ -1,4 +1,4 @@
-openapi: 3.0.1
+openapi: 3.0.4
 info:
   contact:
     email: info@finbourne.com
@@ -40,7 +40,7 @@ info:
     | <a name="939">939</a>|Blocked by a Network Zone| |
   termsOfService: https://www.finbourne.com/legal/terms-conditions
   title: FINBOURNE Access Management API
-  version: 0.0.4243
+  version: 0.0.4245
   x-logo:
     url: https://www.lusid.com/app/assets/logo_white.png
     backgroundColor: '#415464'
@@ -4795,8 +4795,9 @@ paths:
           type: integer
         style: form
         x-nullable: true
-      - description: "Optional. Encoded page string returned from a previous search\
-          \ result that will retrieve\r\n the next page of data."
+      - description: |-
+          Optional. Encoded page string returned from a previous search result that will retrieve
+           the next page of data.
         explode: true
         in: query
         name: page
@@ -12170,7 +12171,7 @@ components:
           type: string
         selectorTags:
           description: "List of selector tags to optionally filter in the template\
-            \ generation \r\n(Eg: Feature, Data, etc)"
+            \ generation \n(Eg: Feature, Data, etc)"
           items:
             type: string
           nullable: true

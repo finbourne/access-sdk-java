@@ -524,7 +524,7 @@ public class UserRolesApiExample {
         String filter = "filter_example"; // String | Optional. Expression to filter the result set
         String sortBy = "sortBy_example"; // String | Optional. Order the results by these fields. Use the '-' sign to denote descending order e.g. -MyFieldName
         Integer limit = 56; // Integer | Optional. When paginating, limit the number of returned results to this many.
-        String page = "page_example"; // String | Optional. Encoded page string returned from a previous search result that will retrieve   the next page of data.
+        String page = "page_example"; // String | Optional. Encoded page string returned from a previous search result that will retrieve  the next page of data.
         try {
             // uncomment the below to set overrides at the request level
             // ResourceListOfUserRoleResponse result = apiInstance.listUserRoles(filter, sortBy, limit, page).execute(opts);
@@ -549,7 +549,7 @@ public class UserRolesApiExample {
 | **filter** | **String**| Optional. Expression to filter the result set | [optional] |
 | **sortBy** | **String**| Optional. Order the results by these fields. Use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName | [optional] |
 | **limit** | **Integer**| Optional. When paginating, limit the number of returned results to this many. | [optional] |
-| **page** | **String**| Optional. Encoded page string returned from a previous search result that will retrieve   the next page of data. | [optional] |
+| **page** | **String**| Optional. Encoded page string returned from a previous search result that will retrieve  the next page of data. | [optional] |
 
 ### Return type
 

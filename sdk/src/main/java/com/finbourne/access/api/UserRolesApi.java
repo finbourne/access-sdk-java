@@ -1398,7 +1398,7 @@ public class UserRolesApi {
 
         /**
          * Set page
-         * @param page Optional. Encoded page string returned from a previous search result that will retrieve   the next page of data. (optional)
+         * @param page Optional. Encoded page string returned from a previous search result that will retrieve  the next page of data. (optional)
          * @return APIlistUserRolesRequest
          */
         public APIlistUserRolesRequest page(String page) {

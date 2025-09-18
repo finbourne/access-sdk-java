@@ -124,7 +124,7 @@ public class TemplateSelection {
   }
 
    /**
-   * List of selector tags to optionally filter in the template generation   (Eg: Feature, Data, etc)
+   * List of selector tags to optionally filter in the template generation  (Eg: Feature, Data, etc)
    * @return selectorTags
   **/
   @jakarta.annotation.Nullable
