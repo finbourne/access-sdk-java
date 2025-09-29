@@ -1,17 +1,24 @@
-
-
-# AddPolicyCollectionToRoleRequest
-
+# com.finbourne.access.model.AddPolicyCollectionToRoleRequest
 Request body used to add Policy Collections to a Role
 
 ## Properties
 
-| Name | Type | Description | Notes |
-|------------ | ------------- | ------------- | -------------|
-|**policyCollections** | [**List&lt;PolicyCollectionId&gt;**](PolicyCollectionId.md) | Identifiers of policy collections to add to a role |  |
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**policyCollections** | [**List&lt;PolicyCollectionId&gt;**](PolicyCollectionId.md) | Identifiers of policy collections to add to a role | [default to List<PolicyCollectionId>]
 
+```java
+import com.finbourne.access.model.AddPolicyCollectionToRoleRequest;
+import java.util.*;
+import java.lang.System;
+import java.net.URI;
+
+List<PolicyCollectionId> PolicyCollections = new List<PolicyCollectionId>();
+
+
+AddPolicyCollectionToRoleRequest addPolicyCollectionToRoleRequestInstance = new AddPolicyCollectionToRoleRequest()
+    .PolicyCollections(PolicyCollections);
+```
 
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
-
-

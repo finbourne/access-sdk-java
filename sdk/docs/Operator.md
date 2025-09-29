@@ -1,28 +1,27 @@
+# com.finbourne.access.model.Operator
 
+## Properties
 
-# Operator
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**Operator** | [**String**](.md) | **** | [default to String]
 
-## Enum
+```java
+import com.finbourne.access.model.Operator;
+import java.util.*;
+import java.lang.System;
+import java.net.URI;
 
-
-* `UNDEFINED` (value: `"Undefined"`)
-
-* `EQUALS` (value: `"Equals"`)
-
-* `NOTEQUALS` (value: `"NotEquals"`)
-
-* `GREATERTHAN` (value: `"GreaterThan"`)
-
-* `GREATERTHANOREQUALTO` (value: `"GreaterThanOrEqualTo"`)
-
-* `LESSTHAN` (value: `"LessThan"`)
-
-* `LESSTHANOREQUALTO` (value: `"LessThanOrEqualTo"`)
-
-* `IN` (value: `"In"`)
-
+// Example usage of Operator:
+Operator method = Operator.UNDEFINED;
+Operator method = Operator.EQUALS;
+Operator method = Operator.NOTEQUALS;
+Operator method = Operator.GREATERTHAN;
+Operator method = Operator.GREATERTHANOREQUALTO;
+Operator method = Operator.LESSTHAN;
+Operator method = Operator.LESSTHANOREQUALTO;
+Operator method = Operator.IN;
+```
 
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
-
-

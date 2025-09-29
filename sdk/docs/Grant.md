@@ -1,16 +1,21 @@
+# com.finbourne.access.model.Grant
 
+## Properties
 
-# Grant
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**Grant** | [**String**](.md) | **** | [default to String]
 
-## Enum
+```java
+import com.finbourne.access.model.Grant;
+import java.util.*;
+import java.lang.System;
+import java.net.URI;
 
-
-* `ALLOW` (value: `"Allow"`)
-
-* `DENY` (value: `"Deny"`)
-
+// Example usage of Grant:
+Grant method = Grant.ALLOW;
+Grant method = Grant.DENY;
+```
 
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
-
-

@@ -1,18 +1,22 @@
+# com.finbourne.access.model.PolicyType
 
+## Properties
 
-# PolicyType
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**PolicyType** | [**String**](.md) | **** | [default to String]
 
-## Enum
+```java
+import com.finbourne.access.model.PolicyType;
+import java.util.*;
+import java.lang.System;
+import java.net.URI;
 
-
-* `UNDEFINED` (value: `"Undefined"`)
-
-* `ENTITLEMENT` (value: `"Entitlement"`)
-
-* `LICENCE` (value: `"Licence"`)
-
+// Example usage of PolicyType:
+PolicyType method = PolicyType.UNDEFINED;
+PolicyType method = PolicyType.ENTITLEMENT;
+PolicyType method = PolicyType.LICENCE;
+```
 
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
-
-

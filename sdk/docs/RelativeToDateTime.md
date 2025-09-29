@@ -1,26 +1,26 @@
+# com.finbourne.access.model.RelativeToDateTime
 
+## Properties
 
-# RelativeToDateTime
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**RelativeToDateTime** | [**String**](.md) | **** | [default to String]
 
-## Enum
+```java
+import com.finbourne.access.model.RelativeToDateTime;
+import java.util.*;
+import java.lang.System;
+import java.net.URI;
 
-
-* `UNDEFINED` (value: `"Undefined"`)
-
-* `BEFOREORON` (value: `"BeforeOrOn"`)
-
-* `BEFORE` (value: `"Before"`)
-
-* `ONDAYOF` (value: `"OnDayOf"`)
-
-* `AFTERORON` (value: `"AfterOrOn"`)
-
-* `AFTER` (value: `"After"`)
-
-* `EXACTLY` (value: `"Exactly"`)
-
+// Example usage of RelativeToDateTime:
+RelativeToDateTime method = RelativeToDateTime.UNDEFINED;
+RelativeToDateTime method = RelativeToDateTime.BEFOREORON;
+RelativeToDateTime method = RelativeToDateTime.BEFORE;
+RelativeToDateTime method = RelativeToDateTime.ONDAYOF;
+RelativeToDateTime method = RelativeToDateTime.AFTERORON;
+RelativeToDateTime method = RelativeToDateTime.AFTER;
+RelativeToDateTime method = RelativeToDateTime.EXACTLY;
+```
 
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
-
-
