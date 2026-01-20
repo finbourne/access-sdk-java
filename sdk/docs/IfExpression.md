@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **ifRequestHeaderExpression** | [**IfRequestHeaderExpression**](IfRequestHeaderExpression.md) |  | [optional] [default to IfRequestHeaderExpression]
 **ifIdentityClaimExpression** | [**IfIdentityClaimExpression**](IfIdentityClaimExpression.md) |  | [optional] [default to IfIdentityClaimExpression]
 **ifIdentityScopeExpression** | [**IfIdentityScopeExpression**](IfIdentityScopeExpression.md) |  | [optional] [default to IfIdentityScopeExpression]
-**ifFeatureChainExpression** | [**IfFeatureChainExpression**](IfFeatureChainExpression.md) |  | [optional] [default to IfFeatureChainExpression]
+**ifViaApiExpression** | [**IfViaApiExpression**](IfViaApiExpression.md) |  | [optional] [default to IfViaApiExpression]
 
 ```java
 import com.finbourne.access.model.IfExpression;
@@ -18,14 +18,14 @@ import java.net.URI;
 IfRequestHeaderExpression IfRequestHeaderExpression = new IfRequestHeaderExpression();
 IfIdentityClaimExpression IfIdentityClaimExpression = new IfIdentityClaimExpression();
 IfIdentityScopeExpression IfIdentityScopeExpression = new IfIdentityScopeExpression();
-IfFeatureChainExpression IfFeatureChainExpression = new IfFeatureChainExpression();
+IfViaApiExpression IfViaApiExpression = new IfViaApiExpression();
 
 
 IfExpression ifExpressionInstance = new IfExpression()
     .IfRequestHeaderExpression(IfRequestHeaderExpression)
     .IfIdentityClaimExpression(IfIdentityClaimExpression)
     .IfIdentityScopeExpression(IfIdentityScopeExpression)
-    .IfFeatureChainExpression(IfFeatureChainExpression);
+    .IfViaApiExpression(IfViaApiExpression);
 ```
 
 

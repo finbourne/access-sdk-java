@@ -11,10 +11,10 @@
 package com.finbourne.access.model;
 
 import java.util.Objects;
-import com.finbourne.access.model.IfFeatureChainExpression;
 import com.finbourne.access.model.IfIdentityClaimExpression;
 import com.finbourne.access.model.IfIdentityScopeExpression;
 import com.finbourne.access.model.IfRequestHeaderExpression;
+import com.finbourne.access.model.IfViaApiExpression;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -65,9 +65,9 @@ public class IfExpression {
   @SerializedName(SERIALIZED_NAME_IF_IDENTITY_SCOPE_EXPRESSION)
   private IfIdentityScopeExpression ifIdentityScopeExpression;
 
-  public static final String SERIALIZED_NAME_IF_FEATURE_CHAIN_EXPRESSION = "ifFeatureChainExpression";
-  @SerializedName(SERIALIZED_NAME_IF_FEATURE_CHAIN_EXPRESSION)
-  private IfFeatureChainExpression ifFeatureChainExpression;
+  public static final String SERIALIZED_NAME_IF_VIA_API_EXPRESSION = "ifViaApiExpression";
+  @SerializedName(SERIALIZED_NAME_IF_VIA_API_EXPRESSION)
+  private IfViaApiExpression ifViaApiExpression;
 
   public IfExpression() {
   }
@@ -135,24 +135,24 @@ public class IfExpression {
   }
 
 
-  public IfExpression ifFeatureChainExpression(IfFeatureChainExpression ifFeatureChainExpression) {
+  public IfExpression ifViaApiExpression(IfViaApiExpression ifViaApiExpression) {
     
-    this.ifFeatureChainExpression = ifFeatureChainExpression;
+    this.ifViaApiExpression = ifViaApiExpression;
     return this;
   }
 
    /**
-   * Get ifFeatureChainExpression
-   * @return ifFeatureChainExpression
+   * Get ifViaApiExpression
+   * @return ifViaApiExpression
   **/
   @jakarta.annotation.Nullable
-  public IfFeatureChainExpression getIfFeatureChainExpression() {
-    return ifFeatureChainExpression;
+  public IfViaApiExpression getIfViaApiExpression() {
+    return ifViaApiExpression;
   }
 
 
-  public void setIfFeatureChainExpression(IfFeatureChainExpression ifFeatureChainExpression) {
-    this.ifFeatureChainExpression = ifFeatureChainExpression;
+  public void setIfViaApiExpression(IfViaApiExpression ifViaApiExpression) {
+    this.ifViaApiExpression = ifViaApiExpression;
   }
 
 
@@ -169,12 +169,12 @@ public class IfExpression {
     return Objects.equals(this.ifRequestHeaderExpression, ifExpression.ifRequestHeaderExpression) &&
         Objects.equals(this.ifIdentityClaimExpression, ifExpression.ifIdentityClaimExpression) &&
         Objects.equals(this.ifIdentityScopeExpression, ifExpression.ifIdentityScopeExpression) &&
-        Objects.equals(this.ifFeatureChainExpression, ifExpression.ifFeatureChainExpression);
+        Objects.equals(this.ifViaApiExpression, ifExpression.ifViaApiExpression);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(ifRequestHeaderExpression, ifIdentityClaimExpression, ifIdentityScopeExpression, ifFeatureChainExpression);
+    return Objects.hash(ifRequestHeaderExpression, ifIdentityClaimExpression, ifIdentityScopeExpression, ifViaApiExpression);
   }
 
   @Override
@@ -184,7 +184,7 @@ public class IfExpression {
     sb.append("    ifRequestHeaderExpression: ").append(toIndentedString(ifRequestHeaderExpression)).append("\n");
     sb.append("    ifIdentityClaimExpression: ").append(toIndentedString(ifIdentityClaimExpression)).append("\n");
     sb.append("    ifIdentityScopeExpression: ").append(toIndentedString(ifIdentityScopeExpression)).append("\n");
-    sb.append("    ifFeatureChainExpression: ").append(toIndentedString(ifFeatureChainExpression)).append("\n");
+    sb.append("    ifViaApiExpression: ").append(toIndentedString(ifViaApiExpression)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -210,7 +210,7 @@ public class IfExpression {
     openapiFields.add("ifRequestHeaderExpression");
     openapiFields.add("ifIdentityClaimExpression");
     openapiFields.add("ifIdentityScopeExpression");
-    openapiFields.add("ifFeatureChainExpression");
+    openapiFields.add("ifViaApiExpression");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -241,9 +241,9 @@ public class IfExpression {
       if (jsonObj.get("ifIdentityScopeExpression") != null && !jsonObj.get("ifIdentityScopeExpression").isJsonNull()) {
         IfIdentityScopeExpression.validateJsonElement(jsonObj.get("ifIdentityScopeExpression"));
       }
-      // validate the optional field `ifFeatureChainExpression`
-      if (jsonObj.get("ifFeatureChainExpression") != null && !jsonObj.get("ifFeatureChainExpression").isJsonNull()) {
-        IfFeatureChainExpression.validateJsonElement(jsonObj.get("ifFeatureChainExpression"));
+      // validate the optional field `ifViaApiExpression`
+      if (jsonObj.get("ifViaApiExpression") != null && !jsonObj.get("ifViaApiExpression").isJsonNull()) {
+        IfViaApiExpression.validateJsonElement(jsonObj.get("ifViaApiExpression"));
       }
   }
 

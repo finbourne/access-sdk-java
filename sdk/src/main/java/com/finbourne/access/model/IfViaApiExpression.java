@@ -11,7 +11,6 @@
 package com.finbourne.access.model;
 
 import java.util.Objects;
-import com.finbourne.access.model.SelectorDefinition;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -48,43 +47,43 @@ import java.util.Set;
 import com.finbourne.access.JSON;
 
 /**
- * IfFeatureChainExpression
+ * IfViaApiExpression
  */
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
-public class IfFeatureChainExpression {
-  public static final String SERIALIZED_NAME_SELECTORS = "selectors";
-  @SerializedName(SERIALIZED_NAME_SELECTORS)
-  private List<SelectorDefinition> selectors = new ArrayList<>();
+public class IfViaApiExpression {
+  public static final String SERIALIZED_NAME_API_FEATURE_CODES = "apiFeatureCodes";
+  @SerializedName(SERIALIZED_NAME_API_FEATURE_CODES)
+  private List<String> apiFeatureCodes = new ArrayList<>();
 
-  public IfFeatureChainExpression() {
+  public IfViaApiExpression() {
   }
 
-  public IfFeatureChainExpression selectors(List<SelectorDefinition> selectors) {
+  public IfViaApiExpression apiFeatureCodes(List<String> apiFeatureCodes) {
     
-    this.selectors = selectors;
+    this.apiFeatureCodes = apiFeatureCodes;
     return this;
   }
 
-  public IfFeatureChainExpression addSelectorsItem(SelectorDefinition selectorsItem) {
-    if (this.selectors == null) {
-      this.selectors = new ArrayList<>();
+  public IfViaApiExpression addApiFeatureCodesItem(String apiFeatureCodesItem) {
+    if (this.apiFeatureCodes == null) {
+      this.apiFeatureCodes = new ArrayList<>();
     }
-    this.selectors.add(selectorsItem);
+    this.apiFeatureCodes.add(apiFeatureCodesItem);
     return this;
   }
 
    /**
-   * Get selectors
-   * @return selectors
+   * Get apiFeatureCodes
+   * @return apiFeatureCodes
   **/
   @jakarta.annotation.Nonnull
-  public List<SelectorDefinition> getSelectors() {
-    return selectors;
+  public List<String> getApiFeatureCodes() {
+    return apiFeatureCodes;
   }
 
 
-  public void setSelectors(List<SelectorDefinition> selectors) {
-    this.selectors = selectors;
+  public void setApiFeatureCodes(List<String> apiFeatureCodes) {
+    this.apiFeatureCodes = apiFeatureCodes;
   }
 
 
@@ -97,20 +96,20 @@ public class IfFeatureChainExpression {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    IfFeatureChainExpression ifFeatureChainExpression = (IfFeatureChainExpression) o;
-    return Objects.equals(this.selectors, ifFeatureChainExpression.selectors);
+    IfViaApiExpression ifViaApiExpression = (IfViaApiExpression) o;
+    return Objects.equals(this.apiFeatureCodes, ifViaApiExpression.apiFeatureCodes);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(selectors);
+    return Objects.hash(apiFeatureCodes);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class IfFeatureChainExpression {\n");
-    sb.append("    selectors: ").append(toIndentedString(selectors)).append("\n");
+    sb.append("class IfViaApiExpression {\n");
+    sb.append("    apiFeatureCodes: ").append(toIndentedString(apiFeatureCodes)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -133,65 +132,61 @@ public class IfFeatureChainExpression {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("selectors");
+    openapiFields.add("apiFeatureCodes");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("selectors");
+    openapiRequiredFields.add("apiFeatureCodes");
   }
 
  /**
   * Validates the JSON Element and throws an exception if issues found
   *
   * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to IfFeatureChainExpression
+  * @throws IOException if the JSON Element is invalid with respect to IfViaApiExpression
   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
-        if (!IfFeatureChainExpression.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in IfFeatureChainExpression is not found in the empty JSON string", IfFeatureChainExpression.openapiRequiredFields.toString()));
+        if (!IfViaApiExpression.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in IfViaApiExpression is not found in the empty JSON string", IfViaApiExpression.openapiRequiredFields.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : IfFeatureChainExpression.openapiRequiredFields) {
+      for (String requiredField : IfViaApiExpression.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
           throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      // ensure the json data is an array
-      if (!jsonObj.get("selectors").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `selectors` to be an array in the JSON string but got `%s`", jsonObj.get("selectors").toString()));
+      // ensure the required json array is present
+      if (jsonObj.get("apiFeatureCodes") == null) {
+        throw new IllegalArgumentException("Expected the field `linkedContent` to be an array in the JSON string but got `null`");
+      } else if (!jsonObj.get("apiFeatureCodes").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `apiFeatureCodes` to be an array in the JSON string but got `%s`", jsonObj.get("apiFeatureCodes").toString()));
       }
-
-      JsonArray jsonArrayselectors = jsonObj.getAsJsonArray("selectors");
-      // validate the required field `selectors` (array)
-      for (int i = 0; i < jsonArrayselectors.size(); i++) {
-        SelectorDefinition.validateJsonElement(jsonArrayselectors.get(i));
-      };
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!IfFeatureChainExpression.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'IfFeatureChainExpression' and its subtypes
+       if (!IfViaApiExpression.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'IfViaApiExpression' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<IfFeatureChainExpression> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(IfFeatureChainExpression.class));
+       final TypeAdapter<IfViaApiExpression> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(IfViaApiExpression.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<IfFeatureChainExpression>() {
+       return (TypeAdapter<T>) new TypeAdapter<IfViaApiExpression>() {
            @Override
-           public void write(JsonWriter out, IfFeatureChainExpression value) throws IOException {
+           public void write(JsonWriter out, IfViaApiExpression value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              elementAdapter.write(out, obj);
            }
 
            @Override
-           public IfFeatureChainExpression read(JsonReader in) throws IOException {
+           public IfViaApiExpression read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              validateJsonElement(jsonElement);
              return thisAdapter.fromJsonTree(jsonElement);
@@ -202,18 +197,18 @@ public class IfFeatureChainExpression {
   }
 
  /**
-  * Create an instance of IfFeatureChainExpression given an JSON string
+  * Create an instance of IfViaApiExpression given an JSON string
   *
   * @param jsonString JSON string
-  * @return An instance of IfFeatureChainExpression
-  * @throws IOException if the JSON string is invalid with respect to IfFeatureChainExpression
+  * @return An instance of IfViaApiExpression
+  * @throws IOException if the JSON string is invalid with respect to IfViaApiExpression
   */
-  public static IfFeatureChainExpression fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, IfFeatureChainExpression.class);
+  public static IfViaApiExpression fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, IfViaApiExpression.class);
   }
 
  /**
-  * Convert an instance of IfFeatureChainExpression to an JSON string
+  * Convert an instance of IfViaApiExpression to an JSON string
   *
   * @return JSON string
   */

@@ -40,7 +40,7 @@ info:
     | <a name="939">939</a>|Blocked by a Network Zone| |
   termsOfService: https://www.finbourne.com/legal/terms-conditions
   title: FINBOURNE Access Management API
-  version: 0.0.4255
+  version: 0.0.4328
   x-logo:
     url: https://www.lusid.com/app/assets/logo_white.png
     backgroundColor: '#415464'
@@ -6165,122 +6165,16 @@ components:
               scope: scope
               entity: entity
         if:
-        - ifFeatureChainExpression:
-            selectors:
-            - metadataSelectorDefinition:
-                name: name
-                description: description
-                expressions:
-                - metadataKey: metadataKey
-                  textValue: textValue
-                  operator: null
-                - metadataKey: metadataKey
-                  textValue: textValue
-                  operator: null
-                actions:
-                - activity: activity
-                  scope: scope
-                  entity: entity
-                - activity: activity
-                  scope: scope
-                  entity: entity
-              idSelectorDefinition:
-                identifier:
-                  key: identifier
-                name: name
-                description: description
-                actions:
-                - activity: activity
-                  scope: scope
-                  entity: entity
-                - activity: activity
-                  scope: scope
-                  entity: entity
-              policySelectorDefinition:
-                identityRestriction:
-                  key: identityRestriction
-                name: name
-                description: description
-                restrictionSelectors:
-                - null
-                - null
-                actions:
-                - activity: activity
-                  scope: scope
-                  entity: entity
-                - activity: activity
-                  scope: scope
-                  entity: entity
-              matchAllSelectorDefinition:
-                name: name
-                description: description
-                actions:
-                - activity: activity
-                  scope: scope
-                  entity: entity
-                - activity: activity
-                  scope: scope
-                  entity: entity
-            - metadataSelectorDefinition:
-                name: name
-                description: description
-                expressions:
-                - metadataKey: metadataKey
-                  textValue: textValue
-                  operator: null
-                - metadataKey: metadataKey
-                  textValue: textValue
-                  operator: null
-                actions:
-                - activity: activity
-                  scope: scope
-                  entity: entity
-                - activity: activity
-                  scope: scope
-                  entity: entity
-              idSelectorDefinition:
-                identifier:
-                  key: identifier
-                name: name
-                description: description
-                actions:
-                - activity: activity
-                  scope: scope
-                  entity: entity
-                - activity: activity
-                  scope: scope
-                  entity: entity
-              policySelectorDefinition:
-                identityRestriction:
-                  key: identityRestriction
-                name: name
-                description: description
-                restrictionSelectors:
-                - null
-                - null
-                actions:
-                - activity: activity
-                  scope: scope
-                  entity: entity
-                - activity: activity
-                  scope: scope
-                  entity: entity
-              matchAllSelectorDefinition:
-                name: name
-                description: description
-                actions:
-                - activity: activity
-                  scope: scope
-                  entity: entity
-                - activity: activity
-                  scope: scope
-                  entity: entity
-          ifIdentityScopeExpression:
+        - ifIdentityScopeExpression:
             scopeName: scopeName
           ifRequestHeaderExpression:
             headerName: headerName
             value: value
             operator: null
+          ifViaApiExpression:
+            apiFeatureCodes:
+            - apiFeatureCodes
+            - apiFeatureCodes
           ifIdentityClaimExpression:
             claimType: claimType
             claimValueType: claimValueType
@@ -6288,122 +6182,16 @@ components:
             claimIssuer: claimIssuer
             value: value
             operator: null
-        - ifFeatureChainExpression:
-            selectors:
-            - metadataSelectorDefinition:
-                name: name
-                description: description
-                expressions:
-                - metadataKey: metadataKey
-                  textValue: textValue
-                  operator: null
-                - metadataKey: metadataKey
-                  textValue: textValue
-                  operator: null
-                actions:
-                - activity: activity
-                  scope: scope
-                  entity: entity
-                - activity: activity
-                  scope: scope
-                  entity: entity
-              idSelectorDefinition:
-                identifier:
-                  key: identifier
-                name: name
-                description: description
-                actions:
-                - activity: activity
-                  scope: scope
-                  entity: entity
-                - activity: activity
-                  scope: scope
-                  entity: entity
-              policySelectorDefinition:
-                identityRestriction:
-                  key: identityRestriction
-                name: name
-                description: description
-                restrictionSelectors:
-                - null
-                - null
-                actions:
-                - activity: activity
-                  scope: scope
-                  entity: entity
-                - activity: activity
-                  scope: scope
-                  entity: entity
-              matchAllSelectorDefinition:
-                name: name
-                description: description
-                actions:
-                - activity: activity
-                  scope: scope
-                  entity: entity
-                - activity: activity
-                  scope: scope
-                  entity: entity
-            - metadataSelectorDefinition:
-                name: name
-                description: description
-                expressions:
-                - metadataKey: metadataKey
-                  textValue: textValue
-                  operator: null
-                - metadataKey: metadataKey
-                  textValue: textValue
-                  operator: null
-                actions:
-                - activity: activity
-                  scope: scope
-                  entity: entity
-                - activity: activity
-                  scope: scope
-                  entity: entity
-              idSelectorDefinition:
-                identifier:
-                  key: identifier
-                name: name
-                description: description
-                actions:
-                - activity: activity
-                  scope: scope
-                  entity: entity
-                - activity: activity
-                  scope: scope
-                  entity: entity
-              policySelectorDefinition:
-                identityRestriction:
-                  key: identityRestriction
-                name: name
-                description: description
-                restrictionSelectors:
-                - null
-                - null
-                actions:
-                - activity: activity
-                  scope: scope
-                  entity: entity
-                - activity: activity
-                  scope: scope
-                  entity: entity
-              matchAllSelectorDefinition:
-                name: name
-                description: description
-                actions:
-                - activity: activity
-                  scope: scope
-                  entity: entity
-                - activity: activity
-                  scope: scope
-                  entity: entity
-          ifIdentityScopeExpression:
+        - ifIdentityScopeExpression:
             scopeName: scopeName
           ifRequestHeaderExpression:
             headerName: headerName
             value: value
             operator: null
+          ifViaApiExpression:
+            apiFeatureCodes:
+            - apiFeatureCodes
+            - apiFeatureCodes
           ifIdentityClaimExpression:
             claimType: claimType
             claimValueType: claimValueType
@@ -7201,122 +6989,16 @@ components:
     IfExpression:
       additionalProperties: false
       example:
-        ifFeatureChainExpression:
-          selectors:
-          - metadataSelectorDefinition:
-              name: name
-              description: description
-              expressions:
-              - metadataKey: metadataKey
-                textValue: textValue
-                operator: null
-              - metadataKey: metadataKey
-                textValue: textValue
-                operator: null
-              actions:
-              - activity: activity
-                scope: scope
-                entity: entity
-              - activity: activity
-                scope: scope
-                entity: entity
-            idSelectorDefinition:
-              identifier:
-                key: identifier
-              name: name
-              description: description
-              actions:
-              - activity: activity
-                scope: scope
-                entity: entity
-              - activity: activity
-                scope: scope
-                entity: entity
-            policySelectorDefinition:
-              identityRestriction:
-                key: identityRestriction
-              name: name
-              description: description
-              restrictionSelectors:
-              - null
-              - null
-              actions:
-              - activity: activity
-                scope: scope
-                entity: entity
-              - activity: activity
-                scope: scope
-                entity: entity
-            matchAllSelectorDefinition:
-              name: name
-              description: description
-              actions:
-              - activity: activity
-                scope: scope
-                entity: entity
-              - activity: activity
-                scope: scope
-                entity: entity
-          - metadataSelectorDefinition:
-              name: name
-              description: description
-              expressions:
-              - metadataKey: metadataKey
-                textValue: textValue
-                operator: null
-              - metadataKey: metadataKey
-                textValue: textValue
-                operator: null
-              actions:
-              - activity: activity
-                scope: scope
-                entity: entity
-              - activity: activity
-                scope: scope
-                entity: entity
-            idSelectorDefinition:
-              identifier:
-                key: identifier
-              name: name
-              description: description
-              actions:
-              - activity: activity
-                scope: scope
-                entity: entity
-              - activity: activity
-                scope: scope
-                entity: entity
-            policySelectorDefinition:
-              identityRestriction:
-                key: identityRestriction
-              name: name
-              description: description
-              restrictionSelectors:
-              - null
-              - null
-              actions:
-              - activity: activity
-                scope: scope
-                entity: entity
-              - activity: activity
-                scope: scope
-                entity: entity
-            matchAllSelectorDefinition:
-              name: name
-              description: description
-              actions:
-              - activity: activity
-                scope: scope
-                entity: entity
-              - activity: activity
-                scope: scope
-                entity: entity
         ifIdentityScopeExpression:
           scopeName: scopeName
         ifRequestHeaderExpression:
           headerName: headerName
           value: value
           operator: null
+        ifViaApiExpression:
+          apiFeatureCodes:
+          - apiFeatureCodes
+          - apiFeatureCodes
         ifIdentityClaimExpression:
           claimType: claimType
           claimValueType: claimValueType
@@ -7331,128 +7013,8 @@ components:
           $ref: '#/components/schemas/IfIdentityClaimExpression'
         ifIdentityScopeExpression:
           $ref: '#/components/schemas/IfIdentityScopeExpression'
-        ifFeatureChainExpression:
-          $ref: '#/components/schemas/IfFeatureChainExpression'
-      type: object
-    IfFeatureChainExpression:
-      additionalProperties: false
-      example:
-        selectors:
-        - metadataSelectorDefinition:
-            name: name
-            description: description
-            expressions:
-            - metadataKey: metadataKey
-              textValue: textValue
-              operator: null
-            - metadataKey: metadataKey
-              textValue: textValue
-              operator: null
-            actions:
-            - activity: activity
-              scope: scope
-              entity: entity
-            - activity: activity
-              scope: scope
-              entity: entity
-          idSelectorDefinition:
-            identifier:
-              key: identifier
-            name: name
-            description: description
-            actions:
-            - activity: activity
-              scope: scope
-              entity: entity
-            - activity: activity
-              scope: scope
-              entity: entity
-          policySelectorDefinition:
-            identityRestriction:
-              key: identityRestriction
-            name: name
-            description: description
-            restrictionSelectors:
-            - null
-            - null
-            actions:
-            - activity: activity
-              scope: scope
-              entity: entity
-            - activity: activity
-              scope: scope
-              entity: entity
-          matchAllSelectorDefinition:
-            name: name
-            description: description
-            actions:
-            - activity: activity
-              scope: scope
-              entity: entity
-            - activity: activity
-              scope: scope
-              entity: entity
-        - metadataSelectorDefinition:
-            name: name
-            description: description
-            expressions:
-            - metadataKey: metadataKey
-              textValue: textValue
-              operator: null
-            - metadataKey: metadataKey
-              textValue: textValue
-              operator: null
-            actions:
-            - activity: activity
-              scope: scope
-              entity: entity
-            - activity: activity
-              scope: scope
-              entity: entity
-          idSelectorDefinition:
-            identifier:
-              key: identifier
-            name: name
-            description: description
-            actions:
-            - activity: activity
-              scope: scope
-              entity: entity
-            - activity: activity
-              scope: scope
-              entity: entity
-          policySelectorDefinition:
-            identityRestriction:
-              key: identityRestriction
-            name: name
-            description: description
-            restrictionSelectors:
-            - null
-            - null
-            actions:
-            - activity: activity
-              scope: scope
-              entity: entity
-            - activity: activity
-              scope: scope
-              entity: entity
-          matchAllSelectorDefinition:
-            name: name
-            description: description
-            actions:
-            - activity: activity
-              scope: scope
-              entity: entity
-            - activity: activity
-              scope: scope
-              entity: entity
-      properties:
-        selectors:
-          items:
-            $ref: '#/components/schemas/SelectorDefinition'
-          type: array
-      required:
-      - selectors
+        ifViaApiExpression:
+          $ref: '#/components/schemas/IfViaApiExpression'
       type: object
     IfIdentityClaimExpression:
       additionalProperties: false
@@ -7518,6 +7080,21 @@ components:
       required:
       - headerName
       - operator
+      type: object
+    IfViaApiExpression:
+      additionalProperties: false
+      example:
+        apiFeatureCodes:
+        - apiFeatureCodes
+        - apiFeatureCodes
+      properties:
+        apiFeatureCodes:
+          items:
+            type: string
+          minItems: 1
+          type: array
+      required:
+      - apiFeatureCodes
       type: object
     KeyValuePairOfStringToString:
       additionalProperties: false
@@ -8133,122 +7710,16 @@ components:
               scope: scope
               entity: entity
         if:
-        - ifFeatureChainExpression:
-            selectors:
-            - metadataSelectorDefinition:
-                name: name
-                description: description
-                expressions:
-                - metadataKey: metadataKey
-                  textValue: textValue
-                  operator: null
-                - metadataKey: metadataKey
-                  textValue: textValue
-                  operator: null
-                actions:
-                - activity: activity
-                  scope: scope
-                  entity: entity
-                - activity: activity
-                  scope: scope
-                  entity: entity
-              idSelectorDefinition:
-                identifier:
-                  key: identifier
-                name: name
-                description: description
-                actions:
-                - activity: activity
-                  scope: scope
-                  entity: entity
-                - activity: activity
-                  scope: scope
-                  entity: entity
-              policySelectorDefinition:
-                identityRestriction:
-                  key: identityRestriction
-                name: name
-                description: description
-                restrictionSelectors:
-                - null
-                - null
-                actions:
-                - activity: activity
-                  scope: scope
-                  entity: entity
-                - activity: activity
-                  scope: scope
-                  entity: entity
-              matchAllSelectorDefinition:
-                name: name
-                description: description
-                actions:
-                - activity: activity
-                  scope: scope
-                  entity: entity
-                - activity: activity
-                  scope: scope
-                  entity: entity
-            - metadataSelectorDefinition:
-                name: name
-                description: description
-                expressions:
-                - metadataKey: metadataKey
-                  textValue: textValue
-                  operator: null
-                - metadataKey: metadataKey
-                  textValue: textValue
-                  operator: null
-                actions:
-                - activity: activity
-                  scope: scope
-                  entity: entity
-                - activity: activity
-                  scope: scope
-                  entity: entity
-              idSelectorDefinition:
-                identifier:
-                  key: identifier
-                name: name
-                description: description
-                actions:
-                - activity: activity
-                  scope: scope
-                  entity: entity
-                - activity: activity
-                  scope: scope
-                  entity: entity
-              policySelectorDefinition:
-                identityRestriction:
-                  key: identityRestriction
-                name: name
-                description: description
-                restrictionSelectors:
-                - null
-                - null
-                actions:
-                - activity: activity
-                  scope: scope
-                  entity: entity
-                - activity: activity
-                  scope: scope
-                  entity: entity
-              matchAllSelectorDefinition:
-                name: name
-                description: description
-                actions:
-                - activity: activity
-                  scope: scope
-                  entity: entity
-                - activity: activity
-                  scope: scope
-                  entity: entity
-          ifIdentityScopeExpression:
+        - ifIdentityScopeExpression:
             scopeName: scopeName
           ifRequestHeaderExpression:
             headerName: headerName
             value: value
             operator: null
+          ifViaApiExpression:
+            apiFeatureCodes:
+            - apiFeatureCodes
+            - apiFeatureCodes
           ifIdentityClaimExpression:
             claimType: claimType
             claimValueType: claimValueType
@@ -8256,122 +7727,16 @@ components:
             claimIssuer: claimIssuer
             value: value
             operator: null
-        - ifFeatureChainExpression:
-            selectors:
-            - metadataSelectorDefinition:
-                name: name
-                description: description
-                expressions:
-                - metadataKey: metadataKey
-                  textValue: textValue
-                  operator: null
-                - metadataKey: metadataKey
-                  textValue: textValue
-                  operator: null
-                actions:
-                - activity: activity
-                  scope: scope
-                  entity: entity
-                - activity: activity
-                  scope: scope
-                  entity: entity
-              idSelectorDefinition:
-                identifier:
-                  key: identifier
-                name: name
-                description: description
-                actions:
-                - activity: activity
-                  scope: scope
-                  entity: entity
-                - activity: activity
-                  scope: scope
-                  entity: entity
-              policySelectorDefinition:
-                identityRestriction:
-                  key: identityRestriction
-                name: name
-                description: description
-                restrictionSelectors:
-                - null
-                - null
-                actions:
-                - activity: activity
-                  scope: scope
-                  entity: entity
-                - activity: activity
-                  scope: scope
-                  entity: entity
-              matchAllSelectorDefinition:
-                name: name
-                description: description
-                actions:
-                - activity: activity
-                  scope: scope
-                  entity: entity
-                - activity: activity
-                  scope: scope
-                  entity: entity
-            - metadataSelectorDefinition:
-                name: name
-                description: description
-                expressions:
-                - metadataKey: metadataKey
-                  textValue: textValue
-                  operator: null
-                - metadataKey: metadataKey
-                  textValue: textValue
-                  operator: null
-                actions:
-                - activity: activity
-                  scope: scope
-                  entity: entity
-                - activity: activity
-                  scope: scope
-                  entity: entity
-              idSelectorDefinition:
-                identifier:
-                  key: identifier
-                name: name
-                description: description
-                actions:
-                - activity: activity
-                  scope: scope
-                  entity: entity
-                - activity: activity
-                  scope: scope
-                  entity: entity
-              policySelectorDefinition:
-                identityRestriction:
-                  key: identityRestriction
-                name: name
-                description: description
-                restrictionSelectors:
-                - null
-                - null
-                actions:
-                - activity: activity
-                  scope: scope
-                  entity: entity
-                - activity: activity
-                  scope: scope
-                  entity: entity
-              matchAllSelectorDefinition:
-                name: name
-                description: description
-                actions:
-                - activity: activity
-                  scope: scope
-                  entity: entity
-                - activity: activity
-                  scope: scope
-                  entity: entity
-          ifIdentityScopeExpression:
+        - ifIdentityScopeExpression:
             scopeName: scopeName
           ifRequestHeaderExpression:
             headerName: headerName
             value: value
             operator: null
+          ifViaApiExpression:
+            apiFeatureCodes:
+            - apiFeatureCodes
+            - apiFeatureCodes
           ifIdentityClaimExpression:
             claimType: claimType
             claimValueType: claimValueType
@@ -8674,122 +8039,16 @@ components:
               scope: scope
               entity: entity
         if:
-        - ifFeatureChainExpression:
-            selectors:
-            - metadataSelectorDefinition:
-                name: name
-                description: description
-                expressions:
-                - metadataKey: metadataKey
-                  textValue: textValue
-                  operator: null
-                - metadataKey: metadataKey
-                  textValue: textValue
-                  operator: null
-                actions:
-                - activity: activity
-                  scope: scope
-                  entity: entity
-                - activity: activity
-                  scope: scope
-                  entity: entity
-              idSelectorDefinition:
-                identifier:
-                  key: identifier
-                name: name
-                description: description
-                actions:
-                - activity: activity
-                  scope: scope
-                  entity: entity
-                - activity: activity
-                  scope: scope
-                  entity: entity
-              policySelectorDefinition:
-                identityRestriction:
-                  key: identityRestriction
-                name: name
-                description: description
-                restrictionSelectors:
-                - null
-                - null
-                actions:
-                - activity: activity
-                  scope: scope
-                  entity: entity
-                - activity: activity
-                  scope: scope
-                  entity: entity
-              matchAllSelectorDefinition:
-                name: name
-                description: description
-                actions:
-                - activity: activity
-                  scope: scope
-                  entity: entity
-                - activity: activity
-                  scope: scope
-                  entity: entity
-            - metadataSelectorDefinition:
-                name: name
-                description: description
-                expressions:
-                - metadataKey: metadataKey
-                  textValue: textValue
-                  operator: null
-                - metadataKey: metadataKey
-                  textValue: textValue
-                  operator: null
-                actions:
-                - activity: activity
-                  scope: scope
-                  entity: entity
-                - activity: activity
-                  scope: scope
-                  entity: entity
-              idSelectorDefinition:
-                identifier:
-                  key: identifier
-                name: name
-                description: description
-                actions:
-                - activity: activity
-                  scope: scope
-                  entity: entity
-                - activity: activity
-                  scope: scope
-                  entity: entity
-              policySelectorDefinition:
-                identityRestriction:
-                  key: identityRestriction
-                name: name
-                description: description
-                restrictionSelectors:
-                - null
-                - null
-                actions:
-                - activity: activity
-                  scope: scope
-                  entity: entity
-                - activity: activity
-                  scope: scope
-                  entity: entity
-              matchAllSelectorDefinition:
-                name: name
-                description: description
-                actions:
-                - activity: activity
-                  scope: scope
-                  entity: entity
-                - activity: activity
-                  scope: scope
-                  entity: entity
-          ifIdentityScopeExpression:
+        - ifIdentityScopeExpression:
             scopeName: scopeName
           ifRequestHeaderExpression:
             headerName: headerName
             value: value
             operator: null
+          ifViaApiExpression:
+            apiFeatureCodes:
+            - apiFeatureCodes
+            - apiFeatureCodes
           ifIdentityClaimExpression:
             claimType: claimType
             claimValueType: claimValueType
@@ -8797,122 +8056,16 @@ components:
             claimIssuer: claimIssuer
             value: value
             operator: null
-        - ifFeatureChainExpression:
-            selectors:
-            - metadataSelectorDefinition:
-                name: name
-                description: description
-                expressions:
-                - metadataKey: metadataKey
-                  textValue: textValue
-                  operator: null
-                - metadataKey: metadataKey
-                  textValue: textValue
-                  operator: null
-                actions:
-                - activity: activity
-                  scope: scope
-                  entity: entity
-                - activity: activity
-                  scope: scope
-                  entity: entity
-              idSelectorDefinition:
-                identifier:
-                  key: identifier
-                name: name
-                description: description
-                actions:
-                - activity: activity
-                  scope: scope
-                  entity: entity
-                - activity: activity
-                  scope: scope
-                  entity: entity
-              policySelectorDefinition:
-                identityRestriction:
-                  key: identityRestriction
-                name: name
-                description: description
-                restrictionSelectors:
-                - null
-                - null
-                actions:
-                - activity: activity
-                  scope: scope
-                  entity: entity
-                - activity: activity
-                  scope: scope
-                  entity: entity
-              matchAllSelectorDefinition:
-                name: name
-                description: description
-                actions:
-                - activity: activity
-                  scope: scope
-                  entity: entity
-                - activity: activity
-                  scope: scope
-                  entity: entity
-            - metadataSelectorDefinition:
-                name: name
-                description: description
-                expressions:
-                - metadataKey: metadataKey
-                  textValue: textValue
-                  operator: null
-                - metadataKey: metadataKey
-                  textValue: textValue
-                  operator: null
-                actions:
-                - activity: activity
-                  scope: scope
-                  entity: entity
-                - activity: activity
-                  scope: scope
-                  entity: entity
-              idSelectorDefinition:
-                identifier:
-                  key: identifier
-                name: name
-                description: description
-                actions:
-                - activity: activity
-                  scope: scope
-                  entity: entity
-                - activity: activity
-                  scope: scope
-                  entity: entity
-              policySelectorDefinition:
-                identityRestriction:
-                  key: identityRestriction
-                name: name
-                description: description
-                restrictionSelectors:
-                - null
-                - null
-                actions:
-                - activity: activity
-                  scope: scope
-                  entity: entity
-                - activity: activity
-                  scope: scope
-                  entity: entity
-              matchAllSelectorDefinition:
-                name: name
-                description: description
-                actions:
-                - activity: activity
-                  scope: scope
-                  entity: entity
-                - activity: activity
-                  scope: scope
-                  entity: entity
-          ifIdentityScopeExpression:
+        - ifIdentityScopeExpression:
             scopeName: scopeName
           ifRequestHeaderExpression:
             headerName: headerName
             value: value
             operator: null
+          ifViaApiExpression:
+            apiFeatureCodes:
+            - apiFeatureCodes
+            - apiFeatureCodes
           ifIdentityClaimExpression:
             claimType: claimType
             claimValueType: claimValueType
@@ -9742,122 +8895,16 @@ components:
               scope: scope
               entity: entity
         if:
-        - ifFeatureChainExpression:
-            selectors:
-            - metadataSelectorDefinition:
-                name: name
-                description: description
-                expressions:
-                - metadataKey: metadataKey
-                  textValue: textValue
-                  operator: null
-                - metadataKey: metadataKey
-                  textValue: textValue
-                  operator: null
-                actions:
-                - activity: activity
-                  scope: scope
-                  entity: entity
-                - activity: activity
-                  scope: scope
-                  entity: entity
-              idSelectorDefinition:
-                identifier:
-                  key: identifier
-                name: name
-                description: description
-                actions:
-                - activity: activity
-                  scope: scope
-                  entity: entity
-                - activity: activity
-                  scope: scope
-                  entity: entity
-              policySelectorDefinition:
-                identityRestriction:
-                  key: identityRestriction
-                name: name
-                description: description
-                restrictionSelectors:
-                - null
-                - null
-                actions:
-                - activity: activity
-                  scope: scope
-                  entity: entity
-                - activity: activity
-                  scope: scope
-                  entity: entity
-              matchAllSelectorDefinition:
-                name: name
-                description: description
-                actions:
-                - activity: activity
-                  scope: scope
-                  entity: entity
-                - activity: activity
-                  scope: scope
-                  entity: entity
-            - metadataSelectorDefinition:
-                name: name
-                description: description
-                expressions:
-                - metadataKey: metadataKey
-                  textValue: textValue
-                  operator: null
-                - metadataKey: metadataKey
-                  textValue: textValue
-                  operator: null
-                actions:
-                - activity: activity
-                  scope: scope
-                  entity: entity
-                - activity: activity
-                  scope: scope
-                  entity: entity
-              idSelectorDefinition:
-                identifier:
-                  key: identifier
-                name: name
-                description: description
-                actions:
-                - activity: activity
-                  scope: scope
-                  entity: entity
-                - activity: activity
-                  scope: scope
-                  entity: entity
-              policySelectorDefinition:
-                identityRestriction:
-                  key: identityRestriction
-                name: name
-                description: description
-                restrictionSelectors:
-                - null
-                - null
-                actions:
-                - activity: activity
-                  scope: scope
-                  entity: entity
-                - activity: activity
-                  scope: scope
-                  entity: entity
-              matchAllSelectorDefinition:
-                name: name
-                description: description
-                actions:
-                - activity: activity
-                  scope: scope
-                  entity: entity
-                - activity: activity
-                  scope: scope
-                  entity: entity
-          ifIdentityScopeExpression:
+        - ifIdentityScopeExpression:
             scopeName: scopeName
           ifRequestHeaderExpression:
             headerName: headerName
             value: value
             operator: null
+          ifViaApiExpression:
+            apiFeatureCodes:
+            - apiFeatureCodes
+            - apiFeatureCodes
           ifIdentityClaimExpression:
             claimType: claimType
             claimValueType: claimValueType
@@ -9865,122 +8912,16 @@ components:
             claimIssuer: claimIssuer
             value: value
             operator: null
-        - ifFeatureChainExpression:
-            selectors:
-            - metadataSelectorDefinition:
-                name: name
-                description: description
-                expressions:
-                - metadataKey: metadataKey
-                  textValue: textValue
-                  operator: null
-                - metadataKey: metadataKey
-                  textValue: textValue
-                  operator: null
-                actions:
-                - activity: activity
-                  scope: scope
-                  entity: entity
-                - activity: activity
-                  scope: scope
-                  entity: entity
-              idSelectorDefinition:
-                identifier:
-                  key: identifier
-                name: name
-                description: description
-                actions:
-                - activity: activity
-                  scope: scope
-                  entity: entity
-                - activity: activity
-                  scope: scope
-                  entity: entity
-              policySelectorDefinition:
-                identityRestriction:
-                  key: identityRestriction
-                name: name
-                description: description
-                restrictionSelectors:
-                - null
-                - null
-                actions:
-                - activity: activity
-                  scope: scope
-                  entity: entity
-                - activity: activity
-                  scope: scope
-                  entity: entity
-              matchAllSelectorDefinition:
-                name: name
-                description: description
-                actions:
-                - activity: activity
-                  scope: scope
-                  entity: entity
-                - activity: activity
-                  scope: scope
-                  entity: entity
-            - metadataSelectorDefinition:
-                name: name
-                description: description
-                expressions:
-                - metadataKey: metadataKey
-                  textValue: textValue
-                  operator: null
-                - metadataKey: metadataKey
-                  textValue: textValue
-                  operator: null
-                actions:
-                - activity: activity
-                  scope: scope
-                  entity: entity
-                - activity: activity
-                  scope: scope
-                  entity: entity
-              idSelectorDefinition:
-                identifier:
-                  key: identifier
-                name: name
-                description: description
-                actions:
-                - activity: activity
-                  scope: scope
-                  entity: entity
-                - activity: activity
-                  scope: scope
-                  entity: entity
-              policySelectorDefinition:
-                identityRestriction:
-                  key: identityRestriction
-                name: name
-                description: description
-                restrictionSelectors:
-                - null
-                - null
-                actions:
-                - activity: activity
-                  scope: scope
-                  entity: entity
-                - activity: activity
-                  scope: scope
-                  entity: entity
-              matchAllSelectorDefinition:
-                name: name
-                description: description
-                actions:
-                - activity: activity
-                  scope: scope
-                  entity: entity
-                - activity: activity
-                  scope: scope
-                  entity: entity
-          ifIdentityScopeExpression:
+        - ifIdentityScopeExpression:
             scopeName: scopeName
           ifRequestHeaderExpression:
             headerName: headerName
             value: value
             operator: null
+          ifViaApiExpression:
+            apiFeatureCodes:
+            - apiFeatureCodes
+            - apiFeatureCodes
           ifIdentityClaimExpression:
             claimType: claimType
             claimValueType: claimValueType
@@ -10732,122 +9673,16 @@ components:
                 scope: scope
                 entity: entity
           if:
-          - ifFeatureChainExpression:
-              selectors:
-              - metadataSelectorDefinition:
-                  name: name
-                  description: description
-                  expressions:
-                  - metadataKey: metadataKey
-                    textValue: textValue
-                    operator: null
-                  - metadataKey: metadataKey
-                    textValue: textValue
-                    operator: null
-                  actions:
-                  - activity: activity
-                    scope: scope
-                    entity: entity
-                  - activity: activity
-                    scope: scope
-                    entity: entity
-                idSelectorDefinition:
-                  identifier:
-                    key: identifier
-                  name: name
-                  description: description
-                  actions:
-                  - activity: activity
-                    scope: scope
-                    entity: entity
-                  - activity: activity
-                    scope: scope
-                    entity: entity
-                policySelectorDefinition:
-                  identityRestriction:
-                    key: identityRestriction
-                  name: name
-                  description: description
-                  restrictionSelectors:
-                  - null
-                  - null
-                  actions:
-                  - activity: activity
-                    scope: scope
-                    entity: entity
-                  - activity: activity
-                    scope: scope
-                    entity: entity
-                matchAllSelectorDefinition:
-                  name: name
-                  description: description
-                  actions:
-                  - activity: activity
-                    scope: scope
-                    entity: entity
-                  - activity: activity
-                    scope: scope
-                    entity: entity
-              - metadataSelectorDefinition:
-                  name: name
-                  description: description
-                  expressions:
-                  - metadataKey: metadataKey
-                    textValue: textValue
-                    operator: null
-                  - metadataKey: metadataKey
-                    textValue: textValue
-                    operator: null
-                  actions:
-                  - activity: activity
-                    scope: scope
-                    entity: entity
-                  - activity: activity
-                    scope: scope
-                    entity: entity
-                idSelectorDefinition:
-                  identifier:
-                    key: identifier
-                  name: name
-                  description: description
-                  actions:
-                  - activity: activity
-                    scope: scope
-                    entity: entity
-                  - activity: activity
-                    scope: scope
-                    entity: entity
-                policySelectorDefinition:
-                  identityRestriction:
-                    key: identityRestriction
-                  name: name
-                  description: description
-                  restrictionSelectors:
-                  - null
-                  - null
-                  actions:
-                  - activity: activity
-                    scope: scope
-                    entity: entity
-                  - activity: activity
-                    scope: scope
-                    entity: entity
-                matchAllSelectorDefinition:
-                  name: name
-                  description: description
-                  actions:
-                  - activity: activity
-                    scope: scope
-                    entity: entity
-                  - activity: activity
-                    scope: scope
-                    entity: entity
-            ifIdentityScopeExpression:
+          - ifIdentityScopeExpression:
               scopeName: scopeName
             ifRequestHeaderExpression:
               headerName: headerName
               value: value
               operator: null
+            ifViaApiExpression:
+              apiFeatureCodes:
+              - apiFeatureCodes
+              - apiFeatureCodes
             ifIdentityClaimExpression:
               claimType: claimType
               claimValueType: claimValueType
@@ -10855,122 +9690,16 @@ components:
               claimIssuer: claimIssuer
               value: value
               operator: null
-          - ifFeatureChainExpression:
-              selectors:
-              - metadataSelectorDefinition:
-                  name: name
-                  description: description
-                  expressions:
-                  - metadataKey: metadataKey
-                    textValue: textValue
-                    operator: null
-                  - metadataKey: metadataKey
-                    textValue: textValue
-                    operator: null
-                  actions:
-                  - activity: activity
-                    scope: scope
-                    entity: entity
-                  - activity: activity
-                    scope: scope
-                    entity: entity
-                idSelectorDefinition:
-                  identifier:
-                    key: identifier
-                  name: name
-                  description: description
-                  actions:
-                  - activity: activity
-                    scope: scope
-                    entity: entity
-                  - activity: activity
-                    scope: scope
-                    entity: entity
-                policySelectorDefinition:
-                  identityRestriction:
-                    key: identityRestriction
-                  name: name
-                  description: description
-                  restrictionSelectors:
-                  - null
-                  - null
-                  actions:
-                  - activity: activity
-                    scope: scope
-                    entity: entity
-                  - activity: activity
-                    scope: scope
-                    entity: entity
-                matchAllSelectorDefinition:
-                  name: name
-                  description: description
-                  actions:
-                  - activity: activity
-                    scope: scope
-                    entity: entity
-                  - activity: activity
-                    scope: scope
-                    entity: entity
-              - metadataSelectorDefinition:
-                  name: name
-                  description: description
-                  expressions:
-                  - metadataKey: metadataKey
-                    textValue: textValue
-                    operator: null
-                  - metadataKey: metadataKey
-                    textValue: textValue
-                    operator: null
-                  actions:
-                  - activity: activity
-                    scope: scope
-                    entity: entity
-                  - activity: activity
-                    scope: scope
-                    entity: entity
-                idSelectorDefinition:
-                  identifier:
-                    key: identifier
-                  name: name
-                  description: description
-                  actions:
-                  - activity: activity
-                    scope: scope
-                    entity: entity
-                  - activity: activity
-                    scope: scope
-                    entity: entity
-                policySelectorDefinition:
-                  identityRestriction:
-                    key: identityRestriction
-                  name: name
-                  description: description
-                  restrictionSelectors:
-                  - null
-                  - null
-                  actions:
-                  - activity: activity
-                    scope: scope
-                    entity: entity
-                  - activity: activity
-                    scope: scope
-                    entity: entity
-                matchAllSelectorDefinition:
-                  name: name
-                  description: description
-                  actions:
-                  - activity: activity
-                    scope: scope
-                    entity: entity
-                  - activity: activity
-                    scope: scope
-                    entity: entity
-            ifIdentityScopeExpression:
+          - ifIdentityScopeExpression:
               scopeName: scopeName
             ifRequestHeaderExpression:
               headerName: headerName
               value: value
               operator: null
+            ifViaApiExpression:
+              apiFeatureCodes:
+              - apiFeatureCodes
+              - apiFeatureCodes
             ifIdentityClaimExpression:
               claimType: claimType
               claimValueType: claimValueType
@@ -11173,122 +9902,16 @@ components:
                 scope: scope
                 entity: entity
           if:
-          - ifFeatureChainExpression:
-              selectors:
-              - metadataSelectorDefinition:
-                  name: name
-                  description: description
-                  expressions:
-                  - metadataKey: metadataKey
-                    textValue: textValue
-                    operator: null
-                  - metadataKey: metadataKey
-                    textValue: textValue
-                    operator: null
-                  actions:
-                  - activity: activity
-                    scope: scope
-                    entity: entity
-                  - activity: activity
-                    scope: scope
-                    entity: entity
-                idSelectorDefinition:
-                  identifier:
-                    key: identifier
-                  name: name
-                  description: description
-                  actions:
-                  - activity: activity
-                    scope: scope
-                    entity: entity
-                  - activity: activity
-                    scope: scope
-                    entity: entity
-                policySelectorDefinition:
-                  identityRestriction:
-                    key: identityRestriction
-                  name: name
-                  description: description
-                  restrictionSelectors:
-                  - null
-                  - null
-                  actions:
-                  - activity: activity
-                    scope: scope
-                    entity: entity
-                  - activity: activity
-                    scope: scope
-                    entity: entity
-                matchAllSelectorDefinition:
-                  name: name
-                  description: description
-                  actions:
-                  - activity: activity
-                    scope: scope
-                    entity: entity
-                  - activity: activity
-                    scope: scope
-                    entity: entity
-              - metadataSelectorDefinition:
-                  name: name
-                  description: description
-                  expressions:
-                  - metadataKey: metadataKey
-                    textValue: textValue
-                    operator: null
-                  - metadataKey: metadataKey
-                    textValue: textValue
-                    operator: null
-                  actions:
-                  - activity: activity
-                    scope: scope
-                    entity: entity
-                  - activity: activity
-                    scope: scope
-                    entity: entity
-                idSelectorDefinition:
-                  identifier:
-                    key: identifier
-                  name: name
-                  description: description
-                  actions:
-                  - activity: activity
-                    scope: scope
-                    entity: entity
-                  - activity: activity
-                    scope: scope
-                    entity: entity
-                policySelectorDefinition:
-                  identityRestriction:
-                    key: identityRestriction
-                  name: name
-                  description: description
-                  restrictionSelectors:
-                  - null
-                  - null
-                  actions:
-                  - activity: activity
-                    scope: scope
-                    entity: entity
-                  - activity: activity
-                    scope: scope
-                    entity: entity
-                matchAllSelectorDefinition:
-                  name: name
-                  description: description
-                  actions:
-                  - activity: activity
-                    scope: scope
-                    entity: entity
-                  - activity: activity
-                    scope: scope
-                    entity: entity
-            ifIdentityScopeExpression:
+          - ifIdentityScopeExpression:
               scopeName: scopeName
             ifRequestHeaderExpression:
               headerName: headerName
               value: value
               operator: null
+            ifViaApiExpression:
+              apiFeatureCodes:
+              - apiFeatureCodes
+              - apiFeatureCodes
             ifIdentityClaimExpression:
               claimType: claimType
               claimValueType: claimValueType
@@ -11296,122 +9919,16 @@ components:
               claimIssuer: claimIssuer
               value: value
               operator: null
-          - ifFeatureChainExpression:
-              selectors:
-              - metadataSelectorDefinition:
-                  name: name
-                  description: description
-                  expressions:
-                  - metadataKey: metadataKey
-                    textValue: textValue
-                    operator: null
-                  - metadataKey: metadataKey
-                    textValue: textValue
-                    operator: null
-                  actions:
-                  - activity: activity
-                    scope: scope
-                    entity: entity
-                  - activity: activity
-                    scope: scope
-                    entity: entity
-                idSelectorDefinition:
-                  identifier:
-                    key: identifier
-                  name: name
-                  description: description
-                  actions:
-                  - activity: activity
-                    scope: scope
-                    entity: entity
-                  - activity: activity
-                    scope: scope
-                    entity: entity
-                policySelectorDefinition:
-                  identityRestriction:
-                    key: identityRestriction
-                  name: name
-                  description: description
-                  restrictionSelectors:
-                  - null
-                  - null
-                  actions:
-                  - activity: activity
-                    scope: scope
-                    entity: entity
-                  - activity: activity
-                    scope: scope
-                    entity: entity
-                matchAllSelectorDefinition:
-                  name: name
-                  description: description
-                  actions:
-                  - activity: activity
-                    scope: scope
-                    entity: entity
-                  - activity: activity
-                    scope: scope
-                    entity: entity
-              - metadataSelectorDefinition:
-                  name: name
-                  description: description
-                  expressions:
-                  - metadataKey: metadataKey
-                    textValue: textValue
-                    operator: null
-                  - metadataKey: metadataKey
-                    textValue: textValue
-                    operator: null
-                  actions:
-                  - activity: activity
-                    scope: scope
-                    entity: entity
-                  - activity: activity
-                    scope: scope
-                    entity: entity
-                idSelectorDefinition:
-                  identifier:
-                    key: identifier
-                  name: name
-                  description: description
-                  actions:
-                  - activity: activity
-                    scope: scope
-                    entity: entity
-                  - activity: activity
-                    scope: scope
-                    entity: entity
-                policySelectorDefinition:
-                  identityRestriction:
-                    key: identityRestriction
-                  name: name
-                  description: description
-                  restrictionSelectors:
-                  - null
-                  - null
-                  actions:
-                  - activity: activity
-                    scope: scope
-                    entity: entity
-                  - activity: activity
-                    scope: scope
-                    entity: entity
-                matchAllSelectorDefinition:
-                  name: name
-                  description: description
-                  actions:
-                  - activity: activity
-                    scope: scope
-                    entity: entity
-                  - activity: activity
-                    scope: scope
-                    entity: entity
-            ifIdentityScopeExpression:
+          - ifIdentityScopeExpression:
               scopeName: scopeName
             ifRequestHeaderExpression:
               headerName: headerName
               value: value
               operator: null
+            ifViaApiExpression:
+              apiFeatureCodes:
+              - apiFeatureCodes
+              - apiFeatureCodes
             ifIdentityClaimExpression:
               claimType: claimType
               claimValueType: claimValueType
