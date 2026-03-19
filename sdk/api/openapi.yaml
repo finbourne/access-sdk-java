@@ -40,7 +40,7 @@ info:
     | <a name="939">939</a>|Blocked by a Network Zone| |
   termsOfService: https://www.finbourne.com/legal/terms-conditions
   title: FINBOURNE Access Management API
-  version: 0.0.4328
+  version: 0.0.4379
   x-logo:
     url: https://www.lusid.com/app/assets/logo_white.png
     backgroundColor: '#415464'
@@ -1250,6 +1250,17 @@ paths:
           pattern: "^(?=.*[a-zA-Z])[\\w][\\w +-]{2,100}$"
           type: string
         style: form
+      - description: Optional. The AsAt date and time at which to retrieve the Policy.
+          Defaults to returning the latest version
+        explode: true
+        in: query
+        name: asAt
+        required: false
+        schema:
+          format: date-time
+          type: string
+        style: form
+        x-nullable: true
       responses:
         "200":
           content:

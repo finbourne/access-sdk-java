@@ -31,6 +31,7 @@ import com.finbourne.access.model.EvaluationRequest;
 import com.finbourne.access.model.EvaluationResponse;
 import com.finbourne.access.model.LusidProblemDetails;
 import com.finbourne.access.model.LusidValidationProblemDetails;
+import java.time.OffsetDateTime;
 import com.finbourne.access.model.PolicyCollectionCreationRequest;
 import com.finbourne.access.model.PolicyCollectionResponse;
 import com.finbourne.access.model.PolicyCollectionUpdateRequest;
@@ -1779,11 +1780,11 @@ public class PoliciesApi {
     public APIgetOwnPoliciesRequest getOwnPolicies() {
         return new APIgetOwnPoliciesRequest();
     }
-    private okhttp3.Call getPolicyCall(String code, String scope, final ApiCallback _callback) throws ApiException {
-        return getPolicyCall(code, scope,  _callback, new ConfigurationOptions());
+    private okhttp3.Call getPolicyCall(String code, String scope, OffsetDateTime asAt, final ApiCallback _callback) throws ApiException {
+        return getPolicyCall(code, scope, asAt,  _callback, new ConfigurationOptions());
     }
 
-    private okhttp3.Call getPolicyCall(String code, String scope, final ApiCallback _callback, ConfigurationOptions opts) throws ApiException {
+    private okhttp3.Call getPolicyCall(String code, String scope, OffsetDateTime asAt, final ApiCallback _callback, ConfigurationOptions opts) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1813,6 +1814,10 @@ public class PoliciesApi {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("scope", scope));
         }
 
+        if (asAt != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("asAt", asAt));
+        }
+
         final String[] localVarAccepts = {
             "text/plain",
             "application/json",
@@ -1835,40 +1840,40 @@ public class PoliciesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getPolicyValidateBeforeCall(String code, String scope, final ApiCallback _callback, ConfigurationOptions opts) throws ApiException {
+    private okhttp3.Call getPolicyValidateBeforeCall(String code, String scope, OffsetDateTime asAt, final ApiCallback _callback, ConfigurationOptions opts) throws ApiException {
         // verify the required parameter 'code' is set
         if (code == null) {
             throw new ApiException("Missing the required parameter 'code' when calling getPolicy(Async)");
         }
 
-        return getPolicyCall(code, scope, _callback, opts);
+        return getPolicyCall(code, scope, asAt, _callback, opts);
 
     }
 
 
-    private ApiResponse<PolicyResponse> getPolicyWithHttpInfo(String code, String scope) throws ApiException {
-        okhttp3.Call localVarCall = getPolicyValidateBeforeCall(code, scope, null, new ConfigurationOptions());
+    private ApiResponse<PolicyResponse> getPolicyWithHttpInfo(String code, String scope, OffsetDateTime asAt) throws ApiException {
+        okhttp3.Call localVarCall = getPolicyValidateBeforeCall(code, scope, asAt, null, new ConfigurationOptions());
         Type localVarReturnType = new TypeToken<PolicyResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private ApiResponse<PolicyResponse> getPolicyWithHttpInfo(String code, String scope, ConfigurationOptions opts) throws ApiException {
-        okhttp3.Call localVarCall = getPolicyValidateBeforeCall(code, scope, null, opts);
+    private ApiResponse<PolicyResponse> getPolicyWithHttpInfo(String code, String scope, OffsetDateTime asAt, ConfigurationOptions opts) throws ApiException {
+        okhttp3.Call localVarCall = getPolicyValidateBeforeCall(code, scope, asAt, null, opts);
         Type localVarReturnType = new TypeToken<PolicyResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call getPolicyAsync(String code, String scope, final ApiCallback<PolicyResponse> _callback) throws ApiException {
+    private okhttp3.Call getPolicyAsync(String code, String scope, OffsetDateTime asAt, final ApiCallback<PolicyResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getPolicyValidateBeforeCall(code, scope, _callback, new ConfigurationOptions());
+        okhttp3.Call localVarCall = getPolicyValidateBeforeCall(code, scope, asAt, _callback, new ConfigurationOptions());
         Type localVarReturnType = new TypeToken<PolicyResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
 
-    private okhttp3.Call getPolicyAsync(String code, String scope, final ApiCallback<PolicyResponse> _callback, ConfigurationOptions opts) throws ApiException {
+    private okhttp3.Call getPolicyAsync(String code, String scope, OffsetDateTime asAt, final ApiCallback<PolicyResponse> _callback, ConfigurationOptions opts) throws ApiException {
 
-        okhttp3.Call localVarCall = getPolicyValidateBeforeCall(code, scope, _callback, opts);
+        okhttp3.Call localVarCall = getPolicyValidateBeforeCall(code, scope, asAt, _callback, opts);
         Type localVarReturnType = new TypeToken<PolicyResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1877,6 +1882,7 @@ public class PoliciesApi {
     public class APIgetPolicyRequest {
         private final String code;
         private String scope;
+        private OffsetDateTime asAt;
 
         private APIgetPolicyRequest(String code) {
             this.code = code;
@@ -1889,6 +1895,16 @@ public class PoliciesApi {
          */
         public APIgetPolicyRequest scope(String scope) {
             this.scope = scope;
+            return this;
+        }
+
+        /**
+         * Set asAt
+         * @param asAt Optional. The AsAt date and time at which to retrieve the Policy. Defaults to returning the latest version (optional)
+         * @return APIgetPolicyRequest
+         */
+        public APIgetPolicyRequest asAt(OffsetDateTime asAt) {
+            this.asAt = asAt;
             return this;
         }
 
@@ -1906,7 +1922,7 @@ public class PoliciesApi {
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
-            return getPolicyCall(code, scope, _callback);
+            return getPolicyCall(code, scope, asAt, _callback);
         }
 
         /**
@@ -1922,7 +1938,7 @@ public class PoliciesApi {
          </table>
          */
         public PolicyResponse execute() throws ApiException {
-            ApiResponse<PolicyResponse> localVarResp = getPolicyWithHttpInfo(code, scope);
+            ApiResponse<PolicyResponse> localVarResp = getPolicyWithHttpInfo(code, scope, asAt);
             return localVarResp.getData();
         }
 
@@ -1939,7 +1955,7 @@ public class PoliciesApi {
          </table>
          */
         public PolicyResponse execute(ConfigurationOptions opts) throws ApiException {
-            ApiResponse<PolicyResponse> localVarResp = getPolicyWithHttpInfo(code, scope, opts);
+            ApiResponse<PolicyResponse> localVarResp = getPolicyWithHttpInfo(code, scope, asAt, opts);
             return localVarResp.getData();
         }
 
@@ -1956,7 +1972,7 @@ public class PoliciesApi {
          </table>
          */
         public ApiResponse<PolicyResponse> executeWithHttpInfo() throws ApiException {
-            return getPolicyWithHttpInfo(code, scope);
+            return getPolicyWithHttpInfo(code, scope, asAt);
         }
 
         /**
@@ -1972,7 +1988,7 @@ public class PoliciesApi {
          </table>
          */
         public ApiResponse<PolicyResponse> executeWithHttpInfo(ConfigurationOptions opts) throws ApiException {
-            return getPolicyWithHttpInfo(code, scope, opts);
+            return getPolicyWithHttpInfo(code, scope, asAt, opts);
         }
 
         /**
@@ -1989,7 +2005,7 @@ public class PoliciesApi {
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<PolicyResponse> _callback) throws ApiException {
-            return getPolicyAsync(code, scope, _callback);
+            return getPolicyAsync(code, scope, asAt, _callback);
         }
 
         /**
@@ -2006,7 +2022,7 @@ public class PoliciesApi {
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<PolicyResponse> _callback, ConfigurationOptions opts) throws ApiException {
-            return getPolicyAsync(code, scope, _callback, opts);
+            return getPolicyAsync(code, scope, asAt, _callback, opts);
         }
     }
 

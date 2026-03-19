@@ -670,7 +670,7 @@ public class PoliciesApiExample {
 
 ## getPolicy
 
-> PolicyResponse getPolicy(code, scope)
+> PolicyResponse getPolicy(code, scope, asAt)
 
 GetPolicy: Get Policy
 
@@ -717,11 +717,12 @@ public class PoliciesApiExample {
         PoliciesApi apiInstance = ApiFactoryBuilder.build(fileName).build(PoliciesApi.class);
         String code = "code_example"; // String | The code of the Policy
         String scope = "scope_example"; // String | Optional. Will use the default scope if not provided. The scope of the Policy
+        OffsetDateTime asAt = OffsetDateTime.now(); // OffsetDateTime | Optional. The AsAt date and time at which to retrieve the Policy. Defaults to returning the latest version
         try {
             // uncomment the below to set overrides at the request level
-            // PolicyResponse result = apiInstance.getPolicy(code, scope).execute(opts);
+            // PolicyResponse result = apiInstance.getPolicy(code, scope, asAt).execute(opts);
 
-            PolicyResponse result = apiInstance.getPolicy(code, scope).execute();
+            PolicyResponse result = apiInstance.getPolicy(code, scope, asAt).execute();
             System.out.println(result.toJson());
         } catch (ApiException e) {
             System.err.println("Exception when calling PoliciesApi#getPolicy");
@@ -740,6 +741,7 @@ public class PoliciesApiExample {
 |------------- | ------------- | ------------- | -------------|
 | **code** | **String**| The code of the Policy | |
 | **scope** | **String**| Optional. Will use the default scope if not provided. The scope of the Policy | [optional] |
+| **asAt** | **OffsetDateTime**| Optional. The AsAt date and time at which to retrieve the Policy. Defaults to returning the latest version | [optional] |
 
 ### Return type
 
