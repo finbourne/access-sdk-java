@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **apiFeatureCodes** | **List&lt;String&gt;** |  | [default to List<String>]
+**operator** | **String** |  | [default to String]
 
 ```java
 import com.finbourne.access.model.IfViaApiExpression;
@@ -13,10 +14,12 @@ import java.lang.System;
 import java.net.URI;
 
 List<String> ApiFeatureCodes = new List<String>();
+String Operator = "example Operator";
 
 
 IfViaApiExpression ifViaApiExpressionInstance = new IfViaApiExpression()
-    .ApiFeatureCodes(ApiFeatureCodes);
+    .ApiFeatureCodes(ApiFeatureCodes)
+    .Operator(Operator);
 ```
 
 

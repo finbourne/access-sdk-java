@@ -55,6 +55,10 @@ public class IfViaApiExpression {
   @SerializedName(SERIALIZED_NAME_API_FEATURE_CODES)
   private List<String> apiFeatureCodes = new ArrayList<>();
 
+  public static final String SERIALIZED_NAME_OPERATOR = "operator";
+  @SerializedName(SERIALIZED_NAME_OPERATOR)
+  private String operator;
+
   public IfViaApiExpression() {
   }
 
@@ -87,6 +91,27 @@ public class IfViaApiExpression {
   }
 
 
+  public IfViaApiExpression operator(String operator) {
+    
+    this.operator = operator;
+    return this;
+  }
+
+   /**
+   * Get operator
+   * @return operator
+  **/
+  @jakarta.annotation.Nonnull
+  public String getOperator() {
+    return operator;
+  }
+
+
+  public void setOperator(String operator) {
+    this.operator = operator;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -97,12 +122,13 @@ public class IfViaApiExpression {
       return false;
     }
     IfViaApiExpression ifViaApiExpression = (IfViaApiExpression) o;
-    return Objects.equals(this.apiFeatureCodes, ifViaApiExpression.apiFeatureCodes);
+    return Objects.equals(this.apiFeatureCodes, ifViaApiExpression.apiFeatureCodes) &&
+        Objects.equals(this.operator, ifViaApiExpression.operator);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(apiFeatureCodes);
+    return Objects.hash(apiFeatureCodes, operator);
   }
 
   @Override
@@ -110,6 +136,7 @@ public class IfViaApiExpression {
     StringBuilder sb = new StringBuilder();
     sb.append("class IfViaApiExpression {\n");
     sb.append("    apiFeatureCodes: ").append(toIndentedString(apiFeatureCodes)).append("\n");
+    sb.append("    operator: ").append(toIndentedString(operator)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -133,10 +160,12 @@ public class IfViaApiExpression {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("apiFeatureCodes");
+    openapiFields.add("operator");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
     openapiRequiredFields.add("apiFeatureCodes");
+    openapiRequiredFields.add("operator");
   }
 
  /**
@@ -164,6 +193,9 @@ public class IfViaApiExpression {
         throw new IllegalArgumentException("Expected the field `linkedContent` to be an array in the JSON string but got `null`");
       } else if (!jsonObj.get("apiFeatureCodes").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `apiFeatureCodes` to be an array in the JSON string but got `%s`", jsonObj.get("apiFeatureCodes").toString()));
+      }
+      if (!jsonObj.get("operator").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `operator` to be a primitive type in the JSON string but got `%s`", jsonObj.get("operator").toString()));
       }
   }
 

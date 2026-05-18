@@ -40,7 +40,7 @@ info:
     | <a name="939">939</a>|Blocked by a Network Zone| |
   termsOfService: https://www.finbourne.com/legal/terms-conditions
   title: FINBOURNE Access Management API
-  version: 0.0.4379
+  version: 0.0.4442
   x-logo:
     url: https://www.lusid.com/app/assets/logo_white.png
     backgroundColor: '#415464'
@@ -6186,6 +6186,7 @@ components:
             apiFeatureCodes:
             - apiFeatureCodes
             - apiFeatureCodes
+            operator: operator
           ifIdentityClaimExpression:
             claimType: claimType
             claimValueType: claimValueType
@@ -6203,6 +6204,7 @@ components:
             apiFeatureCodes:
             - apiFeatureCodes
             - apiFeatureCodes
+            operator: operator
           ifIdentityClaimExpression:
             claimType: claimType
             claimValueType: claimValueType
@@ -7010,6 +7012,7 @@ components:
           apiFeatureCodes:
           - apiFeatureCodes
           - apiFeatureCodes
+          operator: operator
         ifIdentityClaimExpression:
           claimType: claimType
           claimValueType: claimValueType
@@ -7098,14 +7101,19 @@ components:
         apiFeatureCodes:
         - apiFeatureCodes
         - apiFeatureCodes
+        operator: operator
       properties:
         apiFeatureCodes:
           items:
             type: string
           minItems: 1
           type: array
+        operator:
+          minLength: 1
+          type: string
       required:
       - apiFeatureCodes
+      - operator
       type: object
     KeyValuePairOfStringToString:
       additionalProperties: false
@@ -7731,6 +7739,7 @@ components:
             apiFeatureCodes:
             - apiFeatureCodes
             - apiFeatureCodes
+            operator: operator
           ifIdentityClaimExpression:
             claimType: claimType
             claimValueType: claimValueType
@@ -7748,6 +7757,7 @@ components:
             apiFeatureCodes:
             - apiFeatureCodes
             - apiFeatureCodes
+            operator: operator
           ifIdentityClaimExpression:
             claimType: claimType
             claimValueType: claimValueType
@@ -8060,6 +8070,7 @@ components:
             apiFeatureCodes:
             - apiFeatureCodes
             - apiFeatureCodes
+            operator: operator
           ifIdentityClaimExpression:
             claimType: claimType
             claimValueType: claimValueType
@@ -8077,6 +8088,7 @@ components:
             apiFeatureCodes:
             - apiFeatureCodes
             - apiFeatureCodes
+            operator: operator
           ifIdentityClaimExpression:
             claimType: claimType
             claimValueType: claimValueType
@@ -8916,6 +8928,7 @@ components:
             apiFeatureCodes:
             - apiFeatureCodes
             - apiFeatureCodes
+            operator: operator
           ifIdentityClaimExpression:
             claimType: claimType
             claimValueType: claimValueType
@@ -8933,6 +8946,7 @@ components:
             apiFeatureCodes:
             - apiFeatureCodes
             - apiFeatureCodes
+            operator: operator
           ifIdentityClaimExpression:
             claimType: claimType
             claimValueType: claimValueType
@@ -9694,6 +9708,7 @@ components:
               apiFeatureCodes:
               - apiFeatureCodes
               - apiFeatureCodes
+              operator: operator
             ifIdentityClaimExpression:
               claimType: claimType
               claimValueType: claimValueType
@@ -9711,6 +9726,7 @@ components:
               apiFeatureCodes:
               - apiFeatureCodes
               - apiFeatureCodes
+              operator: operator
             ifIdentityClaimExpression:
               claimType: claimType
               claimValueType: claimValueType
@@ -9923,6 +9939,7 @@ components:
               apiFeatureCodes:
               - apiFeatureCodes
               - apiFeatureCodes
+              operator: operator
             ifIdentityClaimExpression:
               claimType: claimType
               claimValueType: claimValueType
@@ -9940,6 +9957,7 @@ components:
               apiFeatureCodes:
               - apiFeatureCodes
               - apiFeatureCodes
+              operator: operator
             ifIdentityClaimExpression:
               claimType: claimType
               claimValueType: claimValueType
