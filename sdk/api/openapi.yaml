@@ -40,7 +40,7 @@ info:
     | <a name="939">939</a>|Blocked by a Network Zone| |
   termsOfService: https://www.finbourne.com/legal/terms-conditions
   title: FINBOURNE Access Management API
-  version: 0.0.4591
+  version: 0.0.4595
   x-logo:
     url: https://www.lusid.com/app/assets/logo_white.png
     backgroundColor: '#415464'
@@ -511,6 +511,88 @@ paths:
       - oauth2: []
       summary: "ListAccessControlledResources: Get resources available for access\
         \ control"
+      tags:
+      - Application Metadata
+      x-fbn-apistatus: Stable
+      x-accepts: application/json
+  /api/metadata/endpoints:
+    get:
+      description: "Get the name of the application and the operation, HTTP method,\
+        \ path, status, summary and description of each of its API endpoints"
+      operationId: ListApiEndpoints
+      responses:
+        "200":
+          content:
+            text/plain:
+              example:
+                application: shrine
+                endpoints:
+                - operation: ListAccessControlledResources
+                  httpMethod: GET
+                  path: /access/api/metadata/access/resources
+                  status: Stable
+                  summary: Get resources available for access control
+                  description: Get the comprehensive set of resources that are available
+                    for access control
+                - operation: ListRoles
+                  httpMethod: GET
+                  path: /access/api/roles
+                  status: Stable
+                  summary: List Roles
+                  description: Gets all Roles in a scope
+                href: https://example.lusid.com/access/api/metadata/endpoints
+              schema:
+                $ref: '#/components/schemas/ServiceApiEndpoints'
+            application/json:
+              example:
+                application: shrine
+                endpoints:
+                - operation: ListAccessControlledResources
+                  httpMethod: GET
+                  path: /access/api/metadata/access/resources
+                  status: Stable
+                  summary: Get resources available for access control
+                  description: Get the comprehensive set of resources that are available
+                    for access control
+                - operation: ListRoles
+                  httpMethod: GET
+                  path: /access/api/roles
+                  status: Stable
+                  summary: List Roles
+                  description: Gets all Roles in a scope
+                href: https://example.lusid.com/access/api/metadata/endpoints
+              schema:
+                $ref: '#/components/schemas/ServiceApiEndpoints'
+            text/json:
+              example:
+                application: shrine
+                endpoints:
+                - operation: ListAccessControlledResources
+                  httpMethod: GET
+                  path: /access/api/metadata/access/resources
+                  status: Stable
+                  summary: Get resources available for access control
+                  description: Get the comprehensive set of resources that are available
+                    for access control
+                - operation: ListRoles
+                  httpMethod: GET
+                  path: /access/api/roles
+                  status: Stable
+                  summary: List Roles
+                  description: Gets all Roles in a scope
+                href: https://example.lusid.com/access/api/metadata/endpoints
+              schema:
+                $ref: '#/components/schemas/ServiceApiEndpoints'
+          description: OK
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LusidProblemDetails'
+          description: Error response
+      security:
+      - oauth2: []
+      summary: "ListApiEndpoints: Get the API endpoints available"
       tags:
       - Application Metadata
       x-fbn-apistatus: Stable
@@ -5952,6 +6034,38 @@ components:
           nullable: true
           type: array
       type: object
+    ApiEndpoint:
+      additionalProperties: false
+      example:
+        summary: summary
+        path: path
+        description: description
+        httpMethod: httpMethod
+        operation: operation
+        status: status
+      properties:
+        operation:
+          nullable: true
+          type: string
+        httpMethod:
+          minLength: 1
+          type: string
+        path:
+          minLength: 1
+          type: string
+        status:
+          nullable: true
+          type: string
+        summary:
+          nullable: true
+          type: string
+        description:
+          nullable: true
+          type: string
+      required:
+      - httpMethod
+      - path
+      type: object
     AsAtPredicateContract:
       additionalProperties: false
       example:
@@ -10662,6 +10776,54 @@ components:
           $ref: '#/components/schemas/MatchAllSelectorDefinition'
         policySelectorDefinition:
           $ref: '#/components/schemas/PolicySelectorDefinition'
+      type: object
+    ServiceApiEndpoints:
+      additionalProperties: false
+      example:
+        endpoints:
+        - summary: summary
+          path: path
+          description: description
+          httpMethod: httpMethod
+          operation: operation
+          status: status
+        - summary: summary
+          path: path
+          description: description
+          httpMethod: httpMethod
+          operation: operation
+          status: status
+        application: application
+        links:
+        - method: method
+          description: description
+          href: https://openapi-generator.tech
+          relation: relation
+        - method: method
+          description: description
+          href: https://openapi-generator.tech
+          relation: relation
+        href: https://openapi-generator.tech
+      properties:
+        application:
+          minLength: 1
+          type: string
+        endpoints:
+          items:
+            $ref: '#/components/schemas/ApiEndpoint'
+          type: array
+        href:
+          format: uri
+          nullable: true
+          type: string
+        links:
+          items:
+            $ref: '#/components/schemas/Link'
+          nullable: true
+          type: array
+      required:
+      - application
+      - endpoints
       type: object
     TemplateMetadata:
       additionalProperties: false
